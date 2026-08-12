@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Consultation | Dr. Tâm Phan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:      #0a1628;
+  --navy-mid:  #0f2044;
+  --gold:      #c9a227;
+  --gold-light:#e2bc50;
+  --gold-dim:  rgba(201,162,39,0.12);
+  --white:     #ffffff;
+  --off-white: #e8e0d0;
+  --muted:     rgba(232,224,208,0.55);
+  --glass:     rgba(8,18,36,0.88);
+  --serif:     'Cormorant Garamond', Georgia, serif;
+  --sans:      'DM Sans', system-ui, sans-serif;
+}
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--navy); color:var(--white); font-family:var(--sans); font-weight:300; overflow-x:hidden; cursor:none; }
+
+/* CURSOR */
+#cur  { width:8px; height:8px; background:var(--gold); border-radius:50%; position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); }
+#curR { width:34px; height:34px; border:1px solid rgba(201,162,39,.45); border-radius:50%; position:fixed; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:left .12s ease,top .12s ease,width .3s,height .3s,border-color .3s; }
+body.hovering #curR { width:52px; height:52px; border-color:var(--gold); }
+
+/* NAV */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  padding:20px 64px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:var(--glass); backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(201,162,39,.1);
+}
+.logo-wrap { display:flex; align-items:center; gap:16px; }
+.logo { display:flex; align-items:center; text-decoration:none; flex-shrink:0; }
+.logo img { height:46px; width:auto; object-fit:contain; mix-blend-mode:lighten; }
+.logo-tagline {
+  font-size:.62rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--off-white); white-space:nowrap;
+  border-left:1px solid rgba(201,162,39,.35); padding-left:16px;
+  font-family:var(--sans); font-weight:300;
+}
+.nav-links { display:flex; gap:40px; list-style:none; align-items:center; }
+.nav-links a {
+  font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--off-white); text-decoration:none; position:relative; transition:color .3s;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:-4px; left:0; right:0;
+  height:1px; background:var(--gold); transform:scaleX(0);
+  transform-origin:left; transition:transform .3s;
+}
+.nav-links a:hover { color:var(--white); }
+.nav-links a:hover::after { transform:scaleX(1); }
+.nav-cta {
+  background:var(--gold) !important; color:var(--navy) !important;
+  padding:11px 24px; font-weight:500 !important;
+}
+.nav-cta::after { display:none !important; }
+.nav-cta:hover { background:var(--gold-light) !important; }
+
+/* PAGE HEADER */
+.page-header {
+  padding-top:120px; padding-bottom:80px;
+  padding-left:64px; padding-right:64px;
+  background:linear-gradient(145deg, #060e1c 0%, #0f2044 60%, #0a1628 100%);
+  position:relative; overflow:hidden;
+}
+.page-header::after {
+  content:''; position:absolute; bottom:0; left:0; right:0;
+  height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent);
+}
+.page-header-grid {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(201,162,39,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,162,39,.025) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+.ph-eyebrow {
+  font-size:.66rem; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:16px;
+  display:flex; align-items:center; gap:12px;
+}
+.ph-eyebrow::before { content:''; display:inline-block; width:28px; height:1px; background:var(--gold); }
+.ph-title { font-family:var(--serif); font-size:clamp(2.8rem,5vw,5rem); font-weight:300; line-height:1.1; }
+.ph-title em { font-style:italic; color:var(--gold); }
+.ph-sub { font-size:.95rem; color:var(--muted); margin-top:18px; max-width:480px; line-height:1.85; }
+
+/* FORM SECTION */
+.form-section {
+  display:grid; grid-template-columns:1fr 1.55fr;
+  min-height:calc(100vh - 160px);
+}
+
+/* LEFT PANEL */
+.form-left {
+  background:var(--navy-mid);
+  padding:72px 56px;
+  border-right:1px solid rgba(201,162,39,.1);
+  display:flex; flex-direction:column; gap:0;
+}
+.fl-title {
+  font-family:var(--serif); font-size:1.8rem; font-weight:300;
+  margin-bottom:12px; line-height:1.3;
+}
+.fl-title em { font-style:italic; color:var(--gold); }
+.fl-desc { font-size:.85rem; color:var(--muted); line-height:1.85; margin-bottom:52px; }
+
+.contact-item { margin-bottom:36px; }
+.ci-label { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.ci-value { font-family:var(--serif); font-size:1.15rem; font-weight:400; line-height:1.5; }
+.ci-value a { color:var(--white); text-decoration:none; transition:color .3s; }
+.ci-value a:hover { color:var(--gold); }
+
+.hours-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px 24px; margin-top:8px; }
+.hours-row { font-size:.8rem; color:var(--muted); line-height:1.6; }
+.hours-row strong { color:var(--off-white); font-weight:400; }
+
+.divider { width:32px; height:1px; background:rgba(201,162,39,.3); margin:44px 0; }
+
+.socials { display:flex; gap:12px; }
+.soc-btn {
+  width:36px; height:36px; border:1px solid rgba(201,162,39,.2);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--muted); text-decoration:none; font-size:.72rem; font-weight:500;
+  transition:border-color .3s,color .3s;
+}
+.soc-btn:hover { border-color:var(--gold); color:var(--gold); }
+
+/* RIGHT PANEL — FORM */
+.form-right { padding:72px 72px; background:var(--navy); }
+.form-right h2 {
+  font-family:var(--serif); font-size:2rem; font-weight:300;
+  margin-bottom:8px;
+}
+.form-right h2 em { font-style:italic; color:var(--gold); }
+.form-subtitle { font-size:.82rem; color:var(--muted); margin-bottom:48px; line-height:1.7; }
+
+form { display:flex; flex-direction:column; gap:28px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.form-group { display:flex; flex-direction:column; gap:8px; }
+.form-group label {
+  font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(201,162,39,.2);
+  color:var(--white);
+  font-family:var(--sans); font-size:.9rem; font-weight:300;
+  padding:14px 18px;
+  outline:none;
+  transition:border-color .3s, background .3s;
+  -webkit-appearance:none; appearance:none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color:var(--gold);
+  background:rgba(201,162,39,.05);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color:rgba(232,224,208,.3); }
+.form-group select option { background:var(--navy-mid); color:var(--white); }
+.form-group textarea { resize:vertical; min-height:120px; line-height:1.7; }
+
+.form-select-wrap { position:relative; }
+.form-select-wrap::after {
+  content:'↓'; position:absolute; right:16px; top:50%;
+  transform:translateY(-50%); color:var(--gold);
+  font-size:.8rem; pointer-events:none;
+}
+
+.form-note { font-size:.76rem; color:var(--muted); line-height:1.7; }
+.form-note a { color:var(--gold); text-decoration:none; }
+
+.btn-submit {
+  background:var(--gold); color:var(--navy);
+  padding:18px 48px; font-family:var(--sans);
+  font-size:.72rem; font-weight:500; letter-spacing:.15em;
+  text-transform:uppercase; border:none; cursor:none;
+  align-self:flex-start;
+  transition:background .3s,transform .2s,box-shadow .3s;
+}
+.btn-submit:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 12px 36px rgba(201,162,39,.28); }
+
+/* SUCCESS STATE */
+.form-success {
+  display:none; text-align:center; padding:60px 20px;
+}
+.form-success.show { display:block; }
+.success-icon {
+  width:64px; height:64px; border:1px solid var(--gold);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  margin:0 auto 28px; font-size:1.8rem; color:var(--gold);
+}
+.success-title { font-family:var(--serif); font-size:2.4rem; font-weight:300; margin-bottom:16px; }
+.success-sub { font-size:.9rem; color:var(--muted); line-height:1.8; }
+
+/* FOOTER */
+footer { background:#060e1c; padding:60px 64px 36px; border-top:1px solid rgba(201,162,39,.1); }
+.footer-bottom { display:flex; justify-content:space-between; align-items:center; }
+.f-copy { font-size:.72rem; color:rgba(255,255,255,.28); }
+.f-back {
+  font-size:.68rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gold); text-decoration:none; display:flex; align-items:center; gap:8px;
+  transition:gap .3s;
+}
+.f-back:hover { gap:14px; }
+
+/* ANIMATIONS */
+.rv { opacity:0; transform:translateY(30px); transition:opacity .7s,transform .7s; }
+.rv.on { opacity:1; transform:none; }
+.rvL { opacity:0; transform:translateX(-30px); transition:opacity .7s,transform .7s; }
+.rvL.on { opacity:1; transform:none; }
+.rvR { opacity:0; transform:translateX(30px); transition:opacity .7s,transform .7s; }
+.rvR.on { opacity:1; transform:none; }
+
+@media(max-width:1024px){
+  nav { padding:18px 32px; }
+  .page-header { padding:120px 32px 64px; }
+  .form-section { grid-template-columns:1fr; }
+  .form-left { padding:56px 32px; }
+  .form-right { padding:56px 32px; }
+  footer { padding:48px 32px 28px; }
+}
+@media(max-width:640px){
+  .nav-links { display:none; }
+  .form-row { grid-template-columns:1fr; }
+  .page-header { padding:110px 20px 56px; }
+  .form-left,.form-right { padding:44px 20px; }
+  footer { padding:40px 20px 24px; }
+  nav { padding:16px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="curR"></div>
+
+<nav>
+  <div class="logo-wrap">
+    <a href="drtamphan-redesign.html" class="logo">
+      <img src="drtamphan-logo.jpg" alt="Dr. Tâm Phan">
+    </a>
+    <span class="logo-tagline">Dentofacial Aesthetics</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="drtamphan-redesign.html#specialties">Treatments</a></li>
+    <li><a href="drtamphan-redesign.html#about">About</a></li>
+    <li><a href="drtamphan-team.html">The Team</a></li>
+    <li><a href="drtamphan-redesign.html#process">Our Process</a></li>
+    <li><a href="drtamphan-blog.html">Blog</a></li>
+    <li><a href="drtamphan-book.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-grid"></div>
+  <div class="ph-eyebrow rv">Begin Your Journey</div>
+  <h1 class="ph-title rv">Book a <em>consultation</em></h1>
+  <p class="ph-sub rv">Complete the form and our team will reach out within 24 hours to confirm your appointment.</p>
+</div>
+
+<div class="form-section">
+
+  <!-- LEFT — Contact Info -->
+  <div class="form-left rvL">
+    <h2 class="fl-title">Let's create your<br><em>perfect smile</em></h2>
+    <p class="fl-desc">Whether you're ready to begin or simply have questions, we're here to guide you every step of the way.</p>
+
+    <div class="contact-item">
+      <div class="ci-label">Phone</div>
+      <div class="ci-value"><a href="tel:+15144261228">514 426-1228</a></div>
+    </div>
+
+    <div class="contact-item">
+      <div class="ci-label">Email</div>
+      <div class="ci-value"><a href="mailto:contact@drtamphan.com">contact@drtamphan.com</a></div>
+    </div>
+
+    <div class="contact-item">
+      <div class="ci-label">Location</div>
+      <div class="ci-value">16912 Route Transcanadienne<br>Kirkland, QC H9H 0C5</div>
+    </div>
+
+    <div class="contact-item">
+      <div class="ci-label">Hours</div>
+      <div class="hours-grid">
+        <div class="hours-row"><strong>Mon – Fri</strong><br>8:00 – 17:00</div>
+        <div class="hours-row"><strong>Saturday</strong><br>9:00 – 16:00</div>
+        <div class="hours-row"><strong>Sunday</strong><br>Closed</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="ci-label" style="margin-bottom:12px">Follow Us</div>
+    <div class="socials">
+      <a href="#" class="soc-btn">in</a>
+      <a href="#" class="soc-btn">ig</a>
+      <a href="#" class="soc-btn">fb</a>
+    </div>
+  </div>
+
+  <!-- RIGHT — Form -->
+  <div class="form-right rvR">
+    <h2>Your <em>details</em></h2>
+    <p class="form-subtitle">All fields marked with * are required. We respect your privacy and never share your information.</p>
+
+    <form id="bookForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" name="first_name" placeholder="Marie" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" name="last_name" placeholder="Dupont" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" name="email" placeholder="marie@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" name="phone" placeholder="+1 (514) 000-0000" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Treatment of Interest *</label>
+        <div class="form-select-wrap">
+          <select name="treatment" required>
+            <option value="" disabled selected>Select a treatment</option>
+            <option>Dental Implants</option>
+            <option>Full Mouth Rehabilitation</option>
+            <option>Cosmetic Dentistry / Veneers</option>
+            <option>Facial Aesthetics (Botox / PRGF)</option>
+            <option>Sinus Lift</option>
+            <option>Bone or Gum Graft</option>
+            <option>Wisdom Teeth Extraction</option>
+            <option>Dental Bridges</option>
+            <option>General Consultation</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date" name="preferred_date">
+        </div>
+        <div class="form-group">
+          <label>Preferred Time</label>
+          <div class="form-select-wrap">
+            <select name="preferred_time">
+              <option value="" disabled selected>Select a time</option>
+              <option>Morning (8:00 – 11:00)</option>
+              <option>Midday (11:00 – 14:00)</option>
+              <option>Afternoon (14:00 – 18:00)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>How did you hear about us?</label>
+        <div class="form-select-wrap">
+          <select name="referral">
+            <option value="" disabled selected>Select an option</option>
+            <option>Google Search</option>
+            <option>Instagram / Facebook</option>
+            <option>Friend or Family Referral</option>
+            <option>Doctor Referral</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Additional Notes</label>
+        <textarea name="message" placeholder="Tell us about your situation, any concerns, or questions you have…"></textarea>
+      </div>
+
+      <p class="form-note">By submitting this form you agree to our <a href="#">Privacy Policy</a>. We will contact you within 24 business hours.</p>
+
+      <button type="submit" class="btn-submit">Send Request →</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <div class="success-icon">✓</div>
+      <h3 class="success-title">Request <em>received</em></h3>
+      <p class="success-sub">Thank you! Our team will be in touch within 24 hours to confirm your consultation with Dr. Phan.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <div class="f-copy">© 2024 Dr. Tâm Phan. All rights reserved.</div>
+    <a href="drtamphan-redesign.html" class="f-back">← Back to Home</a>
+  </div>
+</footer>
+
+<script>
+const cur  = document.getElementById('cur');
+const curR = document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{ mx=e.clientX; my=e.clientY; });
+(function loop(){
+  rx+=(mx-rx)*.15; ry+=(my-ry)*.15;
+  cur.style.left=mx+'px'; cur.style.top=my+'px';
+  curR.style.left=rx+'px'; curR.style.top=ry+'px';
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));
+});
+
+const obs = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on'); }),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv,.rvL,.rvR').forEach(el=>obs.observe(el));
+
+document.getElementById('bookForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  this.style.display='none';
+  document.getElementById('formSuccess').classList.add('show');
+});
+</script>
+</body>
+</html>

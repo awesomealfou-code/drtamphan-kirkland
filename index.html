@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Tâm Phan | Surgical Dental Excellence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:       #0a1628;
+  --navy-mid:   #0f2044;
+  --navy-light: #162552;
+  --gold:       #c9a227;
+  --gold-light: #e2bc50;
+  --gold-dim:   rgba(201,162,39,0.12);
+  --white:      #ffffff;
+  --off-white:  #e8e0d0;
+  --muted:      rgba(232,224,208,0.55);
+  --glass:      rgba(8,18,36,0.88);
+  --serif:      'Cormorant Garamond', Georgia, serif;
+  --sans:       'DM Sans', system-ui, sans-serif;
+}
+
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background:var(--navy);
+  color:var(--white);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.6;
+  overflow-x:hidden;
+  cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 2 L4 20 L8.5 15.5 L12 22 L14 21 L10.5 14.5 L17 14.5 Z' fill='%23c9a227' stroke='%23000' stroke-width='0.8' stroke-linejoin='round'/%3E%3C/svg%3E") 4 2, auto;
+}
+
+
+/* ── NAV ─────────────────────────────────── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  padding:30px 64px;
+  display:flex; align-items:center; justify-content:space-between;
+  transition:padding .4s,background .4s,backdrop-filter .4s,border-color .4s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled {
+  padding:16px 64px;
+  background:var(--glass);
+  backdrop-filter:blur(24px);
+  border-color:rgba(201,162,39,.1);
+}
+.logo-wrap {
+  display:flex; align-items:center; gap:16px;
+}
+.logo {
+  display:flex; align-items:center; text-decoration:none; flex-shrink:0;
+}
+.logo img {
+  height:58px;
+  width:auto;
+  object-fit:contain;
+  mix-blend-mode:lighten;
+  transition:height .4s;
+}
+nav.scrolled .logo img { height:46px; }
+.logo-tagline {
+  font-size:.64rem;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:var(--off-white);
+  white-space:nowrap;
+  border-left:1px solid rgba(201,162,39,.35);
+  padding-left:16px;
+  font-family:var(--sans);
+  font-weight:300;
+}
+.nav-links { display:flex; gap:44px; list-style:none; align-items:center; }
+.nav-links a {
+  font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--off-white); text-decoration:none; position:relative;
+  transition:color .3s;
+}
+.nav-links a::after {
+  content:''; position:absolute; bottom:-5px; left:0; right:0;
+  height:1px; background:var(--gold); transform:scaleX(0);
+  transform-origin:left; transition:transform .3s ease;
+}
+.nav-links a:hover { color:var(--white); }
+.nav-links a:hover::after { transform:scaleX(1); }
+.nav-cta {
+  background:var(--gold) !important; color:var(--navy) !important;
+  padding:12px 26px; font-weight:500 !important;
+  transition:background .3s,transform .2s !important;
+}
+.nav-cta::after { display:none !important; }
+.nav-cta:hover { background:var(--gold-light) !important; transform:translateY(-1px); }
+
+/* mobile hamburger */
+.burger { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:4px; }
+.burger span { display:block; width:22px; height:1px; background:var(--white); transition:transform .3s,opacity .3s; }
+
+#mobileMenu {
+  display:none; position:fixed; inset:0; z-index:999;
+  background:var(--navy); flex-direction:column;
+  align-items:center; justify-content:center; gap:36px;
+}
+#mobileMenu.open { display:flex; }
+#mobileMenu a {
+  font-family:var(--serif); font-size:2.4rem; font-weight:300;
+  color:var(--white); text-decoration:none; letter-spacing:.05em;
+  transition:color .3s;
+}
+#mobileMenu a:hover { color:var(--gold); }
+#mobileMenu .close-btn {
+  position:absolute; top:28px; right:32px;
+  background:none; border:none;
+  font-size:2rem; color:var(--white); line-height:1;
+}
+
+/* ── HERO ─────────────────────────────────── */
+#hero {
+  height:100vh; min-height:700px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-video {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+}
+.hero-video-overlay {
+  position:absolute; inset:0;
+  background:rgba(6,14,28,.28);
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at 68% 44%, rgba(201,162,39,.07) 0%, transparent 55%),
+    linear-gradient(145deg, #060e1c 0%, #0f2044 55%, #0a1628 100%);
+}
+.hero-grid {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(201,162,39,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,162,39,.025) 1px, transparent 1px);
+  background-size:72px 72px;
+}
+/* floating orb */
+.hero-orb {
+  position:absolute; right:10%; top:20%;
+  width:420px; height:420px; border-radius:50%;
+  background:radial-gradient(circle, rgba(201,162,39,.06) 0%, transparent 70%);
+  animation:orbPulse 6s ease-in-out infinite;
+}
+
+.hero-content {
+  position:relative; z-index:2;
+  padding:0 64px; max-width:860px;
+}
+.eyebrow {
+  font-size:.7rem; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:28px;
+  display:flex; align-items:center; gap:14px;
+  opacity:0; animation:fadeUp .8s .3s forwards;
+}
+.eyebrow::before { content:''; display:inline-block; width:44px; height:1px; background:var(--gold); }
+
+.hero-title {
+  font-family:var(--serif);
+  font-size:clamp(3.6rem,6.5vw,6.8rem);
+  font-weight:300; line-height:1.06;
+  margin-bottom:30px;
+}
+.hero-title .word {
+  display:inline-block; opacity:0; transform:translateY(28px);
+}
+.hero-title em { font-style:italic; color:var(--gold); }
+
+.hero-sub {
+  font-size:.98rem; color:var(--muted);
+  max-width:420px; line-height:1.85; margin-bottom:52px;
+  opacity:0; animation:fadeUp .8s 1.1s forwards;
+}
+.hero-btns {
+  display:flex; gap:18px;
+  opacity:0; animation:fadeUp .8s 1.3s forwards;
+}
+.btn-primary {
+  background:var(--gold); color:var(--navy);
+  padding:17px 42px; font-family:var(--sans);
+  font-size:.72rem; font-weight:500; letter-spacing:.15em;
+  text-transform:uppercase; text-decoration:none; border:none;
+  display:inline-block;
+  transition:background .3s,transform .2s,box-shadow .3s;
+}
+.btn-primary:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 12px 36px rgba(201,162,39,.28); }
+.btn-outline {
+  background:transparent; color:var(--off-white);
+  padding:17px 42px; font-family:var(--sans);
+  font-size:.72rem; font-weight:400; letter-spacing:.15em;
+  text-transform:uppercase; text-decoration:none;
+  border:1px solid rgba(232,224,208,.28);
+  display:inline-block;
+  transition:border-color .3s,color .3s,transform .2s;
+}
+.btn-outline:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-2px); }
+
+.hero-scroll-hint {
+  position:absolute; bottom:44px; left:64px;
+  display:flex; align-items:center; gap:14px;
+  font-size:.65rem; letter-spacing:.22em; text-transform:uppercase; color:var(--muted);
+  opacity:0; animation:fadeUp .8s 1.6s forwards;
+}
+.scroll-bar { width:44px; height:1px; background:var(--gold); position:relative; overflow:hidden; }
+.scroll-bar::after {
+  content:''; position:absolute; top:0; left:-100%;
+  width:100%; height:100%; background:var(--white);
+  animation:scrollSlide 2.2s 2s infinite;
+}
+
+.hero-stats {
+  position:absolute; right:64px; bottom:56px; z-index:2;
+  display:flex; gap:48px;
+  opacity:0; animation:fadeUp .8s 1.4s forwards;
+}
+.h-stat-num {
+  font-family:var(--serif); font-size:3rem; font-weight:300;
+  color:var(--gold); line-height:1;
+}
+.h-stat-label {
+  font-size:.62rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--muted); margin-top:6px;
+}
+
+/* ── SECTIONS COMMON ─────────────────────── */
+section { padding:120px 64px; }
+.s-eyebrow {
+  font-size:.68rem; letter-spacing:.28em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:18px;
+  display:flex; align-items:center; gap:12px;
+}
+.s-eyebrow::before { content:''; display:inline-block; width:30px; height:1px; background:var(--gold); }
+.s-title {
+  font-family:var(--serif);
+  font-size:clamp(2.4rem,4vw,3.8rem);
+  font-weight:300; line-height:1.15; color:var(--white);
+}
+.s-title em { font-style:italic; color:var(--gold); }
+
+/* ── REVEAL ──────────────────────────────── */
+.rv  { opacity:0; transform:translateY(36px);  transition:opacity .7s ease,transform .7s ease; }
+.rvL { opacity:0; transform:translateX(-36px); transition:opacity .7s ease,transform .7s ease; }
+.rvR { opacity:0; transform:translateX(36px);  transition:opacity .7s ease,transform .7s ease; }
+.rv.on,.rvL.on,.rvR.on { opacity:1; transform:none; }
+
+/* ── DECORATIVE GOLD ACCENT LINES ───────── */
+
+/* Hero — vertical editorial bar, left of content */
+.hero-content::before {
+  content:''; position:absolute;
+  left:-28px; top:8%; width:1px; height:72%;
+  background:linear-gradient(to bottom, transparent, rgba(201,162,39,.5) 25%, rgba(201,162,39,.5) 75%, transparent);
+}
+
+/* Hero — short horizontal rule above scroll hint */
+.hero-scroll-hint::before {
+  display:none; /* already has .scroll-bar inline */
+}
+
+/* Specialties — corner accent top-right */
+#specialties::after {
+  content:''; position:absolute;
+  top:56px; right:56px;
+  width:72px; height:1px;
+  background:linear-gradient(to left, rgba(201,162,39,.45), transparent);
+  box-shadow:0 18px 0 0 rgba(201,162,39,.2);
+}
+
+/* Logo draw — mirror wavy gold line at the bottom (follows treatments wave-top) */
+.logo-draw-section::after {
+  content:''; position:absolute;
+  bottom:0; left:0; right:0;
+  height:5.56vw;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g2' x1='0' x2='1'%3E%3Cstop offset='0%25' stop-color='%23c9a227' stop-opacity='0'/%3E%3Cstop offset='20%25' stop-color='%23c9a227' stop-opacity='0.65'/%3E%3Cstop offset='80%25' stop-color='%23c9a227' stop-opacity='0.65'/%3E%3Cstop offset='100%25' stop-color='%23c9a227' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0,50 Q720,80 1440,50' fill='none' stroke='url(%23g2)' stroke-width='1.6'/%3E%3C/svg%3E")
+  no-repeat left bottom / 100% 100%;
+  pointer-events:none; z-index:5;
+}
+
+/* Treatments — horizontal gold rule near top */
+#treatments::before {
+  content:''; position:absolute;
+  top:52px; left:8%; right:8%; height:1px;
+  background:linear-gradient(to right, transparent, rgba(201,162,39,.28) 30%, rgba(201,162,39,.28) 70%, transparent);
+}
+
+/* Before/After — vertical gold bar on far left */
+#before-after::before {
+  content:''; position:absolute;
+  left:48px; top:15%; width:1px; height:60%;
+  background:linear-gradient(to bottom, transparent, rgba(201,162,39,.38) 30%, rgba(201,162,39,.38) 70%, transparent);
+}
+
+/* Before/After — vertical gold bar on far right (mirror) */
+#before-after::after {
+  content:''; position:absolute;
+  right:48px; top:15%; width:1px; height:60%;
+  background:linear-gradient(to bottom, transparent, rgba(201,162,39,.38) 30%, rgba(201,162,39,.38) 70%, transparent);
+}
+
+/* Process — diagonal accent, top-left corner */
+#process::before {
+  content:''; position:absolute;
+  top:52px; left:8%; right:8%; height:1px;
+  background:linear-gradient(to right, transparent, rgba(201,162,39,.25) 30%, rgba(201,162,39,.25) 70%, transparent);
+}
+
+/* Process — vertical bar on right edge */
+#process::after {
+  content:''; position:absolute;
+  right:52px; top:18%; width:1px; height:52%;
+  background:linear-gradient(to bottom, transparent, rgba(201,162,39,.32) 25%, rgba(201,162,39,.32) 75%, transparent);
+}
+
+/* Testimonials — horizontal accent flanking the quotes */
+#testimonials::before {
+  content:''; position:absolute;
+  top:56px; left:10%; right:10%; height:1px;
+  background:linear-gradient(to right, transparent, rgba(201,162,39,.22) 25%, rgba(201,162,39,.22) 75%, transparent);
+}
+#testimonials::after {
+  content:''; position:absolute;
+  bottom:56px; left:20%; right:20%; height:1px;
+  background:linear-gradient(to right, transparent, rgba(201,162,39,.22), transparent);
+}
+
+/* Blog — vertical bar left edge */
+#blog::before {
+  content:''; position:absolute;
+  left:52px; top:12%; width:1px; height:58%;
+  background:linear-gradient(to bottom, transparent, rgba(201,162,39,.3) 20%, rgba(201,162,39,.3) 80%, transparent);
+}
+
+/* Footer — short decorative horizontal accent under the logo */
+.f-brand::after {
+  content:''; display:block;
+  width:80px; height:1px; margin-top:20px;
+  background:linear-gradient(to right, rgba(201,162,39,.55), transparent);
+}
+
+/* ── SPECIALTIES ─────────────────────────── */
+/* ── WAVE SECTION DIVIDERS ──────────────── */
+.wave-top, .wave-bot {
+  position:absolute; left:0; right:0;
+  width:100%; line-height:0;
+  pointer-events:none; z-index:4;
+}
+.wave-top { top:0; }
+.wave-bot { bottom:0; }
+.wave-top svg, .wave-bot svg { display:block; width:100%; }
+
+#specialties { background:#f5f3ef; padding:140px 64px; position:relative; overflow:visible; }
+#specialties .s-eyebrow { color:var(--gold); }
+#specialties .s-title   { color:var(--navy); }
+.spec-grid {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:0; margin-top:64px;
+  border:1px solid rgba(201,162,39,.1);
+}
+.spec-card {
+  padding:52px 38px; background:var(--navy);
+  border-right:1px solid rgba(201,162,39,.1);
+  position:relative; overflow:hidden;
+  transition:background .4s;
+}
+.spec-card:last-child { border-right:none; }
+.spec-card::after {
+  content:''; position:absolute; bottom:0; left:0; right:0;
+  height:2px; background:var(--gold);
+  transform:scaleX(0); transition:transform .4s ease;
+}
+.spec-card:hover { background:#162552; }
+.spec-card:hover::after { transform:scaleX(1); }
+.spec-num { font-family:var(--serif); font-size:2.8rem; font-weight:300; color:rgba(255,255,255,0.18); margin-bottom:22px; }
+.spec-icon { width:44px; height:44px; color:var(--gold); margin-bottom:22px; }
+.spec-name { font-family:var(--serif); font-size:1.45rem; font-weight:400; line-height:1.3; margin-bottom:14px; color:var(--white); }
+.spec-desc { font-size:.83rem; color:var(--muted); line-height:1.8; }
+.spec-link {
+  display:inline-flex; align-items:center; gap:8px;
+  margin-top:26px; font-size:.68rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--gold); text-decoration:none;
+  transition:gap .3s;
+}
+.spec-link:hover { gap:16px; }
+
+/* ── BEFORE / AFTER VIDEO SECTION ───────── */
+/* ── BEFORE / AFTER — SCROLL-SCRUB ──────── */
+#before-after {
+  position:relative;
+  background:var(--navy);
+  padding:120px 64px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.ba-label {
+  font-size:.65rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:14px;
+  opacity:0; transform:translateY(-6px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.ba-label::before,.ba-label::after {
+  content:''; display:inline-block;
+  width:36px; height:1px; background:var(--gold);
+}
+#before-after.ba-in .ba-label { opacity:1; transform:translateY(0); }
+.ba-eyebrow {
+  font-family:var(--serif);
+  font-size:clamp(2.6rem,4.5vw,4.2rem);
+  font-weight:300; color:var(--white);
+  letter-spacing:.03em; line-height:1.1;
+  text-align:center; margin-bottom:32px;
+  opacity:0; transform:translateY(10px);
+  transition:opacity .8s ease .1s, transform .8s ease .1s;
+}
+#before-after.ba-in .ba-eyebrow { opacity:1; transform:translateY(0); }
+.ba-video-wrap {
+  position:relative;
+  width:min(820px, 86vw);
+  border-radius:4px; overflow:hidden;
+  box-shadow:0 32px 80px rgba(0,0,0,.75), 0 0 0 1px rgba(201,162,39,.15);
+  opacity:0; transform:scale(1.03);
+  transition:opacity 1s ease .2s, transform 1.2s ease .2s;
+}
+#before-after.ba-in .ba-video-wrap { opacity:1; transform:scale(1); }
+.ba-video { display:block; width:100%; max-height:65vh; object-fit:cover; }
+.ba-vignette {
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,.2) 0%, transparent 25%, transparent 72%, rgba(0,0,0,.3) 100%);
+  pointer-events:none; z-index:5;
+}
+.ba-title {
+  margin-top:24px;
+  font-family:var(--serif);
+  font-size:clamp(1.2rem,2vw,1.9rem);
+  font-weight:300; color:var(--white);
+  letter-spacing:.06em; text-align:center;
+  opacity:0; transform:translateY(10px);
+  transition:opacity .8s ease .3s, transform .8s ease .3s;
+}
+#before-after.ba-in .ba-title { opacity:1; transform:translateY(0); }
+.ba-title em { font-style:italic; color:var(--gold); }
+
+/* ── TREATMENTS GRID ─────────────────────── */
+#treatments { padding:120px 64px; }
+.treat-header {
+  display:flex; justify-content:space-between; align-items:flex-end;
+  margin-bottom:64px;
+}
+.treat-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:420px 340px 420px;
+  grid-template-areas:
+    "a b c"
+    "d d e"
+    "f g g";
+  gap:3px;
+}
+.treat-card { position:relative; overflow:hidden; }
+.treat-card:nth-child(1) { grid-area:a; }
+.treat-card:nth-child(2) { grid-area:b; }
+.treat-card:nth-child(3) { grid-area:c; }
+.treat-card:nth-child(4) { grid-area:d; }
+.treat-card:nth-child(5) { grid-area:e; }
+.treat-card:nth-child(6) { grid-area:f; }
+.treat-card:nth-child(7) { grid-area:g; }
+.treat-bg {
+  position:absolute; inset:0;
+  transition:transform .7s ease;
+}
+.treat-card:hover .treat-bg { transform:scale(1.07); }
+.treat-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(6,14,28,.97) 0%, rgba(6,14,28,.2) 55%, transparent 100%);
+  transition:background .4s;
+}
+.treat-card:hover .treat-overlay { background:linear-gradient(to top, rgba(6,14,28,1) 0%, rgba(6,14,28,.55) 65%, rgba(201,162,39,.04) 100%); }
+.treat-info { position:absolute; bottom:0; left:0; right:0; padding:32px 28px; }
+.treat-cat { font-size:.6rem; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.treat-name { font-family:var(--serif); font-size:1.55rem; font-weight:300; line-height:1.2; }
+.treat-desc {
+  font-size:.8rem; color:var(--muted); margin-top:10px; line-height:1.7;
+  max-height:0; overflow:hidden; transition:max-height .45s ease,margin-top .3s;
+}
+.treat-card:hover .treat-desc { max-height:80px; }
+
+/* Treatment bg gradients */
+.tb1 { background:linear-gradient(145deg,#1a2f5e,#0d1e3d,#1a3050); }
+.tb2 { background:linear-gradient(145deg,#1e3a2f,#0d2820,#162040); }
+.tb3 { background:linear-gradient(145deg,#2a1a2f,#1a0d2a,#261040); }
+.tb4 { background:linear-gradient(145deg,#2f1a1a,#241010,#1a1040); }
+.tb5 { background:linear-gradient(145deg,#1a2840,#0d1c30,#1e3050); }
+.tb6 { background:linear-gradient(145deg,#1e2a1e,#121c10,#162040); }
+.tb7 { background:linear-gradient(145deg,#2a2010,#1c150a,#281a0d); }
+.tb8 { background:linear-gradient(145deg,#1a1e30,#0d1224,#1e2844); }
+.tb9 { background:linear-gradient(145deg,#2a1e20,#1c1014,#281424); }
+
+/* inner glow highlight */
+.treat-bg::after {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 30% 25%, rgba(255,255,255,.04) 0%, transparent 55%);
+}
+
+/* ── ABOUT ───────────────────────────────── */
+#about { padding:0; background:var(--navy-mid); position:relative; z-index:1; border-top:1px solid rgba(201,162,39,.18); border-bottom:1px solid rgba(201,162,39,.18); }
+.about-wrap { display:grid; grid-template-columns:1fr 1fr; min-height:680px; }
+.about-photo {
+  position:relative; overflow:hidden;
+  background:linear-gradient(155deg,#162552,#0a1628);
+  display:flex; align-items:center; justify-content:center;
+}
+.about-photo-label {
+  font-family:var(--serif); font-size:.68rem;
+  letter-spacing:.28em; text-transform:uppercase;
+  color:rgba(201,162,39,.25); text-align:center; padding:20px;
+}
+.about-bar {
+  position:absolute; top:80px; right:0;
+  width:3px; height:110px; background:var(--gold);
+}
+.about-content {
+  padding:96px 80px;
+  display:flex; flex-direction:column; justify-content:center;
+  background:#f5f3ef;
+}
+.about-content .s-title { color:var(--navy); }
+.about-text { font-size:1rem; color:rgba(10,22,40,.62); line-height:1.9; margin:28px 0 44px; }
+.credentials {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:22px; margin-bottom:48px;
+}
+.cred { border-left:2px solid var(--gold); padding-left:18px; }
+.cred-label { font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:5px; }
+.cred-value { font-family:var(--serif); font-size:1.05rem; font-weight:400; line-height:1.4; color:var(--navy); }
+
+/* ── STATS ───────────────────────────────── */
+#stats {
+  padding:72px 64px;
+  border-top:1px solid rgba(201,162,39,.1);
+  border-bottom:1px solid rgba(201,162,39,.1);
+}
+.stats-grid { display:grid; grid-template-columns:repeat(4,1fr); }
+.stat-item {
+  text-align:center; padding:36px 20px;
+  border-right:1px solid rgba(201,162,39,.1);
+}
+.stat-item:last-child { border-right:none; }
+.stat-num { font-family:var(--serif); font-size:4rem; font-weight:300; color:var(--gold); line-height:1; }
+.stat-suf { font-family:var(--serif); font-size:2.2rem; color:var(--gold); }
+.stat-label { font-size:.64rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin-top:10px; }
+
+/* ── PROCESS ─────────────────────────────── */
+#process { padding:160px 64px 140px; background:#f5f3ef; position:relative; overflow:visible; }
+#process .s-title { color:var(--navy); }
+.process-grid {
+  display:grid; grid-template-columns:repeat(5,1fr);
+  gap:0; margin-top:64px; position:relative;
+}
+.process-grid::before {
+  content:''; position:absolute;
+  top:32px; left:10%; right:10%;
+  height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent);
+}
+.proc-step { text-align:center; padding:0 20px; }
+.proc-num {
+  width:64px; height:64px; border-radius:50%;
+  border:1px solid rgba(201,162,39,.4);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--serif); font-size:1.5rem; font-weight:300;
+  color:var(--gold); margin:0 auto 28px;
+  background:#f5f3ef; position:relative; z-index:1;
+  transition:background .4s,border-color .4s;
+}
+.proc-step:hover .proc-num { background:rgba(201,162,39,.1); border-color:var(--gold); }
+.proc-title { font-family:var(--serif); font-size:1.1rem; font-weight:400; margin-bottom:12px; color:var(--navy); }
+.proc-desc { font-size:.8rem; color:rgba(10,22,40,.6); line-height:1.75; }
+
+/* ── TESTIMONIALS ────────────────────────── */
+#testimonials { padding:120px 64px; text-align:center; }
+.testi-wrap { max-width:760px; margin:72px auto 0; }
+.testi-quote { font-family:var(--serif); font-size:7rem; line-height:.4; color:var(--gold-dim); margin-bottom:28px; }
+.testi-slide { display:none; flex-direction:column; align-items:center; }
+.testi-slide.on { display:flex; }
+.testi-text { font-family:var(--serif); font-size:1.55rem; font-weight:300; font-style:italic; line-height:1.65; color:var(--off-white); margin-bottom:36px; }
+.testi-author { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+.testi-dots { display:flex; justify-content:center; gap:10px; margin-top:44px; }
+.tdot { width:6px; height:6px; border-radius:50%; background:rgba(201,162,39,.28); transition:background .3s,transform .3s; }
+.tdot.on { background:var(--gold); transform:scale(1.5); }
+
+/* ── BLOG ────────────────────────────────── */
+#blog { padding:120px 64px; background:var(--navy-mid); }
+.blog-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:64px; }
+.blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+.blog-card {
+  background:rgba(8,18,36,.6); border:1px solid rgba(201,162,39,.08);
+  overflow:hidden; text-decoration:none; color:inherit;
+  display:block; transition:border-color .3s,transform .35s;
+}
+.blog-card:hover { border-color:rgba(201,162,39,.3); transform:translateY(-7px); }
+.blog-img { height:190px; overflow:hidden; }
+.blog-img-bg { width:100%; height:100%; transition:transform .6s ease; }
+.blog-card:hover .blog-img-bg { transform:scale(1.09); }
+.bb1 { background:linear-gradient(140deg,#1e3040,#0d1e30); }
+.bb2 { background:linear-gradient(140deg,#1e2a1e,#0d1a10); }
+.bb3 { background:linear-gradient(140deg,#2a1e30,#180d20); }
+.blog-body { padding:30px; }
+.blog-tags { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
+.blog-tag {
+  font-size:.58rem; letter-spacing:.15em; text-transform:uppercase;
+  color:var(--gold); border:1px solid rgba(201,162,39,.28);
+  padding:3px 9px;
+}
+.blog-title { font-family:var(--serif); font-size:1.25rem; font-weight:400; line-height:1.4; margin-bottom:14px; }
+.blog-excerpt { font-size:.8rem; color:var(--muted); line-height:1.8; margin-bottom:22px; }
+.blog-more { font-size:.65rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); display:flex; align-items:center; gap:7px; }
+
+/* ── CTA ─────────────────────────────────── */
+/* ── LOGO DRAW SECTION ───────────────────── */
+#cta { padding:0; position:relative; }
+#treatments { position:relative; }
+#testimonials { position:relative; }
+#blog { position:relative; }
+footer { position:relative; }
+.logo-draw-section {
+  padding:110px 64px 120px;
+  background:radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,162,39,.05) 0%, transparent 70%), var(--navy);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.logo-draw-section::before {
+  content:''; position:absolute; top:0; left:0; right:0;
+  height:5.56vw; /* matches wave-bot SVG aspect ratio: 80/1440 × 100vw */
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0%25' stop-color='%23c9a227' stop-opacity='0'/%3E%3Cstop offset='20%25' stop-color='%23c9a227' stop-opacity='0.75'/%3E%3Cstop offset='80%25' stop-color='%23c9a227' stop-opacity='0.75'/%3E%3Cstop offset='100%25' stop-color='%23c9a227' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0,40 C240,0 480,80 720,40 C960,0 1200,80 1440,80' fill='none' stroke='url(%23g)' stroke-width='1.6'/%3E%3C/svg%3E")
+    no-repeat left top / 100% 100%;
+  pointer-events:none; z-index:5;
+}
+.logo-draw-wrapper {
+  position:relative; display:inline-block; line-height:0;
+}
+.logo-draw-img {
+  width:min(940px, 90vw); height:auto; mix-blend-mode:lighten; display:block;
+  opacity:0; clip-path:inset(0 100% 0 0);
+}
+.pen-tip {
+  position:absolute; width:12px; height:12px;
+  background:#e8c84a; border-radius:50%;
+  box-shadow:0 0 10px 4px rgba(232,200,74,.85), 0 0 30px 12px rgba(201,162,39,.4);
+  transform:translate(-50%,-50%); pointer-events:none;
+  opacity:0;
+}
+.logo-draw-sub {
+  margin-top:40px; font-size:.85rem; letter-spacing:.28em; text-transform:uppercase;
+  color:rgba(201,162,39,.55); opacity:0;
+}
+
+/* ── FOOTER ──────────────────────────────── */
+footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(201,162,39,.1); }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:56px; margin-bottom:56px; }
+.f-brand .logo { font-size:1.5rem; display:block; margin-bottom:18px; }
+.f-logo-link { display:inline-block; margin-bottom:18px; }
+.f-logo-img { height:72px; width:auto; mix-blend-mode:lighten; display:block; }
+.f-desc { font-size:.8rem; color:var(--muted); line-height:1.85; max-width:270px; }
+.f-col h4 { font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:22px; }
+.f-col ul { list-style:none; }
+.f-col li { margin-bottom:11px; }
+.f-col a { font-size:.83rem; color:var(--muted); text-decoration:none; transition:color .3s; }
+.f-col a:hover { color:var(--white); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,.06); padding-top:30px; display:flex; justify-content:space-between; align-items:center; }
+.f-copy { font-size:.72rem; color:rgba(255,255,255,.28); }
+.f-socials { display:flex; gap:16px; }
+.f-soc {
+  width:34px; height:34px; border:1px solid rgba(201,162,39,.2);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--muted); text-decoration:none; font-size:.72rem; font-weight:500;
+  transition:border-color .3s,color .3s;
+}
+.f-soc:hover { border-color:var(--gold); color:var(--gold); }
+
+/* ── KEYFRAMES ───────────────────────────── */
+@keyframes fadeUp   { to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn   { to { opacity:1; } }
+@keyframes scrollSlide { 0%{left:-100%} 100%{left:100%} }
+@keyframes orbPulse {
+  0%,100% { transform:scale(1); opacity:.6; }
+  50%      { transform:scale(1.15); opacity:1; }
+}
+
+/* ── RESPONSIVE ──────────────────────────── */
+@media(max-width:1100px){
+  nav,nav.scrolled { padding-left:32px; padding-right:32px; }
+  section { padding:80px 32px; }
+  #specialties,#stats,#process,#blog { padding-left:32px; padding-right:32px; }
+
+  .spec-grid { grid-template-columns:repeat(2,1fr); }
+  .treat-grid {
+    grid-template-columns:repeat(2,1fr);
+    grid-template-rows:320px 280px 320px 280px;
+    grid-template-areas:
+      "a b"
+      "c d"
+      "e f"
+      "g g";
+  }
+  .process-grid { grid-template-columns:repeat(3,1fr); }
+  .process-grid::before { display:none; }
+  .about-wrap { grid-template-columns:1fr; }
+  .about-photo { min-height:380px; }
+  .about-content { padding:60px 40px; }
+  .stats-grid { grid-template-columns:repeat(2,1fr); }
+  .hero-stats { display:none; }
+  .footer-grid { grid-template-columns:1fr 1fr; gap:36px; }
+}
+@media(max-width:720px){
+  section { padding:64px 20px; }
+  #specialties,#stats,#process,#blog { padding-left:20px; padding-right:20px; }
+  .spec-grid { grid-template-columns:1fr; }
+  .treat-grid {
+    grid-template-columns:1fr;
+    grid-template-rows:320px 320px 320px 320px 320px 320px 320px;
+    grid-template-areas:"a""b""c""d""e""f""g";
+  }
+  .process-grid { grid-template-columns:repeat(2,1fr); }
+  .blog-grid { grid-template-columns:1fr; }
+  .footer-grid { grid-template-columns:1fr; }
+  .nav-links { display:none; }
+  .burger { display:flex; }
+  .hero-content { padding:0 24px; }
+  nav,nav.scrolled { padding-left:24px; padding-right:24px; }
+  .treat-header,.blog-header,.treat-header .btn-outline { display:block; }
+  .treat-header .btn-outline,.blog-header .btn-outline { margin-top:16px; }
+  .credentials { grid-template-columns:1fr; }
+  .cta-btns { flex-direction:column; align-items:center; }
+}
+</style>
+</head>
+<body>
+
+
+<!-- Mobile Menu -->
+<div id="mobileMenu">
+  <button class="close-btn" id="closeMenu">×</button>
+  <a href="#specialties"          class="mm-link">Treatments</a>
+  <a href="#about"                class="mm-link">About</a>
+  <a href="drtamphan-team.html"   class="mm-link">The Team</a>
+  <a href="#process"              class="mm-link">Our Process</a>
+  <a href="drtamphan-blog.html" class="mm-link">Blog</a>
+  <a href="drtamphan-book.html" class="mm-link" style="color:var(--gold)">Contact Us</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo-wrap">
+    <a href="#" class="logo">
+      <img src="drtamphan-logo.jpg" alt="Dr. Tâm Phan">
+    </a>
+    <span class="logo-tagline">Dentofacial Aesthetics</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#specialties">Treatments</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="drtamphan-team.html">The Team</a></li>
+    <li><a href="#process">Our Process</a></li>
+    <li><a href="drtamphan-blog.html">Blog</a></li>
+    <li><a href="drtamphan-book.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="drtamphan-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-video-overlay"></div>
+</section>
+
+<!-- SPECIALTIES -->
+<section id="specialties">
+  <!-- wave in from hero -->
+  <div class="wave-top">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 L1440,0 C1200,0 960,80 720,40 C480,0 240,80 0,40 Z" fill="#0a1628"/>
+    </svg>
+  </div>
+  <div class="s-eyebrow rv">Our Expertise</div>
+  <h2 class="s-title rv">Transforming lives through<br><em>exceptional dentistry</em></h2>
+
+  <div class="spec-grid">
+    <div class="spec-card rv" style="transition-delay:.05s">
+      <div class="spec-num">1</div>
+      <svg class="spec-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1">
+        <circle cx="22" cy="22" r="16"/>
+        <path d="M22 8c0 0-4 6-4 14s4 14 4 14"/>
+        <path d="M8 22h28"/>
+      </svg>
+      <h3 class="spec-name">Dental Implants</h3>
+      <p class="spec-desc">Permanent tooth replacement using cutting-edge implant technology for a natural, lasting result.</p>
+      <a href="#" class="spec-link">Learn more →</a>
+    </div>
+    <div class="spec-card rv" style="transition-delay:.12s">
+      <div class="spec-num">2</div>
+      <svg class="spec-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1">
+        <path d="M22 6c-8 0-13 5-13 11 0 4 2 7 4 9l9 14 9-14c2-2 4-5 4-9 0-6-5-11-13-11z"/>
+        <path d="M17 18c0-2.8 2.2-5 5-5s5 2.2 5 5"/>
+      </svg>
+      <h3 class="spec-name">Full Mouth Rehabilitation</h3>
+      <p class="spec-desc">Comprehensive restoration combining treatments to restore oral function and complete aesthetics.</p>
+      <a href="#" class="spec-link">Learn more →</a>
+    </div>
+    <div class="spec-card rv" style="transition-delay:.19s">
+      <div class="spec-num">3</div>
+      <svg class="spec-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1">
+        <ellipse cx="22" cy="24" rx="14" ry="10"/>
+        <path d="M14 20c0-5 3.6-9 8-9s8 4 8 9"/>
+        <path d="M10 28c0 4 5.4 8 12 8s12-4 12-8"/>
+      </svg>
+      <h3 class="spec-name">Cosmetic Dentistry</h3>
+      <p class="spec-desc">Porcelain veneers, whitening, and smile design to create your most confident appearance.</p>
+      <a href="#" class="spec-link">Learn more →</a>
+    </div>
+    <div class="spec-card rv" style="transition-delay:.26s">
+      <div class="spec-num">4</div>
+      <svg class="spec-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.1">
+        <path d="M10 18c0-7 4-12 12-12s12 5 12 12"/>
+        <path d="M10 18c-2 1-4 3-4 6 0 3 2 5 5 5"/>
+        <path d="M34 18c2 1 4 3 4 6 0 3-2 5-5 5"/>
+        <path d="M17 29c0 4 2.7 8 5 10 2.3-2 5-6 5-10"/>
+      </svg>
+      <h3 class="spec-name">Facial Aesthetics</h3>
+      <p class="spec-desc">Botox, PRGF therapy, and masseter treatments to harmonize your facial appearance beautifully.</p>
+      <a href="#" class="spec-link">Learn more →</a>
+    </div>
+  </div>
+  <!-- wave out to CTA -->
+  <div class="wave-bot">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 L1440,80 C1200,80 960,0 720,40 C480,80 240,0 0,40 Z" fill="#0a1628"/>
+    </svg>
+  </div>
+</section>
+
+<!-- LOGO DRAW INTERLUDE -->
+<section id="cta">
+  <div class="logo-draw-section">
+    <div class="logo-draw-wrapper">
+      <img src="drtamphan-logo.jpg" class="logo-draw-img" alt="Dr. Tâm Phan">
+      <div class="pen-tip"></div>
+    </div>
+    <div class="logo-draw-sub">Dentofacial Aesthetics &nbsp;·&nbsp; Kirkland, Québec</div>
+  </div>
+</section>
+
+<!-- TREATMENTS GALLERY -->
+<section id="treatments">
+  <div class="wave-top">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 L1440,0 L1440,50 Q720,80 0,50 Z" fill="#0a1628"/>
+    </svg>
+  </div>
+  <div class="treat-header">
+    <div>
+      <div class="s-eyebrow rv">All Treatments</div>
+      <h2 class="s-title rv">Comprehensive care<br>for every <em>need</em></h2>
+    </div>
+    <a href="#" class="btn-outline rv">View All Treatments</a>
+  </div>
+
+  <div class="treat-grid">
+    <div class="treat-card rv">
+      <div class="treat-bg tb1"></div>
+      <div class="treat-overlay"></div>
+      <div class="treat-info">
+        <div class="treat-cat">Elevated Facial Aesthetics</div>
+        <div class="treat-name">Botox &amp; Aesthetic<br>Treatments</div>
+        <div class="treat-desc">Restore harmony, preserve natural expression, and enhance the unique features that define your appearance.</div>
+      </div>
+    </div>
+    <div class="treat-card rv" style="transition-delay:.08s">
+      <div class="treat-bg tb2"></div>
+      <div class="treat-overlay"></div>
+      <div class="treat-info">
+        <div class="treat-cat">Dental Implants</div>
+        <div class="treat-name">Dental<br>Implants</div>
+        <div class="treat-desc">Cutting-edge permanent tooth replacement solutions designed to last a lifetime.</div>
+      </div>
+    </div>
+    <div class="treat-card rv" style="transition-delay:.14s">
+      <div class="treat-bg tb3"></div>
+      <div class="treat-overlay"></div>
+      <div class="treat-info">
+        <div class="treat-cat">Full Mouth Rehabilitation</div>
+        <div class="treat-name">Sinus<br>Lift</div>
+        <div class="treat-desc">Advanced bone augmentation for optimal implant placement success.</div>
+      </div>
+    </div>
+    <div class="treat-card rv" style="transition-delay:.06s">
+      <div class="treat-bg tb4"></div>
+      <div class="treat-overlay"></div>
+      <div class="treat-info">
+        <div class="treat-cat">Cosmetic Dentistry &amp; Implants</div>
+        <div class="treat-name">Gum Graft &amp;<br>Bone Graft</div>
+        <div class="treat-desc">Restore gum tissue and rebuild jaw bone structure for lasting health and a more balanced smile.</div>
+      </div>
+    </div>
+    <div class="treat-card rv" style="transition-delay:.12s">
+      <div class="treat-bg tb5"></div>
+      <div class="treat-overlay"></div>
+      <div class="treat-info">
+        <div class="treat-cat">Dental Implants</div>
+        <div class="treat-name">Teeth Extraction &amp;<br>Temporary Prosthetics</div>
+        <div class="treat-desc">Gentle extraction with immediate aesthetic prosthetics while your permanent restoration is crafted.</div>
+      </div>
+    </div>
+    <div class="treat-card rv" style="transition-delay:.04s">
+      <div class="treat-bg tb6"></div>
+      <div class="treat-overlay"></div>
+      <div class="treat-info">
+        <div class="treat-cat">Full Mouth Rehabilitation</div>
+        <div class="treat-name">Full Mouth<br>Rehabilitation</div>
+        <div class="treat-desc">Comprehensive oral restoration focusing on health, function, and the aesthetics of your entire oral cavity.</div>
+      </div>
+    </div>
+    <div class="treat-card rv" style="transition-delay:.1s">
+      <div class="treat-bg tb7"></div>
+      <div class="treat-overlay"></div>
+      <div class="treat-info">
+        <div class="treat-cat">Cosmetic Dentistry</div>
+        <div class="treat-name">Dental Bridges &amp;<br>Wisdom Teeth</div>
+        <div class="treat-desc">Natural-looking bridges and expert wisdom tooth removal — gentle, precise, lasting results.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-photo rvL">
+      <div class="about-photo-label">
+        — Dr. Tâm Phan —<br>Replace with professional photo
+      </div>
+      <div class="about-bar"></div>
+    </div>
+    <div class="about-content rvR">
+      <div class="s-eyebrow">About Dr. Phan</div>
+      <h2 class="s-title">A surgeon of<br><em>global renown</em></h2>
+      <p class="about-text">
+        Dr. Tâm Phan is a board-certified dental surgeon with over 20 years of experience transforming smiles and restoring oral health across four continents. His meticulous approach combines surgical precision with an artist's eye for natural aesthetics — every case is treated as a unique work of craft.
+      </p>
+      <div class="credentials">
+        <div class="cred">
+          <div class="cred-label">Education</div>
+          <div class="cred-value">Université de Montréal, Faculty of Dental Medicine</div>
+        </div>
+        <div class="cred">
+          <div class="cred-label">Specialization</div>
+          <div class="cred-value">Implantology &amp; Oral Surgery</div>
+        </div>
+        <div class="cred">
+          <div class="cred-label">Fellowship</div>
+          <div class="cred-value">International Team for Implantology (ITI)</div>
+        </div>
+        <div class="cred">
+          <div class="cred-label">Recognition</div>
+          <div class="cred-value">Speaker at 40+ International Conferences</div>
+        </div>
+      </div>
+      <a href="#" class="btn-primary">Meet the Full Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section id="before-after">
+  <div class="ba-label">Before &amp; After</div>
+  <div class="ba-eyebrow">Real Patient Result</div>
+  <div class="ba-video-wrap">
+    <video class="ba-video" muted autoplay loop playsinline preload="auto">
+      <source src="drtamphan-before-after.mp4" type="video/mp4">
+    </video>
+    <div class="ba-vignette"></div>
+  </div>
+  <div class="ba-title">From <em>before</em> to after — a life changed</div>
+  <div class="wave-bot">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 L1440,80 C1200,80 960,0 720,40 C480,80 240,0 0,40 Z" fill="#0a1628"/>
+    </svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item rv">
+      <div class="stat-num"><span class="counter" data-t="2500">0</span><span class="stat-suf">+</span></div>
+      <div class="stat-label">Implants Placed</div>
+    </div>
+    <div class="stat-item rv" style="transition-delay:.1s">
+      <div class="stat-num"><span class="counter" data-t="20">0</span><span class="stat-suf">+</span></div>
+      <div class="stat-label">Years of Excellence</div>
+    </div>
+    <div class="stat-item rv" style="transition-delay:.2s">
+      <div class="stat-num"><span class="counter" data-t="98">0</span><span class="stat-suf">%</span></div>
+      <div class="stat-label">Patient Satisfaction</div>
+    </div>
+    <div class="stat-item rv" style="transition-delay:.3s">
+      <div class="stat-num"><span class="counter" data-t="40">0</span><span class="stat-suf">+</span></div>
+      <div class="stat-label">International Conferences</div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR PROCESS -->
+<section id="process">
+  <!-- wave in from stats -->
+  <div class="wave-top">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 L1440,0 L1440,50 Q720,80 0,50 Z" fill="#0a1628"/>
+    </svg>
+  </div>
+  <div class="s-eyebrow rv" style="justify-content:center">Your Journey</div>
+  <h2 class="s-title rv" style="text-align:center">Simple steps to your<br><em>perfect smile</em></h2>
+
+  <div class="process-grid">
+    <div class="proc-step rv" style="transition-delay:.05s">
+      <div class="proc-num">1</div>
+      <div class="proc-title">Consultation</div>
+      <p class="proc-desc">A thorough discussion of your goals, medical history, and the possibilities available to you.</p>
+    </div>
+    <div class="proc-step rv" style="transition-delay:.12s">
+      <div class="proc-num">2</div>
+      <div class="proc-title">Diagnosis</div>
+      <p class="proc-desc">3D imaging and clinical assessment to create a precise, personalized treatment plan.</p>
+    </div>
+    <div class="proc-step rv" style="transition-delay:.19s">
+      <div class="proc-num">3</div>
+      <div class="proc-title">Treatment</div>
+      <p class="proc-desc">Expert surgery performed with precision instruments in our state-of-the-art clinic.</p>
+    </div>
+    <div class="proc-step rv" style="transition-delay:.26s">
+      <div class="proc-num">4</div>
+      <div class="proc-title">Recovery</div>
+      <p class="proc-desc">Guided healing protocols and dedicated follow-up care at every step of your recovery.</p>
+    </div>
+    <div class="proc-step rv" style="transition-delay:.33s">
+      <div class="proc-num">5</div>
+      <div class="proc-title">Your New Smile</div>
+      <p class="proc-desc">The final reveal — a transformed, confident smile designed to last decades.</p>
+    </div>
+  </div>
+  <!-- wave out to testimonials -->
+  <div class="wave-bot">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,80 L1440,80 L1440,30 Q720,0 0,30 Z" fill="#0a1628"/>
+    </svg>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="s-eyebrow rv" style="justify-content:center">Patient Stories</div>
+  <h2 class="s-title rv" style="text-align:center">Words from those<br>who <em>trusted us</em></h2>
+
+  <div class="testi-wrap rv">
+    <div class="testi-quote">&ldquo;</div>
+
+    <div class="testi-slide on">
+      <p class="testi-text">Dr. Phan transformed my smile and, honestly, my entire confidence. His expertise in implantology is unmatched — I felt in the safest hands every step of the way.</p>
+      <div class="testi-author">— Marie-Claire L. &nbsp;·&nbsp; Full Mouth Rehabilitation</div>
+    </div>
+    <div class="testi-slide">
+      <p class="testi-text">I traveled from Paris specifically to see Dr. Phan. His surgical precision and the final result exceeded every expectation I had. Truly world-class care.</p>
+      <div class="testi-author">— Jacques B. &nbsp;·&nbsp; Dental Implants</div>
+    </div>
+    <div class="testi-slide">
+      <p class="testi-text">The facial aesthetics treatment was so natural — friends noticed something was different but couldn't say what. That subtlety is the mark of a true artist.</p>
+      <div class="testi-author">— Sophia M. &nbsp;·&nbsp; Facial Aesthetics</div>
+    </div>
+
+    <div class="testi-dots">
+      <div class="tdot on" data-i="0"></div>
+      <div class="tdot"    data-i="1"></div>
+      <div class="tdot"    data-i="2"></div>
+    </div>
+  </div>
+  <div class="wave-bot">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C480,90 960,10 1440,50 L1440,80 L0,80 Z" fill="#0f2044"/>
+    </svg>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="blog-header">
+    <div>
+      <div class="s-eyebrow rv">From the Blog</div>
+      <h2 class="s-title rv">Insights &amp; <em>Knowledge</em></h2>
+    </div>
+    <a href="drtamphan-blog.html" class="btn-outline rv">View All Articles</a>
+  </div>
+
+  <div class="blog-grid">
+    <a href="drtamphan-blog.html" class="blog-card rv" style="transition-delay:.08s">
+      <div class="blog-img"><div class="blog-img-bg bb1"></div></div>
+      <div class="blog-body">
+        <div class="blog-tags"><span class="blog-tag">Featured</span><span class="blog-tag">News</span></div>
+        <h3 class="blog-title">Sinus Lift Surgery: What You Need to Know Before Your Implant</h3>
+        <p class="blog-excerpt">A comprehensive guide to sinus lift procedures and how they create the foundation for successful implant placement.</p>
+        <div class="blog-more">Read Article →</div>
+      </div>
+    </a>
+    <a href="drtamphan-blog.html" class="blog-card rv" style="transition-delay:.16s">
+      <div class="blog-img"><div class="blog-img-bg bb2"></div></div>
+      <div class="blog-body">
+        <div class="blog-tags"><span class="blog-tag">Featured</span><span class="blog-tag">Aesthetics</span></div>
+        <h3 class="blog-title">Navigating Dental Implants: From Surgery to Smiles</h3>
+        <p class="blog-excerpt">Dental implants offer a permanent solution to missing teeth that closely mimics natural teeth in both form and function.</p>
+        <div class="blog-more">Read Article →</div>
+      </div>
+    </a>
+    <a href="drtamphan-blog.html" class="blog-card rv" style="transition-delay:.24s">
+      <div class="blog-img"><div class="blog-img-bg bb3"></div></div>
+      <div class="blog-body">
+        <div class="blog-tags"><span class="blog-tag">Featured</span><span class="blog-tag">Aesthetics</span></div>
+        <h3 class="blog-title">Botox®, Masseter Botox &amp; PRGF: Choosing the Right Rejuvenation</h3>
+        <p class="blog-excerpt">Understanding your facial rejuvenation options to make the most personalized and effective choice.</p>
+        <div class="blog-more">Read Article →</div>
+      </div>
+    </a>
+  </div>
+  <div class="wave-bot">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C360,80 1080,80 1440,30 L1440,80 L0,80 Z" fill="#060e1c"/>
+    </svg>
+  </div>
+</section>
+
+<!-- CTA -->
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <a href="#" class="f-logo-link">
+        <img src="drtamphan-logo.jpg" alt="Dr. Tâm Phan" class="f-logo-img">
+      </a>
+      <p class="f-desc">World-renowned dental surgeon specializing in implantology, full-mouth rehabilitation, and facial aesthetics. Serving patients globally.</p>
+    </div>
+    <div class="f-col">
+      <h4>Treatments</h4>
+      <ul>
+        <li><a href="#">Dental Implants</a></li>
+        <li><a href="#">Full Mouth Rehab</a></li>
+        <li><a href="#">Cosmetic Dentistry</a></li>
+        <li><a href="#">Facial Aesthetics</a></li>
+        <li><a href="#">Sinus &amp; Bone Grafts</a></li>
+        <li><a href="#">Wisdom Teeth</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Clinic</h4>
+      <ul>
+        <li><a href="#">About Dr. Phan</a></li>
+        <li><a href="drtamphan-team.html">The Team</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Testimonials</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+15144261228">514 426-1228</a></li>
+        <li><a href="mailto:contact@drtamphan.com">contact@drtamphan.com</a></li>
+        <li style="color:var(--muted);font-size:.82rem;line-height:1.6;padding-top:4px">16912 Route Transcanadienne<br>Kirkland, QC H9H 0C5</li>
+        <li style="color:var(--muted);font-size:.82rem;margin-top:8px">Mon–Fri 8:00–17:00<br>Sat 9:00–16:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-copy">© 2024 Dr. Tâm Phan. All rights reserved.</div>
+    <div class="f-socials">
+      <a href="#" class="f-soc">in</a>
+      <a href="#" class="f-soc">ig</a>
+      <a href="#" class="f-soc">fb</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+/* ── NAV SCROLL ──────────────────────────── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled', window.scrollY>60);
+},{ passive:true });
+
+/* ── MOBILE MENU ─────────────────────────── */
+const menu  = document.getElementById('mobileMenu');
+document.getElementById('burger').addEventListener('click',()=>menu.classList.add('open'));
+document.getElementById('closeMenu').addEventListener('click',()=>menu.classList.remove('open'));
+document.querySelectorAll('.mm-link').forEach(l=>l.addEventListener('click',()=>menu.classList.remove('open')));
+
+/* ── HERO WORD ANIMATION ─────────────────── */
+document.querySelectorAll('.hero-title .word').forEach((w,i)=>{
+  w.style.animation = `fadeUp .6s ${.5+i*.09}s forwards`;
+});
+
+/* ── BEFORE / AFTER REVEAL ───────────────── */
+(function(){
+  const section = document.getElementById('before-after');
+  if(!section) return;
+  const vid = section.querySelector('.ba-video');
+  if(vid) vid.playbackRate = 0.55;
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ section.classList.add('ba-in'); obs.unobserve(section); }
+    });
+  },{ threshold:0.2 });
+  obs.observe(section);
+})();
+
+/* ── REVEAL ON SCROLL ────────────────────── */
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on'); });
+},{threshold:.1, rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.rv,.rvL,.rvR').forEach(el=>revObs.observe(el));
+
+/* ── COUNTER ANIMATION ───────────────────── */
+function runCounter(el){
+  const t = parseInt(el.dataset.t);
+  const dur = 1600;
+  const step = t/(dur/16);
+  let c=0;
+  const iv = setInterval(()=>{
+    c+=step;
+    if(c>=t){ c=t; clearInterval(iv); }
+    el.textContent = Math.floor(c).toLocaleString();
+  },16);
+}
+const cntObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ runCounter(e.target); cntObs.unobserve(e.target); } });
+},{threshold:.6});
+document.querySelectorAll('.counter,.hcounter').forEach(el=>cntObs.observe(el));
+
+/* ── TESTIMONIALS ────────────────────────── */
+const slides = document.querySelectorAll('.testi-slide');
+const tdots  = document.querySelectorAll('.tdot');
+let cur_t = 0;
+function goSlide(n){
+  slides[cur_t].classList.remove('on');
+  tdots[cur_t].classList.remove('on');
+  cur_t = n;
+  slides[cur_t].classList.add('on');
+  tdots[cur_t].classList.add('on');
+}
+tdots.forEach(d=>d.addEventListener('click',()=>goSlide(+d.dataset.i)));
+setInterval(()=>goSlide((cur_t+1)%slides.length), 5000);
+
+/* ── ACTIVE NAV LINK ─────────────────────── */
+
+/* ── LOGO DRAW ANIMATION ── */
+(function(){
+  const img = document.querySelector('.logo-draw-img');
+  const pen = document.querySelector('.pen-tip');
+  const sub = document.querySelector('.logo-draw-sub');
+  if(!img || !pen || !sub) return;
+
+  // Phases: pause → draw → hold → fadeout → (repeat)
+  const PAUSE   = 400;   // dark gap between loops (ms)
+  const DRAW    = 2800;  // drawing duration
+  const HOLD    = 1000;  // fully visible hold
+  const FADEOUT = 500;   // fade to black
+
+  function easeInOut(t){ return t<.5 ? 2*t*t : -1+(4-2*t)*t; }
+  function clamp(v,a,b){ return Math.max(a,Math.min(b,v)); }
+
+  let phase = 'pause';
+  let elapsed = 0;
+  let last = null;
+
+  function tick(ts){
+    if(last===null) last=ts;
+    const dt = ts - last;
+    last = ts;
+    elapsed += dt;
+
+    if(phase==='pause'){
+      // Completely invisible — safe reset point
+      img.style.opacity     = '0';
+      img.style.clipPath    = 'inset(0 100% 0 0)';
+      pen.style.opacity     = '0';
+      sub.style.opacity     = '0';
+      if(elapsed >= PAUSE){ phase='draw'; elapsed=0; }
+
+    } else if(phase==='draw'){
+      const t  = clamp(elapsed/DRAW, 0, 1);
+      const e  = easeInOut(t);
+      const right = 100 - e*100;
+      // vertical pen oscillation — simulates handwriting rhythm
+      const penY = 50 + Math.sin(t * Math.PI * 6) * 11;
+
+      img.style.opacity     = '1';
+      img.style.clipPath    = `inset(0 ${right.toFixed(2)}% 0 0)`;
+      pen.style.opacity     = '1';
+      pen.style.left        = `${(e*100).toFixed(2)}%`;
+      pen.style.top         = `${penY.toFixed(2)}%`;
+      sub.style.opacity     = '0';
+      if(elapsed >= DRAW){ phase='hold'; elapsed=0; }
+
+    } else if(phase==='hold'){
+      const t = clamp(elapsed/HOLD, 0, 1);
+      img.style.opacity     = '1';
+      img.style.clipPath    = 'inset(0 0% 0 0)';
+      pen.style.opacity     = '0';
+      // tagline fades in during first 40% of hold, stays through
+      sub.style.opacity     = clamp(t/0.4, 0, 1).toFixed(3);
+      if(elapsed >= HOLD){ phase='fadeout'; elapsed=0; }
+
+    } else if(phase==='fadeout'){
+      const t = clamp(elapsed/FADEOUT, 0, 1);
+      const op = (1-easeInOut(t)).toFixed(3);
+      img.style.opacity     = op;
+      sub.style.opacity     = op;
+      pen.style.opacity     = '0';
+      if(elapsed >= FADEOUT){
+        // immediately reset clip while invisible — zero chance of flash
+        img.style.opacity  = '0';
+        img.style.clipPath = 'inset(0 100% 0 0)';
+        sub.style.opacity  = '0';
+        phase='pause'; elapsed=0;
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+const sects    = document.querySelectorAll('section[id]');
+const navAs    = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let active='';
+  sects.forEach(s=>{ if(window.scrollY >= s.offsetTop-130) active=s.id; });
+  navAs.forEach(a=>{
+    const target = a.getAttribute('href').replace('#','');
+    a.style.color = target===active ? 'var(--gold)' : '';
+  });
+},{passive:true});
+</script>
+
+<!-- ── ASK DR PHAN CHATBOT ───────────────────────────── -->
+<style>
+/* Bubble button */
+#chat-bubble {
+  position:fixed; bottom:28px; right:28px; z-index:8000;
+  display:flex; align-items:center; gap:10px;
+  background:var(--gold); border:none;
+  padding:13px 22px 13px 16px;
+  box-shadow:0 8px 32px rgba(201,162,39,.35), 0 2px 8px rgba(0,0,0,.3);
+  transition:transform .25s,box-shadow .25s;
+}
+#chat-bubble:hover { transform:translateY(-3px); box-shadow:0 14px 40px rgba(201,162,39,.45),0 4px 12px rgba(0,0,0,.3); }
+#chat-bubble svg { width:20px; height:20px; flex-shrink:0; }
+#chat-bubble span { font-family:var(--sans); font-size:.68rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); white-space:nowrap; }
+#chat-bubble .notif { width:8px; height:8px; background:#ef4444; border-radius:50%; position:absolute; top:-3px; right:-3px; animation:pulse-dot 2s ease infinite; }
+@keyframes pulse-dot { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.4);opacity:.7} }
+
+/* Chat window */
+#chat-window {
+  position:fixed; bottom:90px; right:28px; z-index:7999;
+  width:360px; max-height:520px;
+  background:#0d1e38; border:1px solid rgba(201,162,39,.2);
+  box-shadow:0 20px 60px rgba(0,0,0,.6);
+  display:flex; flex-direction:column;
+  transform:translateY(20px) scale(.96); opacity:0; pointer-events:none;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1), opacity .25s ease;
+}
+#chat-window.open { transform:translateY(0) scale(1); opacity:1; pointer-events:all; }
+
+.cw-header {
+  background:linear-gradient(135deg,#0a1628,#0f2044);
+  padding:16px 18px; border-bottom:1px solid rgba(201,162,39,.15);
+  display:flex; align-items:center; gap:12px; flex-shrink:0;
+}
+.cw-avatar {
+  width:38px; height:38px; border-radius:50%; overflow:hidden; flex-shrink:0;
+  border:1.5px solid rgba(201,162,39,.4);
+  background:var(--navy); display:flex; align-items:center; justify-content:center;
+}
+.cw-avatar img { width:100%; height:100%; object-fit:cover; mix-blend-mode:lighten; }
+.cw-name { font-family:var(--serif); font-size:1.05rem; font-weight:400; color:#fff; line-height:1.2; }
+.cw-status { font-size:.62rem; color:rgba(201,162,39,.65); letter-spacing:.08em; display:flex; align-items:center; gap:5px; }
+.cw-status::before { content:''; width:6px; height:6px; background:#22c55e; border-radius:50%; }
+.cw-close { margin-left:auto; background:none; border:none; color:rgba(255,255,255,.4); font-size:1.1rem; padding:4px; transition:color .2s; }
+.cw-close:hover { color:#fff; }
+
+.cw-messages {
+  flex:1; overflow-y:auto; padding:18px 16px; display:flex; flex-direction:column; gap:12px;
+  scrollbar-width:thin; scrollbar-color:rgba(201,162,39,.2) transparent;
+}
+.msg { max-width:82%; line-height:1.55; font-size:.83rem; animation:msg-in .3s ease; }
+@keyframes msg-in { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+.msg.bot { align-self:flex-start; background:rgba(255,255,255,.06); color:rgba(232,224,208,.9); padding:10px 14px; border-radius:0 12px 12px 12px; border:1px solid rgba(255,255,255,.06); }
+.msg.user { align-self:flex-end; background:var(--gold); color:var(--navy); padding:10px 14px; border-radius:12px 0 12px 12px; font-weight:500; }
+.msg.bot strong { color:var(--gold); font-weight:500; }
+
+/* Quick reply chips */
+.cw-chips { display:flex; flex-wrap:wrap; gap:6px; padding:0 16px 10px; flex-shrink:0; }
+.chip {
+  font-family:var(--sans); font-size:.68rem; letter-spacing:.06em;
+  color:rgba(201,162,39,.85); background:rgba(201,162,39,.08);
+  border:1px solid rgba(201,162,39,.25); padding:6px 13px;
+  transition:background .2s,color .2s;
+}
+.chip:hover { background:rgba(201,162,39,.18); color:var(--gold); }
+
+/* Input row */
+.cw-input-row {
+  display:flex; border-top:1px solid rgba(201,162,39,.12); flex-shrink:0;
+}
+#chat-input {
+  flex:1; background:transparent; border:none; outline:none;
+  padding:12px 14px; font-family:var(--sans); font-size:.82rem;
+  color:#fff; placeholder-color:rgba(255,255,255,.3);
+}
+#chat-input::placeholder { color:rgba(255,255,255,.25); }
+#chat-send {
+  background:none; border:none; padding:12px 16px;
+  color:var(--gold); font-size:1rem; transition:color .2s;
+}
+#chat-send:hover { color:var(--gold-light); }
+</style>
+
+<!-- Bubble trigger -->
+<button id="chat-bubble" onclick="toggleChat()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+  </svg>
+  <span>Ask Dr Phan</span>
+  <div class="notif" id="chat-notif"></div>
+</button>
+
+<!-- Chat window -->
+<div id="chat-window">
+  <div class="cw-header">
+    <div class="cw-avatar">
+      <img src="drtamphan-logo.jpg" alt="Dr. Tâm Phan">
+    </div>
+    <div>
+      <div class="cw-name">Ask Dr Phan</div>
+      <div class="cw-status">Online now</div>
+    </div>
+    <button class="cw-close" onclick="toggleChat()">✕</button>
+  </div>
+
+  <div class="cw-messages" id="cw-msgs"></div>
+
+  <div class="cw-chips" id="cw-chips"></div>
+
+  <div class="cw-input-row">
+    <input id="chat-input" type="text" placeholder="Type a question…" onkeydown="if(event.key==='Enter')sendMsg()">
+    <button id="chat-send" onclick="sendMsg()">➤</button>
+  </div>
+</div>
+
+<script>
+/* ── CHATBOT ENGINE ── */
+const RESPONSES = {
+  implants: {
+    bot:`<strong>Dental Implants</strong> are Dr. Phan's primary specialty. He has placed over <strong>2,500+ implants</strong> with a 98% success rate using the latest guided-surgery technology.<br><br>Implants look, feel, and function exactly like natural teeth — and they last a lifetime with proper care.`,
+    chips:['How much do implants cost?','Am I a candidate?','Book a consultation']
+  },
+  cost: {
+    bot:`Implant pricing varies based on your specific needs (single tooth, multiple, or full arch). A full assessment is required before an accurate quote.<br><br>We accept most insurance plans and offer flexible payment options. The best next step is a <strong>free consultation</strong>.`,
+    chips:['Book a consultation','What insurance do you accept?','Other treatments']
+  },
+  book: {
+    bot:`To book a consultation with Dr. Phan, you can:<br><br>📞 <strong>514 426-1228</strong><br>📧 <strong>contact@drtamphan.com</strong><br>📍 16912 Route Transcanadienne, Kirkland QC<br><br>Or fill out our contact form and we'll get back to you within 24 hours.`,
+    chips:['Contact form','What are your hours?','Other questions']
+  },
+  hours: {
+    bot:`Our clinic is open:<br><br><strong>Monday – Friday:</strong> 8:00 – 17:00<br><strong>Saturday:</strong> 9:00 – 16:00<br><strong>Sunday:</strong> Closed<br><br>We recommend calling ahead to confirm same-day availability.`,
+    chips:['Book a consultation','Where are you located?']
+  },
+  location: {
+    bot:`We are located at:<br><br><strong>16912 Route Transcanadienne<br>Kirkland, QC H9H 0C5</strong><br><br>Ample free parking is available on site. We are easily accessible from the A-40 highway.`,
+    chips:['Book a consultation','What are your hours?']
+  },
+  rehab: {
+    bot:`<strong>Full Mouth Rehabilitation</strong> is a comprehensive treatment that combines implants, crowns, veneers, and other restorations to fully restore oral function and aesthetics in a single coordinated plan.<br><br>Dr. Phan has performed hundreds of complete rehabilitations for patients from around the world.`,
+    chips:['Book a consultation','How long does it take?','Cost?']
+  },
+  cosmetic: {
+    bot:`Dr. Phan offers a full range of cosmetic treatments including <strong>porcelain veneers</strong>, professional whitening, and smile design — always with a natural, refined result tailored to your face.<br><br>Results are <em>permanent</em> and designed to complement your facial aesthetics.`,
+    chips:['Book a consultation','Facial aesthetics too?']
+  },
+  facial: {
+    bot:`Beyond dental care, Dr. Phan specializes in <strong>facial aesthetics</strong> including Botox, PRGF therapy, and masseter treatments — subtle interventions that harmonize your smile with your overall facial appearance.`,
+    chips:['Book a consultation','Cosmetic dentistry','Other treatments']
+  },
+  insurance: {
+    bot:`We work with most major insurance providers. Our team will verify your coverage before your appointment so there are no surprises.<br><br>We recommend calling us directly at <strong>514 426-1228</strong> with your insurance card for a quick check.`,
+    chips:['Book a consultation','What are your hours?']
+  },
+  about: {
+    bot:`Dr. Tâm Phan is a board-certified dental surgeon with <strong>20+ years of experience</strong> and a recognized international speaker at over 40 conferences worldwide.<br><br>He is a Fellow of the International Team for Implantology (ITI) and has treated patients from across four continents.`,
+    chips:['Book a consultation','See our treatments','Contact us']
+  },
+  default: {
+    bot:`I'm here to help with questions about Dr. Phan's clinic, treatments, and appointments. What would you like to know?`,
+    chips:['Dental implants','Full mouth rehab','Book a consultation','About Dr. Phan','Hours & location']
+  }
+};
+
+const KEYWORDS = [
+  [['implant','implants','tooth replacement','missing tooth','missing teeth'],'implants'],
+  [['cost','price','how much','pricing','fee','expensive'],'cost'],
+  [['book','appointment','consult','schedule','rendez-vous','meeting'],'book'],
+  [['hours','open','closing','schedule','when'],'hours'],
+  [['location','address','where','directions','parking','route','kirkland'],'location'],
+  [['rehab','rehabilitation','full mouth','complete','all teeth'],'rehab'],
+  [['cosmetic','veneer','whitening','smile design','teeth whitening'],'cosmetic'],
+  [['facial','botox','prgf','masseter','face','aesthetic'],'facial'],
+  [['insurance','coverage','plan','assurance'],'insurance'],
+  [['who is','about','doctor','dr phan','experience','credentials','iti'],'about'],
+];
+
+function classify(text){
+  const t=text.toLowerCase();
+  for(const [kws,key] of KEYWORDS)
+    if(kws.some(k=>t.includes(k))) return key;
+  return 'default';
+}
+
+let chatOpen=false;
+let greeted=false;
+
+function toggleChat(){
+  chatOpen=!chatOpen;
+  document.getElementById('chat-window').classList.toggle('open',chatOpen);
+  document.getElementById('chat-notif').style.display='none';
+  if(chatOpen&&!greeted){ greeted=true; setTimeout(greet,300); }
+}
+
+function greet(){
+  addBot(`Bonjour! 👋 I'm <strong>Dr Phan's Assistant</strong>.<br><br>How can I help you today?`);
+  setChips(['Dental implants','Full mouth rehab','Book a consultation','About Dr. Phan','Hours & location']);
+}
+
+function addBot(html){
+  const msgs=document.getElementById('cw-msgs');
+  const el=document.createElement('div');
+  el.className='msg bot'; el.innerHTML=html;
+  msgs.appendChild(el);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+function addUser(text){
+  const msgs=document.getElementById('cw-msgs');
+  const el=document.createElement('div');
+  el.className='msg user'; el.textContent=text;
+  msgs.appendChild(el);
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+function setChips(arr){
+  const box=document.getElementById('cw-chips');
+  box.innerHTML='';
+  arr.forEach(label=>{
+    const btn=document.createElement('button');
+    btn.className='chip'; btn.textContent=label;
+    btn.onclick=()=>{ addUser(label); box.innerHTML=''; respond(label); };
+    box.appendChild(btn);
+  });
+}
+
+function respond(text){
+  const key=classify(text);
+  const r=RESPONSES[key]||RESPONSES.default;
+  setTimeout(()=>{
+    addBot(r.bot);
+    if(r.chips) setChips(r.chips);
+  },420);
+}
+
+function sendMsg(){
+  const inp=document.getElementById('chat-input');
+  const val=inp.value.trim();
+  if(!val) return;
+  addUser(val);
+  document.getElementById('cw-chips').innerHTML='';
+  inp.value='';
+  respond(val);
+}
+
+// Hide bubble in hero, show once scrolled past it
+const chatBubble = document.getElementById('chat-bubble');
+const heroSection = document.getElementById('hero');
+function updateBubbleVisibility(){
+  const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+  const pastHero = window.scrollY > heroBottom - 80;
+  chatBubble.style.opacity = pastHero ? '1' : '0';
+  chatBubble.style.pointerEvents = pastHero ? 'all' : 'none';
+}
+chatBubble.style.transition = 'opacity .4s ease, transform .25s, box-shadow .25s';
+updateBubbleVisibility();
+window.addEventListener('scroll', updateBubbleVisibility, {passive:true});
+
+// Show notification dot after 4s (only if past hero)
+setTimeout(()=>{ if(!chatOpen && window.scrollY > heroSection.offsetHeight - 80) document.getElementById('chat-notif').style.display='block'; },4000);
+</script>
+</body>
+</html>
