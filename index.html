@@ -393,67 +393,83 @@ section { padding:120px 64px; }
 }
 .spec-link:hover { gap:16px; }
 
-/* ── BEFORE / AFTER VIDEO SECTION ───────── */
-/* ── BEFORE / AFTER — SCROLL-SCRUB ──────── */
+/* ── BEFORE / AFTER COMPARISON ──────────── */
 #before-after {
-  position:relative;
-  background:var(--navy);
-  padding:120px 64px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  position:relative; background:var(--navy);
+  padding:120px 64px 140px;
 }
+.ba-header { text-align:center; margin-bottom:72px; }
 .ba-label {
-  font-size:.65rem;
-  letter-spacing:.3em;
-  text-transform:uppercase;
-  color:var(--gold);
-  display:flex; align-items:center; gap:12px;
-  margin-bottom:14px;
-  opacity:0; transform:translateY(-6px);
-  transition:opacity .6s ease, transform .6s ease;
+  font-size:.62rem; letter-spacing:.32em; text-transform:uppercase;
+  color:var(--gold); display:inline-flex; align-items:center; gap:14px;
+  margin-bottom:20px;
 }
 .ba-label::before,.ba-label::after {
-  content:''; display:inline-block;
-  width:36px; height:1px; background:var(--gold);
+  content:''; display:inline-block; width:36px; height:1px; background:var(--gold);
 }
-#before-after.ba-in .ba-label { opacity:1; transform:translateY(0); }
 .ba-eyebrow {
-  font-family:var(--serif);
-  font-size:clamp(2.6rem,4.5vw,4.2rem);
-  font-weight:300; color:var(--white);
-  letter-spacing:.03em; line-height:1.1;
-  text-align:center; margin-bottom:32px;
-  opacity:0; transform:translateY(10px);
-  transition:opacity .8s ease .1s, transform .8s ease .1s;
+  font-family:var(--serif); font-size:clamp(2.2rem,3.5vw,3.6rem);
+  font-weight:300; color:var(--white); letter-spacing:.02em; line-height:1.15;
 }
-#before-after.ba-in .ba-eyebrow { opacity:1; transform:translateY(0); }
-.ba-video-wrap {
-  position:relative;
-  width:min(820px, 86vw);
-  border-radius:4px; overflow:hidden;
-  box-shadow:0 32px 80px rgba(0,0,0,.75), 0 0 0 1px rgba(201,162,39,.15);
-  opacity:0; transform:scale(1.03);
-  transition:opacity 1s ease .2s, transform 1.2s ease .2s;
+.ba-eyebrow em { font-style:italic; color:var(--gold); }
+.ba-sub { margin-top:14px; font-size:.82rem; color:var(--muted); letter-spacing:.05em; }
+.ba-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  max-width:1100px; margin:0 auto;
 }
-#before-after.ba-in .ba-video-wrap { opacity:1; transform:scale(1); }
-.ba-video { display:block; width:100%; max-height:65vh; object-fit:cover; }
-.ba-vignette {
+.bac-card {
+  display:flex; flex-direction:column; gap:16px;
+  opacity:0; transform:translateY(22px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.bac-card.on { opacity:1; transform:translateY(0); }
+.bac-card:nth-child(2) { transition-delay:.15s; }
+.bac-card:nth-child(3) { transition-delay:.30s; }
+.bac-wrap {
+  position:relative; overflow:hidden; border-radius:3px;
+  aspect-ratio:4/3; cursor:col-resize;
+  box-shadow:0 20px 56px rgba(0,0,0,.65), 0 0 0 1px rgba(201,162,39,.18);
+}
+.bac-img {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  display:block; user-select:none; pointer-events:none;
+}
+.bac-after-wrap {
   position:absolute; inset:0;
-  background:linear-gradient(to bottom, rgba(0,0,0,.2) 0%, transparent 25%, transparent 72%, rgba(0,0,0,.3) 100%);
-  pointer-events:none; z-index:5;
+  clip-path:inset(0 50% 0 0);
 }
-.ba-title {
-  margin-top:24px;
-  font-family:var(--serif);
-  font-size:clamp(1.2rem,2vw,1.9rem);
-  font-weight:300; color:var(--white);
-  letter-spacing:.06em; text-align:center;
-  opacity:0; transform:translateY(10px);
-  transition:opacity .8s ease .3s, transform .8s ease .3s;
+.bac-after-wrap .bac-img { position:relative; }
+.bac-tag {
+  position:absolute; top:12px; z-index:5;
+  font-size:.52rem; letter-spacing:.22em; text-transform:uppercase;
+  padding:4px 9px; background:rgba(0,0,0,.52); backdrop-filter:blur(4px);
+  color:rgba(255,255,255,.72); border-radius:2px; pointer-events:none;
 }
-#before-after.ba-in .ba-title { opacity:1; transform:translateY(0); }
-.ba-title em { font-style:italic; color:var(--gold); }
+.bac-tag.is-before { left:12px; }
+.bac-tag.is-after  { right:12px; }
+.bac-handle {
+  position:absolute; top:0; bottom:0; left:50%;
+  transform:translateX(-50%); width:2px;
+  background:var(--gold); z-index:10; pointer-events:none;
+  display:flex; align-items:center; justify-content:center;
+}
+.bac-btn {
+  width:34px; height:34px; border-radius:50%;
+  background:var(--gold); border:2px solid rgba(255,255,255,.9);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  box-shadow:0 4px 14px rgba(0,0,0,.5);
+}
+.bac-btn svg { width:14px; height:14px; }
+.bac-case { text-align:center; }
+.bac-case-num {
+  font-size:.56rem; letter-spacing:.28em; text-transform:uppercase;
+  color:rgba(201,162,39,.45); margin-bottom:5px;
+}
+.bac-case-name {
+  font-family:var(--serif); font-size:1rem; font-weight:300;
+  color:var(--white); letter-spacing:.04em;
+}
 
 /* ── TREATMENTS GRID ─────────────────────── */
 #treatments { padding:120px 64px; }
@@ -986,15 +1002,79 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
 
 <!-- BEFORE / AFTER -->
 <section id="before-after">
-  <div class="ba-label">Before &amp; After</div>
-  <div class="ba-eyebrow">Real Patient Result</div>
-  <div class="ba-video-wrap">
-    <video class="ba-video" muted autoplay loop playsinline preload="auto">
-      <source src="drtamphan-before-after.mp4" type="video/mp4">
-    </video>
-    <div class="ba-vignette"></div>
+  <div class="ba-header rv">
+    <div class="ba-label">Before &amp; After</div>
+    <h2 class="ba-eyebrow">Real Patient <em>Results</em></h2>
+    <p class="ba-sub">Drag to reveal each transformation</p>
   </div>
-  <div class="ba-title">From <em>before</em> to after — a life changed</div>
+  <div class="ba-grid">
+    <!-- Case 1 -->
+    <div class="bac-card rv">
+      <div class="bac-wrap">
+        <img class="bac-img" src="ba1-before.png" alt="Before">
+        <div class="bac-after-wrap">
+          <img class="bac-img" src="ba1-after.png" alt="After">
+        </div>
+        <span class="bac-tag is-before">Before</span>
+        <span class="bac-tag is-after">After</span>
+        <div class="bac-handle">
+          <div class="bac-btn">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 3L1 8l4 5M11 3l4 5-4 5" stroke="#0a1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="bac-case">
+        <div class="bac-case-num">Case 01</div>
+        <div class="bac-case-name">Full Arch Implants</div>
+      </div>
+    </div>
+    <!-- Case 2 -->
+    <div class="bac-card rv">
+      <div class="bac-wrap">
+        <img class="bac-img" src="ba2-before.png" alt="Before">
+        <div class="bac-after-wrap">
+          <img class="bac-img" src="ba2-after.png" alt="After">
+        </div>
+        <span class="bac-tag is-before">Before</span>
+        <span class="bac-tag is-after">After</span>
+        <div class="bac-handle">
+          <div class="bac-btn">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 3L1 8l4 5M11 3l4 5-4 5" stroke="#0a1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="bac-case">
+        <div class="bac-case-num">Case 02</div>
+        <div class="bac-case-name">Smile Design & Veneers</div>
+      </div>
+    </div>
+    <!-- Case 3 -->
+    <div class="bac-card rv">
+      <div class="bac-wrap">
+        <img class="bac-img" src="ba3-before.png" alt="Before">
+        <div class="bac-after-wrap">
+          <img class="bac-img" src="ba3-after.png" alt="After">
+        </div>
+        <span class="bac-tag is-before">Before</span>
+        <span class="bac-tag is-after">After</span>
+        <div class="bac-handle">
+          <div class="bac-btn">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 3L1 8l4 5M11 3l4 5-4 5" stroke="#0a1628" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="bac-case">
+        <div class="bac-case-num">Case 03</div>
+        <div class="bac-case-name">Complete Reconstruction</div>
+      </div>
+    </div>
+  </div>
   <div class="wave-bot">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0,80 L1440,80 C1200,80 960,0 720,40 C480,80 240,0 0,40 Z" fill="#0a1628"/>
@@ -1220,18 +1300,33 @@ document.querySelectorAll('.hero-title .word').forEach((w,i)=>{
   w.style.animation = `fadeUp .6s ${.5+i*.09}s forwards`;
 });
 
-/* ── BEFORE / AFTER REVEAL ───────────────── */
+/* ── BEFORE / AFTER COMPARISON DRAG ─────── */
 (function(){
-  const section = document.getElementById('before-after');
-  if(!section) return;
-  const vid = section.querySelector('.ba-video');
-  if(vid) vid.playbackRate = 0.55;
-  const obs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ section.classList.add('ba-in'); obs.unobserve(section); }
-    });
-  },{ threshold:0.2 });
-  obs.observe(section);
+  document.querySelectorAll('.bac-wrap').forEach(wrap => {
+    const afterWrap = wrap.querySelector('.bac-after-wrap');
+    const handle = wrap.querySelector('.bac-handle');
+    if(!afterWrap || !handle) return;
+    let dragging = false;
+
+    const setPos = pct => {
+      pct = Math.max(2, Math.min(98, pct));
+      afterWrap.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+      handle.style.left = pct + '%';
+    };
+
+    const calcPct = (clientX) => {
+      const r = wrap.getBoundingClientRect();
+      return (clientX - r.left) / r.width * 100;
+    };
+
+    wrap.addEventListener('mousedown', e => { dragging = true; setPos(calcPct(e.clientX)); });
+    document.addEventListener('mouseup', () => { dragging = false; });
+    document.addEventListener('mousemove', e => { if(dragging) setPos(calcPct(e.clientX)); });
+
+    wrap.addEventListener('touchstart', e => { dragging = true; e.preventDefault(); }, {passive:false});
+    document.addEventListener('touchend', () => { dragging = false; });
+    document.addEventListener('touchmove', e => { if(dragging) setPos(calcPct(e.touches[0].clientX)); }, {passive:true});
+  });
 })();
 
 /* ── REVEAL ON SCROLL ────────────────────── */
