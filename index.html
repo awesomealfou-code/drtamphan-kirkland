@@ -438,8 +438,8 @@ section { padding:120px 64px; }
 .bac-after-wrap {
   position:absolute; inset:0;
   clip-path:inset(0 50% 0 0);
+  will-change:clip-path;
 }
-.bac-after-wrap .bac-img { position:relative; }
 .bac-tag {
   position:absolute; top:12px; z-index:5;
   font-size:.52rem; letter-spacing:.22em; text-transform:uppercase;
@@ -463,12 +463,9 @@ section { padding:120px 64px; }
 .bac-btn svg { width:14px; height:14px; }
 .bac-case { text-align:center; }
 .bac-case-num {
-  font-size:.56rem; letter-spacing:.28em; text-transform:uppercase;
-  color:rgba(201,162,39,.45); margin-bottom:5px;
-}
-.bac-case-name {
-  font-family:var(--serif); font-size:1rem; font-weight:300;
-  color:var(--white); letter-spacing:.04em;
+  font-family:var(--serif); font-size:1.15rem; font-weight:300;
+  letter-spacing:.18em; text-transform:uppercase;
+  color:rgba(201,162,39,.7);
 }
 
 /* ── TREATMENTS GRID ─────────────────────── */
@@ -1027,7 +1024,6 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
       </div>
       <div class="bac-case">
         <div class="bac-case-num">Case 01</div>
-        <div class="bac-case-name">Full Arch Implants</div>
       </div>
     </div>
     <!-- Case 2 -->
@@ -1049,7 +1045,6 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
       </div>
       <div class="bac-case">
         <div class="bac-case-num">Case 02</div>
-        <div class="bac-case-name">Smile Design & Veneers</div>
       </div>
     </div>
     <!-- Case 3 -->
@@ -1071,7 +1066,6 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
       </div>
       <div class="bac-case">
         <div class="bac-case-num">Case 03</div>
-        <div class="bac-case-name">Complete Reconstruction</div>
       </div>
     </div>
   </div>
@@ -1307,6 +1301,7 @@ document.querySelectorAll('.hero-title .word').forEach((w,i)=>{
     const handle = wrap.querySelector('.bac-handle');
     if(!afterWrap || !handle) return;
     let dragging = false;
+    let rect = null;
 
     const setPos = pct => {
       pct = Math.max(2, Math.min(98, pct));
@@ -1314,18 +1309,25 @@ document.querySelectorAll('.hero-title .word').forEach((w,i)=>{
       handle.style.left = pct + '%';
     };
 
-    const calcPct = (clientX) => {
-      const r = wrap.getBoundingClientRect();
-      return (clientX - r.left) / r.width * 100;
-    };
-
-    wrap.addEventListener('mousedown', e => { dragging = true; setPos(calcPct(e.clientX)); });
+    wrap.addEventListener('mousedown', e => {
+      dragging = true;
+      rect = wrap.getBoundingClientRect();
+      setPos((e.clientX - rect.left) / rect.width * 100);
+    });
     document.addEventListener('mouseup', () => { dragging = false; });
-    document.addEventListener('mousemove', e => { if(dragging) setPos(calcPct(e.clientX)); });
+    document.addEventListener('mousemove', e => {
+      if(dragging && rect) setPos((e.clientX - rect.left) / rect.width * 100);
+    });
 
-    wrap.addEventListener('touchstart', e => { dragging = true; e.preventDefault(); }, {passive:false});
+    wrap.addEventListener('touchstart', e => {
+      dragging = true;
+      rect = wrap.getBoundingClientRect();
+      e.preventDefault();
+    }, {passive:false});
     document.addEventListener('touchend', () => { dragging = false; });
-    document.addEventListener('touchmove', e => { if(dragging) setPos(calcPct(e.touches[0].clientX)); }, {passive:true});
+    document.addEventListener('touchmove', e => {
+      if(dragging && rect) setPos((e.touches[0].clientX - rect.left) / rect.width * 100);
+    }, {passive:true});
   });
 })();
 
