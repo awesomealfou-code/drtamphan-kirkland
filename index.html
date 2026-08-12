@@ -435,10 +435,8 @@ section { padding:120px 64px; }
   object-fit:cover; object-position:center;
   display:block; user-select:none; pointer-events:none;
 }
-.bac-after-wrap {
-  position:absolute; inset:0;
+.bac-img.bac-after {
   clip-path:inset(0 50% 0 0);
-  will-change:clip-path;
 }
 .bac-tag {
   position:absolute; top:12px; z-index:5;
@@ -463,9 +461,9 @@ section { padding:120px 64px; }
 .bac-btn svg { width:14px; height:14px; }
 .bac-case { text-align:center; }
 .bac-case-num {
-  font-family:var(--serif); font-size:1.15rem; font-weight:300;
-  letter-spacing:.18em; text-transform:uppercase;
-  color:rgba(201,162,39,.7);
+  font-family:var(--serif); font-size:1.5rem; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase;
+  color:var(--gold);
 }
 
 /* ── TREATMENTS GRID ─────────────────────── */
@@ -1009,9 +1007,7 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
     <div class="bac-card rv">
       <div class="bac-wrap">
         <img class="bac-img" src="ba1-before.png" alt="Before">
-        <div class="bac-after-wrap">
-          <img class="bac-img" src="ba1-after.png" alt="After">
-        </div>
+        <img class="bac-img bac-after" src="ba1-after.png" alt="After">
         <span class="bac-tag is-before">Before</span>
         <span class="bac-tag is-after">After</span>
         <div class="bac-handle">
@@ -1022,17 +1018,13 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
           </div>
         </div>
       </div>
-      <div class="bac-case">
-        <div class="bac-case-num">Case 01</div>
-      </div>
+      <div class="bac-case"><div class="bac-case-num">Case 1</div></div>
     </div>
     <!-- Case 2 -->
     <div class="bac-card rv">
       <div class="bac-wrap">
         <img class="bac-img" src="ba2-before.png" alt="Before">
-        <div class="bac-after-wrap">
-          <img class="bac-img" src="ba2-after.png" alt="After">
-        </div>
+        <img class="bac-img bac-after" src="ba2-after.png" alt="After">
         <span class="bac-tag is-before">Before</span>
         <span class="bac-tag is-after">After</span>
         <div class="bac-handle">
@@ -1043,17 +1035,13 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
           </div>
         </div>
       </div>
-      <div class="bac-case">
-        <div class="bac-case-num">Case 02</div>
-      </div>
+      <div class="bac-case"><div class="bac-case-num">Case 2</div></div>
     </div>
     <!-- Case 3 -->
     <div class="bac-card rv">
       <div class="bac-wrap">
         <img class="bac-img" src="ba3-before.png" alt="Before">
-        <div class="bac-after-wrap">
-          <img class="bac-img" src="ba3-after.png" alt="After">
-        </div>
+        <img class="bac-img bac-after" src="ba3-after.png" alt="After">
         <span class="bac-tag is-before">Before</span>
         <span class="bac-tag is-after">After</span>
         <div class="bac-handle">
@@ -1064,9 +1052,7 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
           </div>
         </div>
       </div>
-      <div class="bac-case">
-        <div class="bac-case-num">Case 03</div>
-      </div>
+      <div class="bac-case"><div class="bac-case-num">Case 3</div></div>
     </div>
   </div>
   <div class="wave-bot">
@@ -1297,15 +1283,15 @@ document.querySelectorAll('.hero-title .word').forEach((w,i)=>{
 /* ── BEFORE / AFTER COMPARISON DRAG ─────── */
 (function(){
   document.querySelectorAll('.bac-wrap').forEach(wrap => {
-    const afterWrap = wrap.querySelector('.bac-after-wrap');
+    const afterImg = wrap.querySelector('.bac-after');
     const handle = wrap.querySelector('.bac-handle');
-    if(!afterWrap || !handle) return;
+    if(!afterImg || !handle) return;
     let dragging = false;
     let rect = null;
 
     const setPos = pct => {
       pct = Math.max(2, Math.min(98, pct));
-      afterWrap.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+      afterImg.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
       handle.style.left = pct + '%';
     };
 
