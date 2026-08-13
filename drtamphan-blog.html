@@ -9,15 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy:      #0a1628;
-  --navy-mid:  #0f2044;
+  --navy:      #0a0a0a;
+  --navy-mid:  #000000;
   --gold:      #c9a227;
   --gold-light:#e2bc50;
   --gold-dim:  rgba(201,162,39,0.12);
   --white:     #ffffff;
   --off-white: #e8e0d0;
   --muted:     rgba(232,224,208,0.55);
-  --glass:     rgba(8,18,36,0.88);
+  --glass:     rgba(0,0,0,0.92);
   --serif:     'Cormorant Garamond', Georgia, serif;
   --sans:      'DM Sans', system-ui, sans-serif;
 }
@@ -69,7 +69,7 @@ nav {
 /* PAGE HEADER */
 .page-header {
   padding:140px 64px 80px;
-  background:linear-gradient(145deg, #060e1c 0%, #0f2044 60%, #0a1628 100%);
+  background:linear-gradient(145deg, #000000 0%, #000000 60%, #0a0a0a 100%);
   position:relative; overflow:hidden;
 }
 .page-header::after {
@@ -126,12 +126,12 @@ nav {
 .featured-card:hover { border-color:rgba(201,162,39,.35); }
 .fc-img {
   height:480px; overflow:hidden;
-  background:linear-gradient(145deg,#1e3040,#0d1e30,#162040);
+  background:linear-gradient(145deg,#141414,#0a0a0a,#0a0a0a);
   position:relative;
 }
 .fc-img-inner { width:100%; height:100%; transition:transform .7s ease; }
 .featured-card:hover .fc-img-inner { transform:scale(1.05); }
-.fc-img-inner { background:linear-gradient(145deg,#1e3040 0%,#0d1e30 50%,#162040 100%); }
+.fc-img-inner { background:linear-gradient(145deg,#141414 0%,#0a0a0a 50%,#0a0a0a 100%); }
 .fc-badge {
   position:absolute; top:24px; left:24px;
   font-size:.58rem; letter-spacing:.2em; text-transform:uppercase;
@@ -170,11 +170,11 @@ nav {
 .ac-img-bg { width:100%; height:100%; transition:transform .6s ease; }
 .article-card:hover .ac-img-bg { transform:scale(1.09); }
 
-.bg-a { background:linear-gradient(140deg,#1e3040,#0d1e30); }
+.bg-a { background:linear-gradient(140deg,#141414,#0a0a0a); }
 .bg-b { background:linear-gradient(140deg,#1e2a1e,#0d1a10); }
 .bg-c { background:linear-gradient(140deg,#2a1e30,#180d20); }
 .bg-d { background:linear-gradient(140deg,#2a2010,#1c150a); }
-.bg-e { background:linear-gradient(140deg,#1a2840,#0d1c30); }
+.bg-e { background:linear-gradient(140deg,#0a0a0a,#0d1c30); }
 .bg-f { background:linear-gradient(140deg,#2f1a1a,#241010); }
 
 .ac-body { padding:28px; }
@@ -216,7 +216,7 @@ nav {
 .nl-btn:hover { background:var(--gold-light); }
 
 /* FOOTER */
-footer { background:#060e1c; padding:60px 64px 36px; border-top:1px solid rgba(201,162,39,.1); }
+footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(201,162,39,.1); }
 .footer-bottom { display:flex; justify-content:space-between; align-items:center; }
 .f-copy { font-size:.72rem; color:rgba(255,255,255,.28); }
 .f-back {
@@ -267,16 +267,16 @@ footer { background:#060e1c; padding:60px 64px 36px; border-top:1px solid rgba(2
 
 <nav>
   <div class="logo-wrap">
-    <a href="drtamphan-redesign.html" class="logo">
-      <img src="drtamphan-logo.jpg" alt="Dr. Tâm Phan">
+    <a href="index.html" class="logo">
+      <img src="drtamphan-logo-en.png" alt="Dr. Tâm Phan">
     </a>
     <span class="logo-tagline">Dentofacial Aesthetics</span>
   </div>
   <ul class="nav-links">
-    <li><a href="drtamphan-redesign.html#specialties">Treatments</a></li>
-    <li><a href="drtamphan-redesign.html#about">About</a></li>
+    <li><a href="index.html#specialties">Treatments</a></li>
+    <li><a href="index.html#about">About</a></li>
     <li><a href="drtamphan-team.html">The Team</a></li>
-    <li><a href="drtamphan-redesign.html#process">Our Process</a></li>
+    <li><a href="index.html#process">Our Process</a></li>
     <li><a href="drtamphan-blog.html">Blog</a></li>
     <li><a href="drtamphan-book.html" class="nav-cta">Contact Us</a></li>
   </ul>
@@ -456,7 +456,7 @@ footer { background:#060e1c; padding:60px 64px 36px; border-top:1px solid rgba(2
 <footer>
   <div class="footer-bottom">
     <div class="f-copy">© 2024 Dr. Tâm Phan. All rights reserved.</div>
-    <a href="drtamphan-redesign.html" class="f-back">← Back to Home</a>
+    <a href="index.html" class="f-back">← Back to Home</a>
   </div>
 </footer>
 
