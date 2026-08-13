@@ -511,16 +511,13 @@ section { padding:120px 64px; }
 }
 .treat-card:hover .treat-desc { max-height:80px; }
 
-/* Treatment bg gradients */
-.tb1 { background:linear-gradient(145deg,#1e1e1e,#0d0d0d,#181818); }
-.tb2 { background:linear-gradient(145deg,#1a1a1a,#0d0d0d,#141414); }
-.tb3 { background:linear-gradient(145deg,#181818,#0d0d0d,#141414); }
-.tb4 { background:linear-gradient(145deg,#1c1414,#141010,#141010); }
-.tb5 { background:linear-gradient(145deg,#181818,#0d0d0d,#161616); }
-.tb6 { background:linear-gradient(145deg,#161616,#101010,#141414); }
-.tb7 { background:linear-gradient(145deg,#1a180c,#141008,#181008); }
-.tb8 { background:linear-gradient(145deg,#161616,#0d0d0d,#141414); }
-.tb9 { background:linear-gradient(145deg,#181414,#101010,#141010); }
+/* Treatment bg images */
+.treat-img {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center;
+  display:block;
+}
 
 /* inner glow highlight */
 .treat-bg::after {
@@ -895,7 +892,7 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
 
   <div class="treat-grid">
     <div class="treat-card rv">
-      <div class="treat-bg tb1"></div>
+      <div class="treat-bg"><img class="treat-img" src="treat-botox.png" alt="Botox & Aesthetic Treatments"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Elevated Facial Aesthetics</div>
@@ -904,7 +901,7 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       </div>
     </div>
     <div class="treat-card rv" style="transition-delay:.08s">
-      <div class="treat-bg tb2"></div>
+      <div class="treat-bg"><img class="treat-img" src="treat-implant.png" alt="Dental Implants"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Dental Implants</div>
@@ -913,7 +910,7 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       </div>
     </div>
     <div class="treat-card rv" style="transition-delay:.14s">
-      <div class="treat-bg tb3"></div>
+      <div class="treat-bg"><img class="treat-img" src="treat-sinus.png" alt="Sinus Lift"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Full Mouth Rehabilitation</div>
@@ -922,7 +919,7 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       </div>
     </div>
     <div class="treat-card rv" style="transition-delay:.06s">
-      <div class="treat-bg tb4"></div>
+      <div class="treat-bg"><img class="treat-img" src="treat-gum.png" alt="Gum Graft & Bone Graft"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Cosmetic Dentistry &amp; Implants</div>
@@ -931,7 +928,7 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       </div>
     </div>
     <div class="treat-card rv" style="transition-delay:.12s">
-      <div class="treat-bg tb5"></div>
+      <div class="treat-bg"><img class="treat-img" src="treat-extraction.png" alt="Teeth Extraction & Temporary Prosthetics"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Dental Implants</div>
@@ -940,7 +937,7 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       </div>
     </div>
     <div class="treat-card rv" style="transition-delay:.04s">
-      <div class="treat-bg tb6"></div>
+      <div class="treat-bg"><img class="treat-img" src="treat-fullmouth.png" alt="Full Mouth Rehabilitation"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Full Mouth Rehabilitation</div>
@@ -949,7 +946,7 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       </div>
     </div>
     <div class="treat-card rv" style="transition-delay:.1s">
-      <div class="treat-bg tb7"></div>
+      <div class="treat-bg"><img class="treat-img" src="treat-bridges.png" alt="Dental Bridges & Wisdom Teeth"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Cosmetic Dentistry</div>
