@@ -9,16 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy:       #0a1628;
-  --navy-mid:   #06060a;
-  --navy-light: #162552;
+  --navy:       #0a0a0a;
+  --navy-mid:   #000000;
+  --navy-light: #1c1c1c;
   --gold:       #c9a227;
   --gold-light: #e2bc50;
   --gold-dim:   rgba(201,162,39,0.12);
   --white:      #ffffff;
   --off-white:  #e8e0d0;
   --muted:      rgba(232,224,208,0.55);
-  --glass:      rgba(8,18,36,0.88);
+  --glass:      rgba(0,0,0,0.92);
   --serif:      'Cormorant Garamond', Georgia, serif;
   --sans:       'DM Sans', system-ui, sans-serif;
 }
@@ -137,7 +137,7 @@ nav.scrolled .logo img { height:46px; }
   position:absolute; inset:0;
   background:
     radial-gradient(ellipse at 68% 44%, rgba(201,162,39,.07) 0%, transparent 55%),
-    linear-gradient(145deg, #060e1c 0%, #0f2044 55%, #0a1628 100%);
+    linear-gradient(145deg, #000000 0%, #0f0f0f 55%, #0a0a0a 100%);
 }
 .hero-grid {
   position:absolute; inset:0;
@@ -379,7 +379,7 @@ section { padding:120px 64px; }
   height:2px; background:var(--gold);
   transform:scaleX(0); transition:transform .4s ease;
 }
-.spec-card:hover { background:#162552; }
+.spec-card:hover { background:#1c1c1c; }
 .spec-card:hover::after { transform:scaleX(1); }
 .spec-num { font-family:var(--serif); font-size:2.8rem; font-weight:300; color:rgba(255,255,255,0.18); margin-bottom:22px; }
 .spec-icon { width:44px; height:44px; color:var(--gold); margin-bottom:22px; }
@@ -627,9 +627,9 @@ section { padding:120px 64px; }
 .blog-img { height:190px; overflow:hidden; }
 .blog-img-bg { width:100%; height:100%; transition:transform .6s ease; }
 .blog-card:hover .blog-img-bg { transform:scale(1.09); }
-.bb1 { background:linear-gradient(140deg,#1e3040,#0d1e30); }
-.bb2 { background:linear-gradient(140deg,#1e2a1e,#0d1a10); }
-.bb3 { background:linear-gradient(140deg,#2a1e30,#180d20); }
+.bb1 { background:linear-gradient(140deg,#1a1a1a,#0d0d0d); }
+.bb2 { background:linear-gradient(140deg,#181818,#0c0c0c); }
+.bb3 { background:linear-gradient(140deg,#1c1414,#100a0a); }
 .blog-body { padding:30px; }
 .blog-tags { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; }
 .blog-tag {
@@ -666,7 +666,7 @@ footer { position:relative; }
   position:relative; display:inline-block; line-height:0;
 }
 .logo-draw-img {
-  width:min(940px, 90vw); height:auto; mix-blend-mode:lighten; display:block;
+  width:min(780px, 82vw); height:auto; mix-blend-mode:lighten; display:block;
   opacity:0; clip-path:inset(0 100% 0 0);
 }
 .pen-tip {
@@ -682,7 +682,7 @@ footer { position:relative; }
 }
 
 /* ── FOOTER ──────────────────────────────── */
-footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(201,162,39,.1); }
+footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(201,162,39,.1); }
 .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:56px; margin-bottom:56px; }
 .f-brand .logo { font-size:1.5rem; display:block; margin-bottom:18px; }
 .f-logo-link { display:inline-block; margin-bottom:18px; }
@@ -807,7 +807,7 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
   <!-- wave in from hero -->
   <div class="wave-top">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,0 L1440,0 C1200,0 960,80 720,40 C480,0 240,80 0,40 Z" fill="#0a1628"/>
+      <path d="M0,0 L1440,0 C1200,0 960,80 720,40 C480,0 240,80 0,40 Z" fill="#0a0a0a"/>
     </svg>
   </div>
   <div class="s-eyebrow rv">Our Expertise</div>
@@ -862,7 +862,7 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
   <!-- wave out to CTA -->
   <div class="wave-bot">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,80 L1440,80 C1200,80 960,0 720,40 C480,80 240,0 0,40 Z" fill="#0a1628"/>
+      <path d="M0,80 L1440,80 C1200,80 960,0 720,40 C480,80 240,0 0,40 Z" fill="#0a0a0a"/>
     </svg>
   </div>
 </section>
@@ -871,7 +871,7 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
 <section id="cta">
   <div class="logo-draw-section">
     <div class="logo-draw-wrapper">
-      <img src="drtamphan-logo.jpg" class="logo-draw-img" alt="Dr. Tâm Phan">
+      <img src="drtamphan-logo-en.png" class="logo-draw-img" alt="Dr. Tâm Phan">
       <div class="pen-tip"></div>
     </div>
     <div class="logo-draw-sub">Dentofacial Aesthetics &nbsp;·&nbsp; Kirkland, Québec</div>
@@ -882,7 +882,7 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
 <section id="treatments">
   <div class="wave-top">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,0 L1440,0 L1440,50 Q720,80 0,50 Z" fill="#0a1628"/>
+      <path d="M0,0 L1440,0 L1440,50 Q720,80 0,50 Z" fill="#0a0a0a"/>
     </svg>
   </div>
   <div class="treat-header">
@@ -1058,7 +1058,7 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
   </div>
   <div class="wave-bot">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,80 L1440,80 C1200,80 960,0 720,40 C480,80 240,0 0,40 Z" fill="#0a1628"/>
+      <path d="M0,80 L1440,80 C1200,80 960,0 720,40 C480,80 240,0 0,40 Z" fill="#0a0a0a"/>
     </svg>
   </div>
 </section>
@@ -1090,7 +1090,7 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
   <!-- wave in from stats -->
   <div class="wave-top">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,0 L1440,0 L1440,50 Q720,80 0,50 Z" fill="#0a1628"/>
+      <path d="M0,0 L1440,0 L1440,50 Q720,80 0,50 Z" fill="#0a0a0a"/>
     </svg>
   </div>
   <div class="s-eyebrow rv" style="justify-content:center">Your Journey</div>
@@ -1126,7 +1126,7 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
   <!-- wave out to testimonials -->
   <div class="wave-bot">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,80 L1440,80 L1440,30 Q720,0 0,30 Z" fill="#0a1628"/>
+      <path d="M0,80 L1440,80 L1440,30 Q720,0 0,30 Z" fill="#0a0a0a"/>
     </svg>
   </div>
 </section>
@@ -1206,7 +1206,7 @@ footer { background:#060e1c; padding:80px 64px 40px; border-top:1px solid rgba(2
   </div>
   <div class="wave-bot">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,30 C360,80 1080,80 1440,30 L1440,80 L0,80 Z" fill="#060e1c"/>
+      <path d="M0,30 C360,80 1080,80 1440,30 L1440,80 L0,80 Z" fill="#000000"/>
     </svg>
   </div>
 </section>
@@ -1477,7 +1477,7 @@ window.addEventListener('scroll',()=>{
 #chat-window.open { transform:translateY(0) scale(1); opacity:1; pointer-events:all; }
 
 .cw-header {
-  background:linear-gradient(135deg,#0a1628,#0f2044);
+  background:linear-gradient(135deg,#0a0a0a,#1a1a1a);
   padding:16px 18px; border-bottom:1px solid rgba(201,162,39,.15);
   display:flex; align-items:center; gap:12px; flex-shrink:0;
 }
