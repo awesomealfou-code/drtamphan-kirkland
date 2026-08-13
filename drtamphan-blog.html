@@ -252,6 +252,138 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
   .nl-input { border-right:1px solid rgba(201,162,39,.2); border-bottom:none; }
   footer { padding:40px 20px 24px; }
 }
+
+/* ===== ARTICLE MODAL ===== */
+.art-overlay {
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(0,0,0,.86);
+  backdrop-filter:blur(14px);
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  opacity:0;pointer-events:none;
+  transition:opacity .35s ease;
+}
+.art-overlay.open { opacity:1; pointer-events:all; }
+
+.art-modal {
+  background:#0c0c0c;
+  border:1px solid rgba(201,162,39,.18);
+  width:100%;max-width:840px;
+  max-height:90vh;
+  overflow-y:auto;
+  position:relative;
+  transform:translateY(30px);
+  transition:transform .42s cubic-bezier(.22,.61,.36,1);
+  scrollbar-width:thin;
+  scrollbar-color:rgba(201,162,39,.2) transparent;
+}
+.art-overlay.open .art-modal { transform:translateY(0); }
+
+/* sticky close bar */
+.art-close-bar {
+  position:sticky;top:0;
+  display:flex;justify-content:flex-end;
+  padding:18px 22px 0;
+  z-index:20;
+  pointer-events:none;
+}
+.art-close-btn {
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(12,12,12,.9);
+  border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.55);
+  font-size:16px;line-height:1;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  pointer-events:all;
+  transition:background .2s,color .2s,border-color .2s;
+}
+.art-close-btn:hover { background:rgba(201,162,39,.15);color:#c9a227;border-color:rgba(201,162,39,.4); }
+
+/* image strip */
+.art-img {
+  height:300px;
+  margin-top:-56px;
+  position:relative;overflow:hidden;
+}
+.art-img img { width:100%;height:100%;object-fit:cover;object-position:center top;display:block; }
+
+/* header */
+.art-header {
+  padding:36px 52px 28px;
+  border-bottom:1px solid rgba(201,162,39,.1);
+}
+.art-tags { display:flex;gap:8px;margin-bottom:18px; }
+.art-tag {
+  font-family:'DM Sans',sans-serif;font-size:8.5px;font-weight:500;
+  letter-spacing:.32em;text-transform:uppercase;
+  padding:5px 11px;
+  border:1px solid rgba(201,162,39,.3);color:var(--gold);
+}
+.art-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.5rem,3vw,2.3rem);
+  font-weight:300;color:#fff;
+  line-height:1.22;letter-spacing:.02em;margin-bottom:20px;
+}
+.art-meta {
+  display:flex;gap:16px;align-items:center;flex-wrap:wrap;
+  font-family:'DM Sans',sans-serif;font-size:9.5px;font-weight:400;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);
+}
+.art-meta-dot { width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.18); }
+
+/* body */
+.art-body { padding:44px 52px 52px; }
+.art-intro {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.12rem;font-style:italic;
+  color:rgba(255,255,255,.62);line-height:1.88;
+  margin-bottom:40px;padding-bottom:36px;
+  border-bottom:1px solid rgba(201,162,39,.07);
+}
+.art-section { margin-bottom:32px; }
+.art-section h3 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-weight:400;
+  color:var(--gold);letter-spacing:.04em;margin-bottom:12px;
+}
+.art-section p {
+  font-family:'Cormorant Garamond',serif;
+  font-size:.98rem;color:rgba(255,255,255,.5);
+  line-height:1.92;margin-bottom:12px;
+}
+.art-section ul { list-style:none;padding:0;display:flex;flex-direction:column;gap:10px; }
+.art-section li {
+  font-family:'Cormorant Garamond',serif;
+  font-size:.95rem;color:rgba(255,255,255,.45);
+  line-height:1.75;padding-left:18px;position:relative;
+}
+.art-section li::before {
+  content:'';position:absolute;left:0;top:.72em;
+  width:7px;height:1px;background:var(--gold);opacity:.7;
+}
+
+/* CTA */
+.art-cta {
+  margin-top:44px;padding-top:36px;
+  border-top:1px solid rgba(201,162,39,.1);
+  text-align:center;
+}
+.art-cta-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-style:italic;
+  color:rgba(255,255,255,.35);margin-bottom:22px;
+}
+.art-cta-btn {
+  display:inline-block;padding:14px 38px;
+  background:var(--gold);color:#0a0a0a;
+  font-family:'DM Sans',sans-serif;font-size:9.5px;font-weight:500;
+  letter-spacing:.3em;text-transform:uppercase;text-decoration:none;
+  transition:background .25s,transform .2s;
+}
+.art-cta-btn:hover { background:#e2bc50;transform:translateY(-2px); }
 </style>
 </head>
 <body>
@@ -298,7 +430,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
 <!-- FEATURED ARTICLE -->
 <div class="featured-section">
-  <a href="#" class="featured-card rv" data-cat="featured implants">
+  <a href="#" class="featured-card rv" data-cat="featured implants" onclick="openArticle('art-implants');return false;">
     <div class="fc-img">
       <div class="fc-img-inner"></div>
       <div class="fc-badge">Featured</div>
@@ -330,7 +462,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
   <div class="articles-grid">
 
-    <a href="#" class="article-card rv" data-cat="featured news implants" style="transition-delay:.05s">
+    <a href="#" class="article-card rv" data-cat="featured news implants" style="transition-delay:.05s" onclick="openArticle('art-sinus');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-a"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Featured</span><span class="ac-tag">News</span></div>
@@ -343,7 +475,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="featured aesthetics" style="transition-delay:.1s">
+    <a href="#" class="article-card rv" data-cat="featured aesthetics" style="transition-delay:.1s" onclick="openArticle('art-botox');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-b"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Featured</span><span class="ac-tag">Aesthetics</span></div>
@@ -356,7 +488,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="aesthetics" style="transition-delay:.15s">
+    <a href="#" class="article-card rv" data-cat="aesthetics" style="transition-delay:.15s" onclick="openArticle('art-prgf');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-c"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Aesthetics</span></div>
@@ -369,7 +501,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="implants" style="transition-delay:.2s">
+    <a href="#" class="article-card rv" data-cat="implants" style="transition-delay:.2s" onclick="openArticle('art-fullmouth');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-d"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Implants</span></div>
@@ -382,7 +514,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="prevention implants" style="transition-delay:.25s">
+    <a href="#" class="article-card rv" data-cat="prevention implants" style="transition-delay:.25s" onclick="openArticle('art-bonegraft');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-e"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Prevention</span></div>
@@ -395,7 +527,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="prevention news implants" style="transition-delay:.3s">
+    <a href="#" class="article-card rv" data-cat="prevention news implants" style="transition-delay:.3s" onclick="openArticle('art-gums');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-f"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Prevention</span><span class="ac-tag">News</span></div>
@@ -408,7 +540,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="aesthetics" style="transition-delay:.35s">
+    <a href="#" class="article-card rv" data-cat="aesthetics" style="transition-delay:.35s" onclick="openArticle('art-veneers');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-a"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Aesthetics</span></div>
@@ -421,7 +553,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="implants" style="transition-delay:.4s">
+    <a href="#" class="article-card rv" data-cat="implants" style="transition-delay:.4s" onclick="openArticle('art-wisdom');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-c"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Implants</span></div>
@@ -516,6 +648,200 @@ if (initCat !== 'all') {
     document.querySelector('.cat-filters')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 400);
 }
+</script>
+
+<!-- ===== ARTICLE MODAL ===== -->
+<div class="art-overlay" id="artOverlay" onclick="closeArticle(event)">
+  <div class="art-modal" id="artModal">
+    <div class="art-close-bar">
+      <button class="art-close-btn" onclick="closeArticle(null,true)">&#x2715;</button>
+    </div>
+    <div class="art-img" id="artImg"></div>
+    <div class="art-header">
+      <div class="art-tags" id="artTagsEl"></div>
+      <h1 class="art-title" id="artTitleEl"></h1>
+      <div class="art-meta" id="artMetaEl"></div>
+    </div>
+    <div class="art-body" id="artBodyEl"></div>
+  </div>
+</div>
+
+<script>
+/* ===== ARTICLE DATA ===== */
+const ARTICLES = {
+  'art-implants': {
+    title: 'Navigating Dental Implants: From Surgery to Smiles',
+    tags: ['Featured', 'Implants'],
+    date: 'June 12, 2024', read: '8 min read',
+    gradient: 'linear-gradient(135deg,#0d1520,#1a2d42,#0d1520)',
+    intro: 'Dental implants have revolutionized modern dentistry, offering a permanent solution to missing teeth that closely mimics natural teeth in both form and function. If you\'re considering dental implants to restore your smile, this comprehensive guide will take you through the entire journey — from the first consultation to enjoying a complete and confident smile.',
+    sections: [
+      { h: 'Ankylos Technology: The Pinnacle of Implant Precision', p: 'Dr. Phan specializes in Ankylos dental implant technology — engineered for superior stability, precision fit, and long-term success. These implants are designed with a unique tapered connection that distributes chewing forces evenly, preserving bone and ensuring a foundation as strong as a natural tooth root.' },
+      { h: '1. Consultation & Personalized Treatment Planning', p: 'Your journey begins with a comprehensive consultation. Dr. Phan evaluates your oral health using advanced imaging, discusses your aesthetic goals, and creates a treatment plan tailored to your anatomy and lifestyle. Ankylos implants are highly adaptable and can be used in a wide range of clinical situations — from single tooth replacements to full arch restorations.' },
+      { h: '2. Surgical Placement', p: 'The implant — a small titanium post — is placed into the jawbone under local anesthesia, ensuring your complete comfort. The precision of Ankylos technology delivers an extremely stable fit from day one, and in many cases a temporary restoration can be placed at the same appointment.' },
+      { h: '3. Osseointegration & Final Restoration', p: 'Over the following months, the implant fuses with your bone through a biological process called osseointegration. Once complete, a custom-fabricated crown is attached — matched precisely to your natural teeth in size, shape, and shade for a seamless, natural result.' },
+      { h: 'Why Dental Implants?', list: ['Precision & Stability: an exceptionally stable foundation — no movement, no slipping', 'Natural Appearance: virtually indistinguishable from your own teeth', 'Preserved Oral Health: no alteration of adjacent healthy teeth required', 'Lifetime Durability: designed to last decades with proper care and hygiene', 'Restored Confidence: eat your favourite foods and smile without hesitation'] }
+    ]
+  },
+  'art-sinus': {
+    title: 'Sinus Lift Surgery: What You Need to Know Before Your Implant',
+    tags: ['Featured', 'News'],
+    date: 'May 28, 2024', read: '6 min read',
+    gradient: 'linear-gradient(135deg,#0d1a12,#152a1c,#0d1a12)',
+    intro: 'A sinus lift — also called a sinus augmentation — is a surgical procedure that adds bone to the upper jaw in the region of the molars and premolars. It is a crucial preparatory step when insufficient bone density exists to support a dental implant, creating the secure foundation needed for a lasting result.',
+    sections: [
+      { h: 'Who Needs a Sinus Lift?', p: 'Sinus lift surgery is recommended for patients who have experienced bone loss in the upper jaw — whether due to tooth loss, natural anatomy, or long-standing tooth absence. Without adequate bone height, a dental implant cannot be safely placed in the upper posterior region.', list: ['Insufficient bone height due to natural anatomy or prior tooth loss', 'Bone atrophy following long-term absence of upper back teeth', 'Sinus cavity that sits too close to the jaw ridge for safe implant placement'] },
+      { h: 'The Procedure, Step by Step', p: 'The journey begins with a thorough evaluation using X-rays and CT scans to map bone density and sinus position. Under local anesthesia, a small incision exposes the bone, and a gentle window is created. The sinus membrane is carefully elevated, and high-quality bone graft material is placed into the newly created space. PRGF therapy is often applied to accelerate healing.' },
+      { h: 'Healing & Next Steps', p: 'Over the following 6 to 9 months, the graft material fuses with your existing bone, gradually building the density needed to support an implant. Once the site has fully consolidated, dental implant placement can proceed with confidence and predictability.' },
+      { h: 'Key Benefits', list: ['Creates the bone foundation required for upper jaw implant placement', 'Enables a permanent implant solution where none was previously possible', 'Restores bone density lost to tooth absence or natural anatomy', 'Performed comfortably under local anesthesia with minimal downtime'] }
+    ]
+  },
+  'art-botox': {
+    title: 'Botox®, Masseter Botox & PRGF: Choosing the Right Facial Rejuvenation',
+    tags: ['Featured', 'Aesthetics'],
+    date: 'May 14, 2024', read: '7 min read',
+    gradient: 'linear-gradient(135deg,#1a0d2a,#261540,#1a0d2a)',
+    intro: 'Facial aesthetics is about far more than simply reducing wrinkles — it is about restoring harmony, preserving natural expression, and enhancing the unique features that define your appearance. Three modern treatments stand at the forefront of Dr. Phan\'s practice: Botox® Aesthetic, Masseter Botox, and PRGF Therapy. Each functions differently and addresses distinct goals.',
+    sections: [
+      { h: 'Botox® Aesthetic', p: 'Botox® works by temporarily relaxing specific facial muscles responsible for expression lines. Common treatment areas include forehead lines, frown lines between the brows, crow\'s feet, and chin dimpling. The goal is not to eliminate expression — but to soften it, preserving the natural warmth and personality of your face while smoothing dynamic wrinkles. Results last 3 to 6 months.' },
+      { h: 'Masseter Botox', p: 'Unlike aesthetic Botox, masseter treatment targets the jaw muscles rather than expression muscles. The result is threefold: relief from chronic jaw tension and headaches associated with bruxism (teeth grinding), reduction of nighttime grinding that damages enamel, and a subtle facial slimming effect along the lower third of the face. Normal chewing function is completely preserved.' },
+      { h: 'PRGF Therapy', p: 'PRGF — Plasma Rich in Growth Factors — is a fundamentally different treatment from Botox®. It uses concentrated growth factors extracted from your own blood to stimulate your skin\'s regenerative capacity, improving texture, elasticity, and deep hydration. Unlike surface treatments, PRGF works from within — results develop gradually over 4 to 6 weeks as your own biology rebuilds.' },
+      { h: 'How Dr. Phan Chooses Your Protocol', p: 'Every face is different. Dr. Phan conducts a comprehensive facial assessment before recommending any treatment — considering your anatomy, your concerns, and your goals. Depending on the case, treatments may be used individually or combined for a synergistic, naturally harmonious result. No two treatment plans are ever identical.' }
+    ]
+  },
+  'art-prgf': {
+    title: 'PRGF Therapy: How Platelet-Rich Growth Factor Accelerates Healing',
+    tags: ['Aesthetics'],
+    date: 'Apr 30, 2024', read: '5 min read',
+    gradient: 'linear-gradient(135deg,#1a0d20,#2a152e,#1a0d20)',
+    intro: 'PRGF — Plasma Rich in Growth Factors — harnesses the regenerative power already present within your own blood. By concentrating natural growth factors and reintroducing them precisely where healing or rejuvenation is needed, PRGF produces results that are both clinically effective and completely biocompatible.',
+    sections: [
+      { h: 'The Science Behind PRGF', p: 'A small sample of blood is drawn and placed in a centrifuge, which separates the plasma fraction richest in growth factors. This concentrated PRGF preparation is then applied to the treatment site — whether a surgical wound, a skin zone, or a gum tissue area — where it triggers an accelerated and more organized healing response.' },
+      { h: 'Applications in Dentistry', p: 'In Dr. Phan\'s practice, PRGF is routinely used to accelerate healing after implant surgery, tooth extractions, bone grafting, and periodontal procedures. Applied directly to the surgical site, it significantly reduces healing time, minimizes post-operative discomfort, and improves the quality of new tissue formation.', list: ['Post-implant surgery healing and osseointegration support', 'Accelerated recovery after bone and gum grafting procedures', 'Periodontal tissue regeneration and gum health restoration'] },
+      { h: 'Aesthetic Applications for the Skin', p: 'Applied to facial skin, PRGF stimulates collagen production and improves texture, elasticity, and hydration at a cellular level. Unlike surface-layer aesthetic treatments, PRGF works from within — with results developing gradually over 4 to 6 weeks as your own biology rebuilds the skin\'s structural foundation.' },
+      { h: 'Why PRGF?', list: ['100% autologous — derived from your own blood, zero risk of allergic reaction', 'Accelerates both surgical and aesthetic healing processes', 'Improves long-term tissue quality and regenerative capacity', 'Completely natural — no synthetic compounds, no foreign materials'] }
+    ]
+  },
+  'art-fullmouth': {
+    title: 'Full Mouth Rehabilitation: What to Expect at Every Stage',
+    tags: ['Implants'],
+    date: 'Apr 15, 2024', read: '9 min read',
+    gradient: 'linear-gradient(135deg,#0d1525,#182238,#0d1525)',
+    intro: 'Full Mouth Rehabilitation — also called full mouth reconstruction — is a highly specialized approach to comprehensive dental care that addresses challenges across both the upper and lower jaws simultaneously. It is the treatment of choice for patients whose oral health concerns extend beyond a single tooth or region, requiring a coordinated, sequenced plan of care.',
+    sections: [
+      { h: 'Who Benefits from Full Mouth Rehabilitation?', list: ['Multiple missing teeth due to decay, trauma, or advanced disease', 'Severely worn or damaged teeth from grinding, clenching, or acid erosion', 'Chronic jaw pain or temporomandibular joint (TMJ) disorders', 'Advanced gum disease requiring both periodontal and restorative intervention', 'Complex cosmetic concerns spanning multiple teeth, regions, or both arches'] },
+      { h: 'The Treatment Journey', p: 'Rehabilitation begins with a thorough diagnostic evaluation — including digital X-rays, 3D cone beam imaging, bite analysis, and a detailed health history review. From this foundation, Dr. Phan constructs a personalized, phased plan that always prioritizes health before aesthetics, and biological function before cosmetic form.' },
+      { h: 'Treatment Phases', p: 'Depending on the complexity of your case, rehabilitation may incorporate dental implants, porcelain crowns, bridges, inlays and onlays, gum therapy, orthodontic realignment, and full-arch bite correction. Each phase builds deliberately on the last — with specialist collaboration when the case demands it.' },
+      { h: 'Life-Changing Results', p: '"Full Mouth Rehabilitation is an expert and comprehensive dental treatment that focuses on restoring the health, function, and aesthetics of an individual\'s entire oral cavity." — Dr. Tâm Phan. Patients consistently describe the outcome not simply as a better smile, but as a transformation in how they eat, speak, and carry themselves through everyday life.' }
+    ]
+  },
+  'art-bonegraft': {
+    title: 'The Role of Bone Grafting in Long-Term Implant Success',
+    tags: ['Prevention'],
+    date: 'Mar 22, 2024', read: '5 min read',
+    gradient: 'linear-gradient(135deg,#101a14,#1a2a1e,#101a14)',
+    intro: 'Bone grafting is the unsung hero of implant surgery. When the jawbone lacks the volume or density required to safely support an implant, bone grafting restores that foundation — making procedures possible that would otherwise be out of reach, and dramatically improving long-term outcomes for patients who qualify.',
+    sections: [
+      { h: 'Why Bone Loss Happens', p: 'When a tooth is lost, the bone that once surrounded its root begins to resorb — often losing a significant portion of its volume within the first year alone. Periodontal disease, trauma, and long-term denture use all accelerate this process. Without intervention, the jawbone continues to narrow and thin, eventually making implant placement unsafe without prior bone reconstruction.' },
+      { h: 'Types of Bone Graft Material', list: ['Autograft: bone harvested from your own body (chin, jaw ramus, or hip) — the biological gold standard for integration and new bone formation', 'Allograft: donor human bone, rigorously processed and sterilized for safe, predictable use', 'Xenograft: bovine or porcine-derived bone mineral — highly biocompatible with a strong clinical track record', 'Synthetic: bioengineered scaffolds that guide the body\'s own bone-forming cells into the defect site'] },
+      { h: 'The Grafting & Healing Process', p: 'Graft material is placed precisely at the implant site and covered with a protective membrane. Over 4 to 9 months, the material gradually fuses with existing bone — acting as a scaffold that guides new osteogenic cells to fill, mineralize, and ultimately create a natural, dense foundation ready for implant placement.' },
+      { h: 'Predictable, Proven Results', p: 'When planned carefully and executed precisely, bone grafting dramatically expands the pool of patients who can benefit from dental implants. Dr. Phan uses advanced 3D imaging and computer-guided surgical planning to ensure every graft is ideally positioned for optimal density and volume at the implant site.' }
+    ]
+  },
+  'art-gums': {
+    title: 'Gum Health and Implants: Why Periodontal Care Comes First',
+    tags: ['Prevention', 'News'],
+    date: 'Mar 8, 2024', read: '6 min read',
+    gradient: 'linear-gradient(135deg,#1a1010,#281a18,#1a1010)',
+    intro: '"Your smile is your most cherished accessory, and the unsung hero behind it is your gum health." Healthy gums are the silent foundation of every successful implant. Before any implant procedure can begin — and to protect that investment for decades after — the health of the surrounding gum tissue must be established and continuously maintained.',
+    sections: [
+      { h: 'Why Gum Health Determines Implant Success', p: 'Gum disease (periodontitis) is one of the leading causes of implant failure worldwide. When harmful bacteria colonize below the gumline, they attack the bone and soft tissue that anchor an implant — causing a condition called peri-implantitis that can ultimately lead to implant loss. Treating and preventing gum disease before and after surgery is therefore non-negotiable.' },
+      { h: 'Warning Signs to Watch For', list: ['Gums that bleed when brushing or flossing', 'Gum recession — teeth that appear longer than before', 'Persistent bad breath or a persistent bad taste', 'Swollen, red, or tender gum tissue around any tooth or implant', 'Teeth or implants that feel loose or have shifted position'] },
+      { h: 'Daily Care Around Implants', p: 'Dental implants require the same diligent home care as natural teeth — and in some respects, greater attention. Brushing twice daily with a soft-bristle brush, careful flossing around implant sites using implant-specific floss, and a daily antimicrobial rinse all reduce the bacterial load that represents the primary threat to implant longevity.' },
+      { h: 'Professional Monitoring', p: 'Patients with implants should attend professional cleaning and assessment appointments every 3 to 6 months. Dr. Phan uses specialized instruments and digital radiographic imaging to monitor gum and bone levels around each implant — identifying any early signs of peri-implantitis and intercepting them before they progress.' }
+    ]
+  },
+  'art-veneers': {
+    title: 'Porcelain Veneers vs. Composite: A Complete Comparison',
+    tags: ['Aesthetics'],
+    date: 'Feb 19, 2024', read: '6 min read',
+    gradient: 'linear-gradient(135deg,#1a1510,#2a2018,#1a1510)',
+    intro: 'Two of the most requested cosmetic treatments in contemporary dentistry — porcelain veneers and composite bonding — can both produce dramatic, confidence-restoring smile transformations. But they differ significantly in durability, natural appearance, clinical process, and investment. Understanding both empowers you to make the right decision for your smile and your life.',
+    sections: [
+      { h: 'Porcelain Veneers', p: 'Ultra-thin shells of medical-grade ceramic, custom-fabricated in a dental laboratory to precisely match your desired tooth shape and shade. Veneers are permanently bonded to the front surface of prepared teeth, creating a result that is exceptionally natural-looking — with the translucency and light-reflection properties of real enamel.', list: ['Lifespan: 15 to 20+ years with proper home care', 'Stain resistance: excellent — highly resistant to coffee, wine, and tobacco', 'Process: minimal tooth preparation; typically completed across 2 appointments', 'Best for: comprehensive smile redesign, significant discoloration, shape corrections, worn edges'] },
+      { h: 'Composite Bonding', p: 'A tooth-coloured resin applied directly to the tooth surface and artistically sculpted by Dr. Phan in a single appointment. Composite bonding is faster, more affordable, and fully reversible — making it an excellent option for targeted corrections or as a first step in a longer smile journey.', list: ['Lifespan: 5 to 10 years before polishing or renewal', 'Stain resistance: moderate — more susceptible to discolouration over time', 'Process: completed in a single appointment; no laboratory required', 'Best for: chipping, minor spacing, small shape or length corrections'] },
+      { h: 'Making the Right Choice', p: 'The ideal treatment depends on your goals, timeline, and long-term vision for your smile. For patients seeking a comprehensive, permanent transformation with the highest aesthetic standard, porcelain veneers consistently deliver superior longevity and appearance. For targeted refinements or a reversible starting point, composite bonding offers outstanding value. Dr. Phan will walk you through both in detail at your consultation.' }
+    ]
+  },
+  'art-wisdom': {
+    title: 'Wisdom Teeth Removal: Timing, Recovery, and What to Avoid',
+    tags: ['Implants'],
+    date: 'Feb 5, 2024', read: '5 min read',
+    gradient: 'linear-gradient(135deg,#0d1828,#18253c,#0d1828)',
+    intro: 'Wisdom teeth — the third molars — are the last teeth to emerge, typically between the ages of 17 and 25. For the majority of patients, the jaw simply does not have sufficient space to accommodate them comfortably, leading to impaction, crowding, pain, and elevated infection risk. Timely, expert removal is most often the most prudent course of action.',
+    sections: [
+      { h: 'When Should Wisdom Teeth Be Removed?', p: 'Not every wisdom tooth requires immediate extraction. Dr. Phan monitors their development with periodic imaging and recommends removal when they are impacted, causing pressure or crowding on adjacent teeth, showing early signs of decay or cyst formation, or creating recurring localized infection around the gumline.' },
+      { h: 'The Extraction Procedure', p: 'Wisdom tooth removal is performed under local anesthesia, ensuring complete comfort throughout. For fully erupted teeth, extraction is straightforward. For impacted teeth, a small precise incision provides access — and the tooth may be sectioned for gentler, controlled removal. PRGF therapy is routinely applied to the site to accelerate healing and reduce post-operative discomfort.' },
+      { h: 'Recovery: What to Expect', p: 'Most patients experience mild swelling and soreness for 3 to 5 days following extraction. Ice, prescribed pain relief, and rest are the primary pillars of a comfortable recovery.', list: ['Avoid hard, crunchy, or chewy foods for the first week post-surgery', 'Do not use a straw — suction pressure can dislodge the healing clot', 'Rinse gently with warm salt water beginning the morning after surgery', 'Avoid smoking entirely — it significantly delays tissue healing', 'Sleep with your head slightly elevated to minimize swelling'] },
+      { h: 'The Long-Term Benefit', p: 'Removing problematic wisdom teeth proactively prevents a cascade of future complications — crowding of adjacent teeth, localized bone loss, recurrent infection episodes, and cyst formation around the follicle. For younger patients especially, early removal results in faster healing, a simpler procedure, and a more comfortable recovery.' }
+    ]
+  }
+};
+
+/* ===== MODAL FUNCTIONS ===== */
+function openArticle(id) {
+  const a = ARTICLES[id];
+  if (!a) return;
+
+  // Image gradient
+  document.getElementById('artImg').style.background = a.gradient;
+
+  // Tags
+  document.getElementById('artTagsEl').innerHTML = a.tags
+    .map(t => `<span class="art-tag">${t}</span>`).join('');
+
+  // Title
+  document.getElementById('artTitleEl').textContent = a.title;
+
+  // Meta
+  document.getElementById('artMetaEl').innerHTML =
+    `<span>Dr. Tâm Phan</span>
+     <span class="art-meta-dot"></span>
+     <span>${a.date}</span>
+     <span class="art-meta-dot"></span>
+     <span>${a.read}</span>`;
+
+  // Body
+  let html = `<p class="art-intro">${a.intro}</p>`;
+  a.sections.forEach(s => {
+    html += `<div class="art-section">`;
+    if (s.h) html += `<h3>${s.h}</h3>`;
+    if (s.p) html += `<p>${s.p}</p>`;
+    if (s.list) html += `<ul>${s.list.map(i => `<li>${i}</li>`).join('')}</ul>`;
+    html += `</div>`;
+  });
+  html += `<div class="art-cta">
+    <p class="art-cta-text">Ready to take the next step toward your best smile?</p>
+    <a href="drtamphan-book.html" class="art-cta-btn">Book a Consultation</a>
+  </div>`;
+  document.getElementById('artBodyEl').innerHTML = html;
+
+  // Reset scroll and open
+  document.getElementById('artModal').scrollTop = 0;
+  document.getElementById('artOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeArticle(e, force) {
+  if (force || (e && e.target === document.getElementById('artOverlay'))) {
+    document.getElementById('artOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeArticle(null, true);
+});
 </script>
 </body>
 </html>
