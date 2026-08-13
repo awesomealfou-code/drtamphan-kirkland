@@ -298,7 +298,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
 <!-- FEATURED ARTICLE -->
 <div class="featured-section">
-  <a href="#" class="featured-card rv">
+  <a href="#" class="featured-card rv" data-cat="featured implants">
     <div class="fc-img">
       <div class="fc-img-inner"></div>
       <div class="fc-badge">Featured</div>
@@ -330,7 +330,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
   <div class="articles-grid">
 
-    <a href="#" class="article-card rv" style="transition-delay:.05s">
+    <a href="#" class="article-card rv" data-cat="featured news implants" style="transition-delay:.05s">
       <div class="ac-img"><div class="ac-img-bg bg-a"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Featured</span><span class="ac-tag">News</span></div>
@@ -343,7 +343,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" style="transition-delay:.1s">
+    <a href="#" class="article-card rv" data-cat="featured aesthetics" style="transition-delay:.1s">
       <div class="ac-img"><div class="ac-img-bg bg-b"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Featured</span><span class="ac-tag">Aesthetics</span></div>
@@ -356,7 +356,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" style="transition-delay:.15s">
+    <a href="#" class="article-card rv" data-cat="aesthetics" style="transition-delay:.15s">
       <div class="ac-img"><div class="ac-img-bg bg-c"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Aesthetics</span></div>
@@ -369,7 +369,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" style="transition-delay:.2s">
+    <a href="#" class="article-card rv" data-cat="implants" style="transition-delay:.2s">
       <div class="ac-img"><div class="ac-img-bg bg-d"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Implants</span></div>
@@ -382,7 +382,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" style="transition-delay:.25s">
+    <a href="#" class="article-card rv" data-cat="prevention implants" style="transition-delay:.25s">
       <div class="ac-img"><div class="ac-img-bg bg-e"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Prevention</span></div>
@@ -395,7 +395,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" style="transition-delay:.3s">
+    <a href="#" class="article-card rv" data-cat="prevention news implants" style="transition-delay:.3s">
       <div class="ac-img"><div class="ac-img-bg bg-f"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Prevention</span><span class="ac-tag">News</span></div>
@@ -408,7 +408,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" style="transition-delay:.35s">
+    <a href="#" class="article-card rv" data-cat="aesthetics" style="transition-delay:.35s">
       <div class="ac-img"><div class="ac-img-bg bg-a"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Aesthetics</span></div>
@@ -421,7 +421,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" style="transition-delay:.4s">
+    <a href="#" class="article-card rv" data-cat="implants" style="transition-delay:.4s">
       <div class="ac-img"><div class="ac-img-bg bg-c"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Implants</span></div>
@@ -475,12 +475,47 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
 /* Category filter */
 const catBtns = document.querySelectorAll('.cat-btn');
-catBtns.forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    catBtns.forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
+const featSection = document.querySelector('.featured-section');
+const featCard    = document.querySelector('.featured-card');
+const countEl     = document.querySelector('.articles-count strong');
+
+function applyFilter(cat) {
+  catBtns.forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+
+  // Featured card
+  if (featCard) {
+    const show = cat === 'all' || (featCard.dataset.cat || '').split(' ').includes(cat);
+    if (featSection) featSection.style.display = show ? '' : 'none';
+  }
+
+  // Article cards
+  const cards = document.querySelectorAll('.article-card');
+  let count = 0;
+  cards.forEach(card => {
+    const show = cat === 'all' || (card.dataset.cat || '').split(' ').includes(cat);
+    card.style.display = show ? '' : 'none';
+    if (show) count++;
+  });
+  if (featSection && featSection.style.display !== 'none') count++;
+  if (countEl) countEl.textContent = count;
+}
+
+catBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const cat = btn.dataset.cat;
+    history.replaceState(null, '', cat === 'all' ? location.pathname : '#' + cat);
+    applyFilter(cat);
   });
 });
+
+// Auto-apply filter from URL hash on load
+const initCat = location.hash.replace('#', '') || 'all';
+applyFilter(initCat);
+if (initCat !== 'all') {
+  setTimeout(() => {
+    document.querySelector('.cat-filters')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 400);
+}
 </script>
 </body>
 </html>
