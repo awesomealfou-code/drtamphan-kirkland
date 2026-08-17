@@ -170,7 +170,7 @@ nav {
 }
 .team-section-title::before { content:''; display:inline-block; width:28px; height:1px; background:var(--gold); }
 .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
-.team-card { position:relative; cursor:none; overflow:hidden; background:var(--navy); }
+.team-card { position:relative; cursor:pointer; overflow:hidden; background:var(--navy); }
 .tc-photo {
   width:100%; aspect-ratio:3/4; overflow:hidden;
   background:linear-gradient(155deg,#0a0a0a 0%,#0a0a0a 100%);
@@ -201,6 +201,55 @@ nav {
   transition:color .3s,gap .3s;
 }
 .team-card:hover .tc-arrow { color:var(--gold); gap:13px; }
+
+/* TEAM MODAL */
+.tm-overlay {
+  position:fixed; inset:0; z-index:8500;
+  background:rgba(0,0,0,.8); backdrop-filter:blur(6px);
+  opacity:0; pointer-events:none; transition:opacity .35s;
+}
+.tm-overlay.open { opacity:1; pointer-events:all; }
+.tm-panel {
+  position:fixed; top:0; right:0; bottom:0; z-index:8600;
+  width:min(520px,100vw); background:#0d0d0d;
+  border-left:1px solid rgba(201,162,39,.15);
+  display:flex; flex-direction:column;
+  transform:translateX(100%); transition:transform .42s cubic-bezier(.25,.46,.45,.94);
+  overflow:hidden;
+}
+.tm-overlay.open .tm-panel { transform:translateX(0); }
+.tm-photo-wrap {
+  height:320px; flex-shrink:0; position:relative; overflow:hidden; background:#111;
+}
+.tm-photo-wrap img { width:100%;height:100%;object-fit:cover;object-position:top center;display:block; }
+.tm-photo-overlay {
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(13,13,13,1) 0%,rgba(13,13,13,.1) 50%,transparent 100%);
+}
+.tm-close {
+  position:absolute; top:18px; right:18px; z-index:10;
+  width:34px; height:34px; border-radius:50%;
+  background:rgba(0,0,0,.55); border:1px solid rgba(201,162,39,.3);
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+  color:var(--off-white); font-size:1rem; line-height:1;
+  transition:background .25s,border-color .25s;
+}
+.tm-close:hover { background:rgba(201,162,39,.15); border-color:var(--gold); }
+.tm-body { flex:1; overflow-y:auto; padding:32px 40px 48px; }
+.tm-role-tag { font-size:.56rem; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.tm-name { font-family:var(--serif); font-size:2.2rem; font-weight:300; line-height:1.1; margin-bottom:24px; color:var(--white); }
+.tm-bio { font-size:.9rem; color:rgba(232,224,208,.62); line-height:1.88; margin-bottom:32px; border-left:2px solid rgba(201,162,39,.35); padding-left:18px; }
+.tm-facts { display:flex; flex-direction:column; gap:18px; }
+.tm-fact { display:flex; gap:14px; align-items:flex-start; }
+.tm-fact-icon { font-size:.75rem; color:var(--gold); flex-shrink:0; margin-top:2px; }
+.tm-fact-text { font-size:.84rem; color:rgba(232,224,208,.58); line-height:1.75; }
+.tm-book {
+  display:inline-block; margin-top:36px; background:var(--gold); color:#0a0a0a;
+  padding:14px 32px; font-family:var(--sans); font-size:.68rem;
+  font-weight:500; letter-spacing:.14em; text-transform:uppercase;
+  text-decoration:none; transition:background .3s;
+}
+.tm-book:hover { background:var(--gold-light); }
 
 /* QUOTE STRIP */
 .quote-strip {
@@ -374,36 +423,36 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
   <div class="team-grid">
 
-    <div class="team-card rv" style="transition-delay:.05s">
+    <div class="team-card rv" data-m="carolane" style="transition-delay:.05s">
       <div class="tc-photo">
         <img src="team-carolane.jpg" alt="Carolane">
       </div>
       <div class="tc-info">
         <div class="tc-name">Carolane</div>
         <div class="tc-role">Surgical Assistant</div>
-        <div class="tc-arrow">View profile →</div>
+        <div class="tc-arrow">View Profile →</div>
       </div>
     </div>
 
-    <div class="team-card rv" style="transition-delay:.12s">
+    <div class="team-card rv" data-m="alyanna" style="transition-delay:.12s">
       <div class="tc-photo">
         <img src="team-alyanna.jpg" alt="Alyanna">
       </div>
       <div class="tc-info">
         <div class="tc-name">Alyanna</div>
         <div class="tc-role">Surgical Assistant</div>
-        <div class="tc-arrow">View profile →</div>
+        <div class="tc-arrow">View Profile →</div>
       </div>
     </div>
 
-    <div class="team-card rv" style="transition-delay:.19s">
+    <div class="team-card rv" data-m="veronica" style="transition-delay:.19s">
       <div class="tc-photo">
         <img src="team-veronica.jpg" alt="Veronica">
       </div>
       <div class="tc-info">
         <div class="tc-name">Veronica</div>
         <div class="tc-role">Surgical Assistant</div>
-        <div class="tc-arrow">View profile →</div>
+        <div class="tc-arrow">View Profile →</div>
       </div>
     </div>
 
@@ -442,6 +491,93 @@ document.querySelectorAll('a,button').forEach(el=>{
 });
 const obs = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on'); }),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv,.rvL,.rvR').forEach(el=>obs.observe(el));
+</script>
+
+<!-- TEAM MEMBER MODALS -->
+<div class="tm-overlay" id="tmOverlay">
+  <div class="tm-panel" id="tmPanel">
+    <div class="tm-photo-wrap">
+      <img id="tmPhoto" src="" alt="">
+      <div class="tm-photo-overlay"></div>
+      <button class="tm-close" id="tmClose">✕</button>
+    </div>
+    <div class="tm-body">
+      <div class="tm-role-tag" id="tmRole"></div>
+      <div class="tm-name" id="tmName"></div>
+      <div class="tm-bio" id="tmBio"></div>
+      <div class="tm-facts" id="tmFacts"></div>
+      <a href="drtamphan-book.html" class="tm-book">Book an Appointment →</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const TEAM = {
+  carolane: {
+    name: 'Carolane',
+    role: 'Surgical Assistant',
+    photo: 'team-carolane.jpg',
+    bio: 'With over a decade in the dental field, Carolane works alongside Dr. Phan across the full range of procedures — from routine care to complex surgical interventions. Her calm presence and genuine attentiveness make even the most anxious patients feel at ease.',
+    facts: [
+      { icon: '◆', text: 'Meticulous attention to detail in every surgical step, ensuring precision and patient safety throughout each procedure.' },
+      { icon: '◆', text: 'Known for bringing a sense of comfort and reassurance to patients — turning difficult appointments into manageable experiences.' },
+      { icon: '◆', text: 'Avid hiker and nature enthusiast. She finds the outdoors the perfect way to recharge and return to the clinic with renewed energy.' },
+      { icon: '◆', text: 'Passionate advocate for sustainability and environmental conservation.' }
+    ]
+  },
+  alyanna: {
+    name: 'Alyanna',
+    role: 'Surgical Assistant & Treatment Coordinator',
+    photo: 'team-alyanna.jpg',
+    bio: 'Alyanna bridges clinical care and patient communication with equal skill. She supports Dr. Phan across general, restorative, surgical, and cosmetic procedures — while also coordinating treatment plans and ensuring every patient feels informed and confident from first consultation to final result.',
+    facts: [
+      { icon: '◆', text: 'Combines clinical expertise with exceptional organizational skills — managing appointments, treatment timelines, and patient follow-ups seamlessly.' },
+      { icon: '◆', text: 'Dedicated to educating patients about their options, so every decision is made with full clarity and confidence.' },
+      { icon: '◆', text: 'Known for compassionate, attentive care that makes the clinical environment feel welcoming rather than intimidating.' },
+      { icon: '◆', text: 'Outside the clinic, she values meaningful connections, an active lifestyle, and continuous personal growth.' }
+    ]
+  },
+  veronica: {
+    name: 'Veronica',
+    role: 'Surgical Assistant',
+    photo: 'team-veronica.jpg',
+    bio: 'With over 10 years in the dental field, Veronica brings precision, empathy, and deep clinical experience to every patient interaction. Proficient across routine check-ups to complex surgical procedures, she is an integral part of ensuring every patient leaves with a stress-free, positive experience.',
+    facts: [
+      { icon: '◆', text: 'Over a decade of experience across the full spectrum of dental procedures — from preventive care to advanced surgical support.' },
+      { icon: '◆', text: 'Exceptional attention to detail and genuine compassion — two qualities that define her patient-first approach every single day.' },
+      { icon: '◆', text: 'Dedicated mother of two who finds joy in family moments and creating lasting memories outside of work.' },
+      { icon: '◆', text: '"I\'m passionate about helping people smile." — Veronica' }
+    ]
+  }
+};
+
+function openMember(key) {
+  const m = TEAM[key];
+  if (!m) return;
+  document.getElementById('tmPhoto').src = m.photo;
+  document.getElementById('tmPhoto').alt = m.name;
+  document.getElementById('tmRole').textContent = m.role;
+  document.getElementById('tmName').textContent = m.name;
+  document.getElementById('tmBio').textContent = m.bio;
+  document.getElementById('tmFacts').innerHTML = m.facts
+    .map(f => `<div class="tm-fact"><div class="tm-fact-icon">${f.icon}</div><div class="tm-fact-text">${f.text}</div></div>`)
+    .join('');
+  document.getElementById('tmPanel').scrollTop = 0;
+  document.getElementById('tmOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMember() {
+  document.getElementById('tmOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('tmClose').addEventListener('click', closeMember);
+document.getElementById('tmOverlay').addEventListener('click', e => { if (e.target === document.getElementById('tmOverlay')) closeMember(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMember(); });
+document.querySelectorAll('.team-card[data-m]').forEach(card => {
+  card.addEventListener('click', () => openMember(card.dataset.m));
+});
 </script>
 </body>
 </html>
