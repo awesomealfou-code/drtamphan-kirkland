@@ -524,6 +524,72 @@ section { padding:120px 64px; }
   content:''; position:absolute; inset:0;
   background:radial-gradient(circle at 30% 25%, rgba(255,255,255,.04) 0%, transparent 55%);
 }
+.treat-card { cursor:pointer; }
+.treat-cta {
+  margin-top:14px; font-size:.6rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--gold);
+  display:inline-flex; align-items:center; gap:6px;
+  opacity:0; transform:translateY(5px);
+  transition:opacity .35s,transform .35s;
+}
+.treat-card:hover .treat-cta { opacity:1; transform:none; }
+
+/* ── TREATMENT MODAL ─────────────────────── */
+.tmt-overlay {
+  position:fixed; inset:0; z-index:8500;
+  background:rgba(0,0,0,.82); backdrop-filter:blur(6px);
+  opacity:0; pointer-events:none; transition:opacity .35s;
+}
+.tmt-overlay.open { opacity:1; pointer-events:all; }
+.tmt-modal {
+  position:fixed; top:0; right:0; bottom:0; z-index:8600;
+  width:min(600px,100vw); background:#0d0d0d;
+  border-left:1px solid rgba(201,162,39,.15);
+  display:flex; flex-direction:column;
+  transform:translateX(100%); transition:transform .42s cubic-bezier(.25,.46,.45,.94);
+  overflow:hidden;
+}
+.tmt-overlay.open .tmt-modal { transform:translateX(0); }
+.tmt-hero {
+  height:260px; flex-shrink:0; position:relative; overflow:hidden;
+  background:#111;
+}
+.tmt-hero img { width:100%;height:100%;object-fit:cover;object-position:center;display:block; }
+.tmt-hero-overlay {
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(13,13,13,1) 0%,rgba(13,13,13,.3) 60%,transparent 100%);
+}
+.tmt-close {
+  position:absolute; top:20px; right:20px; z-index:10;
+  width:36px; height:36px; border-radius:50%;
+  background:rgba(0,0,0,.6); border:1px solid rgba(201,162,39,.3);
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+  color:var(--off-white); font-size:1.1rem; line-height:1;
+  transition:background .3s,border-color .3s;
+}
+.tmt-close:hover { background:rgba(201,162,39,.15); border-color:var(--gold); }
+.tmt-body { flex:1; overflow-y:auto; padding:36px 44px 48px; }
+.tmt-cat { font-size:.58rem; letter-spacing:.26em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+.tmt-title { font-family:var(--serif); font-size:2.1rem; font-weight:300; line-height:1.1; margin-bottom:20px; }
+.tmt-intro { font-size:.92rem; color:rgba(232,224,208,.65); line-height:1.85; margin-bottom:32px; border-left:2px solid rgba(201,162,39,.4); padding-left:20px; }
+.tmt-section { margin-bottom:28px; }
+.tmt-h { font-family:var(--serif); font-size:1.05rem; font-weight:400; color:var(--off-white); margin-bottom:10px; }
+.tmt-p { font-size:.85rem; color:rgba(232,224,208,.6); line-height:1.85; }
+.tmt-list { list-style:none; display:flex; flex-direction:column; gap:10px; margin-top:10px; }
+.tmt-list li { display:flex; gap:12px; align-items:flex-start; font-size:.84rem; color:rgba(232,224,208,.6); line-height:1.7; }
+.tmt-list li::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--gold); flex-shrink:0; margin-top:7px; }
+.tmt-steps { display:flex; flex-direction:column; gap:16px; margin-top:10px; }
+.tmt-step { display:flex; gap:16px; }
+.tmt-step-num { font-family:var(--serif); font-size:1.6rem; font-weight:300; color:rgba(201,162,39,.3); line-height:1; flex-shrink:0; width:28px; }
+.tmt-step-text { font-size:.84rem; color:rgba(232,224,208,.6); line-height:1.75; padding-top:4px; }
+.tmt-cta-wrap { margin-top:36px; padding-top:28px; border-top:1px solid rgba(201,162,39,.12); }
+.tmt-cta {
+  display:inline-block; background:var(--gold); color:var(--navy);
+  padding:15px 36px; font-family:var(--sans); font-size:.7rem;
+  font-weight:500; letter-spacing:.14em; text-transform:uppercase;
+  text-decoration:none; transition:background .3s;
+}
+.tmt-cta:hover { background:var(--gold-light); }
 
 /* ── ABOUT ───────────────────────────────── */
 #about { padding:0; background:var(--navy-mid); position:relative; z-index:1; border-top:1px solid rgba(201,162,39,.18); border-bottom:1px solid rgba(201,162,39,.18); }
@@ -887,71 +953,78 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       <div class="s-eyebrow rv">All Treatments</div>
       <h2 class="s-title rv">Comprehensive care<br>for every <em>need</em></h2>
     </div>
-    <a href="#" class="btn-outline rv">View All Treatments</a>
+    <a href="#treat-grid" class="btn-outline rv">View Our Treatments Below ↓</a>
   </div>
 
-  <div class="treat-grid">
-    <div class="treat-card rv">
+  <div class="treat-grid" id="treat-grid">
+    <div class="treat-card rv" data-t="botox">
       <div class="treat-bg"><img class="treat-img" src="treat-botox.png" alt="Botox & Aesthetic Treatments"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Elevated Facial Aesthetics</div>
         <div class="treat-name">Botox &amp; Aesthetic<br>Treatments</div>
         <div class="treat-desc">Restore harmony, preserve natural expression, and enhance the unique features that define your appearance.</div>
+        <div class="treat-cta">Learn More →</div>
       </div>
     </div>
-    <div class="treat-card rv" style="transition-delay:.08s">
+    <div class="treat-card rv" data-t="implants" style="transition-delay:.08s">
       <div class="treat-bg"><img class="treat-img" src="treat-implant.png" alt="Dental Implants"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Dental Implants</div>
         <div class="treat-name">Dental<br>Implants</div>
         <div class="treat-desc">Cutting-edge permanent tooth replacement solutions designed to last a lifetime.</div>
+        <div class="treat-cta">Learn More →</div>
       </div>
     </div>
-    <div class="treat-card rv" style="transition-delay:.14s">
+    <div class="treat-card rv" data-t="sinus" style="transition-delay:.14s">
       <div class="treat-bg"><img class="treat-img" src="treat-sinus.png" alt="Sinus Lift"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
-        <div class="treat-cat">Full Mouth Rehabilitation</div>
+        <div class="treat-cat">Implant Foundation</div>
         <div class="treat-name">Sinus<br>Lift</div>
         <div class="treat-desc">Advanced bone augmentation for optimal implant placement success.</div>
+        <div class="treat-cta">Learn More →</div>
       </div>
     </div>
-    <div class="treat-card rv" style="transition-delay:.06s">
+    <div class="treat-card rv" data-t="grafts" style="transition-delay:.06s">
       <div class="treat-bg"><img class="treat-img" src="treat-gum.png" alt="Gum Graft & Bone Graft"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Cosmetic Dentistry &amp; Implants</div>
         <div class="treat-name">Gum Graft &amp;<br>Bone Graft</div>
         <div class="treat-desc">Restore gum tissue and rebuild jaw bone structure for lasting health and a more balanced smile.</div>
+        <div class="treat-cta">Learn More →</div>
       </div>
     </div>
-    <div class="treat-card rv" style="transition-delay:.12s">
+    <div class="treat-card rv" data-t="extraction" style="transition-delay:.12s">
       <div class="treat-bg"><img class="treat-img" src="treat-extraction.png" alt="Teeth Extraction & Temporary Prosthetics"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Dental Implants</div>
         <div class="treat-name">Teeth Extraction &amp;<br>Temporary Prosthetics</div>
         <div class="treat-desc">Gentle extraction with immediate aesthetic prosthetics while your permanent restoration is crafted.</div>
+        <div class="treat-cta">Learn More →</div>
       </div>
     </div>
-    <div class="treat-card rv" style="transition-delay:.04s">
+    <div class="treat-card rv" data-t="fullmouth" style="transition-delay:.04s">
       <div class="treat-bg"><img class="treat-img" src="treat-fullmouth.png" alt="Full Mouth Rehabilitation"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Full Mouth Rehabilitation</div>
         <div class="treat-name">Full Mouth<br>Rehabilitation</div>
         <div class="treat-desc">Comprehensive oral restoration focusing on health, function, and the aesthetics of your entire oral cavity.</div>
+        <div class="treat-cta">Learn More →</div>
       </div>
     </div>
-    <div class="treat-card rv" style="transition-delay:.1s">
+    <div class="treat-card rv" data-t="bridges" style="transition-delay:.1s">
       <div class="treat-bg"><img class="treat-img" src="treat-bridges.png" alt="Dental Bridges & Wisdom Teeth"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
         <div class="treat-cat">Cosmetic Dentistry</div>
         <div class="treat-name">Dental Bridges &amp;<br>Wisdom Teeth</div>
         <div class="treat-desc">Natural-looking bridges and expert wisdom tooth removal — gentle, precise, lasting results.</div>
+        <div class="treat-cta">Learn More →</div>
       </div>
     </div>
   </div>
@@ -1709,6 +1782,159 @@ window.addEventListener('scroll', updateBubbleVisibility, {passive:true});
 
 // Show notification dot after 4s (only if past hero)
 setTimeout(()=>{ if(!chatOpen && window.scrollY > heroSection.offsetHeight - 80) document.getElementById('chat-notif').style.display='block'; },4000);
+</script>
+
+<!-- ── TREATMENT MODAL ──────────────────────────────── -->
+<div class="tmt-overlay" id="tmtOverlay">
+  <div class="tmt-modal" id="tmtModal">
+    <div class="tmt-hero" id="tmtHero">
+      <img id="tmtHeroImg" src="" alt="">
+      <div class="tmt-hero-overlay"></div>
+      <button class="tmt-close" id="tmtClose">✕</button>
+    </div>
+    <div class="tmt-body">
+      <div class="tmt-cat" id="tmtCat"></div>
+      <div class="tmt-title" id="tmtTitle"></div>
+      <div class="tmt-intro" id="tmtIntro"></div>
+      <div id="tmtContent"></div>
+      <div class="tmt-cta-wrap">
+        <a href="drtamphan-book.html" class="tmt-cta">Book a Consultation →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const TREATMENTS = {
+  botox: {
+    cat: 'Elevated Facial Aesthetics',
+    title: 'Botox® & Aesthetic Treatments',
+    img: 'treat-botox.png',
+    intro: 'Facial aesthetics is more than reducing wrinkles — it\'s about restoring harmony, preserving natural expression, and enhancing the features that define your appearance. Dr. Phan offers three precision treatments tailored to your anatomy and goals.',
+    sections: [
+      { h: 'Botox® Aesthetic', p: 'Targeted injections temporarily relax the facial muscles responsible for expression lines — forehead, frown lines, crow\'s feet, and chin. The goal is not to eliminate expression, but to refine it. Results last 3–6 months.' },
+      { h: 'Masseter Botox', p: 'Targets the jaw muscles to relieve chronic tension and headaches from bruxism (grinding), reduce nighttime grinding that damages enamel, and subtly slim the lower third of the face — all while preserving full chewing function.' },
+      { h: 'PRGF Therapy', p: 'Plasma Rich in Growth Factors uses concentrated growth factors from your own blood to stimulate collagen production and improve skin texture, elasticity, and hydration from within. Results develop gradually over 4–6 weeks.' },
+      { h: 'What to Expect', list: ['No downtime — return to your day immediately', 'Fully personalized to your facial anatomy and goals', 'Subtle, natural results — not overdone', 'Results refined over successive appointments'] }
+    ]
+  },
+  implants: {
+    cat: 'Dental Implants',
+    title: 'Dental Implants',
+    img: 'treat-implant.png',
+    intro: 'Dental implants are the gold standard for permanent tooth replacement — engineered to look, feel, and function exactly like natural teeth. Dr. Phan specializes in Ankylos implant technology, known for exceptional stability and long-term precision.',
+    sections: [
+      { h: 'How It Works', p: 'An implant consists of three parts: a biocompatible titanium post placed into the jawbone, an abutment connecting post to crown, and a custom-matched crown or bridge. Once integrated, the result is indistinguishable from a natural tooth.' },
+      { h: 'The Process', steps: ['Consultation & 3D imaging — personalized treatment plan', 'Implant placement under local anesthesia', 'Osseointegration — titanium fuses with bone over 3–6 months', 'Abutment placement', 'Final crown — matched precisely to your natural teeth'] },
+      { h: 'Why Implants?', list: ['Lifetime durability with proper care', 'Preserves jawbone — prevents bone loss after tooth loss', 'No impact on adjacent healthy teeth', 'Natural appearance and full chewing function restored', '98% long-term success rate under Dr. Phan\'s care'] }
+    ]
+  },
+  sinus: {
+    cat: 'Implant Foundation',
+    title: 'Sinus Lift Surgery',
+    img: 'treat-sinus.png',
+    intro: 'A sinus lift adds bone to the upper jaw\'s posterior region — the essential preparatory step for patients who lack sufficient bone height to support an implant. Without it, implant placement in the upper back jaw is unsafe.',
+    sections: [
+      { h: 'Who Needs It?', list: ['Insufficient bone height due to anatomy or long-term tooth loss', 'Bone atrophy following extended absence of upper back teeth', 'Sinus cavity positioned too close to the jaw ridge'] },
+      { h: 'Two Techniques', p: '<strong>Lateral Window:</strong> A small access window is created in the sinus membrane, which is gently lifted, and bone graft material placed beneath.<br><br><strong>Osteotome:</strong> A less invasive approach — bone graft material is compacted within the existing sinus floor, gradually raising it.' },
+      { h: 'Healing & Next Steps', p: 'Over 6–9 months, the grafted material fuses with existing bone. Once the site has fully consolidated, implant placement proceeds with full predictability and confidence. PRGF therapy is routinely applied to accelerate healing.' }
+    ]
+  },
+  grafts: {
+    cat: 'Cosmetic Dentistry & Implants',
+    title: 'Gum Graft & Bone Graft',
+    img: 'treat-gum.png',
+    intro: 'Healthy gums and adequate bone are the silent foundation of every successful implant — and a beautiful smile. Dr. Phan performs both gum and bone grafting with precision, restoring health and aesthetics in one coordinated plan.',
+    sections: [
+      { h: 'Gum Graft', p: 'Gum grafting addresses receding gums — restoring tissue, reducing sensitivity, and creating a more balanced gumline. Three graft types are available based on your specific anatomy: connective tissue graft, free gingival graft, or pedicle graft from adjacent tissue.' },
+      { h: 'Bone Graft', p: 'When the jawbone lacks volume or density to support an implant, bone grafting rebuilds that foundation. Dr. Phan selects from four proven graft materials: autograft (your own bone), allograft (donor bone), xenograft (bovine-derived), or synthetic scaffolds.' },
+      { h: 'Combined Benefits', list: ['Enables implant placement where it was previously impossible', 'Restores gum health and reduces root sensitivity', 'Creates a balanced, more aesthetic gumline', 'Long-term prevention of further bone and gum loss'] }
+    ]
+  },
+  extraction: {
+    cat: 'Dental Implants',
+    title: 'Teeth Extraction & Temporary Prosthetics',
+    img: 'treat-extraction.png',
+    intro: 'When a tooth cannot be saved, expert extraction followed by an immediate temporary prosthetic ensures you never go without a smile while your permanent restoration is being crafted.',
+    sections: [
+      { h: 'Gentle Extraction', p: 'Extractions are performed under local anesthesia for complete comfort. For straightforward cases, removal is simple. For more complex cases — broken roots or impacted teeth — a precise minimal-access technique is used. PRGF therapy is applied to the site to accelerate healing.' },
+      { h: 'Immediate Temporaries', p: 'Where appropriate, a temporary prosthetic (crown, flipper, or bridge) is placed the same day as extraction — so you leave the clinic with your smile intact while the implant site heals.' },
+      { h: 'Recovery', list: ['Mild swelling and tenderness for 3–5 days is normal', 'Avoid hard or chewy foods for the first week', 'Rinse gently with warm salt water from day two', 'Follow-up appointments ensure proper healing before implant placement'] }
+    ]
+  },
+  fullmouth: {
+    cat: 'Full Mouth Rehabilitation',
+    title: 'Full Mouth Rehabilitation',
+    img: 'treat-fullmouth.png',
+    intro: 'Full Mouth Rehabilitation addresses dental challenges across both jaws simultaneously — the treatment of choice when concerns extend beyond a single tooth or region. The result is a complete restoration of health, function, and aesthetics.',
+    sections: [
+      { h: 'Who Is It For?', list: ['Multiple missing teeth from decay, trauma, or disease', 'Severely worn or damaged teeth from grinding or acid erosion', 'Chronic jaw pain or TMJ disorders', 'Advanced gum disease requiring combined periodontal and restorative care', 'Complex cosmetic concerns spanning multiple teeth or both arches'] },
+      { h: 'Phased Treatment Plan', p: 'Rehabilitation begins with comprehensive 3D imaging and bite analysis. Dr. Phan builds a personalized, phased plan that prioritizes health before aesthetics — combining implants, crowns, veneers, bridges, gum therapy, and bite correction in a coordinated sequence.' },
+      { h: 'The Outcome', p: 'Patients consistently describe the result not simply as a better smile, but as a transformation in how they eat, speak, and carry themselves through everyday life.' }
+    ]
+  },
+  bridges: {
+    cat: 'Cosmetic Dentistry',
+    title: 'Dental Bridges & Wisdom Teeth',
+    img: 'treat-bridges.png',
+    intro: 'Two distinct but equally important treatments — dental bridges restore gaps with natural-looking prosthetics, while expert wisdom tooth removal prevents a cascade of future complications before they arise.',
+    sections: [
+      { h: 'Dental Bridges', p: 'A bridge fills the gap left by a missing tooth by anchoring a custom-matched prosthetic crown to adjacent teeth. The result blends seamlessly with your existing smile and restores full chewing function. Modern ceramic bridges are virtually indistinguishable from natural teeth.' },
+      { h: 'Wisdom Teeth Removal', p: 'Wisdom teeth that are impacted, causing crowding, or showing signs of decay or infection are best removed proactively — especially in younger patients, where healing is faster and recovery simpler. Extractions are performed under local anesthesia with PRGF applied to accelerate healing.' },
+      { h: 'When to Act', list: ['Wisdom teeth causing pressure or crowding on adjacent teeth', 'Recurrent infection or swelling around wisdom tooth site', 'Partial eruption creating a persistent hygiene trap', 'Bridges: any gap left by a missing tooth not treated with an implant'] }
+    ]
+  }
+};
+
+function openTreatment(key) {
+  const t = TREATMENTS[key];
+  if (!t) return;
+
+  document.getElementById('tmtCat').textContent = t.cat;
+  document.getElementById('tmtTitle').textContent = t.title;
+  document.getElementById('tmtIntro').textContent = t.intro;
+  document.getElementById('tmtHeroImg').src = t.img;
+  document.getElementById('tmtHeroImg').alt = t.title;
+
+  let html = '';
+  t.sections.forEach(s => {
+    html += `<div class="tmt-section"><div class="tmt-h">${s.h}</div>`;
+    if (s.p) html += `<div class="tmt-p">${s.p}</div>`;
+    if (s.steps) {
+      html += '<div class="tmt-steps">';
+      s.steps.forEach((st, i) => {
+        html += `<div class="tmt-step"><div class="tmt-step-num">${String(i+1).padStart(2,'0')}</div><div class="tmt-step-text">${st}</div></div>`;
+      });
+      html += '</div>';
+    }
+    if (s.list) {
+      html += '<ul class="tmt-list">';
+      s.list.forEach(li => { html += `<li>${li}</li>`; });
+      html += '</ul>';
+    }
+    html += '</div>';
+  });
+  document.getElementById('tmtContent').innerHTML = html;
+
+  document.getElementById('tmtModal').scrollTop = 0;
+  document.getElementById('tmtOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTreatment() {
+  document.getElementById('tmtOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('tmtClose').addEventListener('click', closeTreatment);
+document.getElementById('tmtOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeTreatment();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTreatment(); });
+
+document.querySelectorAll('.treat-card[data-t]').forEach(card => {
+  card.addEventListener('click', () => openTreatment(card.dataset.t));
+});
 </script>
 </body>
 </html>
