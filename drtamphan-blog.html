@@ -675,7 +675,7 @@ const ARTICLES = {
     title: 'Navigating Dental Implants: From Surgery to Smiles',
     tags: ['Featured', 'Implants'],
     date: 'June 12, 2024', read: '8 min read',
-    image: 'blog-implants.jpg',
+    image: 'blog-implants.jpg', imagePos: 'center',
     intro: 'Dental implants have revolutionized modern dentistry, offering a permanent solution to missing teeth that closely mimics natural teeth in both form and function. If you\'re considering dental implants to restore your smile, this comprehensive guide will take you through the entire journey — from the first consultation to enjoying a complete and confident smile.',
     sections: [
       { h: 'Ankylos Technology: The Pinnacle of Implant Precision', p: 'Dr. Phan specializes in Ankylos dental implant technology — engineered for superior stability, precision fit, and long-term success. These implants are designed with a unique tapered connection that distributes chewing forces evenly, preserving bone and ensuring a foundation as strong as a natural tooth root.' },
@@ -689,7 +689,7 @@ const ARTICLES = {
     title: 'Sinus Lift Surgery: What You Need to Know Before Your Implant',
     tags: ['Featured', 'News'],
     date: 'May 28, 2024', read: '6 min read',
-    image: 'blog-sinus.jpg',
+    image: 'blog-sinus.jpg', imagePos: '30% center',
     intro: 'A sinus lift — also called a sinus augmentation — is a surgical procedure that adds bone to the upper jaw in the region of the molars and premolars. It is a crucial preparatory step when insufficient bone density exists to support a dental implant, creating the secure foundation needed for a lasting result.',
     sections: [
       { h: 'Who Needs a Sinus Lift?', p: 'Sinus lift surgery is recommended for patients who have experienced bone loss in the upper jaw — whether due to tooth loss, natural anatomy, or long-standing tooth absence. Without adequate bone height, a dental implant cannot be safely placed in the upper posterior region.', list: ['Insufficient bone height due to natural anatomy or prior tooth loss', 'Bone atrophy following long-term absence of upper back teeth', 'Sinus cavity that sits too close to the jaw ridge for safe implant placement'] },
@@ -702,7 +702,7 @@ const ARTICLES = {
     title: 'Botox®, Masseter Botox & PRGF: Choosing the Right Facial Rejuvenation',
     tags: ['Featured', 'Aesthetics'],
     date: 'May 14, 2024', read: '7 min read',
-    image: 'blog-botox.jpg',
+    image: 'blog-botox.jpg', imagePos: 'top center',
     intro: 'Facial aesthetics is about far more than simply reducing wrinkles — it is about restoring harmony, preserving natural expression, and enhancing the unique features that define your appearance. Three modern treatments stand at the forefront of Dr. Phan\'s practice: Botox® Aesthetic, Masseter Botox, and PRGF Therapy. Each functions differently and addresses distinct goals.',
     sections: [
       { h: 'Botox® Aesthetic', p: 'Botox® works by temporarily relaxing specific facial muscles responsible for expression lines. Common treatment areas include forehead lines, frown lines between the brows, crow\'s feet, and chin dimpling. The goal is not to eliminate expression — but to soften it, preserving the natural warmth and personality of your face while smoothing dynamic wrinkles. Results last 3 to 6 months.' },
@@ -728,7 +728,7 @@ const ARTICLES = {
     title: 'Full Mouth Rehabilitation: What to Expect at Every Stage',
     tags: ['Implants'],
     date: 'Apr 15, 2024', read: '9 min read',
-    image: 'blog-fullmouth.jpg',
+    image: 'blog-fullmouth.jpg', imagePos: 'top center',
     intro: 'Full Mouth Rehabilitation — also called full mouth reconstruction — is a highly specialized approach to comprehensive dental care that addresses challenges across both the upper and lower jaws simultaneously. It is the treatment of choice for patients whose oral health concerns extend beyond a single tooth or region, requiring a coordinated, sequenced plan of care.',
     sections: [
       { h: 'Who Benefits from Full Mouth Rehabilitation?', list: ['Multiple missing teeth due to decay, trauma, or advanced disease', 'Severely worn or damaged teeth from grinding, clenching, or acid erosion', 'Chronic jaw pain or temporomandibular joint (TMJ) disorders', 'Advanced gum disease requiring both periodontal and restorative intervention', 'Complex cosmetic concerns spanning multiple teeth, regions, or both arches'] },
@@ -767,7 +767,7 @@ const ARTICLES = {
     title: 'Porcelain Veneers vs. Composite: A Complete Comparison',
     tags: ['Aesthetics'],
     date: 'Feb 19, 2024', read: '6 min read',
-    image: 'blog-veneers.jpg',
+    image: 'blog-veneers.jpg', imagePos: 'top center',
     intro: 'Two of the most requested cosmetic treatments in contemporary dentistry — porcelain veneers and composite bonding — can both produce dramatic, confidence-restoring smile transformations. But they differ significantly in durability, natural appearance, clinical process, and investment. Understanding both empowers you to make the right decision for your smile and your life.',
     sections: [
       { h: 'Porcelain Veneers', p: 'Ultra-thin shells of medical-grade ceramic, custom-fabricated in a dental laboratory to precisely match your desired tooth shape and shade. Veneers are permanently bonded to the front surface of prepared teeth, creating a result that is exceptionally natural-looking — with the translucency and light-reflection properties of real enamel.', list: ['Lifespan: 15 to 20+ years with proper home care', 'Stain resistance: excellent — highly resistant to coffee, wine, and tobacco', 'Process: minimal tooth preparation; typically completed across 2 appointments', 'Best for: comprehensive smile redesign, significant discoloration, shape corrections, worn edges'] },
@@ -796,7 +796,8 @@ function openArticle(id) {
   if (!a) return;
 
   // Hero image
-  document.getElementById('artImg').style.background = `url('${a.image}') center/cover no-repeat`;
+  const imgPos = a.imagePos || 'top center';
+  document.getElementById('artImg').style.background = `url('${a.image}') ${imgPos}/cover no-repeat`;
 
   // Tags
   document.getElementById('artTagsEl').innerHTML = a.tags
