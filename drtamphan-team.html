@@ -142,8 +142,27 @@ nav {
 .lead-cred-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); margin-top:8px; flex-shrink:0; }
 .lead-cred-text { font-size:.85rem; color:rgba(10,22,40,.7); line-height:1.6; }
 
+/* SECTION BRIDGE */
+.section-bridge {
+  background:var(--navy);
+  padding:48px 64px;
+  display:flex; align-items:center; gap:0;
+  position:relative; overflow:hidden;
+}
+.sb-left { flex:1; height:1px; background:linear-gradient(to right,transparent,rgba(201,162,39,.45)); }
+.sb-center {
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  padding:0 40px; flex-shrink:0;
+}
+.sb-diamond { width:7px; height:7px; background:var(--gold); transform:rotate(45deg); }
+.sb-label {
+  font-family:var(--sans); font-size:.58rem; letter-spacing:.28em;
+  text-transform:uppercase; color:rgba(201,162,39,.5); white-space:nowrap;
+}
+.sb-right { flex:1; height:1px; background:linear-gradient(to left,transparent,rgba(201,162,39,.45)); }
+
 /* TEAM GRID */
-.team-section { background:var(--warm); padding:80px 64px 120px; border-top:1px solid rgba(10,22,40,.08); }
+.team-section { background:var(--warm); padding:80px 64px 120px; }
 .team-section-title {
   font-family:var(--serif); font-size:1rem; letter-spacing:.28em;
   text-transform:uppercase; color:var(--gold); margin-bottom:48px;
@@ -338,6 +357,17 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
   </div>
 </div>
 
+<!-- SECTION BRIDGE -->
+<div class="section-bridge">
+  <div class="sb-left"></div>
+  <div class="sb-center">
+    <div class="sb-diamond"></div>
+    <div class="sb-label">Clinical Team</div>
+    <div class="sb-diamond"></div>
+  </div>
+  <div class="sb-right"></div>
+</div>
+
 <!-- TEAM GRID — 3 MEMBERS -->
 <div class="team-section">
   <div class="team-section-title rv">Our Clinical Team</div>
@@ -357,7 +387,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
     <div class="team-card rv" style="transition-delay:.12s">
       <div class="tc-photo">
-        <img src="team-alyanna.jpg" alt="Alyanna" style="object-position:20% center">
+        <img src="team-alyanna.jpg" alt="Alyanna">
       </div>
       <div class="tc-info">
         <div class="tc-name">Alyanna</div>
