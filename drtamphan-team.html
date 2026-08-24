@@ -366,62 +366,22 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
   </div>
 </div>
 
-<!-- DR. PHAN — LEAD MEMBER -->
-<div class="lead-section">
-  <div class="lead-wrap">
-    <div class="lead-photo rvL">
-      <img src="team-drphan.jpg" alt="Dr. Tâm Phan">
-      <div class="lead-gold-bar"></div>
-    </div>
-    <div class="lead-content rvR">
-      <div class="lead-eyebrow">Founder &amp; Lead Surgeon</div>
-      <h2 class="lead-name">Dr. Tâm Phan</h2>
-      <div class="lead-role">Dentofacial Specialist</div>
-      <p class="lead-bio">
-        Dr. Tâm Phan is a board-certified dental surgeon with over 20 years of experience transforming smiles and restoring oral health across four continents. Renowned for his meticulous surgical precision and artist's eye for natural aesthetics, he has performed over 2,500 implant procedures with a 98% long-term success rate.
-      </p>
-      <p class="lead-bio" style="margin-top:-20px">
-        A sought-after international speaker, Dr. Phan has presented at over 40 conferences worldwide and serves as a clinical trainer for the next generation of implantologists.
-      </p>
-      <div class="lead-credentials">
-        <div class="lead-cred">
-          <div class="lead-cred-dot"></div>
-          <div class="lead-cred-text">D.M.D., Université de Montréal, Faculty of Dental Medicine</div>
-        </div>
-        <div class="lead-cred">
-          <div class="lead-cred-dot"></div>
-          <div class="lead-cred-text">Fellow, International Team for Implantology (ITI)</div>
-        </div>
-        <div class="lead-cred">
-          <div class="lead-cred-dot"></div>
-          <div class="lead-cred-text">Certified in Advanced Oral Surgery &amp; Implantology</div>
-        </div>
-        <div class="lead-cred">
-          <div class="lead-cred-dot"></div>
-          <div class="lead-cred-text">Specialist in Facial Aesthetics — Botox, PRGF &amp; Masseter Therapy</div>
-        </div>
-      </div>
-      <a href="drtamphan-book.html" class="btn-navy">Book with Dr. Phan →</a>
-    </div>
-  </div>
-</div>
-
-<!-- SECTION BRIDGE -->
-<div class="section-bridge">
-  <div class="sb-left"></div>
-  <div class="sb-center">
-    <div class="sb-diamond"></div>
-    <div class="sb-label">Clinical Team</div>
-    <div class="sb-diamond"></div>
-  </div>
-  <div class="sb-right"></div>
-</div>
-
-<!-- TEAM GRID — 3 MEMBERS -->
+<!-- TEAM GRID — 4 MEMBERS -->
 <div class="team-section">
-  <div class="team-section-title rv">Our Clinical Team</div>
+  <div class="team-section-title rv">Meet Our Team</div>
 
   <div class="team-grid">
+
+    <div class="team-card rv" data-m="drphan" style="transition-delay:.0s">
+      <div class="tc-photo">
+        <img src="team-drphan.jpg" alt="Dr. Tâm Phan">
+      </div>
+      <div class="tc-info">
+        <div class="tc-name">Dr. Tâm Phan</div>
+        <div class="tc-role">Founder &amp; Lead Surgeon</div>
+        <div class="tc-arrow">View Profile →</div>
+      </div>
+    </div>
 
     <div class="team-card rv" data-m="carolane" style="transition-delay:.05s">
       <div class="tc-photo">
@@ -513,6 +473,18 @@ document.querySelectorAll('.rv,.rvL,.rvR').forEach(el=>obs.observe(el));
 
 <script>
 const TEAM = {
+  drphan: {
+    name: 'Dr. Tâm Phan',
+    role: 'DMD — Founder & Lead Surgeon',
+    photo: 'team-drphan.jpg',
+    bio: 'Dr. Tâm Phan is a graduate of Laval University\'s Faculty of Dentistry and a Fellow of both the International Congress of Oral Implantologists (FICOI) and the Misch International Implant Institute (FMIII). With over 31 years of experience, he is recognized for his mastery in aesthetic dentistry, implantology, full mouth rehabilitation, and bone grafting — and has been published in the Canadian dental journal Oral Health.',
+    facts: [
+      { icon: '◆', text: 'Fellow of the ICOI and FMIII — among the most rigorous implantology credentials in the world.' },
+      { icon: '◆', text: 'Trained under global pioneers including Dr. Carl Misch, Dr. Eduardo Anitua, and Dr. Mike Pikos.' },
+      { icon: '◆', text: 'Recipient of the Guy Maranda Foundation Award for Excellence in Dental Surgery.' },
+      { icon: '◆', text: 'Active member of the Canadian Society of Oral Implantology and the American Academy of Cosmetic Dentistry.' }
+    ]
+  },
   carolane: {
     name: 'Carolane',
     role: 'Surgical Assistant',
