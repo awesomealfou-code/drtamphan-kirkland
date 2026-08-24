@@ -169,7 +169,7 @@ nav {
   display:flex; align-items:center; gap:14px;
 }
 .team-section-title::before { content:''; display:inline-block; width:28px; height:1px; background:var(--gold); }
-.team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+.team-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:3px; }
 .team-card { position:relative; cursor:pointer; overflow:hidden; background:var(--navy); }
 .tc-photo {
   width:100%; aspect-ratio:3/4; overflow:hidden;
@@ -318,6 +318,8 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
   .lead-content { padding:56px 40px; }
   .team-section { padding:60px 32px 90px; }
   .team-grid { grid-template-columns:repeat(2,1fr); }
+  .team-grid .team-card:nth-child(3),
+  .team-grid .team-card:nth-child(4) { /* keep 2×2 on tablet */ }
   .join-section { grid-template-columns:1fr; gap:48px; padding:72px 32px; }
   footer { padding:48px 32px 28px; }
   .quote-strip { padding:60px 32px; }
