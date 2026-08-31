@@ -624,10 +624,20 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 <script>
 const _burger = document.getElementById('burger');
 const _menu = document.getElementById('mobileMenu');
-function openMenu(){ _menu.classList.add('open'); _burger.style.display='none'; document.body.style.overflow='hidden'; }
-function closeMenu(){ _menu.classList.remove('open'); _burger.style.display=''; document.body.style.overflow=''; }
+let _savedScroll = 0;
+function openMenu(){
+  _savedScroll = window.scrollY;
+  document.body.style.position='fixed'; document.body.style.top='-'+_savedScroll+'px'; document.body.style.width='100%';
+  _menu.classList.add('open'); _burger.style.display='none';
+}
+function dismissMenu(){
+  document.body.style.position=''; document.body.style.top=''; document.body.style.width='';
+  _menu.classList.remove('open'); _burger.style.display='';
+}
+function closeMenuRestore(){ dismissMenu(); window.scrollTo(0,_savedScroll); }
 _burger.addEventListener('click', openMenu);
-document.getElementById('closeMenu').addEventListener('click', closeMenu);
+document.getElementById('closeMenu').addEventListener('click', closeMenuRestore);
+_menu.querySelectorAll('a').forEach(l=>l.addEventListener('click', dismissMenu));
 
 const cur  = document.getElementById('cur');
 const curR = document.getElementById('curR');

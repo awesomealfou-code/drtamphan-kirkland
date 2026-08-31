@@ -1361,11 +1361,20 @@ window.addEventListener('scroll',()=>{
 /* ── MOBILE MENU ─────────────────────────── */
 const menu  = document.getElementById('mobileMenu');
 const burger = document.getElementById('burger');
-function openMenu(){ menu.classList.add('open'); burger.style.display='none'; document.body.style.overflow='hidden'; }
-function closeMenu(){ menu.classList.remove('open'); burger.style.display=''; document.body.style.overflow=''; }
+let _savedScroll = 0;
+function openMenu(){
+  _savedScroll = window.scrollY;
+  document.body.style.position='fixed'; document.body.style.top='-'+_savedScroll+'px'; document.body.style.width='100%';
+  menu.classList.add('open'); burger.style.display='none';
+}
+function dismissMenu(){
+  document.body.style.position=''; document.body.style.top=''; document.body.style.width='';
+  menu.classList.remove('open'); burger.style.display='';
+}
+function closeMenuRestore(){ dismissMenu(); window.scrollTo(0,_savedScroll); }
 document.getElementById('burger').addEventListener('click', openMenu);
-document.getElementById('closeMenu').addEventListener('click', closeMenu);
-document.querySelectorAll('.mm-link').forEach(l=>l.addEventListener('click', closeMenu));
+document.getElementById('closeMenu').addEventListener('click', closeMenuRestore);
+menu.querySelectorAll('a').forEach(l=>l.addEventListener('click', dismissMenu));
 
 /* ── HERO WORD ANIMATION ─────────────────── */
 document.querySelectorAll('.hero-title .word').forEach((w,i)=>{

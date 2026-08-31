@@ -233,8 +233,18 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
   .form-right { padding:56px 32px; }
   footer { padding:48px 32px 28px; }
 }
+/* mobile hamburger */
+.burger { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:4px; cursor:pointer; }
+.burger span { display:block; width:22px; height:1px; background:var(--white); transition:transform .3s,opacity .3s; }
+#mobileMenu { display:none; position:fixed; inset:0; z-index:9999; background:var(--navy); flex-direction:column; align-items:center; justify-content:center; gap:36px; }
+#mobileMenu.open { display:flex; }
+#mobileMenu a { font-family:var(--serif); font-size:2.4rem; font-weight:300; color:var(--white); text-decoration:none; letter-spacing:.05em; transition:color .3s; }
+#mobileMenu a:hover { color:var(--gold); }
+#mobileMenu .close-btn { position:absolute; top:28px; right:32px; background:none; border:none; font-size:2rem; color:var(--white); cursor:pointer; line-height:1; }
 @media(max-width:640px){
   .nav-links { display:none; }
+  .burger { display:flex; }
+  .logo-tagline { display:none; }
   .form-row { grid-template-columns:1fr; }
   .page-header { padding:110px 20px 56px; }
   .form-left,.form-right { padding:44px 20px; }
@@ -247,6 +257,16 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
 <div id="cur"></div>
 <div id="curR"></div>
+
+<div id="mobileMenu">
+  <button class="close-btn" id="closeMenu">×</button>
+  <a href="index.html#specialties">Treatments</a>
+  <a href="index.html#about">About</a>
+  <a href="drtamphan-team.html">The Team</a>
+  <a href="index.html#process">Our Process</a>
+  <a href="drtamphan-blog.html">Blog</a>
+  <a href="drtamphan-book.html" style="color:var(--gold)">Contact Us</a>
+</div>
 
 <nav>
   <div class="logo-wrap">
@@ -263,6 +283,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
     <li><a href="drtamphan-blog.html">Blog</a></li>
     <li><a href="drtamphan-book.html" class="nav-cta">Contact Us</a></li>
   </ul>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="page-header">
@@ -419,6 +440,23 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 </footer>
 
 <script>
+const _burger = document.getElementById('burger');
+const _menu = document.getElementById('mobileMenu');
+let _savedScroll = 0;
+function openMenu(){
+  _savedScroll = window.scrollY;
+  document.body.style.position='fixed'; document.body.style.top='-'+_savedScroll+'px'; document.body.style.width='100%';
+  _menu.classList.add('open'); _burger.style.display='none';
+}
+function dismissMenu(){
+  document.body.style.position=''; document.body.style.top=''; document.body.style.width='';
+  _menu.classList.remove('open'); _burger.style.display='';
+}
+function closeMenuRestore(){ dismissMenu(); window.scrollTo(0,_savedScroll); }
+_burger.addEventListener('click', openMenu);
+document.getElementById('closeMenu').addEventListener('click', closeMenuRestore);
+_menu.querySelectorAll('a').forEach(l=>l.addEventListener('click', dismissMenu));
+
 const cur  = document.getElementById('cur');
 const curR = document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
