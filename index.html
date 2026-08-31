@@ -1360,9 +1360,10 @@ window.addEventListener('scroll',()=>{
 
 /* ── MOBILE MENU ─────────────────────────── */
 const menu  = document.getElementById('mobileMenu');
-document.getElementById('burger').addEventListener('click',()=>menu.classList.add('open'));
-document.getElementById('closeMenu').addEventListener('click',()=>menu.classList.remove('open'));
-document.querySelectorAll('.mm-link').forEach(l=>l.addEventListener('click',()=>menu.classList.remove('open')));
+const burger = document.getElementById('burger');
+document.getElementById('burger').addEventListener('click',()=>{ menu.classList.add('open'); burger.style.display='none'; });
+document.getElementById('closeMenu').addEventListener('click',()=>{ menu.classList.remove('open'); burger.style.display=''; });
+document.querySelectorAll('.mm-link').forEach(l=>l.addEventListener('click',()=>{ menu.classList.remove('open'); burger.style.display=''; }));
 
 /* ── HERO WORD ANIMATION ─────────────────── */
 document.querySelectorAll('.hero-title .word').forEach((w,i)=>{

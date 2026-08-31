@@ -622,8 +622,10 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 </footer>
 
 <script>
-document.getElementById('burger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.add('open'));
-document.getElementById('closeMenu').addEventListener('click',()=>document.getElementById('mobileMenu').classList.remove('open'));
+const _burger = document.getElementById('burger');
+const _menu = document.getElementById('mobileMenu');
+_burger.addEventListener('click',()=>{ _menu.classList.add('open'); _burger.style.display='none'; });
+document.getElementById('closeMenu').addEventListener('click',()=>{ _menu.classList.remove('open'); _burger.style.display=''; });
 
 const cur  = document.getElementById('cur');
 const curR = document.getElementById('curR');
