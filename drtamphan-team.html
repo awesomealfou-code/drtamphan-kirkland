@@ -473,8 +473,10 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 <script>
 const _burger = document.getElementById('burger');
 const _menu = document.getElementById('mobileMenu');
-_burger.addEventListener('click',()=>{ _menu.classList.add('open'); _burger.style.display='none'; });
-document.getElementById('closeMenu').addEventListener('click',()=>{ _menu.classList.remove('open'); _burger.style.display=''; });
+function openMenu(){ _menu.classList.add('open'); _burger.style.display='none'; document.body.style.overflow='hidden'; }
+function closeMenu(){ _menu.classList.remove('open'); _burger.style.display=''; document.body.style.overflow=''; }
+_burger.addEventListener('click', openMenu);
+document.getElementById('closeMenu').addEventListener('click', closeMenu);
 
 const cur  = document.getElementById('cur');
 const curR = document.getElementById('curR');
