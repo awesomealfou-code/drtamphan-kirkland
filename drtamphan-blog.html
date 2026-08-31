@@ -30,6 +30,25 @@ body { background:var(--navy); color:var(--white); font-family:var(--sans); font
 #curR { width:34px; height:34px; border:1px solid rgba(201,162,39,.45); border-radius:50%; position:fixed; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:left .12s ease,top .12s ease,width .3s,height .3s,border-color .3s; }
 body.hovering #curR { width:52px; height:52px; border-color:var(--gold); }
 
+/* mobile hamburger */
+.burger { display:none; flex-direction:column; gap:5px; background:none; border:none; padding:4px; cursor:pointer; }
+.burger span { display:block; width:22px; height:1px; background:var(--white); transition:transform .3s,opacity .3s; }
+#mobileMenu {
+  display:none; position:fixed; inset:0; z-index:9999;
+  background:var(--navy); flex-direction:column;
+  align-items:center; justify-content:center; gap:36px;
+}
+#mobileMenu.open { display:flex; }
+#mobileMenu a {
+  font-family:var(--serif); font-size:2.4rem; font-weight:300;
+  color:var(--white); text-decoration:none; letter-spacing:.05em; transition:color .3s;
+}
+#mobileMenu a:hover { color:var(--gold); }
+#mobileMenu .close-btn {
+  position:absolute; top:28px; right:32px;
+  background:none; border:none; font-size:2rem; color:var(--white); cursor:pointer; line-height:1;
+}
+
 /* NAV */
 nav {
   position:fixed; top:0; left:0; right:0; z-index:1000;
@@ -241,6 +260,8 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 }
 @media(max-width:640px){
   .nav-links { display:none; }
+  .burger { display:flex; }
+  .logo-tagline { display:none; }
   nav { padding:16px 20px; }
   .page-header { padding:110px 20px 56px; }
   .blog-cats { padding:0 20px; overflow-x:auto; flex-wrap:nowrap; }
@@ -253,6 +274,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
   .nl-form { flex-direction:column; }
   .nl-input { border-right:1px solid rgba(201,162,39,.2); border-bottom:none; }
   footer { padding:40px 20px 24px; }
+  .art-modal { width:100vw; max-height:96vh; border-radius:0; }
 }
 
 /* ===== ARTICLE MODAL ===== */
@@ -393,6 +415,16 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 <div id="cur"></div>
 <div id="curR"></div>
 
+<div id="mobileMenu">
+  <button class="close-btn" id="closeMenu">×</button>
+  <a href="index.html#specialties">Treatments</a>
+  <a href="index.html#about">About</a>
+  <a href="drtamphan-team.html">The Team</a>
+  <a href="index.html#process">Our Process</a>
+  <a href="drtamphan-blog.html">Blog</a>
+  <a href="drtamphan-book.html" style="color:var(--gold)">Contact Us</a>
+</div>
+
 <nav>
   <div class="logo-wrap">
     <a href="index.html" class="logo">
@@ -408,6 +440,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
     <li><a href="drtamphan-blog.html">Blog</a></li>
     <li><a href="drtamphan-book.html" class="nav-cta">Contact Us</a></li>
   </ul>
+  <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- PAGE HEADER -->
@@ -589,6 +622,9 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 </footer>
 
 <script>
+document.getElementById('burger').addEventListener('click',()=>document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('closeMenu').addEventListener('click',()=>document.getElementById('mobileMenu').classList.remove('open'));
+
 const cur  = document.getElementById('cur');
 const curR = document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
