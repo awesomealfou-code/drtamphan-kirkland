@@ -1378,7 +1378,14 @@ function dismissMenu(){
 function closeMenuRestore(){ dismissMenu(); window.scrollTo(0,_savedScroll); }
 document.getElementById('burger').addEventListener('click', openMenu);
 document.getElementById('closeMenu').addEventListener('click', closeMenuRestore);
-menu.querySelectorAll('a').forEach(l=>l.addEventListener('click', dismissMenu));
+menu.querySelectorAll('a').forEach(function(l){
+  l.addEventListener('click', function(e){
+    e.preventDefault();
+    var href = this.getAttribute('href');
+    dismissMenu();
+    setTimeout(function(){ window.location.href = href; }, 50);
+  });
+});
 
 /* ── HERO WORD ANIMATION ─────────────────── */
 document.querySelectorAll('.hero-title .word').forEach((w,i)=>{
