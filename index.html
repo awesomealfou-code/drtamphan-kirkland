@@ -41,7 +41,7 @@ body {
 nav {
   position:fixed; top:0; left:0; right:0; z-index:1000;
   padding:12px 64px;
-  display:flex; align-items:flex-start; justify-content:space-between;
+  display:flex; align-items:center; justify-content:space-between;
   transition:padding .4s,background .4s,backdrop-filter .4s,border-color .4s;
   border-bottom:1px solid transparent;
 }
@@ -76,7 +76,7 @@ nav.scrolled .logo img { height:60px; }
   font-family:var(--sans);
   font-weight:300;
 }
-.nav-links { display:flex; gap:44px; list-style:none; align-items:center; padding-top:22px; }
+.nav-links { display:flex; gap:44px; list-style:none; align-items:center; }
 .nav-links a {
   font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
   color:var(--off-white); text-decoration:none; position:relative;
