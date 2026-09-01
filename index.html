@@ -849,12 +849,12 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
 <!-- Mobile Menu -->
 <div id="mobileMenu">
   <button class="close-btn" id="closeMenu">×</button>
-  <a href="#treatments"          class="mm-link">Treatments</a>
-  <a href="#about"                class="mm-link">About</a>
-  <a href="drtamphan-team.html"   class="mm-link">The Team</a>
-  <a href="#process"              class="mm-link">Our Process</a>
-  <a href="drtamphan-blog.html" class="mm-link">Blog</a>
-  <a href="drtamphan-book.html" class="mm-link" style="color:var(--gold)">Contact Us</a>
+  <a href="#treatments"          class="mm-link" data-i18n="navTreatments">Treatments</a>
+  <a href="#about"                class="mm-link" data-i18n="navAbout">About</a>
+  <a href="drtamphan-team.html"   class="mm-link" data-i18n="navTeam">The Team</a>
+  <a href="#process"              class="mm-link" data-i18n="navProcess">Our Process</a>
+  <a href="drtamphan-blog.html" class="mm-link" data-i18n="navBlog">Blog</a>
+  <a href="drtamphan-book.html" class="mm-link" style="color:var(--gold)" data-i18n="navContact">Contact Us</a>
 </div>
 
 <!-- NAV -->
@@ -863,15 +863,16 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
     <a href="#" class="logo">
       <img src="drtamphan-logo-en.png" alt="Dr. Tâm Phan">
     </a>
-    <span class="logo-tagline">Dentofacial Aesthetics</span>
+    <span class="logo-tagline" data-i18n="logoTagline">Dentofacial Aesthetics</span>
   </div>
   <ul class="nav-links">
-    <li><a href="#treatments">Treatments</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="drtamphan-team.html">The Team</a></li>
-    <li><a href="#process">Our Process</a></li>
-    <li><a href="drtamphan-blog.html">Blog</a></li>
-    <li><a href="drtamphan-book.html" class="nav-cta">Contact Us</a></li>
+    <li><a href="#treatments" data-i18n="navTreatments">Treatments</a></li>
+    <li><a href="#about" data-i18n="navAbout">About</a></li>
+    <li><a href="drtamphan-team.html" data-i18n="navTeam">The Team</a></li>
+    <li><a href="#process" data-i18n="navProcess">Our Process</a></li>
+    <li><a href="drtamphan-blog.html" data-i18n="navBlog">Blog</a></li>
+    <li><a href="drtamphan-book.html" class="nav-cta" data-i18n="navContact">Contact Us</a></li>
+    <li><button id="langToggle" onclick="toggleLang()" style="background:none;border:1px solid rgba(201,162,39,.45);color:var(--gold);font-family:var(--sans);font-size:.65rem;letter-spacing:.18em;padding:7px 13px;cursor:pointer;transition:background .25s,color .25s;text-transform:uppercase;" onmouseenter="this.style.background='rgba(201,162,39,.12)'" onmouseleave="this.style.background='none'">FR</button></li>
   </ul>
   <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
@@ -892,8 +893,8 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       <path d="M0,0 L1440,0 C1200,0 960,80 720,40 C480,0 240,80 0,40 Z" fill="#0a0a0a"/>
     </svg>
   </div>
-  <div class="s-eyebrow rv">Our Expertise</div>
-  <h2 class="s-title rv">Transforming lives through<br><em>exceptional dentistry</em></h2>
+  <div class="s-eyebrow rv" data-i18n="expertiseEyebrow">Our Expertise</div>
+  <h2 class="s-title rv" data-i18n-html="expertiseTitle">Transforming lives through<br><em>exceptional dentistry</em></h2>
 
   <div class="spec-grid">
     <div class="spec-card rv" style="transition-delay:.05s">
@@ -903,9 +904,9 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
         <path d="M22 8c0 0-4 6-4 14s4 14 4 14"/>
         <path d="M8 22h28"/>
       </svg>
-      <h3 class="spec-name">Dental Implants</h3>
-      <p class="spec-desc">Permanent tooth replacement using cutting-edge implant technology for a natural, lasting result.</p>
-      <a href="drtamphan-blog.html#implants" class="spec-link">Learn more →</a>
+      <h3 class="spec-name" data-i18n="spec1Name">Dental Implants</h3>
+      <p class="spec-desc" data-i18n="spec1Desc">Permanent tooth replacement using cutting-edge implant technology for a natural, lasting result.</p>
+      <a href="drtamphan-blog.html#implants" class="spec-link" data-i18n="specLearnMore">Learn more →</a>
     </div>
     <div class="spec-card rv" style="transition-delay:.12s">
       <div class="spec-num">2</div>
@@ -913,9 +914,9 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
         <path d="M22 6c-8 0-13 5-13 11 0 4 2 7 4 9l9 14 9-14c2-2 4-5 4-9 0-6-5-11-13-11z"/>
         <path d="M17 18c0-2.8 2.2-5 5-5s5 2.2 5 5"/>
       </svg>
-      <h3 class="spec-name">Full Mouth Rehabilitation</h3>
-      <p class="spec-desc">Comprehensive restoration combining treatments to restore oral function and complete aesthetics.</p>
-      <a href="drtamphan-blog.html#implants" class="spec-link">Learn more →</a>
+      <h3 class="spec-name" data-i18n="spec2Name">Full Mouth Rehabilitation</h3>
+      <p class="spec-desc" data-i18n="spec2Desc">Comprehensive restoration combining treatments to restore oral function and complete aesthetics.</p>
+      <a href="drtamphan-blog.html#implants" class="spec-link" data-i18n="specLearnMore">Learn more →</a>
     </div>
     <div class="spec-card rv" style="transition-delay:.19s">
       <div class="spec-num">3</div>
@@ -924,9 +925,9 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
         <path d="M14 20c0-5 3.6-9 8-9s8 4 8 9"/>
         <path d="M10 28c0 4 5.4 8 12 8s12-4 12-8"/>
       </svg>
-      <h3 class="spec-name">Cosmetic Dentistry</h3>
-      <p class="spec-desc">Porcelain veneers, whitening, and smile design to create your most confident appearance.</p>
-      <a href="drtamphan-blog.html#aesthetics" class="spec-link">Learn more →</a>
+      <h3 class="spec-name" data-i18n="spec3Name">Cosmetic Dentistry</h3>
+      <p class="spec-desc" data-i18n="spec3Desc">Porcelain veneers, whitening, and smile design to create your most confident appearance.</p>
+      <a href="drtamphan-blog.html#aesthetics" class="spec-link" data-i18n="specLearnMore">Learn more →</a>
     </div>
     <div class="spec-card rv" style="transition-delay:.26s">
       <div class="spec-num">4</div>
@@ -936,9 +937,9 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
         <path d="M34 18c2 1 4 3 4 6 0 3-2 5-5 5"/>
         <path d="M17 29c0 4 2.7 8 5 10 2.3-2 5-6 5-10"/>
       </svg>
-      <h3 class="spec-name">Facial Aesthetics</h3>
-      <p class="spec-desc">Botox, PRGF therapy, and masseter treatments to harmonize your facial appearance beautifully.</p>
-      <a href="drtamphan-blog.html#aesthetics" class="spec-link">Learn more →</a>
+      <h3 class="spec-name" data-i18n="spec4Name">Facial Aesthetics</h3>
+      <p class="spec-desc" data-i18n="spec4Desc">Botox, PRGF therapy, and masseter treatments to harmonize your facial appearance beautifully.</p>
+      <a href="drtamphan-blog.html#aesthetics" class="spec-link" data-i18n="specLearnMore">Learn more →</a>
     </div>
   </div>
   <!-- wave out to CTA -->
@@ -969,10 +970,10 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
   </div>
   <div class="treat-header">
     <div>
-      <div class="s-eyebrow rv">All Treatments</div>
-      <h2 class="s-title rv">Comprehensive care<br>for every <em>need</em></h2>
+      <div class="s-eyebrow rv" data-i18n="treatEyebrow">All Treatments</div>
+      <h2 class="s-title rv" data-i18n-html="treatTitle">Comprehensive care<br>for every <em>need</em></h2>
     </div>
-    <a href="#treat-grid" class="btn-outline rv">View Our Treatments Below ↓</a>
+    <a href="#treat-grid" class="btn-outline rv" data-i18n="treatViewBtn">View Our Treatments Below ↓</a>
   </div>
 
   <div class="treat-grid" id="treat-grid">
@@ -980,60 +981,60 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       <div class="treat-bg"><img class="treat-img" src="treat-botox.png" alt="Botox & Aesthetic Treatments"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
-        <div class="treat-cat">Elevated Facial Aesthetics</div>
-        <div class="treat-name">Botox &amp; Aesthetic<br>Treatments</div>
-        <div class="treat-desc">Restore harmony, preserve natural expression, and enhance the unique features that define your appearance.</div>
-        <div class="treat-cta">Learn More →</div>
+        <div class="treat-cat" data-i18n="tc_botox_cat">Elevated Facial Aesthetics</div>
+        <div class="treat-name" data-i18n-html="tc_botox_name">Botox &amp; Aesthetic<br>Treatments</div>
+        <div class="treat-desc" data-i18n="tc_botox_desc">Restore harmony, preserve natural expression, and enhance the unique features that define your appearance.</div>
+        <div class="treat-cta" data-i18n="learnMoreBtn">Learn More →</div>
       </div>
     </div>
     <div class="treat-card rv" data-t="implants" style="transition-delay:.08s">
       <div class="treat-bg"><img class="treat-img" src="treat-implant.png" alt="Dental Implants"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
-        <div class="treat-cat">Dental Implants</div>
-        <div class="treat-name">Dental<br>Implants</div>
-        <div class="treat-desc">Cutting-edge permanent tooth replacement solutions designed to last a lifetime.</div>
-        <div class="treat-cta">Learn More →</div>
+        <div class="treat-cat" data-i18n="tc_impl_cat">Dental Implants</div>
+        <div class="treat-name" data-i18n-html="tc_impl_name">Dental<br>Implants</div>
+        <div class="treat-desc" data-i18n="tc_impl_desc">Cutting-edge permanent tooth replacement solutions designed to last a lifetime.</div>
+        <div class="treat-cta" data-i18n="learnMoreBtn">Learn More →</div>
       </div>
     </div>
     <div class="treat-card rv" data-t="sinus" style="transition-delay:.14s">
       <div class="treat-bg"><img class="treat-img" src="treat-sinus.png" alt="Sinus Lift"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
-        <div class="treat-cat">Implant Foundation</div>
-        <div class="treat-name">Sinus<br>Lift</div>
-        <div class="treat-desc">Advanced bone augmentation for optimal implant placement success.</div>
-        <div class="treat-cta">Learn More →</div>
+        <div class="treat-cat" data-i18n="tc_sinus_cat">Implant Foundation</div>
+        <div class="treat-name" data-i18n-html="tc_sinus_name">Sinus<br>Lift</div>
+        <div class="treat-desc" data-i18n="tc_sinus_desc">Advanced bone augmentation for optimal implant placement success.</div>
+        <div class="treat-cta" data-i18n="learnMoreBtn">Learn More →</div>
       </div>
     </div>
     <div class="treat-card rv" data-t="grafts" style="transition-delay:.06s">
       <div class="treat-bg"><img class="treat-img" src="treat-gum.png" alt="Gum Graft & Bone Graft"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
-        <div class="treat-cat">Cosmetic Dentistry &amp; Implants</div>
-        <div class="treat-name">Gum Graft &amp;<br>Bone Graft</div>
-        <div class="treat-desc">Restore gum tissue and rebuild jaw bone structure for lasting health and a more balanced smile.</div>
-        <div class="treat-cta">Learn More →</div>
+        <div class="treat-cat" data-i18n="tc_grafts_cat">Cosmetic Dentistry &amp; Implants</div>
+        <div class="treat-name" data-i18n-html="tc_grafts_name">Gum Graft &amp;<br>Bone Graft</div>
+        <div class="treat-desc" data-i18n="tc_grafts_desc">Restore gum tissue and rebuild jaw bone structure for lasting health and a more balanced smile.</div>
+        <div class="treat-cta" data-i18n="learnMoreBtn">Learn More →</div>
       </div>
     </div>
     <div class="treat-card rv" data-t="extraction" style="transition-delay:.12s">
       <div class="treat-bg"><img class="treat-img" src="treat-extraction.png" alt="Teeth Extraction & Temporary Prosthetics"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
-        <div class="treat-cat">Dental Implants</div>
-        <div class="treat-name">Teeth Extraction &amp;<br>Temporary Prosthetics</div>
-        <div class="treat-desc">Gentle extraction with immediate aesthetic prosthetics while your permanent restoration is crafted.</div>
-        <div class="treat-cta">Learn More →</div>
+        <div class="treat-cat" data-i18n="tc_ext_cat">Dental Implants</div>
+        <div class="treat-name" data-i18n-html="tc_ext_name">Teeth Extraction &amp;<br>Temporary Prosthetics</div>
+        <div class="treat-desc" data-i18n="tc_ext_desc">Gentle extraction with immediate aesthetic prosthetics while your permanent restoration is crafted.</div>
+        <div class="treat-cta" data-i18n="learnMoreBtn">Learn More →</div>
       </div>
     </div>
     <div class="treat-card rv" data-t="fullmouth" style="transition-delay:.04s">
       <div class="treat-bg"><img class="treat-img" src="treat-fullmouth.png" alt="Full Mouth Rehabilitation"></div>
       <div class="treat-overlay"></div>
       <div class="treat-info">
-        <div class="treat-cat">Full Mouth Rehabilitation</div>
-        <div class="treat-name">Full Mouth<br>Rehabilitation</div>
-        <div class="treat-desc">Comprehensive oral restoration focusing on health, function, and the aesthetics of your entire oral cavity.</div>
-        <div class="treat-cta">Learn More →</div>
+        <div class="treat-cat" data-i18n="tc_full_cat">Full Mouth Rehabilitation</div>
+        <div class="treat-name" data-i18n-html="tc_full_name">Full Mouth<br>Rehabilitation</div>
+        <div class="treat-desc" data-i18n="tc_full_desc">Comprehensive oral restoration focusing on health, function, and the aesthetics of your entire oral cavity.</div>
+        <div class="treat-cta" data-i18n="learnMoreBtn">Learn More →</div>
       </div>
     </div>
     <div class="treat-card rv" data-t="bridges" style="transition-delay:.1s;display:none">
@@ -1043,7 +1044,7 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
         <div class="treat-cat">Cosmetic Dentistry</div>
         <div class="treat-name">Dental Bridges &amp;<br>Wisdom Teeth</div>
         <div class="treat-desc">Natural-looking bridges and expert wisdom tooth removal — gentle, precise, lasting results.</div>
-        <div class="treat-cta">Learn More →</div>
+        <div class="treat-cta" data-i18n="learnMoreBtn">Learn More →</div>
       </div>
     </div>
   </div>
@@ -1057,30 +1058,30 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       <div class="about-bar"></div>
     </div>
     <div class="about-content rvR">
-      <div class="s-eyebrow">About Dr. Phan</div>
-      <h2 class="s-title">31 years of<br><em>surgical excellence</em></h2>
-      <p class="about-text">
+      <div class="s-eyebrow" data-i18n="aboutEyebrow">About Dr. Phan</div>
+      <h2 class="s-title" data-i18n-html="aboutTitle">31 years of<br><em>surgical excellence</em></h2>
+      <p class="about-text" data-i18n="aboutText">
         Dr. Tâm Phan is a DMD and Fellow of both the International Congress of Oral Implantologists (FICOI) and the Misch International Implant Institute (FMIII). A graduate with honors from Laval University's Faculty of Dentistry, he has dedicated over 31 years to mastering aesthetic dentistry, implantology, and full mouth rehabilitation — trained under some of the world's most respected implantology pioneers.
       </p>
       <div class="credentials">
         <div class="cred">
-          <div class="cred-label">Education</div>
-          <div class="cred-value">Laval University, Faculty of Dentistry — Graduated with Honors</div>
+          <div class="cred-label" data-i18n="credLabel1">Education</div>
+          <div class="cred-value" data-i18n="credVal1">Laval University, Faculty of Dentistry — Graduated with Honors</div>
         </div>
         <div class="cred">
-          <div class="cred-label">Practice Oriented to</div>
+          <div class="cred-label" data-i18n="credLabel2">Practice Oriented to</div>
           <div class="cred-value">Dento-Facial Aesthetics, Implantology &amp; Full Mouth Rehabilitation</div>
         </div>
         <div class="cred">
-          <div class="cred-label">Fellowship</div>
+          <div class="cred-label" data-i18n="credLabel3">Fellowship</div>
           <div class="cred-value">FICOI &amp; FMIII — International Congress of Oral Implantologists</div>
         </div>
         <div class="cred">
-          <div class="cred-label">Recognition</div>
-          <div class="cred-value">Guy Maranda Foundation Award for Excellence in Dental Surgery</div>
+          <div class="cred-label" data-i18n="credLabel4">Recognition</div>
+          <div class="cred-value" data-i18n="credVal4">Guy Maranda Foundation Award for Excellence in Dental Surgery</div>
         </div>
       </div>
-      <a href="drtamphan-team.html" class="btn-primary">Meet the Full Team</a>
+      <a href="drtamphan-team.html" class="btn-primary" data-i18n="meetTeamBtn">Meet the Full Team</a>
     </div>
   </div>
 </section>
@@ -1088,9 +1089,9 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
 <!-- BEFORE / AFTER -->
 <section id="before-after">
   <div class="ba-header rv">
-    <div class="ba-label">Before &amp; After</div>
-    <h2 class="ba-eyebrow">Real Patient <em>Results</em></h2>
-    <p class="ba-sub">Drag to reveal each transformation</p>
+    <div class="ba-label" data-i18n="baLabel">Before &amp; After</div>
+    <h2 class="ba-eyebrow" data-i18n-html="baEyebrow">Real Patient <em>Results</em></h2>
+    <p class="ba-sub" data-i18n="baSub">Drag to reveal each transformation</p>
   </div>
   <div class="ba-grid">
     <!-- Case 1 -->
@@ -1098,8 +1099,8 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       <div class="bac-wrap">
         <img class="bac-img" src="ba1-before.png" alt="Before">
         <img class="bac-img bac-after" src="ba1-after.png" alt="After">
-        <span class="bac-tag is-before">Before</span>
-        <span class="bac-tag is-after">After</span>
+        <span class="bac-tag is-before" data-i18n="tagBefore">Before</span>
+        <span class="bac-tag is-after" data-i18n="tagAfter">After</span>
         <div class="bac-handle">
           <div class="bac-btn">
             <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1108,15 +1109,15 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
           </div>
         </div>
       </div>
-      <div class="bac-case"><div class="bac-case-num">Case 1</div></div>
+      <div class="bac-case"><div class="bac-case-num" data-i18n="case1">Case 1</div></div>
     </div>
     <!-- Case 2 -->
     <div class="bac-card rv">
       <div class="bac-wrap">
         <img class="bac-img" src="ba2-before.png" alt="Before">
         <img class="bac-img bac-after" src="ba2-after.png" alt="After">
-        <span class="bac-tag is-before">Before</span>
-        <span class="bac-tag is-after">After</span>
+        <span class="bac-tag is-before" data-i18n="tagBefore">Before</span>
+        <span class="bac-tag is-after" data-i18n="tagAfter">After</span>
         <div class="bac-handle">
           <div class="bac-btn">
             <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1125,15 +1126,15 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
           </div>
         </div>
       </div>
-      <div class="bac-case"><div class="bac-case-num">Case 2</div></div>
+      <div class="bac-case"><div class="bac-case-num" data-i18n="case2">Case 2</div></div>
     </div>
     <!-- Case 3 -->
     <div class="bac-card rv">
       <div class="bac-wrap">
         <img class="bac-img" src="ba3-before.png" alt="Before">
         <img class="bac-img bac-after" src="ba3-after.png" alt="After">
-        <span class="bac-tag is-before">Before</span>
-        <span class="bac-tag is-after">After</span>
+        <span class="bac-tag is-before" data-i18n="tagBefore">Before</span>
+        <span class="bac-tag is-after" data-i18n="tagAfter">After</span>
         <div class="bac-handle">
           <div class="bac-btn">
             <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1142,7 +1143,7 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
           </div>
         </div>
       </div>
-      <div class="bac-case"><div class="bac-case-num">Case 3</div></div>
+      <div class="bac-case"><div class="bac-case-num" data-i18n="case3">Case 3</div></div>
     </div>
   </div>
   <div class="wave-bot">
@@ -1157,19 +1158,19 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
   <div class="stats-grid">
     <div class="stat-item rv">
       <div class="stat-num"><span class="counter" data-t="31">0</span><span class="stat-suf">+</span></div>
-      <div class="stat-label">Years of Experience</div>
+      <div class="stat-label" data-i18n="statLabel1">Years of Experience</div>
     </div>
     <div class="stat-item rv" style="transition-delay:.1s">
       <div class="stat-num"><span class="counter" data-t="20000">0</span><span class="stat-suf">+</span></div>
-      <div class="stat-label">Successful Treatments</div>
+      <div class="stat-label" data-i18n="statLabel2">Successful Treatments</div>
     </div>
     <div class="stat-item rv" style="transition-delay:.2s">
       <div class="stat-num"><span class="counter" data-t="24">0</span><span class="stat-suf">+</span></div>
-      <div class="stat-label">Procedures Offered</div>
+      <div class="stat-label" data-i18n="statLabel3">Procedures Offered</div>
     </div>
     <div class="stat-item rv" style="transition-delay:.3s">
       <div class="stat-num"><span class="counter" data-t="25">0</span><span class="stat-suf">+</span></div>
-      <div class="stat-label">Expert Team Members</div>
+      <div class="stat-label" data-i18n="statLabel4">Expert Team Members</div>
     </div>
   </div>
 </section>
@@ -1182,34 +1183,34 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       <path d="M0,0 L1440,0 L1440,50 Q720,80 0,50 Z" fill="#0a0a0a"/>
     </svg>
   </div>
-  <div class="s-eyebrow rv" style="justify-content:center">Your Journey</div>
-  <h2 class="s-title rv" style="text-align:center">Simple steps to your<br><em>perfect smile</em></h2>
+  <div class="s-eyebrow rv" style="justify-content:center" data-i18n="processEyebrow">Your Journey</div>
+  <h2 class="s-title rv" style="text-align:center" data-i18n-html="processTitle">Simple steps to your<br><em>perfect smile</em></h2>
 
   <div class="process-grid">
     <div class="proc-step rv" style="transition-delay:.05s">
       <div class="proc-num">1</div>
-      <div class="proc-title">Consultation</div>
-      <p class="proc-desc">A thorough discussion of your goals, medical history, and the possibilities available to you.</p>
+      <div class="proc-title" data-i18n="procTitle1">Consultation</div>
+      <p class="proc-desc" data-i18n="procDesc1">A thorough discussion of your goals, medical history, and the possibilities available to you.</p>
     </div>
     <div class="proc-step rv" style="transition-delay:.12s">
       <div class="proc-num">2</div>
-      <div class="proc-title">Diagnosis</div>
-      <p class="proc-desc">3D imaging and clinical assessment to create a precise, personalized treatment plan.</p>
+      <div class="proc-title" data-i18n="procTitle2">Diagnosis</div>
+      <p class="proc-desc" data-i18n="procDesc2">3D imaging and clinical assessment to create a precise, personalized treatment plan.</p>
     </div>
     <div class="proc-step rv" style="transition-delay:.19s">
       <div class="proc-num">3</div>
-      <div class="proc-title">Treatment</div>
-      <p class="proc-desc">Expert surgery performed with precision instruments in our state-of-the-art clinic.</p>
+      <div class="proc-title" data-i18n="procTitle3">Treatment</div>
+      <p class="proc-desc" data-i18n="procDesc3">Expert surgery performed with precision instruments in our state-of-the-art clinic.</p>
     </div>
     <div class="proc-step rv" style="transition-delay:.26s">
       <div class="proc-num">4</div>
-      <div class="proc-title">Recovery</div>
-      <p class="proc-desc">Guided healing protocols and dedicated follow-up care at every step of your recovery.</p>
+      <div class="proc-title" data-i18n="procTitle4">Recovery</div>
+      <p class="proc-desc" data-i18n="procDesc4">Guided healing protocols and dedicated follow-up care at every step of your recovery.</p>
     </div>
     <div class="proc-step rv" style="transition-delay:.33s">
       <div class="proc-num">5</div>
-      <div class="proc-title">Your New Smile</div>
-      <p class="proc-desc">The final reveal — a transformed, confident smile designed to last decades.</p>
+      <div class="proc-title" data-i18n="procTitle5">Your New Smile</div>
+      <p class="proc-desc" data-i18n="procDesc5">The final reveal — a transformed, confident smile designed to last decades.</p>
     </div>
   </div>
   <!-- wave out to testimonials -->
@@ -1222,23 +1223,23 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
-  <div class="s-eyebrow rv" style="justify-content:center">Patient Stories</div>
-  <h2 class="s-title rv" style="text-align:center">Words from those<br>who <em>trusted us</em></h2>
+  <div class="s-eyebrow rv" style="justify-content:center" data-i18n="testiEyebrow">Patient Stories</div>
+  <h2 class="s-title rv" style="text-align:center" data-i18n-html="testiTitle">Words from those<br>who <em>trusted us</em></h2>
 
   <div class="testi-wrap rv">
     <div class="testi-quote">&ldquo;</div>
 
     <div class="testi-slide on">
-      <p class="testi-text">Dr. Phan transformed my smile and, honestly, my entire confidence. His expertise in implantology is unmatched — I felt in the safest hands every step of the way.</p>
-      <div class="testi-author">— Marie-Claire L. &nbsp;·&nbsp; Full Mouth Rehabilitation</div>
+      <p class="testi-text" data-i18n="testi1Text">Dr. Phan transformed my smile and, honestly, my entire confidence. His expertise in implantology is unmatched — I felt in the safest hands every step of the way.</p>
+      <div class="testi-author" data-i18n="testi1Author">— Marie-Claire L. &nbsp;·&nbsp; Full Mouth Rehabilitation</div>
     </div>
     <div class="testi-slide">
-      <p class="testi-text">I traveled from Paris specifically to see Dr. Phan. His surgical precision and the final result exceeded every expectation I had. Truly world-class care.</p>
-      <div class="testi-author">— Jacques B. &nbsp;·&nbsp; Dental Implants</div>
+      <p class="testi-text" data-i18n="testi2Text">I traveled from Paris specifically to see Dr. Phan. His surgical precision and the final result exceeded every expectation I had. Truly world-class care.</p>
+      <div class="testi-author" data-i18n="testi2Author">— Jacques B. &nbsp;·&nbsp; Dental Implants</div>
     </div>
     <div class="testi-slide">
-      <p class="testi-text">The facial aesthetics treatment was so natural — friends noticed something was different but couldn't say what. That subtlety is the mark of a true artist.</p>
-      <div class="testi-author">— Sophia M. &nbsp;·&nbsp; Facial Aesthetics</div>
+      <p class="testi-text" data-i18n="testi3Text">The facial aesthetics treatment was so natural — friends noticed something was different but couldn't say what. That subtlety is the mark of a true artist.</p>
+      <div class="testi-author" data-i18n="testi3Author">— Sophia M. &nbsp;·&nbsp; Facial Aesthetics</div>
     </div>
 
     <div class="testi-dots">
@@ -1263,38 +1264,38 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
   </div>
   <div class="blog-header">
     <div>
-      <div class="s-eyebrow rv">From the Blog</div>
-      <h2 class="s-title rv">Insights &amp; <em>Knowledge</em></h2>
+      <div class="s-eyebrow rv" data-i18n="blogEyebrow">From the Blog</div>
+      <h2 class="s-title rv" data-i18n-html="blogTitle">Insights &amp; <em>Knowledge</em></h2>
     </div>
-    <a href="drtamphan-blog.html" class="btn-outline rv">View All Articles</a>
+    <a href="drtamphan-blog.html" class="btn-outline rv" data-i18n="viewAllBtn">View All Articles</a>
   </div>
 
   <div class="blog-grid">
     <a href="drtamphan-blog.html" class="blog-card rv" style="transition-delay:.08s">
       <div class="blog-img"><div class="blog-img-bg bb1"></div></div>
       <div class="blog-body">
-        <div class="blog-tags"><span class="blog-tag">Featured</span><span class="blog-tag">News</span></div>
-        <h3 class="blog-title">Sinus Lift Surgery: What You Need to Know Before Your Implant</h3>
-        <p class="blog-excerpt">A comprehensive guide to sinus lift procedures and how they create the foundation for successful implant placement.</p>
-        <div class="blog-more">Read Article →</div>
+        <div class="blog-tags"><span class="blog-tag" data-i18n="blogTag1a">Featured</span><span class="blog-tag" data-i18n="blogTag1b">News</span></div>
+        <h3 class="blog-title" data-i18n="blog1Title">Sinus Lift Surgery: What You Need to Know Before Your Implant</h3>
+        <p class="blog-excerpt" data-i18n="blog1Excerpt">A comprehensive guide to sinus lift procedures and how they create the foundation for successful implant placement.</p>
+        <div class="blog-more" data-i18n="readArticle">Read Article →</div>
       </div>
     </a>
     <a href="drtamphan-blog.html" class="blog-card rv" style="transition-delay:.16s">
       <div class="blog-img"><div class="blog-img-bg bb2"></div></div>
       <div class="blog-body">
-        <div class="blog-tags"><span class="blog-tag">Featured</span><span class="blog-tag">Aesthetics</span></div>
-        <h3 class="blog-title">Navigating Dental Implants: From Surgery to Smiles</h3>
-        <p class="blog-excerpt">Dental implants offer a permanent solution to missing teeth that closely mimics natural teeth in both form and function.</p>
-        <div class="blog-more">Read Article →</div>
+        <div class="blog-tags"><span class="blog-tag" data-i18n="blogTag2a">Featured</span><span class="blog-tag" data-i18n="blogTag2b">Aesthetics</span></div>
+        <h3 class="blog-title" data-i18n="blog2Title">Navigating Dental Implants: From Surgery to Smiles</h3>
+        <p class="blog-excerpt" data-i18n="blog2Excerpt">Dental implants offer a permanent solution to missing teeth that closely mimics natural teeth in both form and function.</p>
+        <div class="blog-more" data-i18n="readArticle">Read Article →</div>
       </div>
     </a>
     <a href="drtamphan-blog.html" class="blog-card rv" style="transition-delay:.24s">
       <div class="blog-img"><div class="blog-img-bg bb3"></div></div>
       <div class="blog-body">
-        <div class="blog-tags"><span class="blog-tag">Featured</span><span class="blog-tag">Aesthetics</span></div>
-        <h3 class="blog-title">Botox®, Masseter Botox &amp; PRGF: Choosing the Right Rejuvenation</h3>
-        <p class="blog-excerpt">Understanding your facial rejuvenation options to make the most personalized and effective choice.</p>
-        <div class="blog-more">Read Article →</div>
+        <div class="blog-tags"><span class="blog-tag" data-i18n="blogTag3a">Featured</span><span class="blog-tag" data-i18n="blogTag3b">Aesthetics</span></div>
+        <h3 class="blog-title" data-i18n="blog3Title">Botox®, Masseter Botox &amp; PRGF: Choosing the Right Rejuvenation</h3>
+        <p class="blog-excerpt" data-i18n="blog3Excerpt">Understanding your facial rejuvenation options to make the most personalized and effective choice.</p>
+        <div class="blog-more" data-i18n="readArticle">Read Article →</div>
       </div>
     </a>
   </div>
@@ -1313,31 +1314,31 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
       <a href="#" class="f-logo-link">
         <img src="drtamphan-logo-en.png" alt="Dr. Tâm Phan" class="f-logo-img">
       </a>
-      <p class="f-desc">World-renowned dental surgeon specializing in implantology, full-mouth rehabilitation, and facial aesthetics. Serving patients globally.</p>
+      <p class="f-desc" data-i18n="footerDesc">World-renowned dental surgeon specializing in implantology, full-mouth rehabilitation, and facial aesthetics. Serving patients globally.</p>
     </div>
     <div class="f-col">
-      <h4>Treatments</h4>
+      <h4 data-i18n="footerTreatCol">Treatments</h4>
       <ul>
-        <li><a href="#">Dental Implants</a></li>
-        <li><a href="#">Full Mouth Rehab</a></li>
-        <li><a href="#">Cosmetic Dentistry</a></li>
-        <li><a href="#">Facial Aesthetics</a></li>
-        <li><a href="#">Sinus &amp; Bone Grafts</a></li>
-        <li><a href="#">Wisdom Teeth</a></li>
+        <li><a href="#" data-i18n="footerT1">Dental Implants</a></li>
+        <li><a href="#" data-i18n="footerT2">Full Mouth Rehab</a></li>
+        <li><a href="#" data-i18n="footerT3">Cosmetic Dentistry</a></li>
+        <li><a href="#" data-i18n="footerT4">Facial Aesthetics</a></li>
+        <li><a href="#" data-i18n="footerT5">Sinus &amp; Bone Grafts</a></li>
+        <li><a href="#" data-i18n="footerT6">Wisdom Teeth</a></li>
       </ul>
     </div>
     <div class="f-col">
-      <h4>Clinic</h4>
+      <h4 data-i18n="footerClinicCol">Clinic</h4>
       <ul>
-        <li><a href="#">About Dr. Phan</a></li>
-        <li><a href="drtamphan-team.html">The Team</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Testimonials</a></li>
+        <li><a href="#" data-i18n="footerC1">About Dr. Phan</a></li>
+        <li><a href="drtamphan-team.html" data-i18n="navTeam">The Team</a></li>
+        <li><a href="#" data-i18n="footerC3">Gallery</a></li>
+        <li><a href="#" data-i18n="navBlog">Blog</a></li>
+        <li><a href="#" data-i18n="footerC5">Testimonials</a></li>
       </ul>
     </div>
     <div class="f-col">
-      <h4>Contact</h4>
+      <h4 data-i18n="footerContactCol">Contact</h4>
       <ul>
         <li><a href="tel:+15144261228">514 426-1228</a></li>
         <li><a href="mailto:contact@drtamphan.com">contact@drtamphan.com</a></li>
@@ -1347,7 +1348,7 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
     </div>
   </div>
   <div class="footer-bottom">
-    <div class="f-copy">© 2024 Dr. Tâm Phan. All rights reserved.</div>
+    <div class="f-copy" data-i18n="footerCopy">© 2024 Dr. Tâm Phan. All rights reserved.</div>
     <div class="f-socials">
       <a href="#" class="f-soc">in</a>
       <a href="#" class="f-soc">ig</a>
@@ -1648,7 +1649,7 @@ window.addEventListener('scroll',()=>{
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   </svg>
-  <span>Ask Dr Phan</span>
+  <span data-i18n="chatBubbleLabel">Ask Dr Phan</span>
   <div class="notif" id="chat-notif"></div>
 </button>
 
@@ -1659,8 +1660,8 @@ window.addEventListener('scroll',()=>{
       <img src="drtamphan-logo-en.png" alt="Dr. Tâm Phan">
     </div>
     <div>
-      <div class="cw-name">Ask Dr Phan</div>
-      <div class="cw-status">Online now</div>
+      <div class="cw-name" data-i18n="chatName">Ask Dr Phan</div>
+      <div class="cw-status" data-i18n="chatStatus">Online now</div>
     </div>
     <button class="cw-close" onclick="toggleChat()">✕</button>
   </div>
@@ -1670,7 +1671,7 @@ window.addEventListener('scroll',()=>{
   <div class="cw-chips" id="cw-chips"></div>
 
   <div class="cw-input-row">
-    <input id="chat-input" type="text" placeholder="Type a question…" onkeydown="if(event.key==='Enter')sendMsg()">
+    <input id="chat-input" type="text" placeholder="Type a question…" data-i18n-placeholder="chatPlaceholder" onkeydown="if(event.key==='Enter')sendMsg()">
     <button id="chat-send" onclick="sendMsg()">➤</button>
   </div>
 </div>
@@ -1836,7 +1837,7 @@ setTimeout(()=>{ if(!chatOpen && window.scrollY > heroSection.offsetHeight - 80)
       <div class="tmt-intro" id="tmtIntro"></div>
       <div id="tmtContent"></div>
       <div class="tmt-cta-wrap">
-        <a href="drtamphan-book.html" class="tmt-cta">Book a Consultation →</a>
+        <a href="drtamphan-book.html" class="tmt-cta" data-i18n="bookConsultBtn">Book a Consultation →</a>
       </div>
     </div>
   </div>
@@ -1974,5 +1975,430 @@ document.querySelectorAll('.treat-card[data-t]').forEach(card => {
   card.addEventListener('click', () => openTreatment(card.dataset.t));
 });
 </script>
+
+<script>
+/* ── LANGUAGE TOGGLE ─────────────────────────────────────────────────────── */
+const LANG = {
+  en: {
+    logoTagline:'Dentofacial Aesthetics',
+    navTreatments:'Treatments', navAbout:'About', navTeam:'The Team',
+    navProcess:'Our Process', navBlog:'Blog', navContact:'Contact Us',
+    expertiseEyebrow:'Our Expertise',
+    expertiseTitle:'Transforming lives through<br><em>exceptional dentistry</em>',
+    spec1Name:'Dental Implants',
+    spec1Desc:'Permanent tooth replacement using cutting-edge implant technology for a natural, lasting result.',
+    spec2Name:'Full Mouth Rehabilitation',
+    spec2Desc:'Comprehensive restoration combining treatments to restore oral function and complete aesthetics.',
+    spec3Name:'Cosmetic Dentistry',
+    spec3Desc:'Porcelain veneers, whitening, and smile design to create your most confident appearance.',
+    spec4Name:'Facial Aesthetics',
+    spec4Desc:'Botox, PRGF therapy, and masseter treatments to harmonize your facial appearance beautifully.',
+    specLearnMore:'Learn more →',
+    treatEyebrow:'All Treatments',
+    treatTitle:'Comprehensive care<br>for every <em>need</em>',
+    treatViewBtn:'View Our Treatments Below ↓',
+    tc_botox_cat:'Elevated Facial Aesthetics',
+    tc_botox_name:'Botox &amp; Aesthetic<br>Treatments',
+    tc_botox_desc:'Restore harmony, preserve natural expression, and enhance the unique features that define your appearance.',
+    tc_impl_cat:'Dental Implants', tc_impl_name:'Dental<br>Implants',
+    tc_impl_desc:'Cutting-edge permanent tooth replacement solutions designed to last a lifetime.',
+    tc_sinus_cat:'Implant Foundation', tc_sinus_name:'Sinus<br>Lift',
+    tc_sinus_desc:'Advanced bone augmentation for optimal implant placement success.',
+    tc_grafts_cat:'Cosmetic Dentistry &amp; Implants', tc_grafts_name:'Gum Graft &amp;<br>Bone Graft',
+    tc_grafts_desc:'Restore gum tissue and rebuild jaw bone structure for lasting health and a more balanced smile.',
+    tc_ext_cat:'Dental Implants', tc_ext_name:'Teeth Extraction &amp;<br>Temporary Prosthetics',
+    tc_ext_desc:'Gentle extraction with immediate aesthetic prosthetics while your permanent restoration is crafted.',
+    tc_full_cat:'Full Mouth Rehabilitation', tc_full_name:'Full Mouth<br>Rehabilitation',
+    tc_full_desc:'Comprehensive oral restoration focusing on health, function, and the aesthetics of your entire oral cavity.',
+    learnMoreBtn:'Learn More →',
+    aboutEyebrow:'About Dr. Phan',
+    aboutTitle:'31 years of<br><em>surgical excellence</em>',
+    aboutText:'Dr. Tâm Phan is a DMD and Fellow of both the International Congress of Oral Implantologists (FICOI) and the Misch International Implant Institute (FMIII). A graduate with honors from Laval University\'s Faculty of Dentistry, he has dedicated over 31 years to mastering aesthetic dentistry, implantology, and full mouth rehabilitation — trained under some of the world\'s most respected implantology pioneers.',
+    credLabel1:'Education', credVal1:'Laval University, Faculty of Dentistry — Graduated with Honors',
+    credLabel2:'Practice Oriented to',
+    credLabel3:'Fellowship', credLabel4:'Recognition',
+    credVal4:'Guy Maranda Foundation Award for Excellence in Dental Surgery',
+    meetTeamBtn:'Meet the Full Team',
+    baLabel:'Before &amp; After',
+    baEyebrow:'Real Patient <em>Results</em>',
+    baSub:'Drag to reveal each transformation',
+    tagBefore:'Before', tagAfter:'After',
+    case1:'Case 1', case2:'Case 2', case3:'Case 3',
+    statLabel1:'Years of Experience', statLabel2:'Successful Treatments',
+    statLabel3:'Procedures Offered', statLabel4:'Expert Team Members',
+    processEyebrow:'Your Journey',
+    processTitle:'Simple steps to your<br><em>perfect smile</em>',
+    procTitle1:'Consultation',
+    procDesc1:'A thorough discussion of your goals, medical history, and the possibilities available to you.',
+    procTitle2:'Diagnosis',
+    procDesc2:'3D imaging and clinical assessment to create a precise, personalized treatment plan.',
+    procTitle3:'Treatment',
+    procDesc3:'Expert surgery performed with precision instruments in our state-of-the-art clinic.',
+    procTitle4:'Recovery',
+    procDesc4:'Guided healing protocols and dedicated follow-up care at every step of your recovery.',
+    procTitle5:'Your New Smile',
+    procDesc5:'The final reveal — a transformed, confident smile designed to last decades.',
+    testiEyebrow:'Patient Stories',
+    testiTitle:'Words from those<br>who <em>trusted us</em>',
+    testi1Text:'Dr. Phan transformed my smile and, honestly, my entire confidence. His expertise in implantology is unmatched — I felt in the safest hands every step of the way.',
+    testi1Author:'— Marie-Claire L.  ·  Full Mouth Rehabilitation',
+    testi2Text:'I traveled from Paris specifically to see Dr. Phan. His surgical precision and the final result exceeded every expectation I had. Truly world-class care.',
+    testi2Author:'— Jacques B.  ·  Dental Implants',
+    testi3Text:'The facial aesthetics treatment was so natural — friends noticed something was different but couldn\'t say what. That subtlety is the mark of a true artist.',
+    testi3Author:'— Sophia M.  ·  Facial Aesthetics',
+    blogEyebrow:'From the Blog',
+    blogTitle:'Insights &amp; <em>Knowledge</em>',
+    viewAllBtn:'View All Articles',
+    blogTag1a:'Featured', blogTag1b:'News',
+    blog1Title:'Sinus Lift Surgery: What You Need to Know Before Your Implant',
+    blog1Excerpt:'A comprehensive guide to sinus lift procedures and how they create the foundation for successful implant placement.',
+    blogTag2a:'Featured', blogTag2b:'Aesthetics',
+    blog2Title:'Navigating Dental Implants: From Surgery to Smiles',
+    blog2Excerpt:'Dental implants offer a permanent solution to missing teeth that closely mimics natural teeth in both form and function.',
+    blogTag3a:'Featured', blogTag3b:'Aesthetics',
+    blog3Title:'Botox®, Masseter Botox &amp; PRGF: Choosing the Right Rejuvenation',
+    blog3Excerpt:'Understanding your facial rejuvenation options to make the most personalized and effective choice.',
+    readArticle:'Read Article →',
+    footerDesc:'World-renowned dental surgeon specializing in implantology, full-mouth rehabilitation, and facial aesthetics. Serving patients globally.',
+    footerTreatCol:'Treatments',
+    footerT1:'Dental Implants', footerT2:'Full Mouth Rehab', footerT3:'Cosmetic Dentistry',
+    footerT4:'Facial Aesthetics', footerT5:'Sinus &amp; Bone Grafts', footerT6:'Wisdom Teeth',
+    footerClinicCol:'Clinic',
+    footerC1:'About Dr. Phan', footerC3:'Gallery', footerC5:'Testimonials',
+    footerContactCol:'Contact',
+    footerCopy:'© 2024 Dr. Tâm Phan. All rights reserved.',
+    chatBubbleLabel:'Ask Dr Phan', chatName:'Ask Dr Phan', chatStatus:'Online now',
+    chatPlaceholder:'Type a question…',
+    bookConsultBtn:'Book a Consultation →'
+  },
+  fr: {
+    logoTagline:'Esthiétique Dentofaciale',
+    navTreatments:'Traitements', navAbout:'À propos', navTeam:'L’équipe',
+    navProcess:'Notre processus', navBlog:'Blogue', navContact:'Nous joindre',
+    expertiseEyebrow:'Notre expertise',
+    expertiseTitle:'Transformer des vies grâce à une<br><em>dentisterie d’exception</em>',
+    spec1Name:'Implants dentaires',
+    spec1Desc:'Remplacement dentaire permanent grâce à une technologie d’implants de pointe pour un résultat naturel et durable.',
+    spec2Name:'Réhabilitation complète de la bouche',
+    spec2Desc:'Restauration complète combinant plusieurs traitements pour rétablir la fonction bucco-dentaire et l’esthétique globale.',
+    spec3Name:'Dentisterie esthétique',
+    spec3Desc:'Facettes en porcelaine, blanchiment et conception du sourire pour révéler votre apparence la plus confiante.',
+    spec4Name:'Esthétique faciale',
+    spec4Desc:'Botox, thérapie PRGF et traitements des masséters pour harmoniser votre apparence faciale avec subtilité.',
+    specLearnMore:'En savoir plus →',
+    treatEyebrow:'Tous les traitements',
+    treatTitle:'Des soins complets<br>pour chaque <em>besoin</em>',
+    treatViewBtn:'Voir nos traitements ci-dessous ↓',
+    tc_botox_cat:'Esthétique faciale avancée',
+    tc_botox_name:'Botox et traitements<br>esthétiques',
+    tc_botox_desc:'Restaurez l’harmonie, préservez l’expression naturelle et mettez en valeur vos traits distinctifs.',
+    tc_impl_cat:'Implants dentaires', tc_impl_name:'Implants<br>dentaires',
+    tc_impl_desc:'Des solutions permanentes de remplacement dentaire de pointe conçues pour durer toute une vie.',
+    tc_sinus_cat:'Base pour implant', tc_sinus_name:'Comblement<br>sinusien',
+    tc_sinus_desc:'Augmentation osseuse avancée pour une pose d’implant optimale et sécuritaire.',
+    tc_grafts_cat:'Dentisterie esthétique et implants', tc_grafts_name:'Greffe gingivale et<br>greffe osseuse',
+    tc_grafts_desc:'Restaurez le tissu gingival et reconstruisez la structure osseuse de la mâchoire pour une santé durable et un sourire équilibré.',
+    tc_ext_cat:'Implants dentaires', tc_ext_name:'Extraction dentaire et<br>prothèses temporaires',
+    tc_ext_desc:'Extraction douce avec prothèses esthétiques immédiates pendant que votre restauration permanente est confectionnée.',
+    tc_full_cat:'Réhabilitation complète', tc_full_name:'Réhabilitation<br>complète',
+    tc_full_desc:'Restauration bucco-dentaire complète axée sur la santé, la fonction et l’esthétique de toute la cavité buccale.',
+    learnMoreBtn:'En savoir plus →',
+    aboutEyebrow:'À propos du Dr Phan',
+    aboutTitle:'31 ans d’<em>excellence chirurgicale</em>',
+    aboutText:'Le Dr Tâm Phan est DMD et Fellow du Congrès international des implantologistes oraux (FICOI) et du Misch International Implant Institute (FMIII). Diplômé avec distinction de la Faculté de médecine dentaire de l’Université Laval, il consacre depuis plus de 31 ans sa carrière à maîtriser la dentisterie esthétique, l’implantologie et la réhabilitation complète de la bouche — formé auprès des plus grands pionniers mondiaux de l’implantologie.',
+    credLabel1:'Formation', credVal1:'Université Laval, Faculté de médecine dentaire — Diplômé avec distinction',
+    credLabel2:'Pratique orientée vers',
+    credLabel3:'Fellowship', credLabel4:'Reconnaissance',
+    credVal4:'Prix de la Fondation Guy Maranda pour l’excellence en chirurgie dentaire',
+    meetTeamBtn:'Rencontrer toute l’équipe',
+    baLabel:'Avant &amp; Après',
+    baEyebrow:'Résultats de vrais <em>patients</em>',
+    baSub:'Faites glisser pour révéler chaque transformation',
+    tagBefore:'Avant', tagAfter:'Après',
+    case1:'Cas 1', case2:'Cas 2', case3:'Cas 3',
+    statLabel1:'Années d’expérience', statLabel2:'Traitements réussis',
+    statLabel3:'Procédures offertes', statLabel4:'Membres experts de l’équipe',
+    processEyebrow:'Votre parcours',
+    processTitle:'Des étapes simples vers votre<br><em>sourire parfait</em>',
+    procTitle1:'Consultation',
+    procDesc1:'Une discussion approfondie de vos objectifs, de vos antécédents médicaux et des possibilités qui s’offrent à vous.',
+    procTitle2:'Diagnostic',
+    procDesc2:'Imagerie 3D et évaluation clinique pour élaborer un plan de traitement précis et personnalisé.',
+    procTitle3:'Traitement',
+    procDesc3:'Chirurgie experte réalisée avec des instruments de précision dans notre clinique à la fine pointe.',
+    procTitle4:'Récupération',
+    procDesc4:'Protocoles de guérison guidés et suivi dédié à chaque étape de votre rétablissement.',
+    procTitle5:'Votre nouveau sourire',
+    procDesc5:'Le grand dévoilement — un sourire transformé et confiant conçu pour durer des décennies.',
+    testiEyebrow:'Témoignages',
+    testiTitle:'Les mots de ceux qui<br>nous ont <em>fait confiance</em>',
+    testi1Text:'Le Dr Phan a transformé mon sourire et, honnêement, toute ma confiance en moi. Son expertise en implantologie est incomparable — je me suis sentie entre les meilleures mains à chaque étape.',
+    testi1Author:'— Marie-Claire L.  ·  Réhabilitation complète de la bouche',
+    testi2Text:'J’ai fait le voyage depuis Paris spécialement pour voir le Dr Phan. Sa précision chirurgicale et le résultat final ont dépassé toutes mes attentes. Des soins véritablement de classe mondiale.',
+    testi2Author:'— Jacques B.  ·  Implants dentaires',
+    testi3Text:'Le traitement d’esthétique faciale était tellement naturel — mes amis remarquaient que quelque chose était différent, sans pouvoir dire quoi. Cette subtilité est la marque d’un véritable artiste.',
+    testi3Author:'— Sophia M.  ·  Esthétique faciale',
+    blogEyebrow:'Du blogue',
+    blogTitle:'Insights &amp; <em>Savoir</em>',
+    viewAllBtn:'Voir tous les articles',
+    blogTag1a:'En vedette', blogTag1b:'Actualités',
+    blog1Title:'Comblement sinusien : ce qu’il faut savoir avant votre implant',
+    blog1Excerpt:'Un guide complet sur les procédures de comblement sinusien et leur rôle dans la création des conditions idéales pour la pose d’un implant.',
+    blogTag2a:'En vedette', blogTag2b:'Esthétique',
+    blog2Title:'Implants dentaires : de la chirurgie au sourire',
+    blog2Excerpt:'Les implants dentaires offrent une solution permanente aux dents manquantes qui imite fidèlement les dents naturelles en forme et en fonction.',
+    blogTag3a:'En vedette', blogTag3b:'Esthétique',
+    blog3Title:'Botox®, Botox massétérin et PRGF : choisir le bon traitement',
+    blog3Excerpt:'Comprendre vos options de rajeunissement facial pour faire le choix le plus personnalisé et le plus efficace.',
+    readArticle:'Lire l’article →',
+    footerDesc:'Chirurgien dentiste de renommée mondiale spécialisé en implantologie, réhabilitation complète de la bouche et esthétique faciale. Nous accueillons des patients du monde entier.',
+    footerTreatCol:'Traitements',
+    footerT1:'Implants dentaires', footerT2:'Réhab. complète', footerT3:'Dentisterie esthétique',
+    footerT4:'Esthétique faciale', footerT5:'Sinus et greffes osseuses', footerT6:'Dents de sagesse',
+    footerClinicCol:'Clinique',
+    footerC1:'À propos du Dr Phan', footerC3:'Galerie', footerC5:'Témoignages',
+    footerContactCol:'Contact',
+    footerCopy:'© 2024 Dr. Tâm Phan. Tous droits réservés.',
+    chatBubbleLabel:'Consulter Dr Phan', chatName:'Consulter Dr Phan', chatStatus:'En ligne maintenant',
+    chatPlaceholder:'Posez une question…',
+    bookConsultBtn:'Prendre un rendez-vous →'
+  }
+};
+
+const TREATMENTS_FR = {
+  botox: {
+    cat: 'Esthétique faciale avancée',
+    title: 'Botox® et traitements esthétiques',
+    img: 'treat-botox.png',
+    intro: 'L’esthétique faciale va bien au-delà de la réduction des rides — il s’agit de restaurer l’harmonie, de préserver l’expression naturelle et de mettre en valeur les traits qui définissent votre apparence. Le Dr Phan propose trois traitements de précision adaptés à votre anatomie et à vos objectifs.',
+    sections: [
+      { h: 'Botox® Esthétique', p: 'Les injections ciblées détendent temporairement les muscles responsables des rides d’expression — front, rides du lion, pattes d’oie et menton. L’objectif n’est pas d’éliminer l’expression, mais de l’affiner. Les résultats durent 3 à 6 mois.' },
+      { h: 'Botox massétérin', p: 'Cible les muscles de la mâchoire pour soulager les tensions chroniques et les maux de tête causés par le bruxisme, réduire le grincement nocturne qui endommage l’émail, et affiner discrètement le bas du visage — tout en préservant la pleine fonction masticatoire.' },
+      { h: 'Thérapie PRGF', p: 'Le plasma riche en facteurs de croissance utilise les facteurs de croissance concentrés de votre propre sang pour stimuler la production de collagène et améliorer la texture, l’élasticité et l’hydratation de la peau de l’intérieur. Les résultats se développent progressivement sur 4 à 6 semaines.' },
+      { h: 'À quoi s’attendre', list: ['Aucun temps de récupération — reprenez vos activités immédiatement', 'Entièrement personnalisé selon votre anatomie faciale et vos objectifs', 'Résultats naturels et subtils — sans excès', 'Résultats affinés au fil des séances successives'] }
+    ]
+  },
+  implants: {
+    cat: 'Implants dentaires',
+    title: 'Implants dentaires',
+    img: 'treat-implant.png',
+    intro: 'Les implants dentaires sont la référence absolue pour le remplacement dentaire permanent — conçus pour ressembler, se sentir et fonctionner exactement comme des dents naturelles. Le Dr Phan est spécialiste de la technologie d’implants Ankylos, reconnue pour sa stabilité exceptionnelle et sa précision à long terme.',
+    sections: [
+      { h: 'Comment ça fonctionne', p: 'Un implant se compose de trois parties : un pivot en titane biocompatible inséré dans l’os de la mâchoire, un pilier reliant le pivot à la couronne, et une couronne ou un pont sur mesure. Une fois intégré, le résultat est indiscernable d’une dent naturelle.' },
+      { h: 'Le processus', steps: ['Consultation et imagerie 3D — plan de traitement personnalisé', 'Pose de l’implant sous anesthésie locale', 'Osséointégration — le titane fusionne avec l’os sur 3 à 6 mois', 'Pose du pilier', 'Couronne finale — assortie précisément à vos dents naturelles'] },
+      { h: 'Pourquoi les implants ?', list: ['Durabilité à vie avec des soins appropriés', 'Préserve la mâchoire — prévient la perte osseuse après l’extraction', 'Aucun impact sur les dents saines adjacentes', 'Apparence naturelle et pleine fonction masticatoire rétablie', 'Taux de succès à long terme de 98 % sous les soins du Dr Phan'] }
+    ]
+  },
+  sinus: {
+    cat: 'Base pour implant',
+    title: 'Comblement sinusien',
+    img: 'treat-sinus.png',
+    intro: 'Le comblement sinusien ajoute de l’os à la région postérieure de la mâchoire supérieure — l’étape préparatoire essentielle pour les patients qui ne disposent pas d’une hauteur osseuse suffisante pour soutenir un implant.',
+    sections: [
+      { h: 'Qui en a besoin ?', list: ['Hauteur osseuse insuffisante due à l’anatomie ou à une perte dentaire prolongée', 'Atrophie osseuse consécutive à l’absence prolongée de dents postérieures supérieures', 'Cavité sinusienne positionnée trop près de la crête osseuse'] },
+      { h: 'Deux techniques', p: '<strong>Fenêtre latérale :</strong> Une petite fenêtre d’accès est créée dans la membrane sinusienne, qui est doucement soulevée, et du matériau de greffe osseuse est placé en dessous.<br><br><strong>Ostéotome :</strong> Une approche moins invasive — le matériau de greffe est compressé à l’intérieur du plancher sinusien existant, le soulevant progressivement.' },
+      { h: 'Guérison et étapes suivantes', p: 'Sur 6 à 9 mois, le matériau greffé fusionne avec l’os existant. Une fois le site pleinement consolidé, la pose de l’implant se poursuit avec une pleine prédictibilité. La thérapie PRGF est appliquée en routine pour accélérer la guérison.' }
+    ]
+  },
+  grafts: {
+    cat: 'Dentisterie esthétique et implants',
+    title: 'Greffe gingivale et greffe osseuse',
+    img: 'treat-gum.png',
+    intro: 'Des gencives saines et une quantité osseuse adéquate sont le fondement silencieux de tout implant réussi — et d’un beau sourire. Le Dr Phan réalise les deux types de greffes avec précision, restaurant la santé et l’esthétique dans un plan coordonné.',
+    sections: [
+      { h: 'Greffe gingivale', p: 'La greffe gingivale traite le récul des gencives — restaurant les tissus, réduisant la sensibilité et créant une gencive plus équilibrée. Trois types de greffes sont disponibles selon votre anatomie : greffe de tissu conjonctif, greffe gingivale libre ou greffe pédicule.' },
+      { h: 'Greffe osseuse', p: 'Lorsque la mâchoire manque de volume ou de densité pour soutenir un implant, la greffe osseuse reconstruit ce fondement. Le Dr Phan choisit parmi quatre matériaux : autogreffe (votre propre os), allogreffe (os de donneur), xénogreffe (origine bovine) ou échafaudages synthétiques.' },
+      { h: 'Bénéfices combinés', list: ['Permet la pose d’implants là où c’était auparavant impossible', 'Restaure la santé gingivale et réduit la sensibilité des racines', 'Crée une gencive équilibrée et plus esthétique', 'Prévention à long terme des pertes osseuses et gingivales supplémentaires'] }
+    ]
+  },
+  extraction: {
+    cat: 'Implants dentaires',
+    title: 'Extraction dentaire et prothèses temporaires',
+    img: 'treat-extraction.png',
+    intro: 'Lorsqu’une dent ne peut être sauvée, une extraction experte suivie d’une prothèse temporaire immédiate garantit que vous ne serez jamais sans sourire pendant que votre restauration permanente est confectionnée.',
+    sections: [
+      { h: 'Extraction douce', p: 'Les extractions sont réalisées sous anesthésie locale pour un confort total. Pour les cas simples, le retrait est direct. Pour les cas plus complexes — racines cassées ou dents incluses — une technique à accès minimal précis est utilisée. La thérapie PRGF est appliquée pour accélérer la guérison.' },
+      { h: 'Prothèses temporaires immédiates', p: 'Le cas échéant, une prothèse temporaire (couronne, bridge ou appareil amovible) est posée le jour même de l’extraction — vous quittez la clinique avec votre sourire intact pendant que le site guérit.' },
+      { h: 'Récupération', list: ['Legère enflure et sensibilité pendant 3 à 5 jours sont normales', 'Évitez les aliments durs ou croquants la première semaine', 'Rincez doucement à l’eau salée tiède dès le deuxième jour', 'Les rendez-vous de suivi assurent une bonne guérison avant la pose de l’implant'] }
+    ]
+  },
+  fullmouth: {
+    cat: 'Réhabilitation complète de la bouche',
+    title: 'Réhabilitation complète de la bouche',
+    img: 'treat-fullmouth.png',
+    intro: 'La réhabilitation complète traite les problèmes dentaires sur les deux mâchoires simultanément — le traitement de choix lorsque les préoccupations s’étendent au-delà d’une seule dent. Le résultat est une restauration complète de la santé, de la fonction et de l’esthétique.',
+    sections: [
+      { h: 'Pour qui ?', list: ['Plusieurs dents manquantes dues à la carie, un traumatisme ou une maladie', 'Dents sévèrement usées ou endommaées par le bruxisme ou l’érosion acide', 'Douleurs chroniques à la mâchoire ou troubles de l’ATM', 'Maladie parodontale avancée nécessitant des soins combinés', 'Préoccupations esthétiques complexes touchant plusieurs dents'] },
+      { h: 'Plan de traitement étapé', p: 'La réhabilitation commence par une imagerie 3D complète et une analyse de l’occlusion. Le Dr Phan élabore un plan personnalisé qui privilégie la santé avant l’esthétique — combinant implants, couronnes, facettes, bridges, soins parodontaux et correction de l’occlusion en séquence coordonnée.' },
+      { h: 'Le résultat', p: 'Les patients décrivent invariablement le résultat non pas simplement comme un meilleur sourire, mais comme une transformation dans leur façon de manger, de parler et de se présenter au quotidien.' }
+    ]
+  },
+  bridges: {
+    cat: 'Dentisterie esthétique',
+    title: 'Bridges dentaires et dents de sagesse',
+    img: 'treat-bridges.png',
+    intro: 'Deux traitements distincts mais tout aussi importants — les bridges dentaires restaurent les espaces avec des prothèses naturelles, tandis que l’extraction experte des dents de sagesse prévient de futures complications avant qu’elles ne surviennent.',
+    sections: [
+      { h: 'Bridges dentaires', p: 'Un bridge comble l’espace laissé par une dent manquante en ancrant une couronne prothétique aux dents adjacentes. Le résultat s’intègre parfaitement à votre sourire et restaure la pleine fonction masticatoire. Les bridges céramiques modernes sont pratiquement indiscernables des dents naturelles.' },
+      { h: 'Extraction des dents de sagesse', p: 'Les dents de sagesse incluses, causant de l’encombrement, ou présentant des signes de carie ou d’infection sont avantageusement retirées de manière préventive — surtout chez les jeunes patients, où la guérison est plus rapide. Les extractions sont réalisées sous anesthésie locale avec application de PRGF.' },
+      { h: 'Quand agir ?', list: ['Dents de sagesse causant une pression ou un encombrement', 'Infection ou gonflement récurrent autour de la dent de sagesse', 'Éruption partielle créant un piège à bactéries persistant', 'Bridges : tout espace laissé par une dent manquante non traitée par un implant'] }
+    ]
+  }
+};
+
+const RESPONSES_FR = {
+  implants: {
+    bot:'<strong>Les implants dentaires</strong> sont la spécialité principale du Dr Phan. Avec plus de <strong>31 ans d’expérience</strong> et plus de 20 000 traitements réussis, il utilise la dernière technologie de chirurgie guidée pour une précision et des résultats durables.<br><br>Les implants ressemblent, se sentent et fonctionnent exactement comme des dents naturelles — et ils durent toute une vie avec des soins appropriés.',
+    chips:['Quel est le coût ?','Suis-je candidat ?','Prendre un rendez-vous']
+  },
+  cost: {
+    bot:'Le prix des implants varie selon vos besoins spécifiques (dent unique, dents multiples ou arcade complète). Une évaluation complète est nécessaire avant de fournir un devis précis.<br><br>Nous acceptons la plupart des assurances et offrons des options de paiement flexibles. La meilleure étape suivante est une <strong>consultation gratuite</strong>.',
+    chips:['Prendre un rendez-vous','Quelles assurances acceptez-vous ?','Autres traitements']
+  },
+  book: {
+    bot:'Pour prendre un rendez-vous avec le Dr Phan, vous pouvez :<br><br>📞 <strong>514 426-1228</strong><br>📧 <strong>contact@drtamphan.com</strong><br>📍 16912 Route Transcanadienne, Kirkland QC<br><br>Ou remplissez notre formulaire de contact et nous vous recontacterons dans les 24 heures.',
+    chips:['Formulaire de contact','Quels sont vos horaires ?','Autres questions']
+  },
+  hours: {
+    bot:'Notre clinique est ouverte :<br><br><strong>Lundi – Vendredi :</strong> 8 h00 – 17 h00<br><strong>Samedi :</strong> 9 h00 – 16 h00<br><strong>Dimanche :</strong> Fermé<br><br>Nous vous recommandons d’appeler à l’avance pour confirmer la disponibilité.',
+    chips:['Prendre un rendez-vous','Où êtes-vous situés ?']
+  },
+  location: {
+    bot:'Nous sommes situés au :<br><br><strong>16912 Route Transcanadienne<br>Kirkland, QC H9H 0C5</strong><br><br>Stationnement gratuit ample sur place. Facilement accessible depuis l’autoroute A-40.',
+    chips:['Prendre un rendez-vous','Quels sont vos horaires ?']
+  },
+  rehab: {
+    bot:'<strong>La réhabilitation complète de la bouche</strong> est un traitement global qui combine implants, couronnes, facettes et autres restaurations pour rétablir entièrement la fonction orale et l’esthétique dans un plan coordonné.<br><br>Le Dr Phan a réalisé des centaines de réhabilitations complètes pour des patients du monde entier.',
+    chips:['Prendre un rendez-vous','Combien de temps cela prend-il ?','Coût ?']
+  },
+  cosmetic: {
+    bot:'Le Dr Phan offre une gamme complète de traitements esthétiques incluant <strong>les facettes en porcelaine</strong>, le blanchiment professionnel et la conception du sourire — toujours avec un résultat naturel et raffiné adapté à votre visage.<br><br>Les résultats sont <em>permanents</em> et conçus pour complémenter votre esthétique faciale.',
+    chips:['Prendre un rendez-vous','Esthétique faciale aussi ?']
+  },
+  facial: {
+    bot:'Au-delà des soins dentaires, le Dr Phan est spécialiste en <strong>esthétique faciale</strong>, incluant le Botox, la thérapie PRGF et les traitements des masséters — des interventions subtiles qui harmonisent votre sourire avec l’ensemble de votre apparence faciale.',
+    chips:['Prendre un rendez-vous','Dentisterie esthétique','Autres traitements']
+  },
+  insurance: {
+    bot:'Nous travaillons avec la plupart des grands assureurs. Notre équipe vérifiera votre couverture avant votre rendez-vous afin qu’il n’y ait pas de surprises.<br><br>Nous vous recommandons de nous appeler directement au <strong>514 426-1228</strong> avec votre carte d’assurance pour une vérification rapide.',
+    chips:['Prendre un rendez-vous','Quels sont vos horaires ?']
+  },
+  about: {
+    bot:'Le Dr Tâm Phan est DMD avec <strong>plus de 31 ans d’expérience</strong> en dentisterie esthétique, implantologie et réhabilitation complète de la bouche.<br><br>Il est Fellow du Congrès international des implantologistes oraux (FICOI) et du Misch International Implant Institute (FMIII), et lauréat du Prix de la Fondation Guy Maranda pour l’excellence en chirurgie dentaire.',
+    chips:['Prendre un rendez-vous','Voir nos traitements','Nous contacter']
+  },
+  default: {
+    bot:'Je suis là pour répondre à vos questions sur la clinique du Dr Phan, les traitements et les rendez-vous. Que souhaitez-vous savoir ?',
+    chips:['Implants dentaires','Réhabilitation complète','Prendre un rendez-vous','À propos du Dr Phan','Horaires et adresse']
+  }
+};
+
+let currentLang = localStorage.getItem('drphan_lang') || 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('drphan_lang', lang);
+  const t = LANG[lang];
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+
+  // Update FR/EN toggle button label
+  const btn = document.getElementById('langToggle');
+  if (btn) btn.textContent = lang === 'en' ? 'FR' : 'EN';
+
+  // Reset chatbot so it greets in the new language
+  greeted = false;
+  document.getElementById('cw-msgs').innerHTML = '';
+  document.getElementById('cw-chips').innerHTML = '';
+}
+
+function toggleLang() {
+  setLang(currentLang === 'en' ? 'fr' : 'en');
+}
+
+// Apply stored language on load
+(function(){
+  if (currentLang === 'fr') setLang('fr');
+  else { const btn = document.getElementById('langToggle'); if(btn) btn.textContent = 'FR'; }
+})();
+
+/* ── LANGUAGE-AWARE TREATMENT MODAL ─────────────────────────────────────── */
+const _origOpenTreatment = openTreatment;
+// Override openTreatment to use FR data when needed
+function openTreatment(key) {
+  const data = currentLang === 'fr' ? (TREATMENTS_FR[key] || TREATMENTS[key]) : TREATMENTS[key];
+  if (!data) return;
+
+  document.getElementById('tmtCat').textContent = data.cat;
+  document.getElementById('tmtTitle').textContent = data.title;
+  document.getElementById('tmtIntro').textContent = data.intro;
+  document.getElementById('tmtHeroImg').src = data.img;
+  document.getElementById('tmtHeroImg').alt = data.title;
+
+  const bookCta = document.querySelector('.tmt-cta');
+  if (bookCta) bookCta.textContent = LANG[currentLang].bookConsultBtn;
+
+  let html = '';
+  data.sections.forEach(s => {
+    html += '<div class="tmt-section"><div class="tmt-h">' + s.h + '</div>';
+    if (s.p) html += '<div class="tmt-p">' + s.p + '</div>';
+    if (s.steps) {
+      html += '<div class="tmt-steps">';
+      s.steps.forEach((st, i) => {
+        html += '<div class="tmt-step"><div class="tmt-step-num">' + String(i+1).padStart(2,'0') + '</div><div class="tmt-step-text">' + st + '</div></div>';
+      });
+      html += '</div>';
+    }
+    if (s.list) {
+      html += '<ul class="tmt-list">';
+      s.list.forEach(li => { html += '<li>' + li + '</li>'; });
+      html += '</ul>';
+    }
+    html += '</div>';
+  });
+  document.getElementById('tmtContent').innerHTML = html;
+  document.getElementById('tmtModal').scrollTop = 0;
+  document.getElementById('tmtOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+/* ── LANGUAGE-AWARE CHATBOT GREET ────────────────────────────────────────── */
+const _origGreet = greet;
+function greet() {
+  if (currentLang === 'fr') {
+    addBot('Bonjour ! 👋 Je suis <strong>l’assistant du Dr Phan</strong>.<br><br>Comment puis-je vous aider aujourd’hui ?');
+    setChips(RESPONSES_FR.default.chips);
+  } else {
+    addBot('Bonjour! 👋 I\'m <strong>Dr Phan\'s Assistant</strong>.<br><br>How can I help you today?');
+    setChips(['Dental implants','Full mouth rehab','Book a consultation','About Dr. Phan','Hours & location']);
+  }
+}
+
+/* ── LANGUAGE-AWARE RESPOND ──────────────────────────────────────────────── */
+const _origRespond = respond;
+function respond(text) {
+  if (currentLang === 'fr') {
+    const key = classify(text);
+    const r = RESPONSES_FR[key] || RESPONSES_FR.default;
+    setTimeout(() => { addBot(r.bot); if (r.chips) setChips(r.chips); }, 420);
+  } else {
+    const key = classify(text);
+    const r = RESPONSES[key] || RESPONSES.default;
+    setTimeout(() => { addBot(r.bot); if (r.chips) setChips(r.chips); }, 420);
+  }
+}
+</script>
+
 </body>
 </html>
