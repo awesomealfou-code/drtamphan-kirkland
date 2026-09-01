@@ -333,9 +333,9 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
     <div class="ci-label" style="margin-bottom:12px">Follow Us</div>
     <div class="socials">
-      <a href="#" class="soc-btn">in</a>
-      <a href="#" class="soc-btn">ig</a>
-      <a href="#" class="soc-btn">fb</a>
+      <a href="https://www.instagram.com/drtamphan/" target="_blank" rel="noopener" class="soc-btn" title="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
     </div>
   </div>
 
@@ -389,7 +389,35 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       <div class="form-row">
         <div class="form-group">
           <label>Preferred Date</label>
-          <input type="date" name="preferred_date">
+          <div style="display:flex;gap:8px;">
+            <div class="form-select-wrap" style="flex:2">
+              <select name="preferred_month">
+                <option value="" disabled selected>Month</option>
+                <option>January</option><option>February</option><option>March</option>
+                <option>April</option><option>May</option><option>June</option>
+                <option>July</option><option>August</option><option>September</option>
+                <option>October</option><option>November</option><option>December</option>
+              </select>
+            </div>
+            <div class="form-select-wrap" style="flex:1">
+              <select name="preferred_day">
+                <option value="" disabled selected>Day</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+                <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+                <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+                <option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+                <option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+                <option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+                <option>31</option>
+              </select>
+            </div>
+            <div class="form-select-wrap" style="flex:1.2">
+              <select name="preferred_year">
+                <option value="" disabled selected>Year</option>
+                <option>2026</option><option>2027</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div class="form-group">
           <label>Preferred Time</label>
