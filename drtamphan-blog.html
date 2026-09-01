@@ -469,10 +469,10 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
 <!-- FEATURED ARTICLE -->
 <div class="featured-section">
-  <a href="#" class="featured-card rv" data-cat="featured implants" onclick="openArticle('art-implants');return false;">
+  <a href="#" class="featured-card rv" data-cat="featured implants" data-art-id="art-implants" onclick="openArticle('art-implants');return false;">
     <div class="fc-img">
       <div class="fc-img-inner"></div>
-      <div class="fc-badge">Featured</div>
+      <div class="fc-badge" data-i18n="catFeatured">Featured</div>
     </div>
     <div class="fc-content">
       <div class="fc-tags">
@@ -484,11 +484,11 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       <div class="fc-meta">
         <span>By <strong>Dr. Tâm Phan</strong></span>
         <span>·</span>
-        <span>June 12, 2024</span>
+        <span class="fc-date">June 12, 2024</span>
         <span>·</span>
-        <span>8 min read</span>
+        <span class="fc-read-time">8 min read</span>
       </div>
-      <div class="fc-read">Read Full Article →</div>
+      <div class="fc-read" data-i18n="artReadMore">Read Full Article →</div>
     </div>
   </a>
 </div>
@@ -501,7 +501,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
   <div class="articles-grid">
 
-    <a href="#" class="article-card rv" data-cat="featured news implants" style="transition-delay:.05s" onclick="openArticle('art-sinus');return false;">
+    <a href="#" class="article-card rv" data-cat="featured news implants" data-art-id="art-sinus" style="transition-delay:.05s" onclick="openArticle('art-sinus');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-a"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Featured</span><span class="ac-tag">News</span></div>
@@ -514,7 +514,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="featured aesthetics" style="transition-delay:.1s" onclick="openArticle('art-botox');return false;">
+    <a href="#" class="article-card rv" data-cat="featured aesthetics" data-art-id="art-botox" style="transition-delay:.1s" onclick="openArticle('art-botox');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-b"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Featured</span><span class="ac-tag">Aesthetics</span></div>
@@ -527,7 +527,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="aesthetics" style="transition-delay:.15s" onclick="openArticle('art-prgf');return false;">
+    <a href="#" class="article-card rv" data-cat="aesthetics" data-art-id="art-prgf" style="transition-delay:.15s" onclick="openArticle('art-prgf');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-c"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Aesthetics</span></div>
@@ -540,7 +540,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="implants" style="transition-delay:.2s" onclick="openArticle('art-fullmouth');return false;">
+    <a href="#" class="article-card rv" data-cat="implants" data-art-id="art-fullmouth" style="transition-delay:.2s" onclick="openArticle('art-fullmouth');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-d"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Implants</span></div>
@@ -553,7 +553,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="prevention implants" style="transition-delay:.25s" onclick="openArticle('art-bonegraft');return false;">
+    <a href="#" class="article-card rv" data-cat="prevention implants" data-art-id="art-bonegraft" style="transition-delay:.25s" onclick="openArticle('art-bonegraft');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-e"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Prevention</span></div>
@@ -566,7 +566,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="prevention news implants" style="transition-delay:.3s" onclick="openArticle('art-gums');return false;">
+    <a href="#" class="article-card rv" data-cat="prevention news implants" data-art-id="art-gums" style="transition-delay:.3s" onclick="openArticle('art-gums');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-f"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Prevention</span><span class="ac-tag">News</span></div>
@@ -579,7 +579,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="aesthetics" style="transition-delay:.35s" onclick="openArticle('art-veneers');return false;">
+    <a href="#" class="article-card rv" data-cat="aesthetics" data-art-id="art-veneers" style="transition-delay:.35s" onclick="openArticle('art-veneers');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-g"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Aesthetics</span></div>
@@ -592,7 +592,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
     </a>
 
-    <a href="#" class="article-card rv" data-cat="implants" style="transition-delay:.4s;display:none" onclick="openArticle('art-wisdom');return false;">
+    <a href="#" class="article-card rv" data-cat="implants" data-art-id="art-wisdom" style="transition-delay:.4s;display:none" onclick="openArticle('art-wisdom');return false;">
       <div class="ac-img"><div class="ac-img-bg bg-h"></div></div>
       <div class="ac-body">
         <div class="ac-tags"><span class="ac-tag">Implants</span></div>
@@ -1115,6 +1115,72 @@ function openArticle(id) {
   document.getElementById('artOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
+
+/* card-level excerpt text (shorter than full intro) */
+const CARD_DATA = {
+  en: {
+    'art-implants': { title:'Navigating Dental Implants: From Surgery to Smiles', tags:['Featured','Implants'], date:'June 12, 2024', readTime:'8 min read', excerpt:'Dental implants have revolutionized modern dentistry, offering a permanent solution to missing teeth that closely mimics natural teeth in both form and function. In this comprehensive guide, Dr. Phan walks through every stage of the implant journey.' },
+    'art-sinus':    { title:'Sinus Lift Surgery: What You Need to Know Before Your Implant', tags:['Featured','News'], date:'May 28, 2024', excerpt:'A comprehensive guide to sinus lift procedures and how they create the foundation for successful implant placement in the upper jaw.' },
+    'art-botox':    { title:'Botox®, Masseter Botox & PRGF: Choosing the Right Facial Rejuvenation', tags:['Featured','Aesthetics'], date:'May 14, 2024', excerpt:'Understanding the differences between facial rejuvenation options to make the most personalized and effective choice for your face.' },
+    'art-prgf':     { title:'PRGF Therapy: How Platelet-Rich Growth Factor Accelerates Healing', tags:['Aesthetics'], date:'Apr 30, 2024', excerpt:'Platelet-Rich Growth Factor therapy uses your own biology to dramatically speed up post-surgical healing and improve outcomes.' },
+    'art-fullmouth':{ title:'Full Mouth Rehabilitation: What to Expect at Every Stage', tags:['Implants'], date:'Apr 15, 2024', excerpt:'From the initial consultation to the final restoration, Dr. Phan explains the complete full-mouth rehabilitation process in detail.' },
+    'art-bonegraft':{ title:'The Role of Bone Grafting in Long-Term Implant Success', tags:['Prevention'], date:'Mar 22, 2024', excerpt:'Bone grafting is often the unsung hero of implant surgery. Learn how it prepares the jaw for a stable, decades-long result.' },
+    'art-gums':     { title:'Gum Health and Implants: Why Periodontal Care Comes First', tags:['Prevention','News'], date:'Mar 8, 2024', excerpt:'Healthy gums are the foundation of any successful implant treatment. Here\'s what you need to know before you begin.' },
+    'art-veneers':  { title:'Porcelain Veneers vs. Composite: A Complete Comparison', tags:['Aesthetics'], date:'Feb 19, 2024', excerpt:'Two popular cosmetic options, two very different outcomes. Dr. Phan breaks down durability, appearance, and cost so you can decide.' },
+    'art-wisdom':   { title:'Wisdom Teeth Removal: Timing, Recovery, and What to Avoid', tags:['Implants'], date:'Feb 5, 2024', excerpt:'The most common dental surgery explained — when it\'s necessary, how to prepare, and exactly what your recovery will look like.' }
+  },
+  fr: {
+    'art-implants': { title:'Les implants dentaires : du chirurgien à votre sourire', tags:['En vedette','Implants'], date:'12 juin 2024', readTime:'8 min', excerpt:'Les implants dentaires ont révolutionné la dentisterie moderne, offrant une solution permanente aux dents manquantes. Ce guide complet vous accompagne à chaque étape — de la première consultation jusqu\'au sourire retrouvé.' },
+    'art-sinus':    { title:'Le soulèvement sinusien : ce qu\'il faut savoir avant votre implant', tags:['En vedette','Actualités'], date:'28 mai 2024', excerpt:'Un guide complet sur les procédures de soulèvement sinusien et comment elles créent la base nécessaire à la pose d\'implants dans la mâchoire supérieure.' },
+    'art-botox':    { title:'Botox®, Botox massétérin & PRGF : choisir le bon rajeunissement facial', tags:['En vedette','Esthétique'], date:'14 mai 2024', excerpt:'Comprendre les différences entre les options de rajeunissement facial pour faire le choix le plus personnalisé et efficace pour votre visage.' },
+    'art-prgf':     { title:'Thérapie PRGF : comment le plasma riche en facteurs de croissance accélère la guérison', tags:['Esthétique'], date:'30 avr. 2024', excerpt:'La thérapie au plasma riche en facteurs de croissance exploite votre biologie pour accélérer spectaculairement la guérison post-chirurgicale.' },
+    'art-fullmouth':{ title:'Réhabilitation complète de la bouche : à quoi s\'attendre à chaque étape', tags:['Implants'], date:'15 avr. 2024', excerpt:'De la consultation initiale à la restauration finale, le Dr Phan explique en détail le processus complet de réhabilitation de la bouche.' },
+    'art-bonegraft':{ title:'Le rôle de la greffe osseuse dans le succès à long terme des implants', tags:['Prévention'], date:'22 mars 2024', excerpt:'La greffe osseuse est le héros méconnu de la chirurgie implantaire. Découvrez comment elle prépare la mâchoire pour un résultat stable sur des décennies.' },
+    'art-gums':     { title:'Santé des gencives et implants : pourquoi les soins parodontaux passent en premier', tags:['Prévention','Actualités'], date:'8 mars 2024', excerpt:'Des gencives saines sont la base de tout traitement implantaire réussi. Voici ce que vous devez savoir avant de commencer.' },
+    'art-veneers':  { title:'Facettes en porcelaine vs composite : une comparaison complète', tags:['Esthétique'], date:'19 févr. 2024', excerpt:'Deux options cosmétiques populaires, deux résultats très différents. Le Dr Phan décompose durabilité, apparence et coût pour vous aider à décider.' },
+    'art-wisdom':   { title:'Extraction des dents de sagesse : moment, récupération et précautions', tags:['Implants'], date:'5 févr. 2024', excerpt:'La chirurgie dentaire la plus courante expliquée — quand elle est nécessaire, comment se préparer et à quoi ressemblera votre récupération.' }
+  }
+};
+
+function translateCards(lang) {
+  const t = LANG_BLOG[lang];
+  const data = CARD_DATA[lang] || CARD_DATA.en;
+
+  // Featured card
+  const fc = document.querySelector('.featured-card[data-art-id]');
+  if (fc) {
+    const id = fc.dataset.artId;
+    const d = data[id];
+    if (d) {
+      const titleEl = fc.querySelector('.fc-title'); if (titleEl) titleEl.textContent = d.title;
+      const excEl  = fc.querySelector('.fc-excerpt'); if (excEl) excEl.textContent = d.excerpt;
+      const dateEl = fc.querySelector('.fc-date'); if (dateEl) dateEl.textContent = d.date;
+      const rtEl   = fc.querySelector('.fc-read-time'); if (rtEl && d.readTime) rtEl.textContent = d.readTime;
+      const tagsEl = fc.querySelector('.fc-tags');
+      if (tagsEl && d.tags) tagsEl.innerHTML = d.tags.map(function(tag){ return '<span class="fc-tag">'+tag+'</span>'; }).join('');
+    }
+  }
+
+  // Article cards
+  document.querySelectorAll('.article-card[data-art-id]').forEach(function(card) {
+    const id = card.dataset.artId;
+    const d = data[id];
+    if (!d) return;
+    const titleEl = card.querySelector('.ac-title'); if (titleEl) titleEl.textContent = d.title;
+    const excEl   = card.querySelector('.ac-excerpt'); if (excEl) excEl.textContent = d.excerpt;
+    const dateEl  = card.querySelector('.ac-date'); if (dateEl) dateEl.textContent = d.date;
+    const moreEl  = card.querySelector('.ac-more'); if (moreEl) moreEl.textContent = t.artReadShort;
+    const tagsEl  = card.querySelector('.ac-tags');
+    if (tagsEl && d.tags) tagsEl.innerHTML = d.tags.map(function(tag){ return '<span class="ac-tag">'+tag+'</span>'; }).join('');
+  });
+}
+
+// Patch setBlogLang to also translate cards
+const _origSetBlogLang = setBlogLang;
+setBlogLang = function(lang) {
+  _origSetBlogLang(lang);
+  translateCards(lang);
+};
 
 (function(){ setBlogLang(_blogLang); })();
 
