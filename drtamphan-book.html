@@ -261,6 +261,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 </head>
 <body>
 
+<canvas id="goldCanvas" style="display:none;position:fixed;inset:0;z-index:99999;pointer-events:none;"></canvas>
 <div id="cur"></div>
 <div id="curR"></div>
 
@@ -454,7 +455,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
       <p class="form-note">By submitting this form you agree to our <a href="#">Privacy Policy</a>. We will contact you within 24 business hours.</p>
 
-      <button type="submit" class="btn-submit">Send Request →</button>
+      <button type="submit" class="btn-submit" id="submitBtn">SEND REQUEST →</button>
     </form>
 
     <div class="form-success" id="formSuccess">
@@ -516,11 +517,87 @@ document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
 const obs = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on'); }),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv,.rvL,.rvR').forEach(el=>obs.observe(el));
 
-document.getElementById('bookForm').addEventListener('submit', function(e){
+/* ── FORMSPREE FORM ID — replace with yours from formspree.io ── */
+var BOOKING_FORM_ID = 'YOUR_FORM_ID';
+
+document.getElementById('bookForm').addEventListener('submit', async function(e){
   e.preventDefault();
-  this.style.display='none';
-  document.getElementById('formSuccess').classList.add('show');
+  var btn = document.getElementById('submitBtn');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try {
+    var res = await fetch('https://formspree.io/f/' + BOOKING_FORM_ID, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      launchGoldFlakes(btn);
+      setTimeout(function(){
+        document.getElementById('bookForm').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+      }, 2200);
+    } else {
+      btn.textContent = 'SEND REQUEST →';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    btn.textContent = 'SEND REQUEST →';
+    btn.disabled = false;
+  }
 });
+
+function launchGoldFlakes(btn) {
+  var canvas = document.getElementById('goldCanvas');
+  var ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  canvas.style.display = 'block';
+
+  var rect = btn.getBoundingClientRect();
+  var ox = rect.left + rect.width / 2;
+  var oy = rect.top + rect.height / 2;
+  var colors = ['#c9a227','#e2bc50','#d4aa33','#f0cc60','#b8901f','#ffd700'];
+  var particles = [];
+
+  for (var i = 0; i < 100; i++) {
+    particles.push({
+      x: ox + (Math.random() - 0.5) * rect.width,
+      y: oy,
+      vx: (Math.random() - 0.5) * 5,
+      vy: -(Math.random() * 8 + 3),
+      rot: Math.random() * 360,
+      rotV: (Math.random() - 0.5) * 10,
+      w: Math.random() * 14 + 4,
+      h: Math.random() * 5 + 2,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      op: 1
+    });
+  }
+
+  function tick() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var alive = false;
+    particles.forEach(function(p) {
+      if (p.op <= 0) return;
+      alive = true;
+      p.vy += 0.18;
+      p.x += p.vx; p.y += p.vy; p.rot += p.rotV;
+      if (p.y > oy + 80) p.op -= 0.018;
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, p.op);
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot * Math.PI / 180);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+    });
+    if (alive) requestAnimationFrame(tick);
+    else { canvas.style.display = 'none'; }
+  }
+  tick();
+}
 </script>
 </body>
 </html>

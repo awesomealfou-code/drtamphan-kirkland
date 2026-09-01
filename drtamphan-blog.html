@@ -611,9 +611,9 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 <div class="newsletter-section rv">
   <h2 class="nl-title">Stay <em>informed</em></h2>
   <p class="nl-sub">Get the latest articles on dental surgery, aesthetics, and oral health delivered directly to your inbox.</p>
-  <form class="nl-form" onsubmit="this.innerHTML='<p style=\'color:var(--gold);font-size:.9rem;letter-spacing:.1em\'>Thank you for subscribing.</p>'; return false;">
-    <input type="email" class="nl-input" placeholder="Your email address">
-    <button type="submit" class="nl-btn">Subscribe</button>
+  <form class="nl-form" id="nlForm">
+    <input type="email" name="email" class="nl-input" placeholder="Your email address" required>
+    <button type="submit" class="nl-btn" id="nlBtn">Subscribe</button>
   </form>
 </div>
 
@@ -904,6 +904,25 @@ function closeArticle(e, force) {
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeArticle(null, true);
+});
+
+/* ── FORMSPREE NEWSLETTER FORM ID — replace with yours from formspree.io ── */
+var NEWS_FORM_ID = 'YOUR_FORM_ID';
+
+document.getElementById('nlForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  var btn = document.getElementById('nlBtn');
+  btn.textContent = '…';
+  try {
+    var res = await fetch('https://formspree.io/f/' + NEWS_FORM_ID, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('nlForm').innerHTML = '<p style="color:var(--gold);font-size:.9rem;letter-spacing:.1em">Thank you for subscribing.</p>';
+    } else { btn.textContent = 'Subscribe'; }
+  } catch(err) { btn.textContent = 'Subscribe'; }
 });
 </script>
 </body>
