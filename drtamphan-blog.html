@@ -436,12 +436,13 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
     <span class="logo-tagline">Dentofacial Aesthetics</span>
   </div>
   <ul class="nav-links">
-    <li><a href="index.html#treatments">Treatments</a></li>
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="drtamphan-team.html">The Team</a></li>
-    <li><a href="index.html#process">Our Process</a></li>
-    <li><a href="drtamphan-blog.html">Blog</a></li>
-    <li><a href="drtamphan-book.html" class="nav-cta">Contact Us</a></li>
+    <li><a href="index.html#treatments" data-i18n="navTreatments">Treatments</a></li>
+    <li><a href="index.html#about" data-i18n="navAbout">About</a></li>
+    <li><a href="drtamphan-team.html" data-i18n="navTeam">The Team</a></li>
+    <li><a href="index.html#process" data-i18n="navProcess">Our Process</a></li>
+    <li><a href="drtamphan-blog.html" data-i18n="navBlog">Blog</a></li>
+    <li><a href="drtamphan-book.html" class="nav-cta" data-i18n="navContact">Contact Us</a></li>
+    <li><button id="langToggle" onclick="toggleLang()" style="background:none;border:1px solid rgba(201,162,39,.45);color:var(--gold);font-family:var(--sans);font-size:.65rem;letter-spacing:.18em;padding:7px 13px;cursor:pointer;transition:background .25s,color .25s;text-transform:uppercase;" onmouseenter="this.style.background='rgba(201,162,39,.12)'" onmouseleave="this.style.background='none'">FR</button></li>
   </ul>
   <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
@@ -450,20 +451,20 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 <div class="page-header">
   <div class="ph-grid"></div>
   <div class="ph-inner">
-    <div class="ph-eyebrow rv">Knowledge &amp; Insights</div>
-    <h1 class="ph-title rv">The <em>Blog</em></h1>
-    <p class="ph-sub rv">Expert perspectives on dental surgery, implantology, facial aesthetics, and oral health — written by Dr. Phan and his team.</p>
+    <div class="ph-eyebrow rv" data-i18n="blogEyebrow">Knowledge &amp; Insights</div>
+    <h1 class="ph-title rv" data-i18n-html="blogTitle">The <em>Blog</em></h1>
+    <p class="ph-sub rv" data-i18n="blogSub">Expert perspectives on dental surgery, implantology, facial aesthetics, and oral health — written by Dr. Phan and his team.</p>
   </div>
 </div>
 
 <!-- CATEGORIES -->
 <div class="blog-cats">
-  <button class="cat-btn active" data-cat="all">All Articles</button>
-  <button class="cat-btn" data-cat="featured">Featured</button>
-  <button class="cat-btn" data-cat="aesthetics">Aesthetics</button>
-  <button class="cat-btn" data-cat="implants">Implants</button>
-  <button class="cat-btn" data-cat="prevention">Prevention</button>
-  <button class="cat-btn" data-cat="news">News</button>
+  <button class="cat-btn active" data-cat="all" data-i18n="catAll">All Articles</button>
+  <button class="cat-btn" data-cat="featured" data-i18n="catFeatured">Featured</button>
+  <button class="cat-btn" data-cat="aesthetics" data-i18n="catAesthetics">Aesthetics</button>
+  <button class="cat-btn" data-cat="implants" data-i18n="catImplants">Implants</button>
+  <button class="cat-btn" data-cat="prevention" data-i18n="catPrevention">Prevention</button>
+  <button class="cat-btn" data-cat="news" data-i18n="catNews">News</button>
 </div>
 
 <!-- FEATURED ARTICLE -->
@@ -609,18 +610,18 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
 <!-- NEWSLETTER -->
 <div class="newsletter-section rv">
-  <h2 class="nl-title">Stay <em>informed</em></h2>
-  <p class="nl-sub">Get the latest articles on dental surgery, aesthetics, and oral health delivered directly to your inbox.</p>
+  <h2 class="nl-title" data-i18n-html="nlTitle">Stay <em>informed</em></h2>
+  <p class="nl-sub" data-i18n="nlSub">Get the latest articles on dental surgery, aesthetics, and oral health delivered directly to your inbox.</p>
   <form class="nl-form" id="nlForm">
-    <input type="email" name="email" class="nl-input" placeholder="Your email address" required>
-    <button type="submit" class="nl-btn" id="nlBtn">Subscribe</button>
+    <input type="email" name="email" class="nl-input" data-i18n-placeholder="nlPlaceholder" placeholder="Your email address" required>
+    <button type="submit" class="nl-btn" id="nlBtn" data-i18n="nlBtn">Subscribe</button>
   </form>
 </div>
 
 <footer>
   <div class="footer-bottom">
-    <div class="f-copy">© 2024 Dr. Tâm Phan. All rights reserved.</div>
-    <a href="index.html" class="f-back">← Back to Home</a>
+    <div class="f-copy" data-i18n="footerCopy">© 2024 Dr. Tâm Phan. All rights reserved.</div>
+    <a href="index.html" class="f-back" data-i18n="footerBack">← Back to Home</a>
   </div>
 </footer>
 
@@ -905,6 +906,217 @@ function closeArticle(e, force) {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeArticle(null, true);
 });
+
+/* ── BLOG i18n ─────────────────────────────────────────────────────── */
+const LANG_BLOG = {
+  en: {
+    navTreatments:'Treatments', navAbout:'About', navTeam:'The Team',
+    navProcess:'Our Process', navBlog:'Blog', navContact:'Contact Us',
+    blogEyebrow:'Knowledge & Insights',
+    blogTitle:'The <em>Blog</em>',
+    blogSub:'Expert perspectives on dental surgery, implantology, facial aesthetics, and oral health — written by Dr. Phan and his team.',
+    catAll:'All Articles', catFeatured:'Featured', catAesthetics:'Aesthetics',
+    catImplants:'Implants', catPrevention:'Prevention', catNews:'News',
+    nlTitle:'Stay <em>informed</em>',
+    nlSub:'Get the latest articles on dental surgery, aesthetics, and oral health delivered directly to your inbox.',
+    nlPlaceholder:'Your email address', nlBtn:'Subscribe',
+    footerCopy:'© 2024 Dr. Tâm Phan. All rights reserved.',
+    footerBack:'← Back to Home',
+    artReadMore:'Read Full Article →', artReadShort:'Read →',
+    artBookCta:'Book a Consultation', artCtaText:'Ready to take the next step toward your best smile?',
+    artByAuthor:'Dr. Tâm Phan'
+  },
+  fr: {
+    navTreatments:'Traitements', navAbout:'À propos', navTeam:"L'équipe",
+    navProcess:'Notre approche', navBlog:'Blogue', navContact:'Nous joindre',
+    blogEyebrow:'Savoir & Perspectives',
+    blogTitle:'Le <em>Blogue</em>',
+    blogSub:'Perspectives d\'experts sur la chirurgie dentaire, l\'implantologie, l\'esthétique faciale et la santé buccodentaire — rédigées par le Dr Phan et son équipe.',
+    catAll:'Tous les articles', catFeatured:'En vedette', catAesthetics:'Esthétique',
+    catImplants:'Implants', catPrevention:'Prévention', catNews:'Actualités',
+    nlTitle:'Restez <em>informé</em>',
+    nlSub:'Recevez les derniers articles sur la chirurgie dentaire, l\'esthétique et la santé buccodentaire directement dans votre boîte de réception.',
+    nlPlaceholder:'Votre adresse courriel', nlBtn:'S\'abonner',
+    footerCopy:'© 2024 Dr. Tâm Phan. Tous droits réservés.',
+    footerBack:'← Retour à l\'accueil',
+    artReadMore:'Lire l\'article complet →', artReadShort:'Lire →',
+    artBookCta:'Prendre un rendez-vous', artCtaText:'Prêt à faire le premier pas vers votre plus beau sourire?',
+    artByAuthor:'Dr. Tâm Phan'
+  }
+};
+
+const ARTICLES_FR = {
+  'art-implants': {
+    title: 'Les implants dentaires : du chirurgien à votre sourire',
+    tags: ['En vedette', 'Implants'],
+    date: '12 juin 2024', read: '8 min',
+    image: 'blog-implants.jpg', imagePos: 'center',
+    intro: 'Les implants dentaires ont révolutionné la dentisterie moderne, offrant une solution permanente aux dents manquantes qui reproduit fidèlement les dents naturelles, tant en forme qu\'en fonction. Ce guide complet vous accompagne à chaque étape du parcours — de la première consultation jusqu\'au sourire retrouvé.',
+    sections: [
+      { h: 'La technologie Ankylos : le summum de la précision implantaire', p: 'Le Dr Phan se spécialise dans la technologie d\'implants dentaires Ankylos — conçue pour une stabilité supérieure, un ajustement précis et un succès à long terme. Ces implants sont dotés d\'une connexion conique unique qui répartit les forces de mastication de manière homogène, préservant l\'os et garantissant une base aussi solide qu\'une racine naturelle.' },
+      { h: '1. Consultation et planification personnalisée', p: 'Votre parcours commence par une consultation approfondie. Le Dr Phan évalue votre santé buccodentaire à l\'aide d\'imagerie avancée, discute de vos objectifs esthétiques et élabore un plan de traitement adapté à votre anatomie et à votre mode de vie.' },
+      { h: '2. Pose chirurgicale', p: 'L\'implant — un petit pilier en titane — est inséré dans l\'os de la mâchoire sous anesthésie locale, assurant votre confort total. La précision de la technologie Ankylos garantit une stabilité exceptionnelle dès le premier jour.' },
+      { h: '3. Ostéointégration et restauration finale', p: 'Au cours des mois suivants, l\'implant fusionne avec l\'os par un processus biologique appelé ostéointégration. Une couronne sur mesure est ensuite posée — parfaitement assortie à vos dents naturelles en taille, forme et teinte.' },
+      { h: 'Pourquoi choisir les implants dentaires ?', list: ['Précision & stabilité : une base exceptionnellement stable — sans mouvement ni glissement', 'Apparence naturelle : pratiquement indiscernables de vos propres dents', 'Santé buccodentaire préservée : aucune modification des dents saines adjacentes', 'Durabilité à vie : conçus pour durer des décennies avec des soins appropriés', 'Confiance restaurée : mangez vos aliments préférés et souriez sans hésitation'] }
+    ]
+  },
+  'art-sinus': {
+    title: 'Le soulèvement sinusien : ce qu\'il faut savoir avant votre implant',
+    tags: ['En vedette', 'Actualités'],
+    date: '28 mai 2024', read: '6 min',
+    image: 'blog-sinus.jpg', imagePos: '30% center',
+    intro: 'Le soulèvement sinusien — aussi appelé augmentation sinusienne — est une procédure chirurgicale qui ajoute de l\'os à la mâchoire supérieure dans la région des molaires et prémolaires. C\'est une étape préparatoire essentielle lorsque la densité osseuse est insuffisante pour soutenir un implant dentaire.',
+    sections: [
+      { h: 'Qui a besoin d\'un soulèvement sinusien ?', p: 'Cette chirurgie est recommandée aux patients ayant subi une perte osseuse à la mâchoire supérieure — qu\'elle soit due à la perte de dents, à l\'anatomie naturelle ou à une absence prolongée de dents.', list: ['Hauteur osseuse insuffisante due à l\'anatomie naturelle ou à la perte de dents', 'Atrophie osseuse après une longue absence de dents postérieures supérieures', 'Sinus trop proche de la crête osseuse pour une pose d\'implant sécuritaire'] },
+      { h: 'La procédure, étape par étape', p: 'Le parcours commence par une évaluation approfondie à l\'aide de radiographies et de tomodensitogrammes pour cartographier la densité osseuse et la position du sinus. Sous anesthésie locale, une petite incision expose l\'os, et la membrane sinusienne est délicatement soulevée. Du matériau de greffe osseuse de haute qualité est placé dans l\'espace créé. La thérapie PRGF est souvent appliquée pour accélérer la guérison.' },
+      { h: 'Guérison et prochaines étapes', p: 'Au cours des 6 à 9 mois suivants, le matériau de greffe fusionne avec l\'os existant, renforçant progressivement la densité nécessaire pour soutenir un implant. Une fois le site pleinement consolidé, la pose de l\'implant peut se dérouler avec assurance et prévisibilité.' },
+      { h: 'Avantages clés', list: ['Crée la base osseuse nécessaire à la pose d\'implants à la mâchoire supérieure', 'Permet une solution permanente là où elle n\'était auparavant pas possible', 'Restaure la densité osseuse perdue', 'Réalisé confortablement sous anesthésie locale avec peu de temps d\'arrêt'] }
+    ]
+  },
+  'art-botox': {
+    title: 'Botox®, Botox massétérin & PRGF : choisir le bon rajeunissement facial',
+    tags: ['En vedette', 'Esthétique'],
+    date: '14 mai 2024', read: '7 min',
+    image: 'blog-botox.jpg', imagePos: 'top center',
+    intro: 'L\'esthétique faciale va bien au-delà de la simple réduction des rides — il s\'agit de restaurer l\'harmonie, de préserver l\'expression naturelle et de sublimer les traits uniques qui définissent votre apparence. Trois traitements modernes sont au cœur de la pratique du Dr Phan : le Botox® Esthétique, le Botox massétérin et la thérapie PRGF.',
+    sections: [
+      { h: 'Botox® Esthétique', p: 'Le Botox® agit en relaxant temporairement les muscles faciaux responsables des rides d\'expression. Les zones traitées comprennent les rides du front, les rides entre les sourcils, les pattes-d\'oie et le menton. L\'objectif n\'est pas d\'éliminer l\'expression — mais de l\'adoucir, en préservant la chaleur naturelle et la personnalité de votre visage. Les résultats durent de 3 à 6 mois.' },
+      { h: 'Botox massétérin', p: 'Contrairement au Botox esthétique, le traitement massétérin cible les muscles de la mâchoire. Le résultat est triple : soulagement des tensions chroniques associées au bruxisme, réduction du grincement nocturne et un léger effet affinant du bas du visage. La fonction masticatoire normale est entièrement préservée.' },
+      { h: 'Thérapie PRGF', p: 'Le PRGF — Plasma riche en facteurs de croissance — est un traitement fondamentalement différent du Botox®. Il utilise des facteurs de croissance concentrés extraits de votre propre sang pour stimuler la capacité régénératrice de votre peau, améliorant la texture, l\'élasticité et l\'hydratation profonde.' },
+      { h: 'Comment le Dr Phan choisit votre protocole', p: 'Chaque visage est différent. Le Dr Phan effectue une évaluation faciale complète avant de recommander tout traitement — en tenant compte de votre anatomie, de vos préoccupations et de vos objectifs. Aucun plan de traitement n\'est jamais identique.' }
+    ]
+  },
+  'art-prgf': {
+    title: 'Thérapie PRGF : comment le plasma riche en facteurs de croissance accélère la guérison',
+    tags: ['Esthétique'],
+    date: '30 avr. 2024', read: '5 min',
+    image: 'blog-prgf.jpg',
+    intro: 'Le PRGF — Plasma Riche en Facteurs de Croissance — exploite le pouvoir régénérateur déjà présent dans votre propre sang. En concentrant les facteurs de croissance naturels et en les réintroduisant précisément là où la guérison ou le rajeunissement est nécessaire, le PRGF produit des résultats à la fois cliniquement efficaces et totalement biocompatibles.',
+    sections: [
+      { h: 'La science derrière le PRGF', p: 'Un petit échantillon de sang est prélevé et placé dans une centrifugeuse, qui sépare la fraction plasmatique la plus riche en facteurs de croissance. Cette préparation PRGF concentrée est ensuite appliquée sur le site de traitement — qu\'il s\'agisse d\'une plaie chirurgicale, d\'une zone cutanée ou d\'un tissu gingival — où elle déclenche une réponse de guérison accélérée et mieux organisée.' },
+      { h: 'Applications en dentisterie', p: 'Dans la pratique du Dr Phan, le PRGF est utilisé pour accélérer la guérison après la pose d\'implants, les extractions, les greffes osseuses et les procédures parodontales.', list: ['Guérison post-chirurgie implantaire et soutien à l\'ostéointégration', 'Récupération accélérée après les greffes osseuses et gingivales', 'Régénération des tissus parodontaux'] },
+      { h: 'Applications esthétiques pour la peau', p: 'Appliqué sur la peau du visage, le PRGF stimule la production de collagène et améliore la texture, l\'élasticité et l\'hydratation au niveau cellulaire. Les résultats se développent progressivement sur 4 à 6 semaines.' },
+      { h: 'Pourquoi le PRGF ?', list: ['100% autologue — dérivé de votre propre sang, zéro risque de réaction allergique', 'Accélère les processus de guérison chirurgicaux et esthétiques', 'Améliore la qualité des tissus à long terme', 'Entièrement naturel — aucun composé synthétique, aucun matériau étranger'] }
+    ]
+  },
+  'art-fullmouth': {
+    title: 'Réhabilitation complète de la bouche : à quoi s\'attendre à chaque étape',
+    tags: ['Implants'],
+    date: '15 avr. 2024', read: '9 min',
+    image: 'blog-fullmouth.jpg', imagePos: 'top center',
+    intro: 'La réhabilitation complète de la bouche est une approche hautement spécialisée qui traite simultanément les problèmes des deux mâchoires. Elle est le traitement de choix pour les patients dont les préoccupations en matière de santé buccodentaire s\'étendent au-delà d\'une seule dent ou région.',
+    sections: [
+      { h: 'Qui bénéficie d\'une réhabilitation complète ?', list: ['Plusieurs dents manquantes dues à la carie, un traumatisme ou une maladie avancée', 'Dents sévèrement usées ou endommagées par le grincement ou l\'érosion acide', 'Douleurs chroniques à la mâchoire ou troubles de l\'ATM', 'Maladie parodontale avancée nécessitant une intervention parodontale et restauratrice', 'Préoccupations cosmétiques complexes sur plusieurs dents ou les deux arcades'] },
+      { h: 'Le parcours de traitement', p: 'La réhabilitation commence par une évaluation diagnostique approfondie — radiographies numériques, imagerie 3D, analyse de l\'occlusion et revue détaillée des antécédents de santé. Le Dr Phan construit ensuite un plan personnalisé et phasé qui priorise toujours la santé avant l\'esthétique.' },
+      { h: 'Phases de traitement', p: 'Selon la complexité de votre cas, la réhabilitation peut incorporer des implants dentaires, des couronnes en porcelaine, des ponts, des inlays et onlays, une thérapie parodontale, un réalignement orthodontique et une correction complète de l\'occlusion.' },
+      { h: 'Des résultats qui transforment la vie', p: '"La réhabilitation complète de la bouche est un traitement dentaire expert et global qui vise à restaurer la santé, la fonction et l\'esthétique de toute la cavité buccale." — Dr Tâm Phan.' }
+    ]
+  },
+  'art-bonegraft': {
+    title: 'Le rôle de la greffe osseuse dans le succès à long terme des implants',
+    tags: ['Prévention'],
+    date: '22 mars 2024', read: '5 min',
+    image: 'blog-bonegraft.jpg',
+    intro: 'La greffe osseuse est le héros méconnu de la chirurgie implantaire. Lorsque la mâchoire manque du volume ou de la densité nécessaires pour soutenir un implant, la greffe osseuse restaure cette fondation — rendant possibles des procédures qui seraient autrement hors de portée.',
+    sections: [
+      { h: 'Pourquoi la perte osseuse survient-elle ?', p: 'Lorsqu\'une dent est perdue, l\'os qui entourait sa racine commence à se résorber — perdant souvent une part importante de son volume dans la première année. La maladie parodontale, les traumatismes et le port prolongé de prothèses accélèrent ce processus.' },
+      { h: 'Types de matériaux de greffe', list: ['Autogreffe : os prélevé de votre propre corps — la référence biologique pour l\'intégration et la formation de nouvel os', 'Allogreffe : os donneur humain, rigoureusement traité et stérilisé', 'Xénogreffe : minéral osseux bovin ou porcin — hautement biocompatible', 'Synthétique : échafaudages bioingéniériés qui guident les cellules osseuses de l\'organisme'] },
+      { h: 'Le processus de greffe et de guérison', p: 'Le matériau de greffe est placé précisément sur le site implantaire et recouvert d\'une membrane protectrice. Sur 4 à 9 mois, il fusionne progressivement avec l\'os existant — créant une base dense et naturelle prête pour la pose de l\'implant.' },
+      { h: 'Des résultats prévisibles et éprouvés', p: 'Planifiée avec soin et réalisée avec précision, la greffe osseuse élargit considérablement le bassin de patients pouvant bénéficier d\'implants dentaires. Le Dr Phan utilise l\'imagerie 3D avancée et la planification chirurgicale guidée par ordinateur pour garantir un positionnement optimal.' }
+    ]
+  },
+  'art-gums': {
+    title: 'Santé des gencives et implants : pourquoi les soins parodontaux passent en premier',
+    tags: ['Prévention', 'Actualités'],
+    date: '8 mars 2024', read: '6 min',
+    image: 'blog-gums.jpg',
+    intro: '"Votre sourire est votre plus bel accessoire, et le héros méconnu derrière lui est la santé de vos gencives." Des gencives saines sont la base silencieuse de tout implant réussi. Avant toute procédure implantaire — et pour protéger cet investissement pendant des décennies — la santé du tissu gingival environnant doit être établie et maintenue.',
+    sections: [
+      { h: 'Pourquoi la santé gingivale détermine le succès implantaire', p: 'La maladie parodontale est l\'une des principales causes d\'échec des implants dans le monde. Des bactéries nocives colonisent sous la gencive et attaquent l\'os et les tissus mous qui ancrent un implant — provoquant une péri-implantite pouvant mener à la perte de l\'implant.' },
+      { h: 'Signes d\'alerte à surveiller', list: ['Gencives qui saignent lors du brossage ou de l\'utilisation de la soie dentaire', 'Récession gingivale — dents qui semblent plus longues qu\'avant', 'Mauvaise haleine persistante ou mauvais goût persistant', 'Tissu gingival enflé, rouge ou sensible autour d\'une dent ou d\'un implant', 'Dents ou implants qui semblent mobiles ou qui ont bougé'] },
+      { h: 'Soins quotidiens autour des implants', p: 'Les implants dentaires requièrent les mêmes soins à domicile diligents que les dents naturelles. Brossage deux fois par jour avec une brosse à poils souples, soie dentaire spécifique pour implants et rince-bouche antimicrobien quotidien réduisent la charge bactérienne.' },
+      { h: 'Suivi professionnel', p: 'Les patients porteurs d\'implants doivent effectuer des visites de nettoyage et d\'évaluation professionnels tous les 3 à 6 mois. Le Dr Phan utilise des instruments spécialisés et l\'imagerie radiographique numérique pour surveiller les niveaux osseux et gingivaux autour de chaque implant.' }
+    ]
+  },
+  'art-veneers': {
+    title: 'Facettes en porcelaine vs composite : une comparaison complète',
+    tags: ['Esthétique'],
+    date: '19 févr. 2024', read: '6 min',
+    image: 'blog-veneers.jpg', imagePos: 'top center',
+    intro: 'Deux des traitements cosmétiques les plus demandés en dentisterie contemporaine — les facettes en porcelaine et le collage composite — peuvent tous deux produire de spectaculaires transformations de sourire. Mais ils diffèrent significativement en durabilité, apparence naturelle, processus clinique et investissement.',
+    sections: [
+      { h: 'Facettes en porcelaine', p: 'Des coquilles ultra-minces de céramique médicale, fabriquées en laboratoire dentaire pour correspondre précisément à la forme et à la teinte de dents désirées. Les facettes sont collées de façon permanente sur la face avant des dents préparées, créant un résultat d\'une naturalité exceptionnelle.', list: ['Durée de vie : 15 à 20 ans ou plus avec des soins appropriés', 'Résistance aux taches : excellente — hautement résistante au café, au vin et au tabac', 'Processus : préparation minimale des dents ; généralement complété en 2 rendez-vous', 'Idéal pour : refonte complète du sourire, décoloration significative, corrections de forme'] },
+      { h: 'Collage composite', p: 'Une résine de la couleur des dents appliquée directement sur la surface de la dent et sculptée artistiquement par le Dr Phan en une seule séance. Le collage composite est plus rapide, plus abordable et entièrement réversible.', list: ['Durée de vie : 5 à 10 ans avant polissage ou renouvellement', 'Résistance aux taches : modérée — plus susceptible de se décolorer avec le temps', 'Processus : réalisé en une seule séance ; aucun laboratoire requis', 'Idéal pour : ébréchures, espacement mineur, petites corrections de forme ou longueur'] },
+      { h: 'Faire le bon choix', p: 'Le traitement idéal dépend de vos objectifs, de votre calendrier et de votre vision à long terme pour votre sourire. Le Dr Phan vous expliquera les deux options en détail lors de votre consultation.' }
+    ]
+  },
+  'art-wisdom': {
+    title: 'Extraction des dents de sagesse : moment, récupération et précautions',
+    tags: ['Implants'],
+    date: '5 févr. 2024', read: '5 min',
+    image: 'blog-wisdom.jpg',
+    intro: 'Les dents de sagesse — les troisièmes molaires — sont les dernières dents à émerger, généralement entre 17 et 25 ans. Pour la majorité des patients, la mâchoire n\'a tout simplement pas suffisamment de place pour les accueillir confortablement, entraînant impaction, chevauchement, douleur et risque accru d\'infection.',
+    sections: [
+      { h: 'Quand faut-il extraire les dents de sagesse ?', p: 'Toutes les dents de sagesse ne nécessitent pas une extraction immédiate. Le Dr Phan surveille leur développement et recommande l\'extraction en cas d\'impaction, de pression sur les dents adjacentes, de signes précoces de carie ou de kyste, ou d\'infection récurrente autour de la gencive.' },
+      { h: 'La procédure d\'extraction', p: 'L\'extraction est réalisée sous anesthésie locale, assurant un confort total. Pour les dents totalement éruptées, l\'extraction est directe. Pour les dents incluses, une petite incision précise donne accès. La thérapie PRGF est couramment appliquée pour accélérer la guérison.' },
+      { h: 'Récupération : à quoi s\'attendre', p: 'La plupart des patients ressentent un léger gonflement et des douleurs pendant 3 à 5 jours.', list: ['Évitez les aliments durs ou croquants pendant la première semaine', 'Ne pas utiliser de paille — la succion peut déloger le caillot cicatriciel', 'Rincez délicatement à l\'eau tiède salée dès le lendemain matin', 'Évitez de fumer — cela retarde significativement la guérison', 'Dormez la tête légèrement surélevée pour minimiser l\'enflure'] },
+      { h: 'L\'avantage à long terme', p: 'L\'extraction préventive des dents de sagesse problématiques évite de futurs complications — chevauchement des dents adjacentes, perte osseuse localisée, épisodes infectieux récurrents et formation de kyste.' }
+    ]
+  }
+};
+
+let _blogLang = localStorage.getItem('drphan_lang') || 'en';
+
+function setBlogLang(lang) {
+  _blogLang = lang;
+  localStorage.setItem('drphan_lang', lang);
+  const t = LANG_BLOG[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (t[k] !== undefined) el.textContent = t[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.dataset.i18nHtml;
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const k = el.dataset.i18nPlaceholder;
+    if (t[k] !== undefined) el.placeholder = t[k];
+  });
+  const btn = document.getElementById('langToggle');
+  if (btn) btn.textContent = lang === 'en' ? 'FR' : 'EN';
+}
+
+function toggleLang() { setBlogLang(_blogLang === 'en' ? 'fr' : 'en'); }
+
+// Override openArticle to serve FR content when active
+const _origOpenArticle = openArticle;
+function openArticle(id) {
+  const src = _blogLang === 'fr' ? (ARTICLES_FR[id] || ARTICLES[id]) : ARTICLES[id];
+  if (!src) return;
+  const t = LANG_BLOG[_blogLang];
+  const imgPos = src.imagePos || 'top center';
+  document.getElementById('artImg').style.background = "url('"+src.image+"') "+imgPos+"/cover no-repeat";
+  document.getElementById('artTagsEl').innerHTML = src.tags.map(function(tag){ return '<span class="art-tag">'+tag+'</span>'; }).join('');
+  document.getElementById('artTitleEl').textContent = src.title;
+  document.getElementById('artMetaEl').innerHTML =
+    '<span>'+t.artByAuthor+'</span><span class="art-meta-dot"></span><span>'+src.date+'</span><span class="art-meta-dot"></span><span>'+src.read+'</span>';
+  let html = '<p class="art-intro">'+src.intro+'</p>';
+  src.sections.forEach(function(s){
+    html += '<div class="art-section">';
+    if (s.h) html += '<h3>'+s.h+'</h3>';
+    if (s.p) html += '<p>'+s.p+'</p>';
+    if (s.list) html += '<ul>'+s.list.map(function(i){ return '<li>'+i+'</li>'; }).join('')+'</ul>';
+    html += '</div>';
+  });
+  html += '<div class="art-cta"><p class="art-cta-text">'+t.artCtaText+'</p><a href="drtamphan-book.html" class="art-cta-btn">'+t.artBookCta+'</a></div>';
+  document.getElementById('artBodyEl').innerHTML = html;
+  document.getElementById('artModal').scrollTop = 0;
+  document.getElementById('artOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+(function(){ setBlogLang(_blogLang); })();
 
 /* ── FORMSPREE NEWSLETTER FORM ID — replace with yours from formspree.io ── */
 var NEWS_FORM_ID = 'xqpkprkz';

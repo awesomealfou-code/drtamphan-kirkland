@@ -386,11 +386,12 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
     <span class="logo-tagline">Dentofacial Aesthetics</span>
   </div>
   <ul class="nav-links">
-    <li><a href="index.html#treatments">Treatments</a></li>
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="drtamphan-team.html" class="active">The Team</a></li>
-    <li><a href="drtamphan-blog.html">Blog</a></li>
-    <li><a href="drtamphan-book.html" class="nav-cta">Contact Us</a></li>
+    <li><a href="index.html#treatments" data-i18n="navTreatments">Treatments</a></li>
+    <li><a href="index.html#about" data-i18n="navAbout">About</a></li>
+    <li><a href="drtamphan-team.html" class="active" data-i18n="navTeam">The Team</a></li>
+    <li><a href="drtamphan-blog.html" data-i18n="navBlog">Blog</a></li>
+    <li><a href="drtamphan-book.html" class="nav-cta" data-i18n="navContact">Contact Us</a></li>
+    <li><button id="langToggle" onclick="toggleLang()" style="background:none;border:1px solid rgba(201,162,39,.45);color:var(--gold);font-family:var(--sans);font-size:.65rem;letter-spacing:.18em;padding:7px 13px;cursor:pointer;transition:background .25s,color .25s;text-transform:uppercase;" onmouseenter="this.style.background='rgba(201,162,39,.12)'" onmouseleave="this.style.background='none'">FR</button></li>
   </ul>
   <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
@@ -399,15 +400,15 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 <div class="page-header">
   <div class="ph-grid"></div>
   <div class="ph-inner">
-    <div class="ph-eyebrow rv">The People Behind the Smiles</div>
-    <h1 class="ph-title rv">Our <em>Surgical</em><br>Team</h1>
-    <p class="ph-sub rv">A dedicated family of specialists united by a passion for precision, care, and the artistry of beautiful smiles.</p>
+    <div class="ph-eyebrow rv" data-i18n="teamEyebrow">The People Behind the Smiles</div>
+    <h1 class="ph-title rv" data-i18n-html="teamTitle">Our <em>Surgical</em><br>Team</h1>
+    <p class="ph-sub rv" data-i18n="teamSub">A dedicated family of specialists united by a passion for precision, care, and the artistry of beautiful smiles.</p>
   </div>
 </div>
 
 <!-- TEAM GRID — 4 MEMBERS -->
 <div class="team-section">
-  <div class="team-section-title rv">Meet Our Team</div>
+  <div class="team-section-title rv" data-i18n="teamSectionTitle">Meet Our Team</div>
 
   <div class="team-grid">
 
@@ -417,8 +418,8 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
       <div class="tc-info">
         <div class="tc-name">Dr. Tâm Phan</div>
-        <div class="tc-role">Founder &amp; Lead Surgeon</div>
-        <div class="tc-arrow">View Profile →</div>
+        <div class="tc-role" data-i18n="roleFounder">Founder &amp; Lead Surgeon</div>
+        <div class="tc-arrow" data-i18n="teamViewProfile">View Profile →</div>
       </div>
     </div>
 
@@ -428,8 +429,8 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
       <div class="tc-info">
         <div class="tc-name">Carolane</div>
-        <div class="tc-role">Surgical Assistant</div>
-        <div class="tc-arrow">View Profile →</div>
+        <div class="tc-role" data-i18n="roleAssistant">Surgical Assistant</div>
+        <div class="tc-arrow" data-i18n="teamViewProfile">View Profile →</div>
       </div>
     </div>
 
@@ -439,8 +440,8 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
       <div class="tc-info">
         <div class="tc-name">Veronica</div>
-        <div class="tc-role">Surgical Assistant</div>
-        <div class="tc-arrow">View Profile →</div>
+        <div class="tc-role" data-i18n="roleAssistant">Surgical Assistant</div>
+        <div class="tc-arrow" data-i18n="teamViewProfile">View Profile →</div>
       </div>
     </div>
 
@@ -450,8 +451,8 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
       <div class="tc-info">
         <div class="tc-name">Alyanna</div>
-        <div class="tc-role">Surgical Assistant</div>
-        <div class="tc-arrow">View Profile →</div>
+        <div class="tc-role" data-i18n="roleAssistantCoord">Surgical Assistant</div>
+        <div class="tc-arrow" data-i18n="teamViewProfile">View Profile →</div>
       </div>
     </div>
 
@@ -461,15 +462,15 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 <!-- QUOTE STRIP -->
 <div class="quote-strip rv">
   <div class="qs-mark">"</div>
-  <p class="qs-text">Every patient who walks through our door deserves precision, compassion, and a result that exceeds their expectation. That is the standard we hold ourselves to — every single day.</p>
+  <p class="qs-text" data-i18n="teamQuote">Every patient who walks through our door deserves precision, compassion, and a result that exceeds their expectation. That is the standard we hold ourselves to — every single day.</p>
   <div class="qs-author">— Dr. Tâm Phan</div>
 </div>
 
 
 <footer>
   <div class="footer-bottom">
-    <div class="f-copy">© 2024 Dr. Tâm Phan. All rights reserved.</div>
-    <a href="index.html" class="f-back">← Back to Home</a>
+    <div class="f-copy" data-i18n="footerCopy">© 2024 Dr. Tâm Phan. All rights reserved.</div>
+    <a href="index.html" class="f-back" data-i18n="footerBack">← Back to Home</a>
   </div>
 </footer>
 
@@ -529,7 +530,7 @@ document.querySelectorAll('.rv,.rvL,.rvR').forEach(el=>obs.observe(el));
       <div class="tm-name" id="tmName"></div>
       <div class="tm-bio" id="tmBio"></div>
       <div class="tm-facts" id="tmFacts"></div>
-      <a href="drtamphan-book.html" class="tm-book">Book an Appointment →</a>
+      <a href="drtamphan-book.html" class="tm-book" data-i18n="teamBookBtn">Book an Appointment →</a>
     </div>
   </div>
 </div>
@@ -613,6 +614,137 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMember(
 document.querySelectorAll('.team-card[data-m]').forEach(card => {
   card.addEventListener('click', () => openMember(card.dataset.m));
 });
+</script>
+
+<script>
+/* ── TEAM PAGE i18n ─────────────────────────────────────────────────── */
+const LANG_TEAM = {
+  en: {
+    navTreatments:'Treatments', navAbout:'About', navTeam:'The Team',
+    navBlog:'Blog', navContact:'Contact Us',
+    teamEyebrow:'The People Behind the Smiles',
+    teamTitle:'Our <em>Surgical</em><br>Team',
+    teamSub:'A dedicated family of specialists united by a passion for precision, care, and the artistry of beautiful smiles.',
+    teamSectionTitle:'Meet Our Team',
+    teamViewProfile:'View Profile →',
+    roleFounder:'Founder &amp; Lead Surgeon',
+    roleAssistant:'Surgical Assistant',
+    roleAssistantCoord:'Surgical Assistant &amp; Treatment Coordinator',
+    teamQuote:'Every patient who walks through our door deserves precision, compassion, and a result that exceeds their expectation. That is the standard we hold ourselves to — every single day.',
+    teamBookBtn:'Book an Appointment →',
+    footerCopy:'© 2024 Dr. Tâm Phan. All rights reserved.',
+    footerBack:'← Back to Home'
+  },
+  fr: {
+    navTreatments:'Traitements', navAbout:'À propos', navTeam:"L'équipe",
+    navBlog:'Blogue', navContact:'Nous joindre',
+    teamEyebrow:'Les personnes derrière les sourires',
+    teamTitle:'Notre <em>équipe</em><br>chirurgicale',
+    teamSub:'Une famille dévouée de spécialistes unis par la passion de la précision, du soin et de l\'art du beau sourire.',
+    teamSectionTitle:'Rencontrez notre équipe',
+    teamViewProfile:'Voir le profil →',
+    roleFounder:'Fondateur &amp; Chirurgien principal',
+    roleAssistant:'Assistante chirurgicale',
+    roleAssistantCoord:'Assistante chirurgicale &amp; Coordinatrice de traitement',
+    teamQuote:'Chaque patient qui franchit notre porte mérite précision, compassion et un résultat qui dépasse ses attentes. C\'est la norme que nous nous imposons — chaque jour.',
+    teamBookBtn:'Prendre un rendez-vous →',
+    footerCopy:'© 2024 Dr. Tâm Phan. Tous droits réservés.',
+    footerBack:'← Retour à l\'accueil'
+  }
+};
+
+const TEAM_FR = {
+  drphan: {
+    name: 'Dr. Tâm Phan',
+    role: 'DMD — Fondateur & Chirurgien principal',
+    photo: 'team-drphan.jpg',
+    bio: 'Le Dr Tâm Phan est diplômé de la Faculté de dentisterie de l\'Université Laval et fellow du Congrès international des implantologistes oraux (FICOI) et du Misch International Implant Institute (FMIII). Fort de plus de 31 ans d\'expérience, il est reconnu pour sa maîtrise en dentisterie esthétique, en implantologie, en réhabilitation complète de la bouche et en greffes osseuses — et a été publié dans la revue dentaire canadienne Oral Health.',
+    facts: [
+      { icon: '◆', text: 'Fellow de l\'ICOI et du FMIII — parmi les accréditations en implantologie les plus rigoureuses au monde.' },
+      { icon: '◆', text: 'Formé par des pionniers mondiaux dont les Drs Carl Misch, Eduardo Anitua et Mike Pikos.' },
+      { icon: '◆', text: 'Récipiendaire du Prix d\'excellence en chirurgie dentaire de la Fondation Guy Maranda.' },
+      { icon: '◆', text: 'Membre actif de la Société canadienne d\'implantologie orale et de l\'Académie américaine de dentisterie cosmétique.' }
+    ]
+  },
+  carolane: {
+    name: 'Carolane',
+    role: 'Assistante chirurgicale',
+    photo: 'team-carolane.jpg',
+    bio: 'Avec plus de dix ans dans le domaine dentaire, Carolane travaille aux côtés du Dr Phan dans l\'ensemble des procédures — des soins courants aux interventions chirurgicales complexes. Sa présence calme et son attention sincère mettent à l\'aise même les patients les plus anxieux.',
+    facts: [
+      { icon: '◆', text: 'Attention méticuleuse aux détails à chaque étape chirurgicale, assurant précision et sécurité tout au long de chaque procédure.' },
+      { icon: '◆', text: 'Reconnue pour apporter réconfort et sérénité aux patients — transformant des rendez-vous difficiles en expériences gérables.' },
+      { icon: '◆', text: 'Randonneuse passionnée et amoureuse de la nature. Elle voit le plein air comme la meilleure façon de se ressourcer.' },
+      { icon: '◆', text: 'Ardente défenseure de la durabilité et de la conservation de l\'environnement.' }
+    ]
+  },
+  alyanna: {
+    name: 'Alyanna',
+    role: 'Assistante chirurgicale & Coordinatrice de traitement',
+    photo: 'team-alyanna.jpg',
+    bio: 'Alyanna allie avec un talent égal les soins cliniques et la communication avec les patients. Elle soutient le Dr Phan dans les procédures générales, restauratrices, chirurgicales et cosmétiques — tout en coordonnant les plans de traitement pour que chaque patient se sente informé et confiant.',
+    facts: [
+      { icon: '◆', text: 'Combine expertise clinique et compétences organisationnelles exceptionnelles — gestion des rendez-vous, calendriers de traitement et suivis patients.' },
+      { icon: '◆', text: 'Engagée à informer les patients de leurs options, pour que chaque décision soit prise avec clarté et confiance.' },
+      { icon: '◆', text: 'Reconnue pour ses soins compatissants et attentionnés qui rendent l\'environnement clinique accueillant.' },
+      { icon: '◆', text: 'En dehors de la clinique, elle valorise les liens significatifs, un mode de vie actif et la croissance personnelle.' }
+    ]
+  },
+  veronica: {
+    name: 'Veronica',
+    role: 'Assistante chirurgicale',
+    photo: 'team-veronica.jpg',
+    bio: 'Avec plus de 10 ans dans le domaine dentaire, Veronica apporte précision, empathie et grande expérience clinique à chaque interaction. Compétente des bilans de routine aux procédures chirurgicales complexes, elle veille à ce que chaque patient reparte avec une expérience positive.',
+    facts: [
+      { icon: '◆', text: 'Plus d\'une décennie d\'expérience sur tout le spectre des procédures dentaires — des soins préventifs au soutien chirurgical avancé.' },
+      { icon: '◆', text: 'Attention exceptionnelle aux détails et compassion sincère — deux qualités qui définissent son approche centrée sur le patient.' },
+      { icon: '◆', text: 'Mère dévouée de deux enfants qui trouve sa joie dans les moments en famille et la création de souvenirs précieux.' },
+      { icon: '◆', text: '"Je suis passionnée par l\'aide aux personnes pour qu\'elles sourient." — Veronica' }
+    ]
+  }
+};
+
+let _teamLang = localStorage.getItem('drphan_lang') || 'en';
+
+function setTeamLang(lang) {
+  _teamLang = lang;
+  localStorage.setItem('drphan_lang', lang);
+  const t = LANG_TEAM[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (t[k] !== undefined) el.textContent = t[k].replace(/&amp;/g,'&');
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.dataset.i18nHtml;
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  const btn = document.getElementById('langToggle');
+  if (btn) btn.textContent = lang === 'en' ? 'FR' : 'EN';
+}
+
+function toggleLang() {
+  setTeamLang(_teamLang === 'en' ? 'fr' : 'en');
+}
+
+// Override openMember to use FR data when active
+const _origOpenMember = openMember;
+function openMember(key) {
+  const src = _teamLang === 'fr' ? (TEAM_FR[key] || TEAM[key]) : TEAM[key];
+  if (!src) return;
+  document.getElementById('tmPhoto').src = src.photo;
+  document.getElementById('tmPhoto').alt = src.name;
+  document.getElementById('tmRole').textContent = src.role;
+  document.getElementById('tmName').textContent = src.name;
+  document.getElementById('tmBio').textContent = src.bio;
+  document.getElementById('tmFacts').innerHTML = src.facts
+    .map(f => '<div class="tm-fact"><div class="tm-fact-icon">'+f.icon+'</div><div class="tm-fact-text">'+f.text+'</div></div>')
+    .join('');
+  document.getElementById('tmPanel').scrollTop = 0;
+  document.getElementById('tmOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+(function(){ setTeamLang(_teamLang); })();
 </script>
 </body>
 </html>
