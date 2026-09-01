@@ -70,6 +70,8 @@ nav.scrolled {
 nav.scrolled .logo img { height:56px; }
 .logo-tagline { display:none; }
 .nav-links { display:flex; gap:56px; list-style:none; align-items:center; align-self:flex-start; padding-top:30px; margin-left:80px; }
+body.lang-fr .nav-links { gap:28px; }
+body.lang-fr .nav-links a { font-size:.68rem; letter-spacing:.10em; }
 .nav-links a {
   font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
   color:var(--off-white); text-decoration:none; position:relative;
@@ -2291,6 +2293,7 @@ let currentLang = localStorage.getItem('drphan_lang') || 'en';
 function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('drphan_lang', lang);
+  document.body.classList.toggle('lang-fr', lang === 'fr');
   const t = LANG[lang];
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
