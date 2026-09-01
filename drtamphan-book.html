@@ -174,9 +174,10 @@ form { display:flex; flex-direction:column; gap:28px; }
 .form-group select option { background:var(--navy-mid); color:var(--white); }
 .form-group textarea { resize:vertical; min-height:120px; line-height:1.7; }
 
-.form-select-wrap { position:relative; }
+.form-select-wrap { position:relative; display:block; }
+.form-select-wrap select { width:100%; padding-right:40px; }
 .form-select-wrap::after {
-  content:'↓'; position:absolute; right:16px; top:50%;
+  content:'↓'; position:absolute; right:14px; top:50%;
   transform:translateY(-50%); color:var(--gold);
   font-size:.8rem; pointer-events:none;
 }
