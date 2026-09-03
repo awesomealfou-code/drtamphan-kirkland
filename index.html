@@ -1081,6 +1081,138 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
   </div>
 </section>
 
+<!-- OUR CLINIC -->
+<style>
+#our-clinic{padding:100px 0;background:var(--navy);}
+#our-clinic .cl-header{text-align:center;margin-bottom:56px;padding:0 20px;}
+#our-clinic .cl-eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  font-size:10px;font-weight:500;letter-spacing:5px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;
+}
+#our-clinic .cl-eyebrow::before,#our-clinic .cl-eyebrow::after{
+  content:'';display:block;width:40px;height:1px;background:var(--gold);opacity:.4;
+}
+#our-clinic .cl-title{
+  font-family:var(--serif);font-size:clamp(40px,5.5vw,72px);
+  font-weight:300;color:var(--off-white);line-height:1.1;margin-bottom:14px;
+}
+#our-clinic .cl-title em{font-style:italic;color:var(--gold);}
+#our-clinic .cl-sub{font-size:15px;color:rgba(232,224,208,.5);font-weight:300;max-width:480px;margin:0 auto;}
+.ac-wrap{
+  display:flex;height:580px;padding:0 40px;gap:6px;
+  max-width:1400px;margin:0 auto;
+}
+.ac-panel{
+  position:relative;flex:1;overflow:hidden;cursor:pointer;
+  transition:flex .65s cubic-bezier(.4,0,.2,1);border-radius:3px;
+}
+.ac-panel.open{flex:5;}
+.ac-panel img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  filter:saturate(.7) brightness(.7);
+  transition:filter .65s,transform .65s;display:block;
+}
+.ac-panel.open img,.ac-panel:hover img{filter:saturate(1) brightness(.88);transform:scale(1.04);}
+.ac-panel::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  z-index:3;opacity:0;transition:opacity .4s;
+}
+.ac-panel.open::before{opacity:1;}
+.ac-label-v{
+  position:absolute;bottom:32px;left:50%;
+  transform:translateX(-50%) rotate(-90deg);
+  white-space:nowrap;font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:rgba(232,224,208,.5);font-weight:500;transition:opacity .35s;z-index:2;
+}
+.ac-panel.open .ac-label-v{opacity:0;}
+.ac-info{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:64px 36px 32px;
+  background:linear-gradient(to top,rgba(10,10,10,.96) 0%,rgba(10,10,10,.5) 65%,transparent 100%);
+  opacity:0;transform:translateY(14px);
+  transition:opacity .45s .15s,transform .45s .15s;z-index:2;
+}
+.ac-panel.open .ac-info{opacity:1;transform:translateY(0);}
+.ac-info-label{
+  font-size:9px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);font-weight:500;display:block;margin-bottom:10px;
+}
+.ac-info-name{
+  font-family:var(--serif);font-size:30px;font-weight:300;
+  color:#fff;line-height:1.15;display:block;margin-bottom:10px;
+}
+.ac-info-desc{font-size:13px;color:rgba(232,224,208,.5);line-height:1.75;font-weight:300;max-width:420px;}
+.ac-num{
+  position:absolute;top:24px;left:50%;transform:translateX(-50%);
+  font-family:var(--serif);font-size:18px;font-weight:300;
+  color:rgba(201,162,39,.35);z-index:2;transition:opacity .3s;
+}
+.ac-panel.open .ac-num{opacity:0;}
+.ac-dots{display:flex;justify-content:center;gap:8px;margin-top:28px;}
+.ac-dot{width:5px;height:5px;border-radius:50%;background:rgba(201,162,39,.2);cursor:pointer;transition:all .3s;}
+.ac-dot.active{background:var(--gold);transform:scale(1.5);}
+</style>
+
+<section id="our-clinic">
+  <div class="cl-header">
+    <div class="cl-eyebrow">Our Clinic</div>
+    <h2 class="cl-title">A Clinic Built for<br><em>Exceptional Experiences</em></h2>
+    <p class="cl-sub">Hover any panel to explore the space.</p>
+  </div>
+  <div class="ac-wrap" id="acWrap"></div>
+  <div class="ac-dots" id="acDots"></div>
+</section>
+
+<script>
+(function(){
+  const PANELS = [
+    { src:'assets/clinic-lounge-1.jpg',   label:'Patient Experience', name:'Patient Lounge',          desc:'Floor-to-ceiling windows, curved designer sofas, and natural light — a space that puts you at ease the moment you walk in.' },
+    { src:'assets/clinic-lounge-2.jpg',   label:'Comfort & Design',   name:'Relaxation Lounge',       desc:'Curated greenery and designer seating areas so every visit feels like an appointment you actually look forward to.' },
+    { src:'assets/clinic-reception.jpg',  label:'Welcome',            name:'Reception Desk',          desc:'Our bilingual coordinators greet every patient at our signature circular desk — handling every detail with warmth and care.' },
+    { src:'assets/clinic-flowers.jpg',    label:'Ambiance',           name:'Garden Lounge',           desc:'Yellow orchids, indoor trees, and designer pods create an environment far removed from the typical dental experience.' },
+    { src:'assets/clinic-piano.jpg',      label:'Our Signature Space', name:'Piano & Conference Suite', desc:'A grand piano and a 21-seat conference room under one roof — where education, artistry, and dentistry come together.' },
+  ];
+  const wrap   = document.getElementById('acWrap');
+  const dotsEl = document.getElementById('acDots');
+  let active = 0, timer = null;
+  const panels = [];
+  PANELS.forEach((p, i) => {
+    const el = document.createElement('div');
+    el.className = 'ac-panel';
+    el.innerHTML = `
+      <img src="${p.src}" alt="${p.name}">
+      <span class="ac-num">${String(i+1).padStart(2,'0')}</span>
+      <span class="ac-label-v">${p.name}</span>
+      <div class="ac-info">
+        <span class="ac-info-label">${p.label}</span>
+        <span class="ac-info-name">${p.name}</span>
+        <p class="ac-info-desc">${p.desc}</p>
+      </div>`;
+    el.addEventListener('mouseenter', () => acOpen(i));
+    el.addEventListener('click', () => acOpen(i));
+    wrap.appendChild(el);
+    panels.push(el);
+    const dot = document.createElement('div');
+    dot.className = 'ac-dot';
+    dot.addEventListener('click', () => { acOpen(i); acStart(); });
+    dotsEl.appendChild(dot);
+  });
+  function acOpen(idx) {
+    active = idx;
+    panels.forEach((el, i) => el.classList.toggle('open', i === idx));
+    dotsEl.querySelectorAll('.ac-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+  function acStart() { acStop(); timer = setInterval(() => acOpen((active + 1) % PANELS.length), 3200); }
+  function acStop()  { clearInterval(timer); }
+  wrap.addEventListener('mouseenter', acStop);
+  wrap.addEventListener('mouseleave', acStart);
+  acOpen(0); acStart();
+})();
+</script>
+
 <!-- BEFORE / AFTER -->
 <section id="before-after">
   <div class="ba-header rv">
