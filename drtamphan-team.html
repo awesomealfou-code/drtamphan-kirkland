@@ -429,7 +429,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
       <div class="tc-info">
         <div class="tc-name">Carolane</div>
-        <div class="tc-role" data-i18n="roleAssistant">Surgical Assistant</div>
+        <div class="tc-role">Surgical Assistant & Treatment Coordinator</div>
         <div class="tc-arrow" data-i18n="teamViewProfile">View Profile →</div>
       </div>
     </div>
@@ -451,7 +451,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
       </div>
       <div class="tc-info">
         <div class="tc-name">Alyanna</div>
-        <div class="tc-role" data-i18n="roleAssistantCoord">Surgical Assistant</div>
+        <div class="tc-role">Surgical Assistant</div>
         <div class="tc-arrow" data-i18n="teamViewProfile">View Profile →</div>
       </div>
     </div>
@@ -551,23 +551,22 @@ const TEAM = {
   },
   carolane: {
     name: 'Carolane',
-    role: 'Surgical Assistant',
+    role: 'Surgical Assistant & Treatment Coordinator',
     photo: 'team-carolane.jpg',
     bio: 'With over a decade in the dental field, Carolane works alongside Dr. Phan across the full range of procedures — from routine care to complex surgical interventions. Her calm presence and genuine attentiveness make even the most anxious patients feel at ease.',
     facts: [
+      { icon: '◆', text: 'Combines clinical expertise with exceptional organizational skills — managing appointments, treatment timelines, and patient follow-ups seamlessly.' },
       { icon: '◆', text: 'Meticulous attention to detail in every surgical step, ensuring precision and patient safety throughout each procedure.' },
       { icon: '◆', text: 'Known for bringing a sense of comfort and reassurance to patients — turning difficult appointments into manageable experiences.' },
-      { icon: '◆', text: 'Avid hiker and nature enthusiast. She finds the outdoors the perfect way to recharge and return to the clinic with renewed energy.' },
-      { icon: '◆', text: 'Passionate advocate for sustainability and environmental conservation.' }
+      { icon: '◆', text: 'Avid hiker and nature enthusiast. She finds the outdoors the perfect way to recharge and return to the clinic with renewed energy.' }
     ]
   },
   alyanna: {
     name: 'Alyanna',
-    role: 'Surgical Assistant & Treatment Coordinator',
+    role: 'Surgical Assistant',
     photo: 'team-alyanna.jpg',
-    bio: 'Alyanna bridges clinical care and patient communication with equal skill. She supports Dr. Phan across general, restorative, surgical, and cosmetic procedures — while also coordinating treatment plans and ensuring every patient feels informed and confident from first consultation to final result.',
+    bio: 'Alyanna bridges clinical care and patient communication with equal skill. She supports Dr. Phan across general, restorative, surgical, and cosmetic procedures — ensuring every patient feels informed and confident from first consultation to final result.',
     facts: [
-      { icon: '◆', text: 'Combines clinical expertise with exceptional organizational skills — managing appointments, treatment timelines, and patient follow-ups seamlessly.' },
       { icon: '◆', text: 'Dedicated to educating patients about their options, so every decision is made with full clarity and confidence.' },
       { icon: '◆', text: 'Known for compassionate, attentive care that makes the clinical environment feel welcoming rather than intimidating.' },
       { icon: '◆', text: 'Outside the clinic, she values meaningful connections, an active lifestyle, and continuous personal growth.' }
@@ -668,23 +667,22 @@ const TEAM_FR = {
   },
   carolane: {
     name: 'Carolane',
-    role: 'Assistante chirurgicale',
+    role: 'Assistante chirurgicale & Coordinatrice de traitement',
     photo: 'team-carolane.jpg',
     bio: 'Avec plus de dix ans dans le domaine dentaire, Carolane travaille aux côtés du Dr Phan dans l\'ensemble des procédures — des soins courants aux interventions chirurgicales complexes. Sa présence calme et son attention sincère mettent à l\'aise même les patients les plus anxieux.',
     facts: [
+      { icon: '◆', text: 'Combine expertise clinique et compétences organisationnelles exceptionnelles — gestion des rendez-vous, calendriers de traitement et suivis patients.' },
       { icon: '◆', text: 'Attention méticuleuse aux détails à chaque étape chirurgicale, assurant précision et sécurité tout au long de chaque procédure.' },
       { icon: '◆', text: 'Reconnue pour apporter réconfort et sérénité aux patients — transformant des rendez-vous difficiles en expériences gérables.' },
-      { icon: '◆', text: 'Randonneuse passionnée et amoureuse de la nature. Elle voit le plein air comme la meilleure façon de se ressourcer.' },
-      { icon: '◆', text: 'Ardente défenseure de la durabilité et de la conservation de l\'environnement.' }
+      { icon: '◆', text: 'Randonneuse passionnée et amoureuse de la nature. Elle voit le plein air comme la meilleure façon de se ressourcer.' }
     ]
   },
   alyanna: {
     name: 'Alyanna',
-    role: 'Assistante chirurgicale & Coordinatrice de traitement',
+    role: 'Assistante chirurgicale',
     photo: 'team-alyanna.jpg',
-    bio: 'Alyanna allie avec un talent égal les soins cliniques et la communication avec les patients. Elle soutient le Dr Phan dans les procédures générales, restauratrices, chirurgicales et cosmétiques — tout en coordonnant les plans de traitement pour que chaque patient se sente informé et confiant.',
+    bio: 'Alyanna allie avec un talent égal les soins cliniques et la communication avec les patients. Elle soutient le Dr Phan dans les procédures générales, restauratrices, chirurgicales et cosmétiques — pour que chaque patient se sente informé et confiant du début à la fin.',
     facts: [
-      { icon: '◆', text: 'Combine expertise clinique et compétences organisationnelles exceptionnelles — gestion des rendez-vous, calendriers de traitement et suivis patients.' },
       { icon: '◆', text: 'Engagée à informer les patients de leurs options, pour que chaque décision soit prise avec clarté et confiance.' },
       { icon: '◆', text: 'Reconnue pour ses soins compatissants et attentionnés qui rendent l\'environnement clinique accueillant.' },
       { icon: '◆', text: 'En dehors de la clinique, elle valorise les liens significatifs, un mode de vie actif et la croissance personnelle.' }
