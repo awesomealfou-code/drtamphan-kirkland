@@ -247,7 +247,7 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
   #cur,#curR { display:none !important; }
   body { cursor:auto !important; }
   .nav-links { display:none; }
-  .burger { display:flex; }
+  .burger { display:flex; margin-left:auto; }
   .logo-tagline { display:none; }
   .form-row { grid-template-columns:1fr; }
   .page-header { padding:110px 20px 56px; }
@@ -257,6 +257,36 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
   footer { padding:40px 20px 24px; }
   nav { padding:16px 20px; }
 }
+
+/* LANG TOGGLE */
+#langToggle {
+  background:none; border:1px solid rgba(201,162,39,.35);
+  color:var(--gold); font-family:var(--sans); font-size:.62rem;
+  font-weight:500; letter-spacing:.2em; text-transform:uppercase;
+  padding:8px 16px; cursor:pointer;
+  transition:border-color .3s, background .3s;
+}
+#langToggle:hover { background:rgba(201,162,39,.1); border-color:var(--gold); }
+
+/* TREATMENT PILLS */
+.treatment-pills { display:flex; flex-wrap:wrap; gap:10px; }
+.t-pill {
+  display:flex; align-items:center; gap:10px; padding:10px 16px;
+  border:1px solid rgba(201,162,39,.2); cursor:pointer; user-select:none;
+  transition:border-color .25s, background .25s, color .25s;
+  font-size:.82rem; font-weight:300; color:var(--off-white);
+}
+.t-pill input[type="checkbox"] { position:absolute; opacity:0; width:0; height:0; }
+.t-check {
+  width:14px; height:14px; flex-shrink:0;
+  border:1px solid rgba(201,162,39,.35);
+  display:flex; align-items:center; justify-content:center;
+  font-size:9px; color:var(--navy); transition:background .25s;
+}
+.t-pill:hover { border-color:rgba(201,162,39,.5); }
+.t-pill.checked { border-color:var(--gold); background:rgba(201,162,39,.08); color:var(--white); }
+.t-pill.checked .t-check { background:var(--gold); }
+.t-pill.checked .t-check::after { content:'✓'; }
 </style>
 </head>
 <body>
@@ -267,12 +297,13 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
 <div id="mobileMenu">
   <button class="close-btn" id="closeMenu">×</button>
-  <a href="index.html#treatments">Treatments</a>
-  <a href="index.html#about">About</a>
-  <a href="drtamphan-team.html">The Team</a>
-  <a href="index.html#process">Our Process</a>
-  <a href="drtamphan-blog.html">Blog</a>
-  <a href="drtamphan-book.html" style="color:var(--gold)">Contact Us</a>
+  <a href="index.html#treatments" data-i18n="navTreatments">Treatments</a>
+  <a href="index.html#about" data-i18n="navAbout">About</a>
+  <a href="drtamphan-team.html" data-i18n="navTeam">The Team</a>
+  <a href="index.html#process" data-i18n="navProcess">Our Process</a>
+  <a href="drtamphan-blog.html" data-i18n="navBlog">Blog</a>
+  <a href="drtamphan-book.html" style="color:var(--gold)" data-i18n="navContact">Contact Us</a>
+  <button id="langToggleMobile" onclick="toggleLang()" style="background:none;border:1px solid rgba(201,162,39,.35);color:var(--gold);font-family:var(--sans);font-size:.82rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;padding:10px 28px;cursor:pointer;margin-top:8px;">FR</button>
 </div>
 
 <nav>
@@ -283,29 +314,30 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
     <span class="logo-tagline">Dentofacial Aesthetics</span>
   </div>
   <ul class="nav-links">
-    <li><a href="index.html#treatments">Treatments</a></li>
-    <li><a href="index.html#about">About</a></li>
-    <li><a href="drtamphan-team.html">The Team</a></li>
-    <li><a href="index.html#process">Our Process</a></li>
-    <li><a href="drtamphan-blog.html">Blog</a></li>
-    <li><a href="drtamphan-book.html" class="nav-cta">Contact Us</a></li>
+    <li><a href="index.html#treatments" data-i18n="navTreatments">Treatments</a></li>
+    <li><a href="index.html#about" data-i18n="navAbout">About</a></li>
+    <li><a href="drtamphan-team.html" data-i18n="navTeam">The Team</a></li>
+    <li><a href="index.html#process" data-i18n="navProcess">Our Process</a></li>
+    <li><a href="drtamphan-blog.html" data-i18n="navBlog">Blog</a></li>
+    <li><a href="drtamphan-book.html" class="nav-cta" data-i18n="navContact">Contact Us</a></li>
+    <li><button id="langToggle" onclick="toggleLang()">FR</button></li>
   </ul>
   <button class="burger" id="burger"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="page-header">
   <div class="page-header-grid"></div>
-  <div class="ph-eyebrow rv">Begin Your Journey</div>
-  <h1 class="ph-title rv">Book a <em>consultation</em></h1>
-  <p class="ph-sub rv">Complete the form and our team will reach out within 24 hours to confirm your appointment.</p>
+  <div class="ph-eyebrow rv" data-i18n="eyebrow">Begin Your Journey</div>
+  <h1 class="ph-title rv" data-i18n-html="pageTitle">Book a <em>consultation</em></h1>
+  <p class="ph-sub rv" data-i18n="pageSub">Complete the form and our team will reach out within 24 hours to confirm your appointment.</p>
 </div>
 
 <div class="form-section">
 
   <!-- LEFT — Contact Info -->
   <div class="form-left rvL">
-    <h2 class="fl-title">Let's create your<br><em>perfect smile</em></h2>
-    <p class="fl-desc">Whether you're ready to begin or simply have questions, we're here to guide you every step of the way.</p>
+    <h2 class="fl-title" data-i18n-html="leftTitle">Let's create your<br><em>perfect smile</em></h2>
+    <p class="fl-desc" data-i18n="leftDesc">Whether you're ready to begin or simply have questions, we're here to guide you every step of the way.</p>
 
     <div class="contact-item">
       <div class="ci-label">Phone</div>
@@ -343,54 +375,49 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
   <!-- RIGHT — Form -->
   <div class="form-right rvR">
-    <h2>Your <em>details</em></h2>
-    <p class="form-subtitle">All fields marked with * are required. We respect your privacy and never share your information.</p>
+    <h2 data-i18n-html="formHeading">Your <em>details</em></h2>
+    <p class="form-subtitle" data-i18n="formSubtitle">All fields marked with * are required. We respect your privacy and never share your information.</p>
 
     <form id="bookForm">
       <div class="form-row">
         <div class="form-group">
-          <label>First Name *</label>
-          <input type="text" name="first_name" placeholder="Marie" required>
+          <label data-i18n="lFirstName">First Name *</label>
+          <input type="text" name="first_name" placeholder="Marie" data-i18n-placeholder="pFirst" required>
         </div>
         <div class="form-group">
-          <label>Last Name *</label>
-          <input type="text" name="last_name" placeholder="Dupont" required>
+          <label data-i18n="lLastName">Last Name *</label>
+          <input type="text" name="last_name" placeholder="Dupont" data-i18n-placeholder="pLast" required>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" name="email" placeholder="marie@email.com">
+          <label data-i18n="lEmail">Email Address</label>
+          <input type="email" name="email" placeholder="marie@email.com" data-i18n-placeholder="pEmail">
         </div>
         <div class="form-group">
-          <label>Phone Number *</label>
+          <label data-i18n="lPhone">Phone Number *</label>
           <input type="tel" name="phone" placeholder="+1 (514) 000-0000" required>
         </div>
       </div>
 
       <div class="form-group">
-        <label>Treatment of Interest *</label>
-        <div class="form-select-wrap">
-          <select name="treatment" required>
-            <option value="" disabled selected>Select a treatment</option>
-            <option>Dental Implants</option>
-            <option>Full Mouth Rehabilitation</option>
-            <option>Cosmetic Dentistry / Veneers</option>
-            <option>Facial Aesthetics (Botox / PRGF)</option>
-            <option>Sinus Lift</option>
-            <option>Bone or Gum Graft</option>
-            <option hidden>Wisdom Teeth Extraction</option>
-            <option hidden>Dental Bridges</option>
-            <option>General Consultation</option>
-            <option>Other</option>
-          </select>
+        <label data-i18n="lTreatment">Treatment of Interest *</label>
+        <div class="treatment-pills">
+          <label class="t-pill"><input type="checkbox" name="treatment" value="Dental Implants"><span class="t-check"></span><span data-i18n="t1">Dental Implants</span></label>
+          <label class="t-pill"><input type="checkbox" name="treatment" value="Full Mouth Rehabilitation"><span class="t-check"></span><span data-i18n="t2">Full Mouth Rehabilitation</span></label>
+          <label class="t-pill"><input type="checkbox" name="treatment" value="Cosmetic Dentistry / Veneers"><span class="t-check"></span><span data-i18n="t3">Cosmetic Dentistry / Veneers</span></label>
+          <label class="t-pill"><input type="checkbox" name="treatment" value="Facial Aesthetics (Botox / PRGF)"><span class="t-check"></span><span data-i18n="t4">Facial Aesthetics (Botox / PRGF)</span></label>
+          <label class="t-pill"><input type="checkbox" name="treatment" value="Sinus Lift"><span class="t-check"></span><span data-i18n="t5">Sinus Lift</span></label>
+          <label class="t-pill"><input type="checkbox" name="treatment" value="Bone or Gum Graft"><span class="t-check"></span><span data-i18n="t6">Bone or Gum Graft</span></label>
+          <label class="t-pill"><input type="checkbox" name="treatment" value="General Consultation"><span class="t-check"></span><span data-i18n="t7">General Consultation</span></label>
+          <label class="t-pill"><input type="checkbox" name="treatment" value="Other"><span class="t-check"></span><span data-i18n="t8">Other</span></label>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Preferred Date</label>
+          <label data-i18n="lDate">Preferred Date</label>
           <div style="display:flex;gap:8px;">
             <div class="form-select-wrap" style="flex:2">
               <select name="preferred_month">
@@ -422,46 +449,46 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
           </div>
         </div>
         <div class="form-group">
-          <label>Preferred Time</label>
+          <label data-i18n="lTime">Preferred Time</label>
           <div class="form-select-wrap">
             <select name="preferred_time">
-              <option value="" disabled selected>Select a time</option>
-              <option>Morning (8:00 – 11:00)</option>
-              <option>Midday (11:00 – 14:00)</option>
-              <option>Afternoon (14:00 – 18:00)</option>
+              <option value="" disabled selected data-i18n="sTime">Select a time</option>
+              <option data-i18n="tMorning">Morning (8:00 – 11:00)</option>
+              <option data-i18n="tMidday">Midday (11:00 – 14:00)</option>
+              <option data-i18n="tAfternoon">Afternoon (14:00 – 18:00)</option>
             </select>
           </div>
         </div>
       </div>
 
       <div class="form-group">
-        <label>How did you hear about us?</label>
+        <label data-i18n="lReferral">How did you hear about us?</label>
         <div class="form-select-wrap">
           <select name="referral">
-            <option value="" disabled selected>Select an option</option>
-            <option>Google Search</option>
-            <option>Instagram / Facebook</option>
-            <option>Friend or Family Referral</option>
-            <option>Doctor Referral</option>
-            <option>Other</option>
+            <option value="" disabled selected data-i18n="sReferral">Select an option</option>
+            <option data-i18n="rGoogle">Google Search</option>
+            <option data-i18n="rSocial">Instagram / Facebook</option>
+            <option data-i18n="rFriend">Friend or Family Referral</option>
+            <option data-i18n="rDoctor">Doctor Referral</option>
+            <option data-i18n="rOther">Other</option>
           </select>
         </div>
       </div>
 
       <div class="form-group">
-        <label>Additional Notes</label>
-        <textarea name="message" placeholder="Tell us about your situation, any concerns, or questions you have…"></textarea>
+        <label data-i18n="lNotes">Additional Notes</label>
+        <textarea name="message" placeholder="Tell us about your situation, any concerns, or questions you have…" data-i18n-placeholder="pNotes"></textarea>
       </div>
 
-      <p class="form-note">By submitting this form you agree to our <a href="#">Privacy Policy</a>. We will contact you within 24 business hours.</p>
+      <p class="form-note" data-i18n-html="privacyNote">By submitting this form you agree to our <a href="#">Privacy Policy</a>. We will contact you within 24 business hours.</p>
 
-      <button type="submit" class="btn-submit" id="submitBtn">SEND REQUEST →</button>
+      <button type="submit" class="btn-submit" id="submitBtn" data-i18n="submitBtn">SEND REQUEST →</button>
     </form>
 
     <div class="form-success" id="formSuccess">
       <div class="success-icon">✓</div>
-      <h3 class="success-title">Request <em>received</em></h3>
-      <p class="success-sub">Thank you! Our team will be in touch within 24 hours to confirm your consultation with Dr. Phan.</p>
+      <h3 class="success-title" data-i18n-html="successTitle">Request <em>received</em></h3>
+      <p class="success-sub" data-i18n="successSub">Thank you! Our team will be in touch within 24 hours to confirm your consultation with Dr. Phan.</p>
     </div>
   </div>
 
@@ -469,8 +496,8 @@ footer { background:#000000; padding:60px 64px 36px; border-top:1px solid rgba(2
 
 <footer>
   <div class="footer-bottom">
-    <div class="f-copy">© 2024 Dr. Tâm Phan. All rights reserved.</div>
-    <a href="index.html" class="f-back">← Back to Home</a>
+    <div class="f-copy" data-i18n="fCopy">© 2024 Dr. Tâm Phan. All rights reserved.</div>
+    <a href="index.html" class="f-back" data-i18n="fBack">← Back to Home</a>
   </div>
 </footer>
 
@@ -516,6 +543,107 @@ document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
 
 const obs = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on'); }),{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv,.rvL,.rvR').forEach(el=>obs.observe(el));
+
+/* ── LANGUAGE TOGGLE ── */
+var LANG = 'en';
+var T = {
+  en: {
+    navTreatments:'Treatments', navAbout:'About', navTeam:'The Team',
+    navProcess:'Our Process', navBlog:'Blog', navContact:'Contact Us',
+    langBtn:'FR',
+    eyebrow:'Begin Your Journey',
+    pageTitle:'Book a <em>consultation</em>',
+    pageSub:'Complete the form and our team will reach out within 24 hours to confirm your appointment.',
+    leftTitle:"Let's create your<br><em>perfect smile</em>",
+    leftDesc:"Whether you're ready to begin or simply have questions, we're here to guide you every step of the way.",
+    formHeading:'Your <em>details</em>',
+    formSubtitle:"All fields marked with * are required. We respect your privacy and never share your information.",
+    lFirstName:'First Name *', lLastName:'Last Name *',
+    lEmail:'Email Address', lPhone:'Phone Number *',
+    lTreatment:'Treatment of Interest *',
+    lDate:'Preferred Date', lTime:'Preferred Time',
+    lReferral:'How did you hear about us?', lNotes:'Additional Notes',
+    pFirst:'Marie', pLast:'Dupont', pEmail:'marie@email.com',
+    pNotes:'Tell us about your situation, any concerns, or questions you have…',
+    sTime:'Select a time', sReferral:'Select an option',
+    tMorning:'Morning (8:00 – 11:00)', tMidday:'Midday (11:00 – 14:00)', tAfternoon:'Afternoon (14:00 – 18:00)',
+    rGoogle:'Google Search', rSocial:'Instagram / Facebook',
+    rFriend:'Friend or Family Referral', rDoctor:'Doctor Referral', rOther:'Other',
+    t1:'Dental Implants', t2:'Full Mouth Rehabilitation',
+    t3:'Cosmetic Dentistry / Veneers', t4:'Facial Aesthetics (Botox / PRGF)',
+    t5:'Sinus Lift', t6:'Bone or Gum Graft',
+    t7:'General Consultation', t8:'Other',
+    privacyNote:'By submitting this form you agree to our <a href="#">Privacy Policy</a>. We will contact you within 24 business hours.',
+    submitBtn:'SEND REQUEST →',
+    successTitle:'Request <em>received</em>',
+    successSub:'Thank you! Our team will be in touch within 24 hours to confirm your consultation with Dr. Phan.',
+    fCopy:'© 2024 Dr. Tâm Phan. All rights reserved.',
+    fBack:'← Back to Home'
+  },
+  fr: {
+    navTreatments:'Traitements', navAbout:'À propos', navTeam:"L’équipe",
+    navProcess:'Notre approche', navBlog:'Blog', navContact:'Nous contacter',
+    langBtn:'EN',
+    eyebrow:'Commencer votre parcours',
+    pageTitle:'Prendre un <em>rendez-vous</em>',
+    pageSub:'Remplissez le formulaire et notre équipe vous contactera dans les 24 heures pour confirmer votre consultation.',
+    leftTitle:"Créons ensemble votre<br><em>sourire parfait</em>",
+    leftDesc:"Que vous soyez prêt à commencer ou que vous ayez des questions, nous sommes là pour vous guider à chaque étape.",
+    formHeading:'Vos <em>coordonnées</em>',
+    formSubtitle:"Tous les champs marqués d’un * sont obligatoires. Nous respectons votre vie privée et ne partageons jamais vos informations.",
+    lFirstName:'Prénom *', lLastName:'Nom *',
+    lEmail:'Adresse courriel', lPhone:'Numéro de téléphone *',
+    lTreatment:"Traitement d’intérêt *",
+    lDate:'Date préférée', lTime:'Heure préférée',
+    lReferral:'Comment nous avez-vous trouvés ?', lNotes:'Notes supplémentaires',
+    pFirst:'Marie', pLast:'Dupont', pEmail:'marie@courriel.com',
+    pNotes:'Décrivez votre situation, vos préoccupations ou vos questions…',
+    sTime:'Sélectionner une heure', sReferral:'Sélectionner une option',
+    tMorning:'Matin (8 h – 11 h)', tMidday:'Midi (11 h – 14 h)', tAfternoon:'Après-midi (14 h – 18 h)',
+    rGoogle:'Recherche Google', rSocial:'Instagram / Facebook',
+    rFriend:"Référence d’un ami ou de la famille", rDoctor:"Référence d’un médecin", rOther:'Autre',
+    t1:'Implants dentaires', t2:'Réhabilitation complète de la bouche',
+    t3:'Dentisterie esthétique / Facettes', t4:'Esthétique faciale (Botox / PRGF)',
+    t5:'Élévation du sinus', t6:'Greffe osseuse ou gingivale',
+    t7:'Consultation générale', t8:'Autre',
+    privacyNote:'En soumettant ce formulaire, vous acceptez notre <a href="#">Politique de confidentialité</a>. Nous vous contacterons dans les 24 heures ouvrables.',
+    submitBtn:'ENVOYER →',
+    successTitle:'Demande <em>reçue</em>',
+    successSub:'Merci ! Notre équipe vous contactera dans les 24 heures pour confirmer votre consultation avec Dr Phan.',
+    fCopy:'© 2024 Dr. Tâm Phan. Tous droits réservés.',
+    fBack:"← Retour à l’accueil"
+  }
+};
+
+function setLang(lang) {
+  LANG = lang;
+  var t = T[lang];
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n');
+    if (t[k] !== undefined) el.textContent = t[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-html');
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+    var k = el.getAttribute('data-i18n-placeholder');
+    if (t[k] !== undefined) el.placeholder = t[k];
+  });
+  var lt = document.getElementById('langToggle');
+  var lm = document.getElementById('langToggleMobile');
+  if (lt) lt.textContent = t.langBtn;
+  if (lm) lm.textContent = t.langBtn;
+}
+
+function toggleLang() { setLang(LANG === 'en' ? 'fr' : 'en'); }
+
+/* ── TREATMENT PILLS ── */
+document.querySelectorAll('.t-pill input[type="checkbox"]').forEach(function(cb) {
+  cb.addEventListener('change', function() {
+    this.closest('.t-pill').classList.toggle('checked', this.checked);
+  });
+});
 
 /* ── FORMSPREE FORM ID — replace with yours from formspree.io ── */
 var BOOKING_FORM_ID = 'mwlklgew';
