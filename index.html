@@ -592,17 +592,59 @@ section { padding:120px 64px; }
 .about-wrap { display:grid; grid-template-columns:1fr 1fr; min-height:680px; }
 .about-photo {
   position:relative; overflow:hidden;
-  background:linear-gradient(155deg,#141414,#06060a);
-  display:flex; align-items:center; justify-content:center;
+  background:#000;
 }
+.about-photo img {
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; object-position:center top;
+  opacity:0;
+  transition:opacity 1.8s cubic-bezier(.4,0,.2,1);
+}
+.about-photo img.ap-active { opacity:1; }
 .about-photo-label {
   font-family:var(--serif); font-size:.68rem;
   letter-spacing:.28em; text-transform:uppercase;
   color:rgba(201,162,39,.25); text-align:center; padding:20px;
 }
+/* Caption overlay */
+.ap-caption {
+  position:absolute; bottom:0; left:0; right:0;
+  padding:56px 32px 24px;
+  background:linear-gradient(to top,rgba(0,0,0,.82) 0%,transparent 100%);
+  z-index:3; opacity:0;
+  transition:opacity 1.8s cubic-bezier(.4,0,.2,1);
+}
+.ap-caption.ap-active { opacity:1; }
+.ap-cap-eye {
+  font-size:.58rem; letter-spacing:.26em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:5px; display:block;
+}
+.ap-cap-name {
+  font-family:var(--serif); font-size:1.25rem; font-weight:300;
+  color:#fff; display:block;
+}
+/* Gold progress bar */
+.ap-progress {
+  position:absolute; bottom:0; left:0;
+  height:2px; background:var(--gold); width:0%; z-index:4;
+}
+.ap-progress.ap-run { width:100%; transition:width 5s linear; }
+/* Dot indicators */
+.ap-dots {
+  position:absolute; top:22px; left:50%; transform:translateX(-50%);
+  display:flex; gap:7px; z-index:4;
+}
+.ap-dot {
+  width:4px; height:4px; border-radius:50%;
+  background:rgba(201,162,39,.22);
+  transition:background .4s, transform .4s;
+}
+.ap-dot.ap-active { background:var(--gold); transform:scale(1.6); }
 .about-bar {
   position:absolute; top:80px; right:0;
   width:3px; height:110px; background:var(--gold);
+  z-index:3;
 }
 .about-content {
   padding:96px 80px;
@@ -1051,8 +1093,22 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
 <!-- ABOUT -->
 <section id="about">
   <div class="about-wrap">
-    <div class="about-photo rvL">
-      <img src="drtamphan-portrait.png" alt="Dr. Tâm Phan" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+    <div class="about-photo rvL" id="aboutPhoto">
+      <img src="phan1.jpg" alt="Dr. Tâm Phan" class="ap-active" id="apImg0">
+      <img src="phan2.jpg" alt="Dr. Tâm Phan" id="apImg1">
+      <div class="ap-caption ap-active" id="apCap0">
+        <span class="ap-cap-eye">Surgical Excellence</span>
+        <span class="ap-cap-name">Dr. Tâm Phan</span>
+      </div>
+      <div class="ap-caption" id="apCap1">
+        <span class="ap-cap-eye">31+ Years of Practice</span>
+        <span class="ap-cap-name">Dr. Tâm Phan</span>
+      </div>
+      <div class="ap-progress" id="apProgress"></div>
+      <div class="ap-dots" id="apDots">
+        <div class="ap-dot ap-active"></div>
+        <div class="ap-dot"></div>
+      </div>
       <div class="about-bar"></div>
     </div>
     <div class="about-content rvR">
@@ -2529,6 +2585,38 @@ function respond(text) {
     setTimeout(() => { addBot(r.bot); if (r.chips) setChips(r.chips); }, 420);
   }
 }
+</script>
+
+<script>
+/* ── ABOUT PHOTO CROSSFADE ── */
+(function(){
+  var imgs  = [document.getElementById('apImg0'), document.getElementById('apImg1')];
+  var caps  = [document.getElementById('apCap0'), document.getElementById('apCap1')];
+  var dots  = document.getElementById('apDots').querySelectorAll('.ap-dot');
+  var bar   = document.getElementById('apProgress');
+  var cur   = 0;
+  var HOLD  = 5000;
+
+  function startBar(){
+    bar.classList.remove('ap-run');
+    void bar.offsetWidth;
+    bar.classList.add('ap-run');
+  }
+
+  function next(){
+    var prev = cur;
+    cur = (cur + 1) % imgs.length;
+    imgs[prev].classList.remove('ap-active');
+    caps[prev].classList.remove('ap-active');
+    imgs[cur].classList.add('ap-active');
+    caps[cur].classList.add('ap-active');
+    dots.forEach(function(d,i){ d.classList.toggle('ap-active', i===cur); });
+    startBar();
+  }
+
+  startBar();
+  setInterval(next, HOLD);
+})();
 </script>
 
 </body>
