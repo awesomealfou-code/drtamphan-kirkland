@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Block internal preview and dev files
+Disallow: /about-photo-a.html
+Disallow: /about-photo-b.html
+Disallow: /about-photo-c.html
+Disallow: /ba-preview.html
+Disallow: /ba-preview2.html
+Disallow: /blog-card-preview.html
+Disallow: /clinic-accordion-a.html
+Disallow: /clinic-accordion-b.html
+Disallow: /clinic-coverflow-a.html
+Disallow: /clinic-coverflow-b.html
+Disallow: /clinic-ferriswheel.html
+Disallow: /clinic-floating-preview.html
+Disallow: /clinic-preview-polaroid.html
+Disallow: /clinic-preview-rings.html
+
+Sitemap: https://drtamphan.com/sitemap.xml
