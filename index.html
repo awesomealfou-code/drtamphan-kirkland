@@ -1867,47 +1867,88 @@ window.addEventListener('scroll',()=>{
 /* ── CHATBOT ENGINE ── */
 const RESPONSES = {
   implants: {
-    bot:`<strong>Dental Implants</strong> are Dr. Phan's primary specialty. With over <strong>31 years of experience</strong> and 20,000+ successful treatments, he uses the latest guided-surgery technology for precision and long-term results.<br><br>Implants look, feel, and function exactly like natural teeth — and they last a lifetime with proper care.`,
+    bots:[
+      `<strong>Dental Implants</strong> are Dr. Phan's primary specialty. With over <strong>31 years of experience</strong> and 20,000+ successful treatments, he uses the latest guided-surgery technology for precision and long-term results.<br><br>Implants look, feel, and function exactly like natural teeth — and they last a lifetime with proper care.`,
+      `What makes Dr. Phan's implant approach unique is his use of <strong>3D guided surgery planning</strong> — every case is mapped in detail before a single incision is made. This means higher precision, faster healing, and predictable outcomes.<br><br>Many patients from across Canada and internationally choose Dr. Phan specifically for complex implant cases.`,
+      `Compared to bridges or dentures, implants are the only solution that <strong>replaces the root</strong> of the missing tooth — preserving jawbone and preventing the facial changes that come with bone loss over time.<br><br>A single implant can last a lifetime. Would you like to know if you're a good candidate?`
+    ],
     chips:['How much do implants cost?','Am I a candidate?','Book a consultation']
   },
   cost: {
-    bot:`Implant pricing varies based on your specific needs (single tooth, multiple, or full arch). A full assessment is required before an accurate quote.<br><br>We accept most insurance plans and offer flexible payment options. The best next step is a <strong>free consultation</strong>.`,
-    chips:['Book a consultation','What insurance do you accept?','Other treatments']
+    bots:[
+      `Implant pricing depends on your specific needs — a single tooth, multiple implants, or a full arch each have different scopes. A thorough assessment is needed before any accurate quote can be given.<br><br>We accept most insurance plans and offer <strong>flexible payment options</strong>. The best first step is a free consultation.`,
+      `Many patients are surprised to find their insurance covers more than expected. Our team verifies your coverage in advance so there are no surprises.<br><br>We also have <strong>financing options</strong> available to spread the cost — ask us about them when you call at <strong>514 426-1228</strong>.`,
+      `The honest answer: pricing varies widely depending on bone volume, number of implants, and whether grafting is needed. That's why the <strong>free consultation</strong> exists — so Dr. Phan can give you a real number based on your actual situation, not a guess.`
+    ],
+    chips:['Book a free consultation','What insurance do you accept?','Financing options']
   },
   book: {
-    bot:`To book a consultation with Dr. Phan, you can:<br><br>📞 <strong>514 426-1228</strong><br>📧 <strong>contact@drtamphan.com</strong><br>📍 16912 Route Transcanadienne, Kirkland QC<br><br>Or fill out our contact form and we'll get back to you within 24 hours.`,
-    chips:['Contact form','What are your hours?','Other questions']
+    bots:[
+      `To book a consultation with Dr. Phan:<br><br>📞 <strong>514 426-1228</strong><br>📧 <strong>contact@drtamphan.com</strong><br>📍 16912 Route Transcanadienne, Kirkland QC<br><br>Or fill out our contact form and we'll get back to you within 24 hours.`,
+      `The quickest way to get started is our <strong>online booking form</strong> — fill it in, choose your preferred times, and our team confirms within a few hours.<br><br>All consultations with Dr. Phan are <strong>free of charge</strong> and carry no obligation.`,
+      `Consultations are always free at Dr. Phan's clinic. You'll get a full assessment, a treatment recommendation, and a clear cost breakdown — all before committing to anything.<br><br>Call us at <strong>514 426-1228</strong> or email <strong>contact@drtamphan.com</strong> to get started.`
+    ],
+    chips:['Book online','What are your hours?','Where are you located?']
   },
   hours: {
-    bot:`Our clinic is open:<br><br><strong>Monday – Friday:</strong> 8:00 – 17:00<br><strong>Saturday:</strong> 9:00 – 16:00<br><strong>Sunday:</strong> Closed<br><br>We recommend calling ahead to confirm same-day availability.`,
+    bots:[
+      `Our clinic is open:<br><br><strong>Monday – Friday:</strong> 8:00 – 17:00<br><strong>Saturday:</strong> 9:00 – 16:00<br><strong>Sunday:</strong> Closed<br><br>We recommend calling ahead to confirm same-day availability.`,
+      `If you need an urgent appointment, call us directly at <strong>514 426-1228</strong> — we do our best to accommodate same-day requests when there are openings, especially Monday through Friday.`
+    ],
     chips:['Book a consultation','Where are you located?']
   },
   location: {
-    bot:`We are located at:<br><br><strong>16912 Route Transcanadienne<br>Kirkland, QC H9H 0C5</strong><br><br>Ample free parking is available on site. We are easily accessible from the A-40 highway.`,
+    bots:[
+      `We are located at:<br><br><strong>16912 Route Transcanadienne<br>Kirkland, QC H9H 0C5</strong><br><br>Ample free parking is available on site. We are easily accessible from the A-40 highway.`,
+      `Coming from the West Island, Vaudreuil, or Laval? We're right on Route Transcanadienne (A-40), making us one of the most accessible dental clinics in the region.<br><br>Free parking is available directly in front of the clinic — no meters, no stress.`
+    ],
     chips:['Book a consultation','What are your hours?']
   },
   rehab: {
-    bot:`<strong>Full Mouth Rehabilitation</strong> is a comprehensive treatment that combines implants, crowns, veneers, and other restorations to fully restore oral function and aesthetics in a single coordinated plan.<br><br>Dr. Phan has performed hundreds of complete rehabilitations for patients from around the world.`,
-    chips:['Book a consultation','How long does it take?','Cost?']
+    bots:[
+      `<strong>Full Mouth Rehabilitation</strong> combines implants, crowns, veneers, and other restorations into a single coordinated plan to fully restore your oral function and aesthetics.<br><br>Dr. Phan has completed hundreds of full rehabilitations for patients from Canada and around the world.`,
+      `The rehabilitation process typically unfolds in <strong>stages over several months</strong> — starting with a comprehensive 3D assessment, then any necessary extractions or grafts, followed by implant placement, and finally the final restorations.<br><br>Dr. Phan coordinates every phase himself, so there's a single point of care throughout.`,
+      `Full mouth rehab is the right choice when damage or tooth loss affects <strong>multiple areas</strong> of the mouth — whether from decay, accidents, or years of grinding. The goal is always to restore both function and confidence in one complete plan.`
+    ],
+    chips:['Book a consultation','How long does it take?','Implant details']
   },
   cosmetic: {
-    bot:`Dr. Phan offers a full range of cosmetic treatments including <strong>porcelain veneers</strong>, professional whitening, and smile design — always with a natural, refined result tailored to your face.<br><br>Results are <em>permanent</em> and designed to complement your facial aesthetics.`,
-    chips:['Book a consultation','Facial aesthetics too?']
+    bots:[
+      `Dr. Phan offers a full range of cosmetic treatments including <strong>porcelain veneers</strong>, professional whitening, and smile design — always with a natural, refined result tailored to your face.<br><br>Results are <em>permanent</em> and designed to complement your facial aesthetics.`,
+      `The most requested cosmetic treatment at our clinic is <strong>porcelain veneers</strong> — ultra-thin ceramic shells that correct shape, colour, and proportion in as few as two visits.<br><br>Every veneer is custom-crafted to match your skin tone and facial features. The results are striking but never obvious.`,
+      `Not sure which cosmetic treatment is right for you? That's exactly what the free consultation is for — Dr. Phan assesses your teeth and facial structure and recommends what will give you the best result for your specific case.`
+    ],
+    chips:['Book a consultation','Facial aesthetics','About veneers']
   },
   facial: {
-    bot:`Beyond dental care, Dr. Phan specializes in <strong>facial aesthetics</strong> including Botox, PRGF therapy, and masseter treatments — subtle interventions that harmonize your smile with your overall facial appearance.`,
-    chips:['Book a consultation','Cosmetic dentistry','Other treatments']
+    bots:[
+      `Beyond dental care, Dr. Phan specializes in <strong>facial aesthetics</strong> — including Botox, PRGF therapy, and masseter treatments. These subtle interventions harmonize your smile with your overall facial appearance.`,
+      `<strong>PRGF (Platelet-Rich Growth Factor)</strong> therapy is one of Dr. Phan's signature treatments — using your own blood plasma to accelerate healing, reduce inflammation, and rejuvenate tissue. It's used both in implant surgery and as a standalone facial aesthetic treatment.`,
+      `<strong>Masseter Botox</strong> is increasingly popular for patients who grind their teeth or want to slim the jawline. Dr. Phan's approach is precise and conservative — a natural result, not a frozen look.<br><br>Results typically last 4–6 months and can be repeated as needed.`
+    ],
+    chips:['Book a consultation','What is PRGF?','Cosmetic dentistry']
   },
   insurance: {
-    bot:`We work with most major insurance providers. Our team will verify your coverage before your appointment so there are no surprises.<br><br>We recommend calling us directly at <strong>514 426-1228</strong> with your insurance card for a quick check.`,
-    chips:['Book a consultation','What are your hours?']
+    bots:[
+      `We work with most major insurance providers. Our team verifies your coverage before your appointment so there are no surprises.<br><br>Call us at <strong>514 426-1228</strong> with your insurance card and we'll check your coverage right away.`,
+      `Implants, crowns, and some surgical procedures may be <strong>partially covered</strong> depending on your plan. Purely cosmetic treatments like veneers or whitening typically aren't, but it varies by insurer.<br><br>The easiest way to know: call us with your insurance card and we'll look it up for you before you even book.`
+    ],
+    chips:['Book a consultation','Ask about cost']
   },
   about: {
-    bot:`Dr. Tâm Phan is a DMD with <strong>over 31 years of experience</strong> in aesthetic dentistry, implantology, and full mouth rehabilitation.<br><br>He is a Fellow of the International Congress of Oral Implantologists (FICOI) and the Misch International Implant Institute (FMIII), and a recipient of the Guy Maranda Foundation Award for Excellence in Dental Surgery.`,
-    chips:['Book a consultation','See our treatments','Contact us']
+    bots:[
+      `Dr. Tâm Phan is a DMD with <strong>over 31 years of experience</strong> in aesthetic dentistry, implantology, and full mouth rehabilitation.<br><br>He is a Fellow of the International Congress of Oral Implantologists (FICOI) and the Misch International Implant Institute (FMIII), and a recipient of the Guy Maranda Foundation Award for Excellence in Dental Surgery.`,
+      `Dr. Phan trained internationally and has treated patients from across Canada, the United States, and Europe — many of whom travel specifically to work with him on complex implant and rehabilitation cases.<br><br>He is among a very small group of dentists in Quebec holding both FICOI and FMIII fellowships simultaneously.`,
+      `What sets Dr. Phan apart is his philosophy: every treatment plan is designed around the patient's long-term health, not just the immediate concern.<br><br>He personally performs all major procedures and remains involved from first consultation through final restoration — no hand-offs.`
+    ],
+    chips:['Book a consultation','Our treatments','Contact us']
   },
   default: {
-    bot:`I'm here to help with questions about Dr. Phan's clinic, treatments, and appointments. What would you like to know?`,
+    bots:[
+      `I'm here to help with questions about Dr. Phan's clinic, treatments, and appointments. What would you like to know?`,
+      `You can ask me about any of our treatments, pricing, insurance, booking, or Dr. Phan himself. What's on your mind?`,
+      `Not sure where to start? Many patients begin with a <strong>free consultation</strong> — Dr. Phan assesses your situation and maps out exactly what's needed. No pressure, no obligation.`
+    ],
     chips:['Dental implants','Full mouth rehab','Book a consultation','About Dr. Phan','Hours & location']
   }
 };
@@ -1977,8 +2018,11 @@ function setChips(arr){
 function respond(text){
   const key=classify(text);
   const r=RESPONSES[key]||RESPONSES.default;
+  topicVisits[key]=(topicVisits[key]||0)+1;
+  const bots=r.bots||[r.bot];
+  const msg=bots[(topicVisits[key]-1)%bots.length];
   setTimeout(()=>{
-    addBot(r.bot);
+    addBot(msg);
     if(r.chips) setChips(r.chips);
   },420);
 }
@@ -2435,47 +2479,88 @@ const TREATMENTS_FR = {
 
 const RESPONSES_FR = {
   implants: {
-    bot:'<strong>Les implants dentaires</strong> sont la spécialité principale du Dr Phan. Avec plus de <strong>31 ans d’expérience</strong> et plus de 20 000 traitements réussis, il utilise la dernière technologie de chirurgie guidée pour une précision et des résultats durables.<br><br>Les implants ressemblent, se sentent et fonctionnent exactement comme des dents naturelles — et ils durent toute une vie avec des soins appropriés.',
-    chips:['Quel est le coût ?','Suis-je candidat ?','Prendre un rendez-vous']
+    bots:[
+      '<strong>Les implants dentaires</strong> sont la spécialité principale du Dr Phan. Avec plus de <strong>31 ans d\'expérience</strong> et plus de 20 000 traitements réussis, il utilise la dernière technologie de chirurgie guidée pour une précision et des résultats durables.<br><br>Les implants ressemblent, se sentent et fonctionnent exactement comme des dents naturelles — et ils durent toute une vie avec des soins appropriés.',
+      'Ce qui distingue l\'approche du Dr Phan, c\'est la <strong>planification chirurgicale guidée en 3D</strong> — chaque cas est cartographié en détail avant la moindre incision. Cela signifie plus de précision, une guérison plus rapide et des résultats prévisibles.<br><br>De nombreux patients de partout au Canada choisissent le Dr Phan spécifiquement pour des cas d\'implants complexes.',
+      'Contrairement aux bridges ou aux prothèses, les implants sont la seule solution qui <strong>remplace la racine</strong> de la dent manquante — préservant l\'os de la mâchoire et prévenant les changements faciaux liés à la perte osseuse.<br><br>Un seul implant peut durer toute une vie. Voulez-vous savoir si vous êtes un bon candidat ?'
+    ],
+    chips:['Quel est le coût ?','Suis-je candidat ?','Prendre un rendez-vous']
   },
   cost: {
-    bot:'Le prix des implants varie selon vos besoins spécifiques (dent unique, dents multiples ou arcade complète). Une évaluation complète est nécessaire avant de fournir un devis précis.<br><br>Nous acceptons la plupart des assurances et offrons des options de paiement flexibles. La meilleure étape suivante est une <strong>consultation gratuite</strong>.',
-    chips:['Prendre un rendez-vous','Quelles assurances acceptez-vous ?','Autres traitements']
+    bots:[
+      'Le prix des implants dépend de vos besoins spécifiques — une dent unique, plusieurs implants ou une arcade complète ont chacun des portées différentes. Une évaluation approfondie est nécessaire avant tout devis précis.<br><br>Nous acceptons la plupart des assurances et offrons des <strong>options de financement flexibles</strong>. La meilleure première étape est une consultation gratuite.',
+      'Beaucoup de patients sont surpris de constater que leur assurance couvre plus que prévu. Notre équipe vérifie votre couverture à l\'avance pour éviter les mauvaises surprises.<br><br>Nous avons également des <strong>options de financement</strong> disponibles — demandez-nous lors de votre appel au <strong>514 426-1228</strong>.',
+      'La réponse honnête : le prix varie selon le volume osseux, le nombre d\'implants et la nécessité de greffes. C\'est pourquoi la <strong>consultation gratuite</strong> existe — pour que le Dr Phan puisse vous donner un vrai chiffre basé sur votre situation réelle, pas une estimation.'
+    ],
+    chips:['Réserver une consultation gratuite','Quelles assurances acceptez-vous ?','Options de financement']
   },
   book: {
-    bot:'Pour prendre un rendez-vous avec le Dr Phan, vous pouvez :<br><br>📞 <strong>514 426-1228</strong><br>📧 <strong>contact@drtamphan.com</strong><br>📍 16912 Route Transcanadienne, Kirkland QC<br><br>Ou remplissez notre formulaire de contact et nous vous recontacterons dans les 24 heures.',
-    chips:['Formulaire de contact','Quels sont vos horaires ?','Autres questions']
+    bots:[
+      'Pour prendre un rendez-vous avec le Dr Phan :<br><br>📞 <strong>514 426-1228</strong><br>📧 <strong>contact@drtamphan.com</strong><br>📍 16912 Route Transcanadienne, Kirkland QC<br><br>Ou remplissez notre formulaire de contact et nous vous recontacterons dans les 24 heures.',
+      'La façon la plus rapide de commencer est notre <strong>formulaire de réservation en ligne</strong> — remplissez-le, choisissez vos créneaux préférés, et notre équipe confirme dans quelques heures.<br><br>Toutes les consultations avec le Dr Phan sont <strong>gratuites et sans engagement</strong>.',
+      'Les consultations sont toujours gratuites à la clinique du Dr Phan. Vous repartez avec une évaluation complète, une recommandation de traitement et un devis clair — sans rien signer.<br><br>Appelez-nous au <strong>514 426-1228</strong> ou écrivez à <strong>contact@drtamphan.com</strong>.'
+    ],
+    chips:['Réserver en ligne','Quels sont vos horaires ?','Où êtes-vous situés ?']
   },
   hours: {
-    bot:'Notre clinique est ouverte :<br><br><strong>Lundi – Vendredi :</strong> 8 h00 – 17 h00<br><strong>Samedi :</strong> 9 h00 – 16 h00<br><strong>Dimanche :</strong> Fermé<br><br>Nous vous recommandons d’appeler à l’avance pour confirmer la disponibilité.',
-    chips:['Prendre un rendez-vous','Où êtes-vous situés ?']
+    bots:[
+      'Notre clinique est ouverte :<br><br><strong>Lundi – Vendredi :</strong> 8 h 00 – 17 h 00<br><strong>Samedi :</strong> 9 h 00 – 16 h 00<br><strong>Dimanche :</strong> Fermé<br><br>Nous vous recommandons d\'appeler à l\'avance pour confirmer la disponibilité.',
+      'Pour un rendez-vous urgent, appelez-nous directement au <strong>514 426-1228</strong> — nous faisons de notre mieux pour accommoder les demandes le jour même lorsque des créneaux se libèrent, surtout du lundi au vendredi.'
+    ],
+    chips:['Prendre un rendez-vous','Où êtes-vous situés ?']
   },
   location: {
-    bot:'Nous sommes situés au :<br><br><strong>16912 Route Transcanadienne<br>Kirkland, QC H9H 0C5</strong><br><br>Stationnement gratuit ample sur place. Facilement accessible depuis l’autoroute A-40.',
-    chips:['Prendre un rendez-vous','Quels sont vos horaires ?']
+    bots:[
+      'Nous sommes situés au :<br><br><strong>16912 Route Transcanadienne<br>Kirkland, QC H9H 0C5</strong><br><br>Stationnement gratuit ample sur place. Facilement accessible depuis l\'autoroute A-40.',
+      'Vous venez de l\'Ouest de l\'île, de Vaudreuil ou de Laval ? Nous sommes directement sur la Route Transcanadienne (A-40), ce qui nous rend l\'une des cliniques dentaires les plus accessibles de la région.<br><br>Stationnement gratuit directement devant la clinique — sans parcmètre, sans stress.'
+    ],
+    chips:['Prendre un rendez-vous','Quels sont vos horaires ?']
   },
   rehab: {
-    bot:'<strong>La réhabilitation complète de la bouche</strong> est un traitement global qui combine implants, couronnes, facettes et autres restaurations pour rétablir entièrement la fonction orale et l’esthétique dans un plan coordonné.<br><br>Le Dr Phan a réalisé des centaines de réhabilitations complètes pour des patients du monde entier.',
-    chips:['Prendre un rendez-vous','Combien de temps cela prend-il ?','Coût ?']
+    bots:[
+      '<strong>La réhabilitation complète de la bouche</strong> combine implants, couronnes, facettes et autres restaurations en un plan coordonné unique pour rétablir entièrement votre fonction orale et votre esthétique.<br><br>Le Dr Phan a réalisé des centaines de réhabilitations complètes pour des patients du Canada et du monde entier.',
+      'Le processus de réhabilitation se déroule généralement en <strong>plusieurs étapes sur quelques mois</strong> — évaluation 3D complète, puis extractions ou greffes si nécessaire, ensuite la pose des implants, et enfin les restaurations finales.<br><br>Le Dr Phan coordonne chaque phase lui-même — un seul interlocuteur du début à la fin.',
+      'La réhabilitation complète est la solution idéale lorsque les dommages ou la perte de dents touchent <strong>plusieurs zones</strong> de la bouche — qu\'il s\'agisse de caries, d\'accidents ou d\'années de bruxisme. L\'objectif est toujours de restaurer à la fois la fonction et la confiance en un seul plan complet.'
+    ],
+    chips:['Prendre un rendez-vous','Combien de temps cela prend-il ?','Détails sur les implants']
   },
   cosmetic: {
-    bot:'Le Dr Phan offre une gamme complète de traitements esthétiques incluant <strong>les facettes en porcelaine</strong>, le blanchiment professionnel et la conception du sourire — toujours avec un résultat naturel et raffiné adapté à votre visage.<br><br>Les résultats sont <em>permanents</em> et conçus pour complémenter votre esthétique faciale.',
-    chips:['Prendre un rendez-vous','Esthétique faciale aussi ?']
+    bots:[
+      'Le Dr Phan offre une gamme complète de traitements esthétiques incluant <strong>les facettes en porcelaine</strong>, le blanchiment professionnel et la conception du sourire — toujours avec un résultat naturel et raffiné adapté à votre visage.<br><br>Les résultats sont <em>permanents</em> et conçus pour complémenter votre esthétique faciale.',
+      'Le traitement esthétique le plus demandé à notre clinique est les <strong>facettes en porcelaine</strong> — de minces coques céramiques qui corrigent la forme, la couleur et les proportions en aussi peu que deux visites.<br><br>Chaque facette est sur mesure pour correspondre à votre teint et à vos traits. Le résultat est saisissant mais jamais artificiel.',
+      'Vous ne savez pas quel traitement esthétique vous convient ? C\'est exactement à ça que sert la consultation gratuite — le Dr Phan évalue vos dents et votre structure faciale et recommande ce qui donnera le meilleur résultat pour votre cas spécifique.'
+    ],
+    chips:['Prendre un rendez-vous','Esthétique faciale','À propos des facettes']
   },
   facial: {
-    bot:'Au-delà des soins dentaires, le Dr Phan est spécialiste en <strong>esthétique faciale</strong>, incluant le Botox, la thérapie PRGF et les traitements des masséters — des interventions subtiles qui harmonisent votre sourire avec l’ensemble de votre apparence faciale.',
-    chips:['Prendre un rendez-vous','Dentisterie esthétique','Autres traitements']
+    bots:[
+      'Au-delà des soins dentaires, le Dr Phan est spécialiste en <strong>esthétique faciale</strong> — incluant le Botox, la thérapie PRGF et les traitements des masséters. Ces interventions subtiles harmonisent votre sourire avec l\'ensemble de votre apparence faciale.',
+      'La <strong>thérapie PRGF (facteurs de croissance plaquettaire)</strong> est l\'un des traitements signatures du Dr Phan — utilisant votre propre plasma sanguin pour accélérer la guérison, réduire l\'inflammation et régénérer les tissus. Elle est utilisée en chirurgie implantaire et comme traitement esthétique autonome.',
+      'Le <strong>Botox masséter</strong> est de plus en plus populaire pour les patients qui grincent des dents ou qui souhaitent affiner l\'ovale du visage. L\'approche du Dr Phan est précise et conservatrice — un résultat naturel, jamais figé.<br><br>Les résultats durent généralement 4 à 6 mois et peuvent être répétés au besoin.'
+    ],
+    chips:['Prendre un rendez-vous','Qu\'est-ce que le PRGF ?','Dentisterie esthétique']
   },
   insurance: {
-    bot:'Nous travaillons avec la plupart des grands assureurs. Notre équipe vérifiera votre couverture avant votre rendez-vous afin qu’il n’y ait pas de surprises.<br><br>Nous vous recommandons de nous appeler directement au <strong>514 426-1228</strong> avec votre carte d’assurance pour une vérification rapide.',
-    chips:['Prendre un rendez-vous','Quels sont vos horaires ?']
+    bots:[
+      'Nous travaillons avec la plupart des grands assureurs. Notre équipe vérifie votre couverture avant votre rendez-vous afin qu\'il n\'y ait pas de surprises.<br><br>Appelez-nous au <strong>514 426-1228</strong> avec votre carte d\'assurance et nous vérifierons votre couverture immédiatement.',
+      'Les implants, les couronnes et certaines interventions chirurgicales peuvent être <strong>partiellement couverts</strong> selon votre régime. Les traitements purement esthétiques comme les facettes ou le blanchiment ne le sont généralement pas, mais cela varie selon l\'assureur.<br><br>Le plus simple : appelez-nous avec votre carte d\'assurance et nous vérifions pour vous avant même que vous réserviez.'
+    ],
+    chips:['Prendre un rendez-vous','Demander le coût']
   },
   about: {
-    bot:'Le Dr Tâm Phan est DMD avec <strong>plus de 31 ans d’expérience</strong> en dentisterie esthétique, implantologie et réhabilitation complète de la bouche.<br><br>Il est Fellow du Congrès international des implantologistes oraux (FICOI) et du Misch International Implant Institute (FMIII), et lauréat du Prix de la Fondation Guy Maranda pour l’excellence en chirurgie dentaire.',
-    chips:['Prendre un rendez-vous','Voir nos traitements','Nous contacter']
+    bots:[
+      'Le Dr Tâm Phan est DMD avec <strong>plus de 31 ans d\'expérience</strong> en dentisterie esthétique, implantologie et réhabilitation complète de la bouche.<br><br>Il est Fellow du Congrès international des implantologistes oraux (FICOI) et du Misch International Implant Institute (FMIII), et lauréat du Prix de la Fondation Guy Maranda pour l\'excellence en chirurgie dentaire.',
+      'Le Dr Phan a suivi une formation internationale et a traité des patients de partout au Canada, des États-Unis et d\'Europe — dont beaucoup se déplacent spécifiquement pour travailler avec lui sur des cas d\'implants et de réhabilitation complexes.<br><br>Il fait partie d\'un très petit groupe de dentistes au Québec détenant simultanément les fellowships FICOI et FMIII.',
+      'Ce qui distingue le Dr Phan, c\'est sa philosophie : chaque plan de traitement est conçu autour de la santé à long terme du patient, pas seulement du problème immédiat.<br><br>Il réalise personnellement toutes les interventions majeures et reste impliqué de la première consultation jusqu\'aux restaurations finales — sans délégation.'
+    ],
+    chips:['Prendre un rendez-vous','Nos traitements','Nous contacter']
   },
   default: {
-    bot:'Je suis là pour répondre à vos questions sur la clinique du Dr Phan, les traitements et les rendez-vous. Que souhaitez-vous savoir ?',
+    bots:[
+      'Je suis là pour répondre à vos questions sur la clinique du Dr Phan, les traitements et les rendez-vous. Que souhaitez-vous savoir ?',
+      'Vous pouvez me poser des questions sur nos traitements, les tarifs, les assurances, la prise de rendez-vous ou le Dr Phan lui-même. Qu\'avez-vous en tête ?',
+      'Vous ne savez pas par où commencer ? Beaucoup de patients démarrent par une <strong>consultation gratuite</strong> — le Dr Phan évalue votre situation et établit exactement ce dont vous avez besoin. Sans pression, sans engagement.'
+    ],
     chips:['Implants dentaires','Réhabilitation complète','Prendre un rendez-vous','À propos du Dr Phan','Horaires et adresse']
   }
 };
@@ -2574,17 +2659,15 @@ function greet() {
 }
 
 /* ── LANGUAGE-AWARE RESPOND ──────────────────────────────────────────────── */
-const _origRespond = respond;
+const topicVisits = {};
 function respond(text) {
-  if (currentLang === 'fr') {
-    const key = classify(text);
-    const r = RESPONSES_FR[key] || RESPONSES_FR.default;
-    setTimeout(() => { addBot(r.bot); if (r.chips) setChips(r.chips); }, 420);
-  } else {
-    const key = classify(text);
-    const r = RESPONSES[key] || RESPONSES.default;
-    setTimeout(() => { addBot(r.bot); if (r.chips) setChips(r.chips); }, 420);
-  }
+  const key = classify(text);
+  const pool = currentLang === 'fr' ? RESPONSES_FR : RESPONSES;
+  const r = pool[key] || pool.default;
+  topicVisits[key] = (topicVisits[key] || 0) + 1;
+  const bots = r.bots || [r.bot];
+  const msg = bots[(topicVisits[key] - 1) % bots.length];
+  setTimeout(() => { addBot(msg); if (r.chips) setChips(r.chips); }, 420);
 }
 </script>
 
