@@ -29,7 +29,7 @@
       "statusCode": 301
     },
     {
-      "source": "/blog/:slug*",
+      "source": "/blog/:slug+",
       "destination": "/blog",
       "statusCode": 301
     },
@@ -39,7 +39,7 @@
       "statusCode": 301
     },
     {
-      "source": "/topic/:slug*",
+      "source": "/topic/:slug+",
       "destination": "/blog",
       "statusCode": 301
     },
@@ -49,7 +49,7 @@
       "statusCode": 301
     },
     {
-      "source": "/treatment/:slug*",
+      "source": "/treatment/:slug+",
       "destination": "/",
       "statusCode": 301
     },
@@ -59,7 +59,7 @@
       "statusCode": 301
     },
     {
-      "source": "/category/:slug*",
+      "source": "/category/:slug+",
       "destination": "/",
       "statusCode": 301
     },
@@ -84,7 +84,7 @@
       "statusCode": 301
     },
     {
-      "source": "/clinic/:slug*",
+      "source": "/clinic/:slug+",
       "destination": "/",
       "statusCode": 301
     },
@@ -99,7 +99,7 @@
       "statusCode": 301
     },
     {
-      "source": "/social/:slug*",
+      "source": "/social/:slug+",
       "destination": "/",
       "statusCode": 301
     },
@@ -109,7 +109,7 @@
       "statusCode": 301
     },
     {
-      "source": "/staff/:slug*",
+      "source": "/staff/:slug+",
       "destination": "/team",
       "statusCode": 301
     },
@@ -119,7 +119,7 @@
       "statusCode": 301
     },
     {
-      "source": "/price/:slug*",
+      "source": "/price/:slug+",
       "destination": "/book",
       "statusCode": 301
     },
@@ -135,6 +135,21 @@
     },
     {
       "source": "/drtamphan-book",
+      "destination": "/book",
+      "statusCode": 301
+    },
+    {
+      "source": "/drtamphan-team.html",
+      "destination": "/team",
+      "statusCode": 301
+    },
+    {
+      "source": "/drtamphan-blog.html",
+      "destination": "/blog",
+      "statusCode": 301
+    },
+    {
+      "source": "/drtamphan-book.html",
       "destination": "/book",
       "statusCode": 301
     }
