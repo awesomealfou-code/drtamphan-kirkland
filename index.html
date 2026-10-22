@@ -1101,6 +1101,7 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
     <div class="about-photo rvL" id="aboutPhoto">
       <img loading="lazy" decoding="async" src="phan1.webp" alt="Dr. Tâm Phan" class="ap-active" id="apImg0" style="object-position:center 15%;">
       <img loading="lazy" decoding="async" src="phan2.jpg" alt="Dr. Tâm Phan" id="apImg1" style="object-position:center 30%;">
+      <img loading="lazy" decoding="async" src="phan3.jpg" alt="Dr. Tâm Phan" id="apImg2" style="object-position:center 20%;">
       <div class="ap-caption ap-active" id="apCap0">
         <span class="ap-cap-eye">Surgical Excellence</span>
         <span class="ap-cap-name">Dr. Tâm Phan</span>
@@ -1109,9 +1110,14 @@ footer { background:#000000; padding:80px 64px 40px; border-top:1px solid rgba(2
         <span class="ap-cap-eye">31+ Years of Practice</span>
         <span class="ap-cap-name">Dr. Tâm Phan</span>
       </div>
+      <div class="ap-caption" id="apCap2">
+        <span class="ap-cap-eye">Passion Beyond the Clinic</span>
+        <span class="ap-cap-name">Dr. Tâm Phan</span>
+      </div>
       <div class="ap-progress" id="apProgress"></div>
       <div class="ap-dots" id="apDots">
         <div class="ap-dot ap-active"></div>
+        <div class="ap-dot"></div>
         <div class="ap-dot"></div>
       </div>
       <div class="about-bar"></div>
@@ -2678,8 +2684,8 @@ function respond(text) {
 <script>
 /* ── ABOUT PHOTO CROSSFADE ── */
 (function(){
-  var imgs  = [document.getElementById('apImg0'), document.getElementById('apImg1')];
-  var caps  = [document.getElementById('apCap0'), document.getElementById('apCap1')];
+  var imgs  = [document.getElementById('apImg0'), document.getElementById('apImg1'), document.getElementById('apImg2')];
+  var caps  = [document.getElementById('apCap0'), document.getElementById('apCap1'), document.getElementById('apCap2')];
   var dots  = document.getElementById('apDots').querySelectorAll('.ap-dot');
   var bar   = document.getElementById('apProgress');
   var cur   = 0;
