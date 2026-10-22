@@ -1,0 +1,142 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "drtamphan.com"
+        }
+      ],
+      "destination": "https://www.drtamphan.com/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/about",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/book-online",
+      "destination": "/book",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact",
+      "destination": "/book",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/:slug*",
+      "destination": "/blog",
+      "statusCode": 301
+    },
+    {
+      "source": "/topics",
+      "destination": "/blog",
+      "statusCode": 301
+    },
+    {
+      "source": "/topic/:slug*",
+      "destination": "/blog",
+      "statusCode": 301
+    },
+    {
+      "source": "/treatments",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/treatment/:slug*",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/categories",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/category/:slug*",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/botox-aesthetic",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/botox-comfort",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/prgf",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/clinics",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/clinic/:slug*",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/gallery-static",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/reviews",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/social/:slug*",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/the-team",
+      "destination": "/team",
+      "statusCode": 301
+    },
+    {
+      "source": "/staff/:slug*",
+      "destination": "/team",
+      "statusCode": 301
+    },
+    {
+      "source": "/fees",
+      "destination": "/book",
+      "statusCode": 301
+    },
+    {
+      "source": "/price/:slug*",
+      "destination": "/book",
+      "statusCode": 301
+    },
+    {
+      "source": "/drtamphan-team",
+      "destination": "/team",
+      "statusCode": 301
+    },
+    {
+      "source": "/drtamphan-blog",
+      "destination": "/blog",
+      "statusCode": 301
+    },
+    {
+      "source": "/drtamphan-book",
+      "destination": "/book",
+      "statusCode": 301
+    }
+  ]
+}

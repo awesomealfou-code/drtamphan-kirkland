@@ -17,4 +17,4 @@ Disallow: /clinic-floating-preview.html
 Disallow: /clinic-preview-polaroid.html
 Disallow: /clinic-preview-rings.html
 
-Sitemap: https://drtamphan.com/sitemap.xml
+Sitemap: https://www.drtamphan.com/sitemap.xml
